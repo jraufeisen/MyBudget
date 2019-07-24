@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,9 @@
 		EBC59D4922E7503A00E626DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBC59D4722E7503A00E626DC /* LaunchScreen.storyboard */; };
 		EBC59D5122E750DC00E626DC /* BudgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC59D5022E750DC00E626DC /* BudgetTableViewController.swift */; };
 		EBC59D5322E750E900E626DC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC59D5222E750E900E626DC /* Model.swift */; };
+		EBEB145022E8A1B100291435 /* EnterNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB144722E8A1B100291435 /* EnterNumberViewController.swift */; };
+		EBEB145722E8A29800291435 /* UIColor+Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145622E8A29800291435 /* UIColor+Macro.swift */; };
+		EBEB145B22E8AD7300291435 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145A22E8AD7300291435 /* Transaction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,9 @@
 		EBC59D4A22E7503A00E626DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBC59D5022E750DC00E626DC /* BudgetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTableViewController.swift; sourceTree = "<group>"; };
 		EBC59D5222E750E900E626DC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		EBEB144722E8A1B100291435 /* EnterNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNumberViewController.swift; sourceTree = "<group>"; };
+		EBEB145622E8A29800291435 /* UIColor+Macro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Macro.swift"; sourceTree = "<group>"; };
+		EBEB145A22E8AD7300291435 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		F52E2EACC6135F8774DB4426 /* Pods-MyBudget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBudget.debug.xcconfig"; path = "Target Support Files/Pods-MyBudget/Pods-MyBudget.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -48,7 +54,6 @@
 				F52E2EACC6135F8774DB4426 /* Pods-MyBudget.debug.xcconfig */,
 				8F7FED83E1109D9D221AFDB5 /* Pods-MyBudget.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -84,12 +89,31 @@
 				EBC59D5222E750E900E626DC /* Model.swift */,
 				EBC59D3E22E7503900E626DC /* AppDelegate.swift */,
 				EBC59D4222E7503900E626DC /* Main.storyboard */,
-				EBC59D5022E750DC00E626DC /* BudgetTableViewController.swift */,
 				EBC59D4522E7503A00E626DC /* Assets.xcassets */,
 				EBC59D4722E7503A00E626DC /* LaunchScreen.storyboard */,
+				EBC59D5022E750DC00E626DC /* BudgetTableViewController.swift */,
+				EBEB145922E8A2A200291435 /* Extensions */,
+				EBEB145122E8A1B500291435 /* New Transaction VC */,
 				EBC59D4A22E7503A00E626DC /* Info.plist */,
 			);
 			path = MyBudget;
+			sourceTree = "<group>";
+		};
+		EBEB145122E8A1B500291435 /* New Transaction VC */ = {
+			isa = PBXGroup;
+			children = (
+				EBEB144722E8A1B100291435 /* EnterNumberViewController.swift */,
+				EBEB145A22E8AD7300291435 /* Transaction.swift */,
+			);
+			path = "New Transaction VC";
+			sourceTree = "<group>";
+		};
+		EBEB145922E8A2A200291435 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EBEB145622E8A29800291435 /* UIColor+Macro.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +231,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBEB145022E8A1B100291435 /* EnterNumberViewController.swift in Sources */,
+				EBEB145722E8A29800291435 /* UIColor+Macro.swift in Sources */,
+				EBEB145B22E8AD7300291435 /* Transaction.swift in Sources */,
 				EBC59D5122E750DC00E626DC /* BudgetTableViewController.swift in Sources */,
 				EBC59D3F22E7503900E626DC /* AppDelegate.swift in Sources */,
 				EBC59D5322E750E900E626DC /* Model.swift in Sources */,

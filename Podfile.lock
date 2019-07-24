@@ -1,20 +1,47 @@
 PODS:
-  - Money (2.0.1):
-    - ValueCoding (~> 2)
-  - ValueCoding (2.2.0)
+  - MaterialComponents/ActionSheet (85.7.0):
+    - MaterialComponents/BottomSheet
+    - MaterialComponents/Ink
+    - MaterialComponents/Ripple
+    - MaterialComponents/Typography
+  - MaterialComponents/AnimationTiming (85.7.0)
+  - MaterialComponents/BottomSheet (85.7.0):
+    - MaterialComponents/private/KeyboardWatcher
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShapeLibrary
+    - MaterialComponents/Shapes
+  - MaterialComponents/Ink (85.7.0):
+    - MaterialComponents/private/Math
+  - MaterialComponents/private/Application (85.7.0)
+  - MaterialComponents/private/KeyboardWatcher (85.7.0):
+    - MaterialComponents/private/Application
+  - MaterialComponents/private/Math (85.7.0)
+  - MaterialComponents/Ripple (85.7.0):
+    - MaterialComponents/AnimationTiming
+    - MaterialComponents/private/Math
+  - MaterialComponents/ShadowElevations (85.7.0)
+  - MaterialComponents/ShadowLayer (85.7.0):
+    - MaterialComponents/ShadowElevations
+  - MaterialComponents/ShapeLibrary (85.7.0):
+    - MaterialComponents/private/Math
+    - MaterialComponents/Shapes
+  - MaterialComponents/Shapes (85.7.0):
+    - MaterialComponents/private/Math
+    - MaterialComponents/ShadowLayer
+  - MaterialComponents/Typography (85.7.0):
+    - MaterialComponents/private/Application
+    - MaterialComponents/private/Math
 
 DEPENDENCIES:
-  - Money
+  - MaterialComponents/ActionSheet
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - Money
-    - ValueCoding
+    - MaterialComponents
 
 SPEC CHECKSUMS:
-  Money: 6faa689f86c455112971c900e8a31fa0b9c02365
-  ValueCoding: dd37df7966fb14d5238c19e2f88c86ac4064ef96
+  MaterialComponents: 5a8386aa9de7ee8bf9a6d31ac73b82a0f0a39a1e
 
-PODFILE CHECKSUM: 547ee2029a1d6bd9e1381b05d0ef77051318319f
+PODFILE CHECKSUM: 0a7756d3eee99a608aa753a227a3ce1d3c9889de
 
 COCOAPODS: 1.7.4

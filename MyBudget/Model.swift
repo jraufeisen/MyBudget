@@ -7,11 +7,11 @@
 //
 
 import UIKit
-import Money
+
 
 struct BudgetCategoryViewable {
     let name: String
-    let remainingMoney: Money
+    let remainingMoney: NSNumber //Todo: Money
     let percentLeft: NSNumber // Between 0 and 100
     let detailString: String
 }
@@ -28,7 +28,7 @@ class Model: NSObject {
         
         let dummyCategories = ["Groceries", "Rent", "Fun", "Eating out", "Something"]
         for i in 0...4 {
-            let viewable = BudgetCategoryViewable.init(name: dummyCategories[i], remainingMoney: Money.init(i*10), percentLeft: NSNumber(value: i*20), detailString: "")
+            let viewable = BudgetCategoryViewable.init(name: dummyCategories[i], remainingMoney: NSNumber.init(value: i*10), percentLeft: NSNumber(value: i*20), detailString: "")
             categoryViewables.append(viewable)
         }
         
