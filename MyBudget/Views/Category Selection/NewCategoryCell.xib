@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="newCategoryCell" id="JzM-6o-mbl" customClass="NewCategoryCell" customModule="MyBudget" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JzM-6o-mbl" id="sb9-cl-Lqz">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Category" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zxs-vn-JjO">
+                        <rect key="frame" x="61" y="7.5" width="333" height="29"/>
+                        <nil key="textColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits"/>
+                    </textField>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add.png" translatesAutoresizingMaskIntoConstraints="NO" id="VUU-8g-4s4">
+                        <rect key="frame" x="20" y="7.5" width="33" height="29"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="VUU-8g-4s4" secondAttribute="height" multiplier="33:29" id="4bh-II-iN4"/>
+                            <constraint firstAttribute="height" constant="29" id="Xge-We-SoA"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="zxs-vn-JjO" secondAttribute="trailing" constant="20" id="CgO-0R-Bnf"/>
+                    <constraint firstItem="zxs-vn-JjO" firstAttribute="leading" secondItem="VUU-8g-4s4" secondAttribute="trailing" constant="8" id="IFc-5A-n2f"/>
+                    <constraint firstItem="VUU-8g-4s4" firstAttribute="centerY" secondItem="sb9-cl-Lqz" secondAttribute="centerY" id="JYc-mc-Abw"/>
+                    <constraint firstItem="zxs-vn-JjO" firstAttribute="height" secondItem="VUU-8g-4s4" secondAttribute="height" id="XQ5-pM-4Xu"/>
+                    <constraint firstItem="VUU-8g-4s4" firstAttribute="leading" secondItem="sb9-cl-Lqz" secondAttribute="leading" constant="20" id="bKM-SY-4Li"/>
+                    <constraint firstItem="zxs-vn-JjO" firstAttribute="centerY" secondItem="sb9-cl-Lqz" secondAttribute="centerY" id="bdH-o3-YY9"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="categoryImageView" destination="VUU-8g-4s4" id="FX0-Jn-xbF"/>
+                <outlet property="categoryTextField" destination="zxs-vn-JjO" id="mRP-4s-65w"/>
+            </connections>
+            <point key="canvasLocation" x="-1484.057971014493" y="-644.19642857142856"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="add.png" width="384" height="384"/>
+    </resources>
+</document>

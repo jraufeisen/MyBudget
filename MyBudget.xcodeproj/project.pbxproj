@@ -14,9 +14,19 @@
 		EBC59D4922E7503A00E626DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBC59D4722E7503A00E626DC /* LaunchScreen.storyboard */; };
 		EBC59D5122E750DC00E626DC /* BudgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC59D5022E750DC00E626DC /* BudgetTableViewController.swift */; };
 		EBC59D5322E750E900E626DC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC59D5222E750E900E626DC /* Model.swift */; };
+		EBD012E022E9974700F8126D /* DiaryTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD012DF22E9974700F8126D /* DiaryTextView.swift */; };
+		EBD012E722E9AD0600F8126D /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = EBD012E622E9AD0500F8126D /* add.png */; };
+		EBD012E922E9AD5000F8126D /* euro.png in Resources */ = {isa = PBXBuildFile; fileRef = EBD012E822E9AD5000F8126D /* euro.png */; };
+		EBD012EE22E9B22100F8126D /* CategoryTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD012ED22E9B22100F8126D /* CategoryTableView.swift */; };
+		EBD012F322E9B39D00F8126D /* drawer.png in Resources */ = {isa = PBXBuildFile; fileRef = EBD012F222E9B39D00F8126D /* drawer.png */; };
+		EBD012F622E9B47F00F8126D /* NewCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD012F422E9B47F00F8126D /* NewCategoryCell.xib */; };
+		EBD012F722E9B47F00F8126D /* ExistingCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD012F522E9B47F00F8126D /* ExistingCategoryCell.xib */; };
 		EBEB145022E8A1B100291435 /* EnterNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB144722E8A1B100291435 /* EnterNumberViewController.swift */; };
 		EBEB145722E8A29800291435 /* UIColor+Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145622E8A29800291435 /* UIColor+Macro.swift */; };
 		EBEB145B22E8AD7300291435 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145A22E8AD7300291435 /* Transaction.swift */; };
+		EBF2F67C22E8D91300C2772F /* AccountTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF2F67B22E8D91300C2772F /* AccountTableView.swift */; };
+		EBFF078D22E9B4BA00CC7215 /* NewAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD012F122E9B2D400F8126D /* NewAccountCell.xib */; };
+		EBFF078E22E9B4BC00CC7215 /* ExistingAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD012F022E9B2D400F8126D /* ExistingAccountCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,9 +40,19 @@
 		EBC59D4A22E7503A00E626DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBC59D5022E750DC00E626DC /* BudgetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTableViewController.swift; sourceTree = "<group>"; };
 		EBC59D5222E750E900E626DC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		EBD012DF22E9974700F8126D /* DiaryTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryTextView.swift; sourceTree = "<group>"; };
+		EBD012E622E9AD0500F8126D /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
+		EBD012E822E9AD5000F8126D /* euro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = euro.png; sourceTree = "<group>"; };
+		EBD012ED22E9B22100F8126D /* CategoryTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableView.swift; sourceTree = "<group>"; };
+		EBD012F022E9B2D400F8126D /* ExistingAccountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExistingAccountCell.xib; sourceTree = "<group>"; };
+		EBD012F122E9B2D400F8126D /* NewAccountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewAccountCell.xib; sourceTree = "<group>"; };
+		EBD012F222E9B39D00F8126D /* drawer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drawer.png; sourceTree = "<group>"; };
+		EBD012F422E9B47F00F8126D /* NewCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewCategoryCell.xib; sourceTree = "<group>"; };
+		EBD012F522E9B47F00F8126D /* ExistingCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExistingCategoryCell.xib; sourceTree = "<group>"; };
 		EBEB144722E8A1B100291435 /* EnterNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNumberViewController.swift; sourceTree = "<group>"; };
 		EBEB145622E8A29800291435 /* UIColor+Macro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Macro.swift"; sourceTree = "<group>"; };
 		EBEB145A22E8AD7300291435 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		EBF2F67B22E8D91300C2772F /* AccountTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableView.swift; sourceTree = "<group>"; };
 		F52E2EACC6135F8774DB4426 /* Pods-MyBudget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBudget.debug.xcconfig"; path = "Target Support Files/Pods-MyBudget/Pods-MyBudget.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,24 +106,74 @@
 		EBC59D3D22E7503900E626DC /* MyBudget */ = {
 			isa = PBXGroup;
 			children = (
-				EBC59D5222E750E900E626DC /* Model.swift */,
 				EBC59D3E22E7503900E626DC /* AppDelegate.swift */,
 				EBC59D4222E7503900E626DC /* Main.storyboard */,
 				EBC59D4522E7503A00E626DC /* Assets.xcassets */,
 				EBC59D4722E7503A00E626DC /* LaunchScreen.storyboard */,
-				EBC59D5022E750DC00E626DC /* BudgetTableViewController.swift */,
+				EBD012E222E99A0700F8126D /* Views */,
+				EBD012E122E999FB00F8126D /* Model */,
 				EBEB145922E8A2A200291435 /* Extensions */,
+				EBD012E322E99A1200F8126D /* Budget Table VC */,
 				EBEB145122E8A1B500291435 /* New Transaction VC */,
 				EBC59D4A22E7503A00E626DC /* Info.plist */,
 			);
 			path = MyBudget;
 			sourceTree = "<group>";
 		};
+		EBD012E122E999FB00F8126D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EBC59D5222E750E900E626DC /* Model.swift */,
+				EBEB145A22E8AD7300291435 /* Transaction.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EBD012E222E99A0700F8126D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EBD012DF22E9974700F8126D /* DiaryTextView.swift */,
+				EBD012EF22E9B2C800F8126D /* Category Selection */,
+				EBD012EC22E9B20400F8126D /* Account Selection */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EBD012E322E99A1200F8126D /* Budget Table VC */ = {
+			isa = PBXGroup;
+			children = (
+				EBC59D5022E750DC00E626DC /* BudgetTableViewController.swift */,
+			);
+			path = "Budget Table VC";
+			sourceTree = "<group>";
+		};
+		EBD012EC22E9B20400F8126D /* Account Selection */ = {
+			isa = PBXGroup;
+			children = (
+				EBF2F67B22E8D91300C2772F /* AccountTableView.swift */,
+				EBD012E622E9AD0500F8126D /* add.png */,
+				EBD012E822E9AD5000F8126D /* euro.png */,
+				EBD012F122E9B2D400F8126D /* NewAccountCell.xib */,
+				EBD012F022E9B2D400F8126D /* ExistingAccountCell.xib */,
+			);
+			path = "Account Selection";
+			sourceTree = "<group>";
+		};
+		EBD012EF22E9B2C800F8126D /* Category Selection */ = {
+			isa = PBXGroup;
+			children = (
+				EBD012ED22E9B22100F8126D /* CategoryTableView.swift */,
+				EBD012F222E9B39D00F8126D /* drawer.png */,
+				EBD012F522E9B47F00F8126D /* ExistingCategoryCell.xib */,
+				EBD012F422E9B47F00F8126D /* NewCategoryCell.xib */,
+			);
+			path = "Category Selection";
+			sourceTree = "<group>";
+		};
 		EBEB145122E8A1B500291435 /* New Transaction VC */ = {
 			isa = PBXGroup;
 			children = (
 				EBEB144722E8A1B100291435 /* EnterNumberViewController.swift */,
-				EBEB145A22E8AD7300291435 /* Transaction.swift */,
 			);
 			path = "New Transaction VC";
 			sourceTree = "<group>";
@@ -177,7 +247,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBC59D4922E7503A00E626DC /* LaunchScreen.storyboard in Resources */,
+				EBD012F622E9B47F00F8126D /* NewCategoryCell.xib in Resources */,
+				EBD012F722E9B47F00F8126D /* ExistingCategoryCell.xib in Resources */,
+				EBD012F322E9B39D00F8126D /* drawer.png in Resources */,
+				EBD012E922E9AD5000F8126D /* euro.png in Resources */,
+				EBFF078D22E9B4BA00CC7215 /* NewAccountCell.xib in Resources */,
+				EBFF078E22E9B4BC00CC7215 /* ExistingAccountCell.xib in Resources */,
 				EBC59D4622E7503A00E626DC /* Assets.xcassets in Resources */,
+				EBD012E722E9AD0600F8126D /* add.png in Resources */,
 				EBC59D4422E7503900E626DC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,9 +311,12 @@
 				EBEB145022E8A1B100291435 /* EnterNumberViewController.swift in Sources */,
 				EBEB145722E8A29800291435 /* UIColor+Macro.swift in Sources */,
 				EBEB145B22E8AD7300291435 /* Transaction.swift in Sources */,
+				EBD012EE22E9B22100F8126D /* CategoryTableView.swift in Sources */,
+				EBF2F67C22E8D91300C2772F /* AccountTableView.swift in Sources */,
 				EBC59D5122E750DC00E626DC /* BudgetTableViewController.swift in Sources */,
 				EBC59D3F22E7503900E626DC /* AppDelegate.swift in Sources */,
 				EBC59D5322E750E900E626DC /* Model.swift in Sources */,
+				EBD012E022E9974700F8126D /* DiaryTextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

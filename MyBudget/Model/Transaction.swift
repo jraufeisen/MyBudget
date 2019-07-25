@@ -9,22 +9,12 @@
 import UIKit
 
 
-enum EntryType {
-    case date
-    case money
-    case account
-    case category
-    case tags
-    case description
-}
-typealias DiaryEntry = [(text: String, entryType: EntryType)]
 
-protocol Transaction {
+protocol Transaction: DiaryProvider {
     var tags: [String] {get set}
-    var value: NSNumber { get set } //TOdo: money
+    var value: NSNumber { get set } //TODO: money
     var type: TransactionType { get }
     var description: String {get set}
-    func diaryEntry() -> DiaryEntry
     func ledgerString() -> String
 }
 
@@ -43,8 +33,8 @@ class IncomeTransaction: Transaction {
     func diaryEntry() -> DiaryEntry {
         return [
             ("", .date),
-            (", I have added", .money),
-            ("to my account", .account),
+            (", I have added ", .money),
+            (" to my account ", .account),
             (".\n", .tags)
         ]
     }
@@ -58,10 +48,10 @@ class ExpenseTransaction: Transaction {
     func diaryEntry() -> DiaryEntry {
         return [
             ("", .date),
-            (", I spent", .money),
-            ("from my", .account),
-            ("account on", .category),
-            ("(", .description),
+            (", I spent ", .money),
+            (" from my ", .account),
+            (" account on ", .category),
+            (" (", .description),
             (")\n", .tags),
         ]
     }
@@ -87,10 +77,10 @@ class TransferTransaction: Transaction {
     func diaryEntry() -> DiaryEntry {
         return [
             ("", .date),
-            (", I transfered", .money),
-            ("from my", .account),
-            ("account to my", .account),
-            ("account.", .description),
+            (", I transfered ", .money),
+            (" from my ", .account),
+            (" account to my ", .account),
+            (" account.", .description),
             ("\n", .tags),
         ]
     }
