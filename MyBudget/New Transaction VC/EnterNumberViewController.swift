@@ -31,7 +31,7 @@ class EnterNumberViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateBackground()
-        
+        navigationController?.navigationBar.prefersLargeTitles = false
         diaryTextView.configure(diaryProvider: transaction)
     }
 

@@ -85,10 +85,8 @@ class DiaryTextView: UITextView {
             addDoneButtonToKeyboard()
             becomeFirstResponder()
         case .category:
-            let accountTableView = CategoryTableView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2), style: .plain)
-            accountTableView.categoryDelegate = self
-            accountTableView.backgroundColor = superview?.backgroundColor
-            inputView = accountTableView
+            inputView = CategoryTableView.init(outputView: self, delegate: self, color: superview?.backgroundColor)
+            inputAccessoryView = CategoryAccessoryView.init(outputView: self, delegate: nil, color: superview?.backgroundColor)
             becomeFirstResponder()
         case .tags:
             keyboardType = .default

@@ -23,6 +23,11 @@
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                <color key="value" white="1" alpha="0.52000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </textField>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add.png" translatesAutoresizingMaskIntoConstraints="NO" id="VUU-8g-4s4">
                         <rect key="frame" x="20" y="7.5" width="33" height="29"/>

@@ -10,11 +10,6 @@ import UIKit
 
 
 
-class NewCategoryCell: UITableViewCell {
-    
-    @IBOutlet weak var categoryImageView: UIImageView!
-    @IBOutlet weak var categoryTextField: UITextField!
-}
 
 class ExistingCategoryCell: UITableViewCell {
     
@@ -22,23 +17,28 @@ class ExistingCategoryCell: UITableViewCell {
     @IBOutlet weak var categoryLabel: UILabel!
 }
 
-protocol CategorySelectDelegate {
-    func didSelectCategory(category: String)
-}
 
 class CategoryTableView: UITableView {
     let categories = ["Rent", "Groceries", "Fun money"]
     
     var categoryDelegate: CategorySelectDelegate?
+    private var outputView: UIKeyInput?
+
     
-    override init(frame: CGRect, style: UITableView.Style) {
-        super.init(frame: frame, style: style)
+    init(outputView: UIKeyInput?, delegate: CategorySelectDelegate?, color: UIColor?) {
+        super.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2), style: .plain)
+        self.backgroundColor = color
+        self.categoryDelegate = delegate
+        self.outputView = outputView
+        
         self.dataSource = self
         self.delegate = self
         
-        register(UINib.init(nibName: "NewCategoryCell", bundle: Bundle.main), forCellReuseIdentifier: "newCategoryCell")
+        autoresizingMask = .flexibleHeight // When used as inputview, this makes thei height be equal to standard keyboard height
         register(UINib.init(nibName: "ExistingCategoryCell", bundle: Bundle.main), forCellReuseIdentifier: "existingCategoryCell")
+
     }
+
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -50,25 +50,10 @@ extension CategoryTableView: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories.count+1
+        return categories.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if indexPath.row == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "newCategoryCell") as? NewCategoryCell else {
-                fatalError("new account cell not found")
-            }
-            // All bgColor configuration moves here
-            cell.categoryTextField?.backgroundColor = .clear;
-            cell.backgroundColor = .clear
-            cell.categoryTextField?.textColor = .white
-            
-            cell.categoryTextField?.text = "New account"
-            cell.categoryTextField?.font = UIFont.boldSystemFont(ofSize: 18)
-            return cell
-        }
-        
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "existingCategoryCell") as? ExistingCategoryCell else {
             fatalError("existing account cell not found")
@@ -79,7 +64,7 @@ extension CategoryTableView: UITableViewDataSource {
         cell.categoryLabel?.backgroundColor = .clear;
         cell.backgroundColor = .clear
         cell.categoryLabel?.textColor = .white
-        cell.categoryLabel?.text = categories[indexPath.row-1]
+        cell.categoryLabel?.text = categories[indexPath.row]
         
         
         return cell
@@ -92,10 +77,8 @@ extension CategoryTableView: UITableViewDataSource {
 extension CategoryTableView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
-            return
-        }
-        let selectedCategory = categories[indexPath.row-1]
+        let selectedCategory = categories[indexPath.row]
+        outputView?.insertText(selectedCategory)
         categoryDelegate?.didSelectCategory(category: selectedCategory)
     }
 }
