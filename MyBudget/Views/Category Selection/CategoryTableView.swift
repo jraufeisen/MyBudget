@@ -99,3 +99,5 @@ extension CategoryTableView: UITableViewDelegate {
         categoryDelegate?.didSelectCategory(category: selectedCategory)
     }
 }
+
+

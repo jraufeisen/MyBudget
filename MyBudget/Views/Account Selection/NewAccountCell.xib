@@ -23,6 +23,11 @@
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                <color key="value" white="1" alpha="0.52102953767123283" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </textField>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add.png" translatesAutoresizingMaskIntoConstraints="NO" id="VUU-8g-4s4">
                         <rect key="frame" x="20" y="7.5" width="33" height="29"/>
@@ -32,6 +37,7 @@
                         </constraints>
                     </imageView>
                 </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="zxs-vn-JjO" secondAttribute="trailing" constant="20" id="CgO-0R-Bnf"/>
                     <constraint firstItem="zxs-vn-JjO" firstAttribute="leading" secondItem="VUU-8g-4s4" secondAttribute="trailing" constant="8" id="IFc-5A-n2f"/>
@@ -41,6 +47,7 @@
                     <constraint firstItem="zxs-vn-JjO" firstAttribute="centerY" secondItem="sb9-cl-Lqz" secondAttribute="centerY" id="bdH-o3-YY9"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" red="0.44441731769999998" green="0.0" blue="0.63384331599999999" alpha="1" colorSpace="calibratedRGB"/>
             <connections>
                 <outlet property="accountImageView" destination="VUU-8g-4s4" id="H1n-1i-gIa"/>
                 <outlet property="accountTextField" destination="zxs-vn-JjO" id="VPd-8l-K4P"/>

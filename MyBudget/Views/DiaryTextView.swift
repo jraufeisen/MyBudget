@@ -65,16 +65,17 @@ class DiaryTextView: UITextView {
         
         
         // Ask for new input depending on the entry type
+        configureInput(type: currentEntry.entryType)
+    }
 
+    
+    private func configureInput(type: EntryType) {
         inputView = nil
         inputAccessoryView = nil
-        switch currentEntry.entryType {
+        switch type {
         case .account:
-            let accountTableView = AccountTableView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2), style: .plain)
-            accountTableView.accountDelegate = self
-            accountTableView.backgroundColor = superview?.backgroundColor
-            inputView = accountTableView
-            inputAccessoryView = AccountTableView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 50), style: .plain)
+            inputView = AccountTableView.init(outputView: self, delegate: self, color: superview?.backgroundColor)
+            inputAccessoryView = AccountAccessoryView.init(outputView: self, delegate: nil, color: superview?.backgroundColor)
             becomeFirstResponder()
         case .date:
             inputView = UIDatePicker()
@@ -87,8 +88,8 @@ class DiaryTextView: UITextView {
             let accountTableView = CategoryTableView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2), style: .plain)
             accountTableView.categoryDelegate = self
             accountTableView.backgroundColor = superview?.backgroundColor
+            inputView = accountTableView
             becomeFirstResponder()
-           // inputView = accountTableView
         case .tags:
             keyboardType = .default
             becomeFirstResponder()
@@ -97,10 +98,7 @@ class DiaryTextView: UITextView {
             becomeFirstResponder()
         }
 
-
-       // becomeFirstResponder()
     }
-
     
  
     func addDoneButtonToKeyboard() {
@@ -150,14 +148,12 @@ extension DiaryTextView: UITextViewDelegate {
 
 extension DiaryTextView: AccountSelectDelegate {
     func didSelectAccount(account: String) {
-        text += account
         finishDataEntry()
     }
 }
 
 extension DiaryTextView: CategorySelectDelegate {
     func didSelectCategory(category: String) {
-        text += category
         finishDataEntry()
     }
 }

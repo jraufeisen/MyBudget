@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		705B8E4F9B8AF8BE4BA797A5 /* Pods_MyBudget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 160BB9A2AF30D0BE54C34C8C /* Pods_MyBudget.framework */; };
+		EB9DEBD222E9E02800A73FD1 /* AccountAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD122E9E02800A73FD1 /* AccountAccessoryView.swift */; };
+		EB9DEBD422E9E5C400A73FD1 /* UITextField+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */; };
 		EBC59D3F22E7503900E626DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC59D3E22E7503900E626DC /* AppDelegate.swift */; };
 		EBC59D4422E7503900E626DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBC59D4222E7503900E626DC /* Main.storyboard */; };
 		EBC59D4622E7503A00E626DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBC59D4522E7503A00E626DC /* Assets.xcassets */; };
@@ -32,6 +34,8 @@
 /* Begin PBXFileReference section */
 		160BB9A2AF30D0BE54C34C8C /* Pods_MyBudget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBudget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F7FED83E1109D9D221AFDB5 /* Pods-MyBudget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBudget.release.xcconfig"; path = "Target Support Files/Pods-MyBudget/Pods-MyBudget.release.xcconfig"; sourceTree = "<group>"; };
+		EB9DEBD122E9E02800A73FD1 /* AccountAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAccessoryView.swift; sourceTree = "<group>"; };
+		EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Placeholder.swift"; sourceTree = "<group>"; };
 		EBC59D3B22E7503900E626DC /* MyBudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBC59D3E22E7503900E626DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBC59D4322E7503900E626DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -151,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				EBF2F67B22E8D91300C2772F /* AccountTableView.swift */,
+				EB9DEBD122E9E02800A73FD1 /* AccountAccessoryView.swift */,
 				EBD012E622E9AD0500F8126D /* add.png */,
 				EBD012E822E9AD5000F8126D /* euro.png */,
 				EBD012F122E9B2D400F8126D /* NewAccountCell.xib */,
@@ -182,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				EBEB145622E8A29800291435 /* UIColor+Macro.swift */,
+				EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -312,11 +318,13 @@
 				EBEB145722E8A29800291435 /* UIColor+Macro.swift in Sources */,
 				EBEB145B22E8AD7300291435 /* Transaction.swift in Sources */,
 				EBD012EE22E9B22100F8126D /* CategoryTableView.swift in Sources */,
+				EB9DEBD422E9E5C400A73FD1 /* UITextField+Placeholder.swift in Sources */,
 				EBF2F67C22E8D91300C2772F /* AccountTableView.swift in Sources */,
 				EBC59D5122E750DC00E626DC /* BudgetTableViewController.swift in Sources */,
 				EBC59D3F22E7503900E626DC /* AppDelegate.swift in Sources */,
 				EBC59D5322E750E900E626DC /* Model.swift in Sources */,
 				EBD012E022E9974700F8126D /* DiaryTextView.swift in Sources */,
+				EB9DEBD222E9E02800A73FD1 /* AccountAccessoryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
