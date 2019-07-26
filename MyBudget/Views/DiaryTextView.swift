@@ -33,12 +33,29 @@ class DiaryTextView: UITextView {
     /// Current entry index
     private var entryIndex = -1
     
+    // This textview should not be selectable, so that the user can not select an editing position
+    /*override var isSelectable: Bool {
+        get {
+            return true
+        }
+        set {}
+    }*/
+
+    
     /// Configure diary entry for given provider.
     public func configure(diaryProvider: DiaryProvider) {
         self.delegate = self
         diaryEntry = diaryProvider.diaryEntry()
         entryIndex = -1
         nextDiaryEntry()
+        
+        tintColor = .white
+      
+    }
+   
+    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return false //Disable magnifier, but keep cursor.
+        //Todo: allow taps on keywords to bring up keyboards again
     }
     
     /// - Returns: True, if there is another entry type that can be entered. False otherwise.
@@ -128,7 +145,20 @@ class DiaryTextView: UITextView {
     }
     
 
+/*    override func caretRect(for position: UITextPosition) -> CGRect {
+        return CGRect.init(x: 0, y: 0, width: 10, height: 10)
+    }*/
     
+ /*   override func selectionRects(for range: UITextRange) -> [UITextSelectionRect] {
+        return [UITextSelectionRect]()
+    }*/
+
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        return false
+    }
+    override func closestPosition(to point: CGPoint) -> UITextPosition? {
+        return endOfDocument
+    }
 }
 
 

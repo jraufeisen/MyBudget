@@ -50,7 +50,7 @@ class ExpenseTransaction: Transaction {
             (", I spent ", .money),
             (" from my ", .account),
             (" account on ", .category),
-            ("Additional notes: ", .description),
+            (".\nAdditional notes: ", .description),
         ]
     }
     
