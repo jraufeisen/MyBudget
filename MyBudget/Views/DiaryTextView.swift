@@ -81,8 +81,13 @@ class DiaryTextView: UITextView {
             inputView = UIDatePicker()
             becomeFirstResponder()
         case .money:
-            keyboardType = .numberPad
-            addDoneButtonToKeyboard()
+            let iv = APNumberPad.init(delegate: self, numberPadStyleClass: nil)
+           // [numberPad.leftFunctionButton setTitle:@"Func" forState:UIControlStateNormal];
+           // numberPad.leftFunctionButton.titleLabel.adjustsFontSizeToFitWidth = YES;
+            iv.leftFunctionButton.setTitle("Done", for: .normal)
+            iv.leftFunctionButton.titleLabel?.adjustsFontSizeToFitWidth = true
+            //iv.clearButton.setTitle("test", for: .normal)
+            inputView = iv
             becomeFirstResponder()
         case .category:
             inputView = CategoryTableView.init(outputView: self, delegate: self, color: superview?.backgroundColor)
@@ -154,4 +159,8 @@ extension DiaryTextView: CategorySelectDelegate {
     func didSelectCategory(category: String) {
         finishDataEntry()
     }
+}
+
+extension DiaryTextView: APNumberPadDelegate {
+    
 }

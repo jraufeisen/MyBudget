@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		705B8E4F9B8AF8BE4BA797A5 /* Pods_MyBudget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 160BB9A2AF30D0BE54C34C8C /* Pods_MyBudget.framework */; };
+		EB02A67222EB10E700987AFA /* APNumberPadDefaultStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02A66A22EB10E600987AFA /* APNumberPadDefaultStyle.m */; };
+		EB02A67322EB10E700987AFA /* APNumberButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02A66C22EB10E700987AFA /* APNumberButton.m */; };
+		EB02A67422EB10E700987AFA /* NSBundle+APNumberPad.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02A66D22EB10E700987AFA /* NSBundle+APNumberPad.m */; };
+		EB02A67522EB10E700987AFA /* APNumberPad.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02A67022EB10E700987AFA /* APNumberPad.m */; };
+		EB02A67822EB121200987AFA /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = EB02A67722EB121200987AFA /* Assets */; };
+		EB02A67B22EB134F00987AFA /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = EB02A67A22EB134F00987AFA /* LICENSE */; };
 		EB9DEBD222E9E02800A73FD1 /* AccountAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD122E9E02800A73FD1 /* AccountAccessoryView.swift */; };
 		EB9DEBD422E9E5C400A73FD1 /* UITextField+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */; };
 		EB9DEBD622E9F00600A73FD1 /* CategoryAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD522E9F00600A73FD1 /* CategoryAccessoryView.swift */; };
@@ -35,6 +41,19 @@
 /* Begin PBXFileReference section */
 		160BB9A2AF30D0BE54C34C8C /* Pods_MyBudget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBudget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F7FED83E1109D9D221AFDB5 /* Pods-MyBudget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBudget.release.xcconfig"; path = "Target Support Files/Pods-MyBudget/Pods-MyBudget.release.xcconfig"; sourceTree = "<group>"; };
+		EB02A66822EB10E600987AFA /* MyBudget-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyBudget-Bridging-Header.h"; sourceTree = "<group>"; };
+		EB02A66922EB10E600987AFA /* APNumberPadDefaultStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APNumberPadDefaultStyle.h; sourceTree = "<group>"; };
+		EB02A66A22EB10E600987AFA /* APNumberPadDefaultStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APNumberPadDefaultStyle.m; sourceTree = "<group>"; };
+		EB02A66B22EB10E600987AFA /* NSBundle+APNumberPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+APNumberPad.h"; sourceTree = "<group>"; };
+		EB02A66C22EB10E700987AFA /* APNumberButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APNumberButton.m; sourceTree = "<group>"; };
+		EB02A66D22EB10E700987AFA /* NSBundle+APNumberPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+APNumberPad.m"; sourceTree = "<group>"; };
+		EB02A66E22EB10E700987AFA /* APNumberPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APNumberPad.h; sourceTree = "<group>"; };
+		EB02A66F22EB10E700987AFA /* APNumberPadStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APNumberPadStyle.h; sourceTree = "<group>"; };
+		EB02A67022EB10E700987AFA /* APNumberPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APNumberPad.m; sourceTree = "<group>"; };
+		EB02A67122EB10E700987AFA /* APNumberButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APNumberButton.h; sourceTree = "<group>"; };
+		EB02A67722EB121200987AFA /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
+		EB02A67922EB131B00987AFA /* apnumberpad_backspace_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apnumberpad_backspace_icon.png; sourceTree = "<group>"; };
+		EB02A67A22EB134F00987AFA /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		EB9DEBD122E9E02800A73FD1 /* AccountAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAccessoryView.swift; sourceTree = "<group>"; };
 		EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Placeholder.swift"; sourceTree = "<group>"; };
 		EB9DEBD522E9F00600A73FD1 /* CategoryAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAccessoryView.swift; sourceTree = "<group>"; };
@@ -91,6 +110,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EB02A67622EB10EB00987AFA /* Money Selection */ = {
+			isa = PBXGroup;
+			children = (
+				EB02A67722EB121200987AFA /* Assets */,
+				EB02A67122EB10E700987AFA /* APNumberButton.h */,
+				EB02A67A22EB134F00987AFA /* LICENSE */,
+				EB02A67922EB131B00987AFA /* apnumberpad_backspace_icon.png */,
+				EB02A66C22EB10E700987AFA /* APNumberButton.m */,
+				EB02A66E22EB10E700987AFA /* APNumberPad.h */,
+				EB02A67022EB10E700987AFA /* APNumberPad.m */,
+				EB02A66922EB10E600987AFA /* APNumberPadDefaultStyle.h */,
+				EB02A66A22EB10E600987AFA /* APNumberPadDefaultStyle.m */,
+				EB02A66F22EB10E700987AFA /* APNumberPadStyle.h */,
+				EB02A66B22EB10E600987AFA /* NSBundle+APNumberPad.h */,
+				EB02A66D22EB10E700987AFA /* NSBundle+APNumberPad.m */,
+			);
+			path = "Money Selection";
+			sourceTree = "<group>";
+		};
 		EBC59D3222E7503900E626DC = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				EBD012DF22E9974700F8126D /* DiaryTextView.swift */,
+				EB02A66822EB10E600987AFA /* MyBudget-Bridging-Header.h */,
+				EB02A67622EB10EB00987AFA /* Money Selection */,
 				EBD012EF22E9B2C800F8126D /* Category Selection */,
 				EBD012EC22E9B20400F8126D /* Account Selection */,
 			);
@@ -229,6 +269,7 @@
 				TargetAttributes = {
 					EBC59D3A22E7503900E626DC = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1030;
 					};
 				};
 			};
@@ -261,9 +302,11 @@
 				EBD012F322E9B39D00F8126D /* drawer.png in Resources */,
 				EBD012E922E9AD5000F8126D /* euro.png in Resources */,
 				EBFF078D22E9B4BA00CC7215 /* NewAccountCell.xib in Resources */,
+				EB02A67B22EB134F00987AFA /* LICENSE in Resources */,
 				EBFF078E22E9B4BC00CC7215 /* ExistingAccountCell.xib in Resources */,
 				EBC59D4622E7503A00E626DC /* Assets.xcassets in Resources */,
 				EBD012E722E9AD0600F8126D /* add.png in Resources */,
+				EB02A67822EB121200987AFA /* Assets in Resources */,
 				EBC59D4422E7503900E626DC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,16 +361,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBEB145022E8A1B100291435 /* EnterNumberViewController.swift in Sources */,
+				EB02A67322EB10E700987AFA /* APNumberButton.m in Sources */,
 				EBEB145722E8A29800291435 /* UIColor+Macro.swift in Sources */,
 				EBEB145B22E8AD7300291435 /* Transaction.swift in Sources */,
 				EBD012EE22E9B22100F8126D /* CategoryTableView.swift in Sources */,
 				EB9DEBD422E9E5C400A73FD1 /* UITextField+Placeholder.swift in Sources */,
+				EB02A67422EB10E700987AFA /* NSBundle+APNumberPad.m in Sources */,
+				EB02A67522EB10E700987AFA /* APNumberPad.m in Sources */,
 				EB9DEBD622E9F00600A73FD1 /* CategoryAccessoryView.swift in Sources */,
 				EBF2F67C22E8D91300C2772F /* AccountTableView.swift in Sources */,
 				EBC59D5122E750DC00E626DC /* BudgetTableViewController.swift in Sources */,
 				EBC59D3F22E7503900E626DC /* AppDelegate.swift in Sources */,
 				EBC59D5322E750E900E626DC /* Model.swift in Sources */,
 				EBD012E022E9974700F8126D /* DiaryTextView.swift in Sources */,
+				EB02A67222EB10E700987AFA /* APNumberPadDefaultStyle.m in Sources */,
 				EB9DEBD222E9E02800A73FD1 /* AccountAccessoryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,6 +522,7 @@
 			baseConfigurationReference = F52E2EACC6135F8774DB4426 /* Pods-MyBudget.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YLJFWRHN2U;
 				INFOPLIST_FILE = MyBudget/Info.plist;
@@ -484,6 +532,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jraufeisen.MyBudget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyBudget/Views/MyBudget-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -494,6 +544,7 @@
 			baseConfigurationReference = 8F7FED83E1109D9D221AFDB5 /* Pods-MyBudget.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YLJFWRHN2U;
 				INFOPLIST_FILE = MyBudget/Info.plist;
@@ -503,6 +554,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jraufeisen.MyBudget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyBudget/Views/MyBudget-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
