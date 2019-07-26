@@ -20,6 +20,8 @@
     } _delegateFlags;
 }
 
+
+
 /**
  *  Array of APNumberButton
  */
@@ -63,7 +65,14 @@
     return [[self alloc] initWithDelegate:delegate numberPadStyleClass:styleClass];
 }
 
-- (instancetype)initWithDelegate:(id<APNumberPadDelegate>)delegate numberPadStyleClass:(Class)styleClass {
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    return [self initWithDelegate:nil numberPadStyleClass:nil];
+}
+- (instancetype)initWithFrame:(CGRect)frame {
+    return [self initWithDelegate:nil numberPadStyleClass:nil];
+}
+
+- (instancetype)initWithDelegate:(id<APNumberPadDelegate> _Nullable)delegate numberPadStyleClass:(Class)styleClass {
     self = [super initWithFrame:CGRectZero];
     if (self) {
         self.styleClass = styleClass;
@@ -99,7 +108,6 @@
         [self.clearButton setImage:[self.styleClass clearFunctionButtonImage] forState:UIControlStateNormal];
         [self.clearButton setImage:[self.styleClass clearFunctionButtonImageHighlighted] forState:UIControlStateHighlighted];
         [self.clearButton addTarget:self action:@selector(clearButtonAction) forControlEvents:UIControlEventTouchUpInside];
-
         UILongPressGestureRecognizer *longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc]
             initWithTarget:self
                     action:@selector(longPressGestureRecognizerAction:)];

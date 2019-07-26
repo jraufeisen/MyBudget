@@ -11,6 +11,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
+
 @protocol APNumberPadDelegate;
 
 ///
@@ -19,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)numberPadWithDelegate:(id<APNumberPadDelegate>)delegate;
 + (instancetype)numberPadWithDelegate:(id<APNumberPadDelegate>)delegate numberPadStyleClass:(nullable Class)styleClass;
+- (instancetype)initWithDelegate:(nullable id<APNumberPadDelegate>)delegate numberPadStyleClass:(nullable Class)styleClass NS_DESIGNATED_INITIALIZER;
 
 /**
  *  Left function button for custom configuration
@@ -35,7 +38,17 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (strong, readonly, nonatomic) Class<APNumberPadStyle> styleClass;
 
+
+//MARK: Subclasses will need this
+
+- (void)numberButtonAction:(UIButton *)sender;
+- (void)clearButtonAction;
+- (void)functionButtonAction:(id)sender;
+
+
 @end
+
+
 
 ///
 

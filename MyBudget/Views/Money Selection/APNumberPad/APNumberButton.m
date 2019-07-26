@@ -9,6 +9,10 @@
 
 #pragma mark - UIImage additions
 
+
+
+
+
 @implementation UIImage (APNumberPad)
 
 + (UIImage *)ap_imageWithColor:(UIColor *)color {

@@ -26,6 +26,7 @@ protocol DiaryProvider {
 
 class DiaryTextView: UITextView {
 
+    
     /// Initliazie with empty diary
     private var diaryEntry = DiaryEntry()
     
@@ -48,7 +49,7 @@ class DiaryTextView: UITextView {
     /// Displays the next data entry for the current diary.
     public func nextDiaryEntry() {
         guard nextDiaryEntryIsAvailable() else {
-            resignFirstResponder()
+            _ = resignFirstResponder()
             return
         }
         entryIndex += 1
@@ -68,35 +69,51 @@ class DiaryTextView: UITextView {
         configureInput(type: currentEntry.entryType)
     }
 
+
+
+    private func transitionToInputView(view: UIView, accessoryView: UIView?) {
+        inputView?.addSubview(view)
+        if let access = accessoryView {
+            inputView?.addSubview(access)
+        }
+        view.center = CGPoint.init(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height)
+        accessoryView?.center = CGPoint.init(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height)
+
+        UIView.animate(withDuration: 0.2, animations: {
+            view.center = CGPoint.init(x: self.center.x, y: 200)
+
+        }) { (flag) in
+            self.inputView = view
+            self.inputAccessoryView = accessoryView
+            self.becomeFirstResponder()
+        }
+    }
     
     private func configureInput(type: EntryType) {
-        inputView = nil
-        inputAccessoryView = nil
+
         switch type {
         case .account:
-            inputView = AccountTableView.init(outputView: self, delegate: self, color: superview?.backgroundColor)
-            inputAccessoryView = AccountAccessoryView.init(outputView: self, delegate: nil, color: superview?.backgroundColor)
-            becomeFirstResponder()
+            let accountView = AccountTableView.init(outputView: self, delegate: self, color: superview?.backgroundColor)
+            let newAccountView = AccountAccessoryView.init(outputView: self, delegate: nil, color: superview?.backgroundColor)
+            transitionToInputView(view: accountView, accessoryView: newAccountView)
         case .date:
-            inputView = UIDatePicker()
-            becomeFirstResponder()
+            let datePicker = UIDatePicker()
+            transitionToInputView(view: datePicker, accessoryView: nil)
         case .money:
-            let iv = APNumberPad.init(delegate: self, numberPadStyleClass: nil)
-           // [numberPad.leftFunctionButton setTitle:@"Func" forState:UIControlStateNormal];
-           // numberPad.leftFunctionButton.titleLabel.adjustsFontSizeToFitWidth = YES;
-            iv.leftFunctionButton.setTitle("Done", for: .normal)
-            iv.leftFunctionButton.titleLabel?.adjustsFontSizeToFitWidth = true
-            //iv.clearButton.setTitle("test", for: .normal)
-            inputView = iv
-            becomeFirstResponder()
+            let moneyKeyboard = MoneyKeyboard.init(outputView: self)
+            moneyKeyboard.delegate = self
+            self.inputView = moneyKeyboard // DO not animate this transition, cause its first most of the time
+            self.becomeFirstResponder()
         case .category:
-            inputView = CategoryTableView.init(outputView: self, delegate: self, color: superview?.backgroundColor)
-            inputAccessoryView = CategoryAccessoryView.init(outputView: self, delegate: nil, color: superview?.backgroundColor)
-            becomeFirstResponder()
+            let categoryView = CategoryTableView.init(outputView: self, delegate: self, color: superview?.backgroundColor)
+            let newCategoryView = CategoryAccessoryView.init(outputView: self, delegate: nil, color: superview?.backgroundColor)
+            transitionToInputView(view: categoryView, accessoryView: newCategoryView)
         case .tags:
             keyboardType = .default
             becomeFirstResponder()
         case .description:
+            inputView = nil
+            inputAccessoryView = nil
             keyboardType = .default
             becomeFirstResponder()
         }
@@ -104,21 +121,6 @@ class DiaryTextView: UITextView {
     }
     
  
-    func addDoneButtonToKeyboard() {
-        let doneButton:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(DiaryTextView.finishDataEntry))
-        let toolbar = UIToolbar()
-        toolbar.frame.size.height = 45
-        
-        let space:UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        var items = [UIBarButtonItem]()
-        items.append(space)
-        items.append(doneButton)
-        
-        toolbar.items = items
-        
-        inputAccessoryView = toolbar
-    }
-   
     
     override func resignFirstResponder() -> Bool {
         return super.resignFirstResponder()
@@ -143,7 +145,7 @@ extension DiaryTextView: UITextViewDelegate {
     }
     
     @objc private func finishDataEntry() {
-        resignFirstResponder()
+        _ = resignFirstResponder()
         nextDiaryEntry()
     }
     
@@ -161,6 +163,8 @@ extension DiaryTextView: CategorySelectDelegate {
     }
 }
 
-extension DiaryTextView: APNumberPadDelegate {
-    
+extension DiaryTextView: MoneyKeyBoardDelegate {
+    func moneyKeyboardPressedDone(keyboard: MoneyKeyboard) {
+        finishDataEntry()
+    }
 }

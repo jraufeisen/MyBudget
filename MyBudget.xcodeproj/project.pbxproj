@@ -12,8 +12,11 @@
 		EB02A67322EB10E700987AFA /* APNumberButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02A66C22EB10E700987AFA /* APNumberButton.m */; };
 		EB02A67422EB10E700987AFA /* NSBundle+APNumberPad.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02A66D22EB10E700987AFA /* NSBundle+APNumberPad.m */; };
 		EB02A67522EB10E700987AFA /* APNumberPad.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02A67022EB10E700987AFA /* APNumberPad.m */; };
-		EB02A67822EB121200987AFA /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = EB02A67722EB121200987AFA /* Assets */; };
 		EB02A67B22EB134F00987AFA /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = EB02A67A22EB134F00987AFA /* LICENSE */; };
+		EB02A68122EB1BAF00987AFA /* apnumberpad_backspace_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EB02A68022EB1BAA00987AFA /* apnumberpad_backspace_icon.png */; };
+		EB02A68222EB1BAF00987AFA /* apnumberpad_backspace_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB02A67E22EB1BAA00987AFA /* apnumberpad_backspace_icon@2x.png */; };
+		EB02A68322EB1BAF00987AFA /* apnumberpad_backspace_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB02A67F22EB1BAA00987AFA /* apnumberpad_backspace_icon@3x.png */; };
+		EB02A68722EB1BEF00987AFA /* MoneyKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB02A68622EB1BEF00987AFA /* MoneyKeyboard.swift */; };
 		EB9DEBD222E9E02800A73FD1 /* AccountAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD122E9E02800A73FD1 /* AccountAccessoryView.swift */; };
 		EB9DEBD422E9E5C400A73FD1 /* UITextField+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */; };
 		EB9DEBD622E9F00600A73FD1 /* CategoryAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD522E9F00600A73FD1 /* CategoryAccessoryView.swift */; };
@@ -51,9 +54,11 @@
 		EB02A66F22EB10E700987AFA /* APNumberPadStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APNumberPadStyle.h; sourceTree = "<group>"; };
 		EB02A67022EB10E700987AFA /* APNumberPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APNumberPad.m; sourceTree = "<group>"; };
 		EB02A67122EB10E700987AFA /* APNumberButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APNumberButton.h; sourceTree = "<group>"; };
-		EB02A67722EB121200987AFA /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
-		EB02A67922EB131B00987AFA /* apnumberpad_backspace_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apnumberpad_backspace_icon.png; sourceTree = "<group>"; };
 		EB02A67A22EB134F00987AFA /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		EB02A67E22EB1BAA00987AFA /* apnumberpad_backspace_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apnumberpad_backspace_icon@2x.png"; sourceTree = "<group>"; };
+		EB02A67F22EB1BAA00987AFA /* apnumberpad_backspace_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apnumberpad_backspace_icon@3x.png"; sourceTree = "<group>"; };
+		EB02A68022EB1BAA00987AFA /* apnumberpad_backspace_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apnumberpad_backspace_icon.png; sourceTree = "<group>"; };
+		EB02A68622EB1BEF00987AFA /* MoneyKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyKeyboard.swift; sourceTree = "<group>"; };
 		EB9DEBD122E9E02800A73FD1 /* AccountAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAccessoryView.swift; sourceTree = "<group>"; };
 		EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Placeholder.swift"; sourceTree = "<group>"; };
 		EB9DEBD522E9F00600A73FD1 /* CategoryAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAccessoryView.swift; sourceTree = "<group>"; };
@@ -113,10 +118,28 @@
 		EB02A67622EB10EB00987AFA /* Money Selection */ = {
 			isa = PBXGroup;
 			children = (
-				EB02A67722EB121200987AFA /* Assets */,
-				EB02A67122EB10E700987AFA /* APNumberButton.h */,
+				EB02A68622EB1BEF00987AFA /* MoneyKeyboard.swift */,
+				EB02A68522EB1BD700987AFA /* APNumberPad */,
+			);
+			path = "Money Selection";
+			sourceTree = "<group>";
+		};
+		EB02A68422EB1BB200987AFA /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				EB02A68022EB1BAA00987AFA /* apnumberpad_backspace_icon.png */,
+				EB02A67E22EB1BAA00987AFA /* apnumberpad_backspace_icon@2x.png */,
+				EB02A67F22EB1BAA00987AFA /* apnumberpad_backspace_icon@3x.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		EB02A68522EB1BD700987AFA /* APNumberPad */ = {
+			isa = PBXGroup;
+			children = (
 				EB02A67A22EB134F00987AFA /* LICENSE */,
-				EB02A67922EB131B00987AFA /* apnumberpad_backspace_icon.png */,
+				EB02A68422EB1BB200987AFA /* Assets */,
+				EB02A67122EB10E700987AFA /* APNumberButton.h */,
 				EB02A66C22EB10E700987AFA /* APNumberButton.m */,
 				EB02A66E22EB10E700987AFA /* APNumberPad.h */,
 				EB02A67022EB10E700987AFA /* APNumberPad.m */,
@@ -126,7 +149,7 @@
 				EB02A66B22EB10E600987AFA /* NSBundle+APNumberPad.h */,
 				EB02A66D22EB10E700987AFA /* NSBundle+APNumberPad.m */,
 			);
-			path = "Money Selection";
+			path = APNumberPad;
 			sourceTree = "<group>";
 		};
 		EBC59D3222E7503900E626DC = {
@@ -296,17 +319,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB02A68122EB1BAF00987AFA /* apnumberpad_backspace_icon.png in Resources */,
 				EBC59D4922E7503A00E626DC /* LaunchScreen.storyboard in Resources */,
+				EB02A68322EB1BAF00987AFA /* apnumberpad_backspace_icon@3x.png in Resources */,
 				EBD012F622E9B47F00F8126D /* NewCategoryCell.xib in Resources */,
 				EBD012F722E9B47F00F8126D /* ExistingCategoryCell.xib in Resources */,
 				EBD012F322E9B39D00F8126D /* drawer.png in Resources */,
 				EBD012E922E9AD5000F8126D /* euro.png in Resources */,
 				EBFF078D22E9B4BA00CC7215 /* NewAccountCell.xib in Resources */,
 				EB02A67B22EB134F00987AFA /* LICENSE in Resources */,
+				EB02A68222EB1BAF00987AFA /* apnumberpad_backspace_icon@2x.png in Resources */,
 				EBFF078E22E9B4BC00CC7215 /* ExistingAccountCell.xib in Resources */,
 				EBC59D4622E7503A00E626DC /* Assets.xcassets in Resources */,
 				EBD012E722E9AD0600F8126D /* add.png in Resources */,
-				EB02A67822EB121200987AFA /* Assets in Resources */,
 				EBC59D4422E7503900E626DC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,6 +387,7 @@
 			files = (
 				EBEB145022E8A1B100291435 /* EnterNumberViewController.swift in Sources */,
 				EB02A67322EB10E700987AFA /* APNumberButton.m in Sources */,
+				EB02A68722EB1BEF00987AFA /* MoneyKeyboard.swift in Sources */,
 				EBEB145722E8A29800291435 /* UIColor+Macro.swift in Sources */,
 				EBEB145B22E8AD7300291435 /* Transaction.swift in Sources */,
 				EBD012EE22E9B22100F8126D /* CategoryTableView.swift in Sources */,
