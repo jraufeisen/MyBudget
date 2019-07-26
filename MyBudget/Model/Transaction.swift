@@ -35,7 +35,6 @@ class IncomeTransaction: Transaction {
             ("", .date),
             (", I have added ", .money),
             (" to my account ", .account),
-            (".\n", .tags)
         ]
     }
     
@@ -51,8 +50,7 @@ class ExpenseTransaction: Transaction {
             (", I spent ", .money),
             (" from my ", .account),
             (" account on ", .category),
-            (" (", .description),
-            (")\n", .tags),
+            ("Additional notes: ", .description),
         ]
     }
     
@@ -81,7 +79,6 @@ class TransferTransaction: Transaction {
             (" from my ", .account),
             (" account to my ", .account),
             (" account.", .description),
-            ("\n", .tags),
         ]
     }
     
