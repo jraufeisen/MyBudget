@@ -19,7 +19,7 @@ class ExistingCategoryCell: UITableViewCell {
 
 
 class CategoryTableView: UITableView {
-    let categories = ["Rent", "Groceries", "Fun money"]
+    var categories = [BudgetCategoryViewable]()
     
     var categoryDelegate: CategorySelectDelegate?
     private var outputView: UIKeyInput?
@@ -36,7 +36,8 @@ class CategoryTableView: UITableView {
         
         autoresizingMask = .flexibleHeight // When used as inputview, this makes thei height be equal to standard keyboard height
         register(UINib.init(nibName: "ExistingCategoryCell", bundle: Bundle.main), forCellReuseIdentifier: "existingCategoryCell")
-
+        
+        categories = Model.shared.getAllBudgetCategories()
     }
 
     
@@ -64,7 +65,7 @@ extension CategoryTableView: UITableViewDataSource {
         cell.categoryLabel?.backgroundColor = .clear;
         cell.backgroundColor = .clear
         cell.categoryLabel?.textColor = .white
-        cell.categoryLabel?.text = categories[indexPath.row]
+        cell.categoryLabel?.text = categories[indexPath.row].name
         
         
         return cell
@@ -78,8 +79,8 @@ extension CategoryTableView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedCategory = categories[indexPath.row]
-        outputView?.insertText(selectedCategory)
-        categoryDelegate?.didSelectCategory(category: selectedCategory)
+        outputView?.insertText(selectedCategory.name)
+        categoryDelegate?.didSelectCategory(category: selectedCategory.name)
     }
 }
 

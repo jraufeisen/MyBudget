@@ -53,6 +53,7 @@ class EnterNumberViewController: UIViewController {
         item.size = floaty.itemSize
         item.handler = { (item) in
             print("I will now add transaction \(self.transaction)")
+            Model.shared.addTransaction(transaction: self.transaction)
             self.navigationController?.popViewController(animated: true)
         }
         floaty.addItem(item: item)

@@ -17,6 +17,8 @@
 		EB02A68222EB1BAF00987AFA /* apnumberpad_backspace_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB02A67E22EB1BAA00987AFA /* apnumberpad_backspace_icon@2x.png */; };
 		EB02A68322EB1BAF00987AFA /* apnumberpad_backspace_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB02A67F22EB1BAA00987AFA /* apnumberpad_backspace_icon@3x.png */; };
 		EB02A68722EB1BEF00987AFA /* MoneyKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB02A68622EB1BEF00987AFA /* MoneyKeyboard.swift */; };
+		EB558EB322ECA28100039651 /* LedgerTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB558EB222ECA28000039651 /* LedgerTransaction.swift */; };
+		EB558EB722ECA3A200039651 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB558EB622ECA3A200039651 /* CloudKit.framework */; };
 		EB985CA722EC699200C033E8 /* verify-sign.png in Resources */ = {isa = PBXBuildFile; fileRef = EB985CA622EC699200C033E8 /* verify-sign.png */; };
 		EB985CB422EC6B2E00C033E8 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = EB985CB322EC6B2E00C033E8 /* LICENSE */; };
 		EB985CB522EC6B5400C033E8 /* FloatyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CB222EC6B2300C033E8 /* FloatyDelegate.swift */; };
@@ -36,6 +38,9 @@
 		EBC59D4922E7503A00E626DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBC59D4722E7503A00E626DC /* LaunchScreen.storyboard */; };
 		EBC59D5122E750DC00E626DC /* BudgetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC59D5022E750DC00E626DC /* BudgetTableViewController.swift */; };
 		EBC59D5322E750E900E626DC /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC59D5222E750E900E626DC /* Model.swift */; };
+		EBCECC6622ECA1FD00D85F7C /* LedgerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCECC6522ECA1FD00D85F7C /* LedgerModel.swift */; };
+		EBCECC6822ECA20E00D85F7C /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCECC6722ECA20E00D85F7C /* Parser.swift */; };
+		EBCECC6A22ECA21500D85F7C /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCECC6922ECA21500D85F7C /* Account.swift */; };
 		EBD012E022E9974700F8126D /* DiaryTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD012DF22E9974700F8126D /* DiaryTextView.swift */; };
 		EBD012E722E9AD0600F8126D /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = EBD012E622E9AD0500F8126D /* add.png */; };
 		EBD012E922E9AD5000F8126D /* euro.png in Resources */ = {isa = PBXBuildFile; fileRef = EBD012E822E9AD5000F8126D /* euro.png */; };
@@ -69,6 +74,9 @@
 		EB02A67F22EB1BAA00987AFA /* apnumberpad_backspace_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apnumberpad_backspace_icon@3x.png"; sourceTree = "<group>"; };
 		EB02A68022EB1BAA00987AFA /* apnumberpad_backspace_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apnumberpad_backspace_icon.png; sourceTree = "<group>"; };
 		EB02A68622EB1BEF00987AFA /* MoneyKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyKeyboard.swift; sourceTree = "<group>"; };
+		EB558EB222ECA28000039651 /* LedgerTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LedgerTransaction.swift; sourceTree = "<group>"; };
+		EB558EB522ECA39D00039651 /* MyBudget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyBudget.entitlements; sourceTree = "<group>"; };
+		EB558EB622ECA3A200039651 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		EB985CA622EC699200C033E8 /* verify-sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "verify-sign.png"; sourceTree = "<group>"; };
 		EB985CAC22EC6B2300C033E8 /* FloatyWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatyWindow.swift; sourceTree = "<group>"; };
 		EB985CAD22EC6B2300C033E8 /* FloatyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatyManager.swift; sourceTree = "<group>"; };
@@ -90,6 +98,9 @@
 		EBC59D4A22E7503A00E626DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBC59D5022E750DC00E626DC /* BudgetTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTableViewController.swift; sourceTree = "<group>"; };
 		EBC59D5222E750E900E626DC /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		EBCECC6522ECA1FD00D85F7C /* LedgerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LedgerModel.swift; sourceTree = "<group>"; };
+		EBCECC6722ECA20E00D85F7C /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		EBCECC6922ECA21500D85F7C /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		EBD012DF22E9974700F8126D /* DiaryTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryTextView.swift; sourceTree = "<group>"; };
 		EBD012E622E9AD0500F8126D /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		EBD012E822E9AD5000F8126D /* euro.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = euro.png; sourceTree = "<group>"; };
@@ -112,6 +123,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				705B8E4F9B8AF8BE4BA797A5 /* Pods_MyBudget.framework in Frameworks */,
+				EB558EB722ECA3A200039651 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +142,7 @@
 		1CF7C6954939ED9D3DD0375D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB558EB622ECA3A200039651 /* CloudKit.framework */,
 				160BB9A2AF30D0BE54C34C8C /* Pods_MyBudget.framework */,
 			);
 			name = Frameworks;
@@ -172,6 +185,18 @@
 			path = APNumberPad;
 			sourceTree = "<group>";
 		};
+		EB558EB422ECA29D00039651 /* Ledger */ = {
+			isa = PBXGroup;
+			children = (
+				EBCECC6522ECA1FD00D85F7C /* LedgerModel.swift */,
+				EBCECC6722ECA20E00D85F7C /* Parser.swift */,
+				EBCECC6922ECA21500D85F7C /* Account.swift */,
+				EB558EB222ECA28000039651 /* LedgerTransaction.swift */,
+				EBEB145A22E8AD7300291435 /* Transaction.swift */,
+			);
+			path = Ledger;
+			sourceTree = "<group>";
+		};
 		EB985CAA22EC6B2300C033E8 /* Floaty */ = {
 			isa = PBXGroup;
 			children = (
@@ -208,6 +233,7 @@
 		EBC59D3D22E7503900E626DC /* MyBudget */ = {
 			isa = PBXGroup;
 			children = (
+				EB558EB522ECA39D00039651 /* MyBudget.entitlements */,
 				EBC59D3E22E7503900E626DC /* AppDelegate.swift */,
 				EBC59D4222E7503900E626DC /* Main.storyboard */,
 				EBC59D4522E7503A00E626DC /* Assets.xcassets */,
@@ -226,7 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				EBC59D5222E750E900E626DC /* Model.swift */,
-				EBEB145A22E8AD7300291435 /* Transaction.swift */,
+				EB558EB422ECA29D00039651 /* Ledger */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -330,6 +356,14 @@
 					EBC59D3A22E7503900E626DC = {
 						CreatedOnToolsVersion = 10.2.1;
 						LastSwiftMigration = 1030;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -407,6 +441,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBCECC6622ECA1FD00D85F7C /* LedgerModel.swift in Sources */,
 				EB985CB722EC6B5800C033E8 /* FloatyManager.swift in Sources */,
 				EB985CBD22EC74F800C033E8 /* String+OnlyDigits.swift in Sources */,
 				EBEB145022E8A1B100291435 /* EnterNumberViewController.swift in Sources */,
@@ -419,6 +454,7 @@
 				EBD012EE22E9B22100F8126D /* CategoryTableView.swift in Sources */,
 				EB9DEBD422E9E5C400A73FD1 /* UITextField+Placeholder.swift in Sources */,
 				EB02A67422EB10E700987AFA /* NSBundle+APNumberPad.m in Sources */,
+				EBCECC6A22ECA21500D85F7C /* Account.swift in Sources */,
 				EB985CB922EC6B5800C033E8 /* UIView+Draggable.swift in Sources */,
 				EB02A67522EB10E700987AFA /* APNumberPad.m in Sources */,
 				EB985CB622EC6B5800C033E8 /* FloatyWindow.swift in Sources */,
@@ -429,7 +465,9 @@
 				EBC59D5322E750E900E626DC /* Model.swift in Sources */,
 				EBD012E022E9974700F8126D /* DiaryTextView.swift in Sources */,
 				EB985CBA22EC6B5800C033E8 /* FloatyViewController.swift in Sources */,
+				EBCECC6822ECA20E00D85F7C /* Parser.swift in Sources */,
 				EB02A67222EB10E700987AFA /* APNumberPadDefaultStyle.m in Sources */,
+				EB558EB322ECA28100039651 /* LedgerTransaction.swift in Sources */,
 				EB9DEBD222E9E02800A73FD1 /* AccountAccessoryView.swift in Sources */,
 				EB985CB822EC6B5800C033E8 /* FloatyItem.swift in Sources */,
 			);
@@ -579,6 +617,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = MyBudget/MyBudget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YLJFWRHN2U;
 				INFOPLIST_FILE = MyBudget/Info.plist;
@@ -601,6 +640,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = MyBudget/MyBudget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YLJFWRHN2U;
 				INFOPLIST_FILE = MyBudget/Info.plist;

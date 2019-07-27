@@ -72,6 +72,8 @@ class BudgetTableViewController: UITableViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         addFloatingActionButton()
+        budgetCategories = Model.shared.getAllBudgetCategories()
+        tableView.reloadData()
     }
     
     private func addFloatingActionButton() {

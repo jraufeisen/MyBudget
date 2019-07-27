@@ -22,7 +22,7 @@ protocol AccountSelectDelegate {
 }
 
 class AccountTableView: UITableView {
-    private let accounts = ["Cash", "Checkings", "Savings"]
+    private let accounts = Model.shared.getAllAccountNames()
     private var accountDelegate: AccountSelectDelegate?
     private var outputView: UIKeyInput?
     
