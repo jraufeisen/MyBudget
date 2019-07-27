@@ -14,5 +14,15 @@ extension UIColor {
     static var expenseColor = UIColor.init(red: 204/255, green: 0/255, blue: 0/255, alpha: 1.0)
     static var transferColor = UIColor.init(red: 250/255, green: 193/255, blue: 0/255, alpha: 1.0)
 
+    static func colorForTransaction(type: TransactionType) -> UIColor {
+        if type == .Income {
+            return UIColor.incomeColor
+        } else if type == .Expense {
+            return UIColor.expenseColor
+        } else if type == .Transfer {
+            return UIColor.transferColor
+        }
+        return UIColor.purple
+    }
 }
 

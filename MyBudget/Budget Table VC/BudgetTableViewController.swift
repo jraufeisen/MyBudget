@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Floaty
+
 
 class BudgetTableViewCell: UITableViewCell {
     
@@ -78,7 +78,6 @@ class BudgetTableViewController: UITableViewController {
         let floaty = Floaty()
         floaty.buttonColor = .white
         floaty.plusColor = .blue
-        
         floaty.itemSize = 50
 
         var item = FloatyItem()

@@ -20,6 +20,7 @@ class MoneyKeyboard: APNumberPad {
     ///Saves sequence of entered digits. Only allows editing in this range of characters
     private var characterSequence = ""
     private var currentlyDisplayed = ""
+
     
     private var outputView: UIKeyInput?
     
@@ -48,6 +49,16 @@ class MoneyKeyboard: APNumberPad {
         characterSequence += buttonText
         updateOutputText()
     }
+
+    
+    func moneyEntered() -> NSNumber {
+        let pureDigits = currentlyDisplayed.onlyDigits()
+        guard let value = Int(pureDigits) else {
+            fatalError("Keyboard was not able to enter money in correct format")
+        }
+        return NSNumber.init(value: value)
+    }
+    
     
     func animateDown() {
         UIView.animate(withDuration: 0.2) {

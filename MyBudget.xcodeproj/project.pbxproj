@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,16 @@
 		EB02A68222EB1BAF00987AFA /* apnumberpad_backspace_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB02A67E22EB1BAA00987AFA /* apnumberpad_backspace_icon@2x.png */; };
 		EB02A68322EB1BAF00987AFA /* apnumberpad_backspace_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB02A67F22EB1BAA00987AFA /* apnumberpad_backspace_icon@3x.png */; };
 		EB02A68722EB1BEF00987AFA /* MoneyKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB02A68622EB1BEF00987AFA /* MoneyKeyboard.swift */; };
+		EB985CA722EC699200C033E8 /* verify-sign.png in Resources */ = {isa = PBXBuildFile; fileRef = EB985CA622EC699200C033E8 /* verify-sign.png */; };
+		EB985CB422EC6B2E00C033E8 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = EB985CB322EC6B2E00C033E8 /* LICENSE */; };
+		EB985CB522EC6B5400C033E8 /* FloatyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CB222EC6B2300C033E8 /* FloatyDelegate.swift */; };
+		EB985CB622EC6B5800C033E8 /* FloatyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CAC22EC6B2300C033E8 /* FloatyWindow.swift */; };
+		EB985CB722EC6B5800C033E8 /* FloatyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CAD22EC6B2300C033E8 /* FloatyManager.swift */; };
+		EB985CB822EC6B5800C033E8 /* FloatyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CAE22EC6B2300C033E8 /* FloatyItem.swift */; };
+		EB985CB922EC6B5800C033E8 /* UIView+Draggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CAF22EC6B2300C033E8 /* UIView+Draggable.swift */; };
+		EB985CBA22EC6B5800C033E8 /* FloatyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CB022EC6B2300C033E8 /* FloatyViewController.swift */; };
+		EB985CBB22EC6B5800C033E8 /* Floaty.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CB122EC6B2300C033E8 /* Floaty.swift */; };
+		EB985CBD22EC74F800C033E8 /* String+OnlyDigits.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CBC22EC74F800C033E8 /* String+OnlyDigits.swift */; };
 		EB9DEBD222E9E02800A73FD1 /* AccountAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD122E9E02800A73FD1 /* AccountAccessoryView.swift */; };
 		EB9DEBD422E9E5C400A73FD1 /* UITextField+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */; };
 		EB9DEBD622E9F00600A73FD1 /* CategoryAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD522E9F00600A73FD1 /* CategoryAccessoryView.swift */; };
@@ -59,6 +69,16 @@
 		EB02A67F22EB1BAA00987AFA /* apnumberpad_backspace_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apnumberpad_backspace_icon@3x.png"; sourceTree = "<group>"; };
 		EB02A68022EB1BAA00987AFA /* apnumberpad_backspace_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apnumberpad_backspace_icon.png; sourceTree = "<group>"; };
 		EB02A68622EB1BEF00987AFA /* MoneyKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyKeyboard.swift; sourceTree = "<group>"; };
+		EB985CA622EC699200C033E8 /* verify-sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "verify-sign.png"; sourceTree = "<group>"; };
+		EB985CAC22EC6B2300C033E8 /* FloatyWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatyWindow.swift; sourceTree = "<group>"; };
+		EB985CAD22EC6B2300C033E8 /* FloatyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatyManager.swift; sourceTree = "<group>"; };
+		EB985CAE22EC6B2300C033E8 /* FloatyItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatyItem.swift; sourceTree = "<group>"; };
+		EB985CAF22EC6B2300C033E8 /* UIView+Draggable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Draggable.swift"; sourceTree = "<group>"; };
+		EB985CB022EC6B2300C033E8 /* FloatyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatyViewController.swift; sourceTree = "<group>"; };
+		EB985CB122EC6B2300C033E8 /* Floaty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Floaty.swift; sourceTree = "<group>"; };
+		EB985CB222EC6B2300C033E8 /* FloatyDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatyDelegate.swift; sourceTree = "<group>"; };
+		EB985CB322EC6B2E00C033E8 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		EB985CBC22EC74F800C033E8 /* String+OnlyDigits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+OnlyDigits.swift"; sourceTree = "<group>"; };
 		EB9DEBD122E9E02800A73FD1 /* AccountAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAccessoryView.swift; sourceTree = "<group>"; };
 		EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Placeholder.swift"; sourceTree = "<group>"; };
 		EB9DEBD522E9F00600A73FD1 /* CategoryAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAccessoryView.swift; sourceTree = "<group>"; };
@@ -152,6 +172,21 @@
 			path = APNumberPad;
 			sourceTree = "<group>";
 		};
+		EB985CAA22EC6B2300C033E8 /* Floaty */ = {
+			isa = PBXGroup;
+			children = (
+				EB985CB322EC6B2E00C033E8 /* LICENSE */,
+				EB985CAC22EC6B2300C033E8 /* FloatyWindow.swift */,
+				EB985CAD22EC6B2300C033E8 /* FloatyManager.swift */,
+				EB985CAE22EC6B2300C033E8 /* FloatyItem.swift */,
+				EB985CAF22EC6B2300C033E8 /* UIView+Draggable.swift */,
+				EB985CB022EC6B2300C033E8 /* FloatyViewController.swift */,
+				EB985CB122EC6B2300C033E8 /* Floaty.swift */,
+				EB985CB222EC6B2300C033E8 /* FloatyDelegate.swift */,
+			);
+			path = Floaty;
+			sourceTree = "<group>";
+		};
 		EBC59D3222E7503900E626DC = {
 			isa = PBXGroup;
 			children = (
@@ -199,6 +234,7 @@
 		EBD012E222E99A0700F8126D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				EB985CAA22EC6B2300C033E8 /* Floaty */,
 				EBD012DF22E9974700F8126D /* DiaryTextView.swift */,
 				EB02A66822EB10E600987AFA /* MyBudget-Bridging-Header.h */,
 				EB02A67622EB10EB00987AFA /* Money Selection */,
@@ -244,6 +280,7 @@
 		EBEB145122E8A1B500291435 /* New Transaction VC */ = {
 			isa = PBXGroup;
 			children = (
+				EB985CA622EC699200C033E8 /* verify-sign.png */,
 				EBEB144722E8A1B100291435 /* EnterNumberViewController.swift */,
 			);
 			path = "New Transaction VC";
@@ -254,6 +291,7 @@
 			children = (
 				EBEB145622E8A29800291435 /* UIColor+Macro.swift */,
 				EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */,
+				EB985CBC22EC74F800C033E8 /* String+OnlyDigits.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -269,7 +307,6 @@
 				EBC59D3722E7503900E626DC /* Sources */,
 				EBC59D3822E7503900E626DC /* Frameworks */,
 				EBC59D3922E7503900E626DC /* Resources */,
-				D32E84A6A3DC2D6F0431FA56 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -320,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB02A68122EB1BAF00987AFA /* apnumberpad_backspace_icon.png in Resources */,
+				EB985CA722EC699200C033E8 /* verify-sign.png in Resources */,
 				EBC59D4922E7503A00E626DC /* LaunchScreen.storyboard in Resources */,
 				EB02A68322EB1BAF00987AFA /* apnumberpad_backspace_icon@3x.png in Resources */,
 				EBD012F622E9B47F00F8126D /* NewCategoryCell.xib in Resources */,
@@ -328,6 +366,7 @@
 				EBD012E922E9AD5000F8126D /* euro.png in Resources */,
 				EBFF078D22E9B4BA00CC7215 /* NewAccountCell.xib in Resources */,
 				EB02A67B22EB134F00987AFA /* LICENSE in Resources */,
+				EB985CB422EC6B2E00C033E8 /* LICENSE in Resources */,
 				EB02A68222EB1BAF00987AFA /* apnumberpad_backspace_icon@2x.png in Resources */,
 				EBFF078E22E9B4BC00CC7215 /* ExistingAccountCell.xib in Resources */,
 				EBC59D4622E7503A00E626DC /* Assets.xcassets in Resources */,
@@ -361,23 +400,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D32E84A6A3DC2D6F0431FA56 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyBudget/Pods-MyBudget-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MyBudget/Pods-MyBudget-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MyBudget/Pods-MyBudget-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -385,23 +407,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB985CB722EC6B5800C033E8 /* FloatyManager.swift in Sources */,
+				EB985CBD22EC74F800C033E8 /* String+OnlyDigits.swift in Sources */,
 				EBEB145022E8A1B100291435 /* EnterNumberViewController.swift in Sources */,
 				EB02A67322EB10E700987AFA /* APNumberButton.m in Sources */,
 				EB02A68722EB1BEF00987AFA /* MoneyKeyboard.swift in Sources */,
 				EBEB145722E8A29800291435 /* UIColor+Macro.swift in Sources */,
 				EBEB145B22E8AD7300291435 /* Transaction.swift in Sources */,
+				EB985CBB22EC6B5800C033E8 /* Floaty.swift in Sources */,
+				EB985CB522EC6B5400C033E8 /* FloatyDelegate.swift in Sources */,
 				EBD012EE22E9B22100F8126D /* CategoryTableView.swift in Sources */,
 				EB9DEBD422E9E5C400A73FD1 /* UITextField+Placeholder.swift in Sources */,
 				EB02A67422EB10E700987AFA /* NSBundle+APNumberPad.m in Sources */,
+				EB985CB922EC6B5800C033E8 /* UIView+Draggable.swift in Sources */,
 				EB02A67522EB10E700987AFA /* APNumberPad.m in Sources */,
+				EB985CB622EC6B5800C033E8 /* FloatyWindow.swift in Sources */,
 				EB9DEBD622E9F00600A73FD1 /* CategoryAccessoryView.swift in Sources */,
 				EBF2F67C22E8D91300C2772F /* AccountTableView.swift in Sources */,
 				EBC59D5122E750DC00E626DC /* BudgetTableViewController.swift in Sources */,
 				EBC59D3F22E7503900E626DC /* AppDelegate.swift in Sources */,
 				EBC59D5322E750E900E626DC /* Model.swift in Sources */,
 				EBD012E022E9974700F8126D /* DiaryTextView.swift in Sources */,
+				EB985CBA22EC6B5800C033E8 /* FloatyViewController.swift in Sources */,
 				EB02A67222EB10E700987AFA /* APNumberPadDefaultStyle.m in Sources */,
 				EB9DEBD222E9E02800A73FD1 /* AccountAccessoryView.swift in Sources */,
+				EB985CB822EC6B5800C033E8 /* FloatyItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,6 +24,13 @@ protocol DiaryProvider {
     func diaryEntry() -> DiaryEntry
 }
 
+
+protocol DiaryDelegate {
+    func didFinishDiaryEntry()
+    func didEnterDiaryPair(index: Int, value: Any)
+}
+
+
 class DiaryTextView: UITextView {
 
     
@@ -36,6 +43,7 @@ class DiaryTextView: UITextView {
     /// Keeps track of all characters entered via the keyboard and only allows editing within this range
     private var currentlyEntteredByKeyboard = ""
 
+    var diaryDelegate: DiaryDelegate?
     
     /// Configure diary entry for given provider.
     public func configure(diaryProvider: DiaryProvider) {
@@ -45,7 +53,6 @@ class DiaryTextView: UITextView {
         nextDiaryEntry()
         
         tintColor = .white
-      
     }
    
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -62,6 +69,7 @@ class DiaryTextView: UITextView {
     public func nextDiaryEntry() {
         guard nextDiaryEntryIsAvailable() else {
             _ = resignFirstResponder()
+            diaryDelegate?.didFinishDiaryEntry()
             return
         }
         entryIndex += 1
@@ -129,14 +137,12 @@ class DiaryTextView: UITextView {
             keyboardType = .default
             becomeFirstResponder()
         }
-
     }
     
  
     
     override func resignFirstResponder() -> Bool {
         return super.resignFirstResponder()
-       
     }
     
     /// No copy, paste, select on this textview
@@ -158,6 +164,7 @@ extension DiaryTextView: UITextViewDelegate {
         
         // Do not print a new line, instead finish data entry
         if text == "\n" {
+            diaryDelegate?.didEnterDiaryPair(index: entryIndex, value: currentlyEntteredByKeyboard) // Forward entered text to delegate
             currentlyEntteredByKeyboard = ""    // Reset counter
             finishDataEntry()                   // Show next keyboard
             return false
@@ -183,12 +190,8 @@ extension DiaryTextView: UITextViewDelegate {
             } else {
                 currentlyEntteredByKeyboard.removeLast(1)
             }
-            
-            
-            //currentlyEntteredByKeyboard.removeLast(range.length)
             return true
         } else {
-            print("we enter positive \(text)")
             currentlyEntteredByKeyboard += text
         }
         
@@ -207,18 +210,21 @@ extension DiaryTextView: UITextViewDelegate {
 
 extension DiaryTextView: AccountSelectDelegate {
     func didSelectAccount(account: String) {
+        diaryDelegate?.didEnterDiaryPair(index: entryIndex, value: account)
         finishDataEntry()
     }
 }
 
 extension DiaryTextView: CategorySelectDelegate {
     func didSelectCategory(category: String) {
+        diaryDelegate?.didEnterDiaryPair(index: entryIndex, value: category)
         finishDataEntry()
     }
 }
 
 extension DiaryTextView: MoneyKeyBoardDelegate {
     func moneyKeyboardPressedDone(keyboard: MoneyKeyboard) {
+        diaryDelegate?.didEnterDiaryPair(index: entryIndex, value: keyboard.moneyEntered())
         finishDataEntry()
     }
 }

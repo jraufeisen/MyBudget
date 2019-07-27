@@ -6,5 +6,5 @@ target 'MyBudget' do
   use_frameworks!
 
   # Pods for MyBudget
-  pod 'Floaty', '~> 4.2.0'
+
 end
