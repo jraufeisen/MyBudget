@@ -33,13 +33,8 @@ class DiaryTextView: UITextView {
     /// Current entry index
     private var entryIndex = -1
     
-    // This textview should not be selectable, so that the user can not select an editing position
-    /*override var isSelectable: Bool {
-        get {
-            return true
-        }
-        set {}
-    }*/
+    /// Keeps track of all characters entered via the keyboard and only allows editing within this range
+    private var currentlyEntteredByKeyboard = ""
 
     
     /// Configure diary entry for given provider.
@@ -144,21 +139,16 @@ class DiaryTextView: UITextView {
        
     }
     
-
-/*    override func caretRect(for position: UITextPosition) -> CGRect {
-        return CGRect.init(x: 0, y: 0, width: 10, height: 10)
-    }*/
-    
- /*   override func selectionRects(for range: UITextRange) -> [UITextSelectionRect] {
-        return [UITextSelectionRect]()
-    }*/
-
+    /// No copy, paste, select on this textview
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
         return false
     }
+    
+    /// Do not change position of cursor. Keep cursor at end of text
     override func closestPosition(to point: CGPoint) -> UITextPosition? {
         return endOfDocument
     }
+    
 }
 
 
@@ -166,13 +156,47 @@ extension DiaryTextView: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         
+        // Do not print a new line, instead finish data entry
         if text == "\n" {
-            finishDataEntry()
+            currentlyEntteredByKeyboard = ""    // Reset counter
+            finishDataEntry()                   // Show next keyboard
             return false
+        }
+
+        // Only allow character deletion if we are in the allowed scope
+        if text == "" {
+            print(range.length)
+            if range.length > currentlyEntteredByKeyboard.count {
+                self.text.removeLast(currentlyEntteredByKeyboard.count)
+                currentlyEntteredByKeyboard = ""
+                return false
+            }
+            
+            if currentlyEntteredByKeyboard.isEmpty {
+                return false
+            }
+
+            if range.length > 1 {
+                currentlyEntteredByKeyboard.removeLast(1)
+                self.text.removeLast(1)
+                return false
+            } else {
+                currentlyEntteredByKeyboard.removeLast(1)
+            }
+            
+            
+            //currentlyEntteredByKeyboard.removeLast(range.length)
+            return true
+        } else {
+            print("we enter positive \(text)")
+            currentlyEntteredByKeyboard += text
         }
         
         return true
     }
+    
+   
+    
     
     @objc private func finishDataEntry() {
         _ = resignFirstResponder()
