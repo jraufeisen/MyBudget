@@ -6,5 +6,5 @@ target 'MyBudget' do
   use_frameworks!
 
   # Pods for MyBudget
-  pod 'MaterialComponents/ActionSheet'
+  pod 'Floaty', '~> 4.2.0'
 end

@@ -35,7 +35,10 @@ class EnterNumberViewController: UIViewController {
         diaryTextView.configure(diaryProvider: transaction)
     }
 
-    func updateBackground() {
+    
+   
+    
+    private func updateBackground() {
         if transaction.type == .Income {
             self.view.backgroundColor = UIColor.incomeColor
         } else if transaction.type == .Expense {

@@ -1,47 +1,16 @@
 PODS:
-  - MaterialComponents/ActionSheet (85.7.0):
-    - MaterialComponents/BottomSheet
-    - MaterialComponents/Ink
-    - MaterialComponents/Ripple
-    - MaterialComponents/Typography
-  - MaterialComponents/AnimationTiming (85.7.0)
-  - MaterialComponents/BottomSheet (85.7.0):
-    - MaterialComponents/private/KeyboardWatcher
-    - MaterialComponents/private/Math
-    - MaterialComponents/ShapeLibrary
-    - MaterialComponents/Shapes
-  - MaterialComponents/Ink (85.7.0):
-    - MaterialComponents/private/Math
-  - MaterialComponents/private/Application (85.7.0)
-  - MaterialComponents/private/KeyboardWatcher (85.7.0):
-    - MaterialComponents/private/Application
-  - MaterialComponents/private/Math (85.7.0)
-  - MaterialComponents/Ripple (85.7.0):
-    - MaterialComponents/AnimationTiming
-    - MaterialComponents/private/Math
-  - MaterialComponents/ShadowElevations (85.7.0)
-  - MaterialComponents/ShadowLayer (85.7.0):
-    - MaterialComponents/ShadowElevations
-  - MaterialComponents/ShapeLibrary (85.7.0):
-    - MaterialComponents/private/Math
-    - MaterialComponents/Shapes
-  - MaterialComponents/Shapes (85.7.0):
-    - MaterialComponents/private/Math
-    - MaterialComponents/ShadowLayer
-  - MaterialComponents/Typography (85.7.0):
-    - MaterialComponents/private/Application
-    - MaterialComponents/private/Math
+  - Floaty (4.2.0)
 
 DEPENDENCIES:
-  - MaterialComponents/ActionSheet
+  - Floaty (~> 4.2.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - MaterialComponents
+    - Floaty
 
 SPEC CHECKSUMS:
-  MaterialComponents: 5a8386aa9de7ee8bf9a6d31ac73b82a0f0a39a1e
+  Floaty: e2bd5a0f6f7f70899e26ff2da31081c8bee8d1b0
 
-PODFILE CHECKSUM: 0a7756d3eee99a608aa753a227a3ce1d3c9889de
+PODFILE CHECKSUM: bbece1c3ccbbf1f3ac350d4a51b7016503799d2f
 
 COCOAPODS: 1.7.4

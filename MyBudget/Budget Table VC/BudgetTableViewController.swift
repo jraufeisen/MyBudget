@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MaterialComponents.MaterialActionSheet
+import Floaty
 
 class BudgetTableViewCell: UITableViewCell {
     
@@ -53,6 +53,8 @@ public struct EntryContext {
         self.budgetCategory = budgetCategory
         self.description = description
     }
+
+    
 }
 
 
@@ -68,7 +70,54 @@ class BudgetTableViewController: UITableViewController {
         super.viewDidLoad()
         budgetCategories = Model.shared.getAllBudgetCategories()
     }
+    override func viewDidAppear(_ animated: Bool) {
+        addFloatingActionButton()
+    }
+    
+    private func addFloatingActionButton() {
+        let floaty = Floaty()
+        floaty.buttonColor = .white
+        floaty.plusColor = .blue
+        
+        floaty.itemSize = 50
 
+        var item = FloatyItem()
+        item.icon = UIImage.init(named: "euro")?.withRenderingMode(.alwaysTemplate)
+        item.tintColor = .white
+        item.buttonColor = .incomeColor
+        item.size = floaty.itemSize
+        item.handler = { (item) in
+            self.addTransaction(type: .Income)
+        }
+        floaty.addItem(item: item)
+
+        
+        item = FloatyItem()
+        item.icon = UIImage.init(named: "euro")?.withRenderingMode(.alwaysTemplate)
+        item.tintColor = .white
+        item.buttonColor = .transferColor
+        item.size = floaty.itemSize
+        item.handler = { (item) in
+            self.addTransaction(type: .Transfer)
+        }
+        floaty.addItem(item: item)
+
+        item = FloatyItem()
+        item.icon = UIImage.init(named: "euro")?.withRenderingMode(.alwaysTemplate)
+        item.tintColor = .white
+        item.buttonColor = .expenseColor
+        item.size = floaty.itemSize
+        item.handler = { (item) in
+            self.addTransaction(type: .Expense)
+        }
+        floaty.addItem(item: item)
+
+        
+
+        tableView.superview?.addSubview(floaty)
+    }
+    
+    
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 10
     }
@@ -104,25 +153,8 @@ class BudgetTableViewController: UITableViewController {
         return cell
     }
     
-    
-    @IBAction func plusButtonPressed(_ sender: Any) {
-        let actionSheet = MDCActionSheetController(title: "New Transaction",
-                                                   message: "Which kind of transaction do you want to add?")
-        let actionOne = MDCActionSheetAction(title: "Income",
-                                             image: UIImage(named: "Home"),
-                                             handler: { (action) in self.addTransaction(type: .Income) })
-        let actionTwo = MDCActionSheetAction(title: "Expense",
-                                             image: UIImage(named: "Email"),
-                                             handler: { (action) in self.addTransaction(type: .Expense) })
-        let actionThree = MDCActionSheetAction(title: "Transfer",
-                                             image: UIImage(named: "Email"),
-                                             handler: { (action) in self.addTransaction(type: .Transfer) })
-        actionSheet.addAction(actionOne)
-        actionSheet.addAction(actionTwo)
-        actionSheet.addAction(actionThree)
 
-        present(actionSheet, animated: true, completion: nil)
-    }
+    
     
     
     private func addTransaction(type: TransactionType) {

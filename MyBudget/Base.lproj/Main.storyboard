@@ -105,7 +105,6 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="EBI-KO-T0l"/>
                     </toolbarItems>
                     <navigationItem key="navigationItem" title="Budget" id="CLK-e3-KFl"/>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E0y-vh-x76" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -114,7 +113,7 @@
         <!--Navigation Controller-->
         <scene sceneID="fvN-0f-UDq">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="Whq-2e-P1F" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Whq-2e-P1F" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="60n-N2-8k6">
@@ -122,10 +121,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7cC-hQ-drd">
-                        <rect key="frame" x="0.0" y="813" width="414" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
                     <connections>
                         <segue destination="hyq-of-tzR" kind="relationship" relationship="rootViewController" id="jkk-Lb-eby"/>
                     </connections>
