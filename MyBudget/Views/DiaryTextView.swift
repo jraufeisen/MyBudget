@@ -77,19 +77,36 @@ class DiaryTextView: UITextView {
         // Display new text
         // Special case: If we ask for the date in the beginning, we set the default value to today and skip the initial data entry
         if entryIndex == 0 && currentEntry.entryType == .date {
-            text = "Today"
+            text += "Today"
             nextDiaryEntry()
             return
         }
         
-        text += currentEntry.text
+       // text += currentEntry.text
+        addTextAnimated(text: currentEntry.text) {
+            // Ask for new input depending on the entry type
+            self.configureInput(type: currentEntry.entryType)
+        }
+
         
-        
-        // Ask for new input depending on the entry type
-        configureInput(type: currentEntry.entryType)
     }
 
 
+   
+    private func addTextAnimated(text: String, completion: @escaping () -> Void) {
+        let timeInBetween = 0.05
+        var remainingText = text
+        Timer.scheduledTimer(withTimeInterval: timeInBetween, repeats: true) { (timer) in
+            if remainingText == "" {
+                timer.invalidate()
+                completion()
+                return
+            }
+            let c = remainingText.removeFirst()
+            self.text += String(c)
+        }
+    }
+    
 
     private func transitionToInputView(view: UIView, accessoryView: UIView?) {
         inputView?.addSubview(view)
@@ -115,6 +132,7 @@ class DiaryTextView: UITextView {
         case .account:
             let accountView = AccountTableView.init(outputView: self, delegate: self, color: superview?.backgroundColor)
             let newAccountView = AccountAccessoryView.init(outputView: self, delegate: nil, color: superview?.backgroundColor)
+            newAccountView.accountCreationDelegate = self
             transitionToInputView(view: accountView, accessoryView: newAccountView)
         case .date:
             let datePicker = UIDatePicker()
@@ -127,6 +145,7 @@ class DiaryTextView: UITextView {
         case .category:
             let categoryView = CategoryTableView.init(outputView: self, delegate: self, color: superview?.backgroundColor)
             let newCategoryView = CategoryAccessoryView.init(outputView: self, delegate: nil, color: superview?.backgroundColor)
+            newCategoryView.categoryCreationDelegate = self
             transitionToInputView(view: categoryView, accessoryView: newCategoryView)
         case .tags:
             keyboardType = .default
@@ -144,6 +163,7 @@ class DiaryTextView: UITextView {
     override func resignFirstResponder() -> Bool {
         return super.resignFirstResponder()
     }
+    
     
     /// No copy, paste, select on this textview
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
@@ -226,5 +246,21 @@ extension DiaryTextView: MoneyKeyBoardDelegate {
     func moneyKeyboardPressedDone(keyboard: MoneyKeyboard) {
         diaryDelegate?.didEnterDiaryPair(index: entryIndex, value: keyboard.moneyEntered())
         finishDataEntry()
+    }
+}
+
+extension DiaryTextView: AccountCreationDelegate {
+    func createAccount(name: String) {
+        // Send to model
+        print("I will now creae a new acount")
+        // Reload input tableview (better hold a reference and call .reloadData on the tableview itself)
+    }
+}
+
+extension DiaryTextView: CategoryCreationDelegate {
+    func createCategory(name: String) {
+        // Send to model
+        print("I will now create a new category")
+        // Reload input tableview (better hold a reference and call .reloadData on the tableview itself)
     }
 }

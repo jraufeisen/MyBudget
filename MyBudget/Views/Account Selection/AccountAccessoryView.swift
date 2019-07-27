@@ -20,7 +20,8 @@ class NewAccountCell: UITableViewCell {
 
 class AccountAccessoryView: UITableView {
     
-    private var accountCreationDelegate: AccountCreationDelegate?
+    var accountCreationDelegate: AccountCreationDelegate?
+    
     private var outputView: UIKeyInput?
     
     init(outputView: UIKeyInput?, delegate: AccountCreationDelegate?, color: UIColor?) {

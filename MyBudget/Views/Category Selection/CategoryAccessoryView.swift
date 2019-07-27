@@ -27,7 +27,7 @@ protocol CategoryCreationDelegate {
 
 class CategoryAccessoryView: UITableView {
     
-    private var categoryCreationDelegate: CategoryCreationDelegate?
+    var categoryCreationDelegate: CategoryCreationDelegate?
     private var outputView: UIKeyInput?
     
     init(outputView: UIKeyInput?, delegate: CategoryCreationDelegate?, color: UIColor?) {

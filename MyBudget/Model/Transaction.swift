@@ -10,11 +10,11 @@ import UIKit
 
 
 
-protocol Transaction: DiaryProvider {
+protocol Transaction: DiaryProvider, CustomStringConvertible {
     var tags: [String] {get set}
     var value: NSNumber { get set } //TODO: money
     var type: TransactionType { get }
-    var description: String {get set}
+    var transactionDescription: String {get set}
     func ledgerString() -> String
 }
 
@@ -26,10 +26,22 @@ class IncomeTransaction: Transaction {
 
     var value: NSNumber = 0
     var account: String = ""
-    var description: String = ""
+    var transactionDescription: String = ""
     var tags = [String]()
 
     
+    var description: String {
+        get {
+            return """
+            Income
+            - Value: \(value)
+            - From Account: \(account)
+            - Tags: \(tags)
+            - Description: \(transactionDescription)
+            """
+        }
+    }
+
     func diaryEntry() -> DiaryEntry {
         return [
             ("", .date),
@@ -37,6 +49,8 @@ class IncomeTransaction: Transaction {
             (" to my account ", .account),
         ]
     }
+
+
     
     func ledgerString() -> String {
         return "TODO"
@@ -44,6 +58,21 @@ class IncomeTransaction: Transaction {
 }
 
 class ExpenseTransaction: Transaction {
+    
+    var description: String {
+        get {
+            return """
+            Expense
+            - Value: \(value)
+            - From Account: \(account)
+            - In Category: \(category)
+            - Description: \(transactionDescription)
+            - Tags: \(tags)
+            """
+        }
+    }
+    
+    
     func diaryEntry() -> DiaryEntry {
         return [
             ("", .date),
@@ -58,7 +87,7 @@ class ExpenseTransaction: Transaction {
     
     var value: NSNumber = 0
     var account: String = ""
-    var description: String = ""
+    var transactionDescription: String = ""
     var category: String = ""
     var tags = [String]()
     
@@ -72,6 +101,20 @@ class ExpenseTransaction: Transaction {
 }
 
 class TransferTransaction: Transaction {
+    
+    var description: String {
+        get {
+            return """
+            Transfer
+            - Value: \(value)
+            - From Account: \(fromAccount)
+            - To Account: \(toAccount)
+            - Description: \(transactionDescription)
+            - Tags: \(tags)
+            """
+        }
+    }
+    
     func diaryEntry() -> DiaryEntry {
         return [
             ("", .date),
@@ -89,7 +132,7 @@ class TransferTransaction: Transaction {
     var value: NSNumber = 0
     var fromAccount: String = ""
     var toAccount: String = ""
-    var description: String = ""
+    var transactionDescription: String = ""
     var tags = [String]()
 
   
