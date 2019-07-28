@@ -10,6 +10,7 @@ import UIKit
 
 class BudgetDetailViewController: UITableViewController {
 
+    @IBOutlet weak var unbudgetedMoneyLabel: UILabel!
     @IBOutlet weak var budgetedMoneyLabel: MoneyTextField!
     @IBOutlet weak var enterNumberImageView: UIImageView!
     
@@ -23,26 +24,37 @@ class BudgetDetailViewController: UITableViewController {
 
     
     var category: BudgetCategoryViewable?
+    var transactions = [Transaction]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
+        // Adjust money label
         budgetedMoneyLabel.text = ""
         let keyboard = MoneyKeyboard.init(outputView: self.budgetedMoneyLabel, startingWith: "\(category?.remainingMoney ?? 0000)".replacingOccurrences(of: ".", with: ""))
         keyboard.delegate = self
         budgetedMoneyLabel.inputView = keyboard
+        budgetedMoneyLabel.delegate = self
         
+        // Adjust image view
         enterNumberImageView.image = UIImage.init(named: "edit-2")?.withRenderingMode(.alwaysTemplate)
         enterNumberImageView.tintColor = .white
+        
+        // Load data
+        if let cat = category {
+            transactions = Model.shared.transactions(for: cat.name)
+        }
+        
+        updateUnbudgetedLabel()
     }
    
+    
  
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return transactions.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -50,7 +62,9 @@ class BudgetDetailViewController: UITableViewController {
             return UITableViewCell()
         }
         
-        cell.textLabel?.text = "Transaktion \(indexPath.row)"
+        let tx = transactions[indexPath.row]
+        cell.textLabel?.text = tx.transactionDescription
+        cell.detailTextLabel?.text = "\(tx.value)"
         
         return cell
     }
@@ -63,8 +77,19 @@ class BudgetDetailViewController: UITableViewController {
 
 extension BudgetDetailViewController: MoneyKeyBoardDelegate {
     func moneyKeyboardPressedDone(keyboard: MoneyKeyboard) {
+        guard let cat = self.category?.name else {return}
         let money = keyboard.moneyEntered()
-        print("I will now adjust budget to \(money)")
+        Model.shared.setBudget(category: cat, newValue: money)
         budgetedMoneyLabel.resignFirstResponder()
+    }
+}
+
+extension BudgetDetailViewController: UITextFieldDelegate {
+    func updateUnbudgetedLabel() {
+        unbudgetedMoneyLabel.text = "\(Model.shared.unbudgetedMoney()) €"
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        updateUnbudgetedLabel()
     }
 }

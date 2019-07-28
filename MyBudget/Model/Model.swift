@@ -70,4 +70,46 @@ class Model: NSObject {
         _ = LedgerModel.shared().postTransfer(from: from, to: to, value: "\(transaction.value)", description: transaction.transactionDescription)
     }
     
+    
+    func transactions(for category: String) -> [Transaction] {
+        var transactions = [Transaction]()
+        
+        for tx in LedgerModel.shared().transactions {
+        
+            for post in tx.postings {
+                // do not include budgeting transactions, only real expenses
+                if post.0.name.contains(category) && tx.isExpense() {
+                    
+                    let relevantTx = ExpenseTransaction.init()
+                    relevantTx.account = post.0.name
+                    relevantTx.category = category
+                    relevantTx.transactionDescription = tx.name
+                    let dec = NSDecimalNumber.init(decimal: post.1)
+                    relevantTx.value = NSNumber(value: dec.floatValue )
+                    transactions.append(relevantTx)
+                    
+                    break
+                }
+            }
+        }
+        
+        return transactions
+    }
+    
+    func unbudgetedMoney() -> NSNumber {
+        
+        let budgetAccount = Account.init(name: "Assets:Budget")
+        let moneyAccount = Account.init(name:"Assets:Banking")
+        let budgeted = LedgerModel.shared().balanceForAccount(acc: budgetAccount)
+        let owned = LedgerModel.shared().balanceForAccount(acc: moneyAccount)
+        
+        let dec = NSDecimalNumber.init(decimal: owned - budgeted)
+
+        return NSNumber(value: dec.floatValue )
+    }
+    
+    func setBudget(category: String, newValue: NSNumber) {
+        print("I will set budget \(category) to \(newValue)")
+    }
+    
 }

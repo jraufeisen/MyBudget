@@ -160,7 +160,7 @@ class BudgetTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cat = budgetCategories[indexPath.row]
+        let cat = budgetCategories[indexPath.section]
         let vc = BudgetDetailViewController.instantiate(with: cat)
         navigationController?.pushViewController(vc, animated: true)
     }
