@@ -12,15 +12,18 @@
 		EB02A67322EB10E700987AFA /* APNumberButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02A66C22EB10E700987AFA /* APNumberButton.m */; };
 		EB02A67422EB10E700987AFA /* NSBundle+APNumberPad.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02A66D22EB10E700987AFA /* NSBundle+APNumberPad.m */; };
 		EB02A67522EB10E700987AFA /* APNumberPad.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02A67022EB10E700987AFA /* APNumberPad.m */; };
-		EB02A67B22EB134F00987AFA /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = EB02A67A22EB134F00987AFA /* LICENSE */; };
 		EB02A68122EB1BAF00987AFA /* apnumberpad_backspace_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = EB02A68022EB1BAA00987AFA /* apnumberpad_backspace_icon.png */; };
 		EB02A68222EB1BAF00987AFA /* apnumberpad_backspace_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB02A67E22EB1BAA00987AFA /* apnumberpad_backspace_icon@2x.png */; };
 		EB02A68322EB1BAF00987AFA /* apnumberpad_backspace_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB02A67F22EB1BAA00987AFA /* apnumberpad_backspace_icon@3x.png */; };
 		EB02A68722EB1BEF00987AFA /* MoneyKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB02A68622EB1BEF00987AFA /* MoneyKeyboard.swift */; };
+		EB2C771B22EDBCA3009FA2C8 /* UITextView+Center.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2C771A22EDBCA3009FA2C8 /* UITextView+Center.swift */; };
+		EB2C771D22EDBD59009FA2C8 /* BudgetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2C771C22EDBD59009FA2C8 /* BudgetDetailViewController.swift */; };
+		EB2C772022EDC143009FA2C8 /* MoneyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2C771F22EDC143009FA2C8 /* MoneyTextField.swift */; };
+		EB2C772222EDC8CA009FA2C8 /* pencil.png in Resources */ = {isa = PBXBuildFile; fileRef = EB2C772122EDC8CA009FA2C8 /* pencil.png */; };
+		EB2C772622EDCA56009FA2C8 /* edit-2.png in Resources */ = {isa = PBXBuildFile; fileRef = EB2C772522EDCA56009FA2C8 /* edit-2.png */; };
 		EB558EB322ECA28100039651 /* LedgerTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB558EB222ECA28000039651 /* LedgerTransaction.swift */; };
 		EB558EB722ECA3A200039651 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB558EB622ECA3A200039651 /* CloudKit.framework */; };
 		EB985CA722EC699200C033E8 /* verify-sign.png in Resources */ = {isa = PBXBuildFile; fileRef = EB985CA622EC699200C033E8 /* verify-sign.png */; };
-		EB985CB422EC6B2E00C033E8 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = EB985CB322EC6B2E00C033E8 /* LICENSE */; };
 		EB985CB522EC6B5400C033E8 /* FloatyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CB222EC6B2300C033E8 /* FloatyDelegate.swift */; };
 		EB985CB622EC6B5800C033E8 /* FloatyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CAC22EC6B2300C033E8 /* FloatyWindow.swift */; };
 		EB985CB722EC6B5800C033E8 /* FloatyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CAD22EC6B2300C033E8 /* FloatyManager.swift */; };
@@ -74,6 +77,11 @@
 		EB02A67F22EB1BAA00987AFA /* apnumberpad_backspace_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apnumberpad_backspace_icon@3x.png"; sourceTree = "<group>"; };
 		EB02A68022EB1BAA00987AFA /* apnumberpad_backspace_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apnumberpad_backspace_icon.png; sourceTree = "<group>"; };
 		EB02A68622EB1BEF00987AFA /* MoneyKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyKeyboard.swift; sourceTree = "<group>"; };
+		EB2C771A22EDBCA3009FA2C8 /* UITextView+Center.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Center.swift"; sourceTree = "<group>"; };
+		EB2C771C22EDBD59009FA2C8 /* BudgetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetDetailViewController.swift; sourceTree = "<group>"; };
+		EB2C771F22EDC143009FA2C8 /* MoneyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTextField.swift; sourceTree = "<group>"; };
+		EB2C772122EDC8CA009FA2C8 /* pencil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pencil.png; sourceTree = "<group>"; };
+		EB2C772522EDCA56009FA2C8 /* edit-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit-2.png"; sourceTree = "<group>"; };
 		EB558EB222ECA28000039651 /* LedgerTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LedgerTransaction.swift; sourceTree = "<group>"; };
 		EB558EB522ECA39D00039651 /* MyBudget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyBudget.entitlements; sourceTree = "<group>"; };
 		EB558EB622ECA3A200039651 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
@@ -185,6 +193,17 @@
 			path = APNumberPad;
 			sourceTree = "<group>";
 		};
+		EB2C771E22EDBD5E009FA2C8 /* Budget Detail VC */ = {
+			isa = PBXGroup;
+			children = (
+				EB2C771C22EDBD59009FA2C8 /* BudgetDetailViewController.swift */,
+				EB2C772122EDC8CA009FA2C8 /* pencil.png */,
+				EB2C772522EDCA56009FA2C8 /* edit-2.png */,
+				EB2C771F22EDC143009FA2C8 /* MoneyTextField.swift */,
+			);
+			path = "Budget Detail VC";
+			sourceTree = "<group>";
+		};
 		EB558EB422ECA29D00039651 /* Ledger */ = {
 			isa = PBXGroup;
 			children = (
@@ -243,6 +262,7 @@
 				EBEB145922E8A2A200291435 /* Extensions */,
 				EBD012E322E99A1200F8126D /* Budget Table VC */,
 				EBEB145122E8A1B500291435 /* New Transaction VC */,
+				EB2C771E22EDBD5E009FA2C8 /* Budget Detail VC */,
 				EBC59D4A22E7503A00E626DC /* Info.plist */,
 			);
 			path = MyBudget;
@@ -318,6 +338,7 @@
 				EBEB145622E8A29800291435 /* UIColor+Macro.swift */,
 				EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */,
 				EB985CBC22EC74F800C033E8 /* String+OnlyDigits.swift */,
+				EB2C771A22EDBCA3009FA2C8 /* UITextView+Center.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -390,7 +411,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB2C772222EDC8CA009FA2C8 /* pencil.png in Resources */,
 				EB02A68122EB1BAF00987AFA /* apnumberpad_backspace_icon.png in Resources */,
+				EB2C772622EDCA56009FA2C8 /* edit-2.png in Resources */,
 				EB985CA722EC699200C033E8 /* verify-sign.png in Resources */,
 				EBC59D4922E7503A00E626DC /* LaunchScreen.storyboard in Resources */,
 				EB02A68322EB1BAF00987AFA /* apnumberpad_backspace_icon@3x.png in Resources */,
@@ -399,8 +422,6 @@
 				EBD012F322E9B39D00F8126D /* drawer.png in Resources */,
 				EBD012E922E9AD5000F8126D /* euro.png in Resources */,
 				EBFF078D22E9B4BA00CC7215 /* NewAccountCell.xib in Resources */,
-				EB02A67B22EB134F00987AFA /* LICENSE in Resources */,
-				EB985CB422EC6B2E00C033E8 /* LICENSE in Resources */,
 				EB02A68222EB1BAF00987AFA /* apnumberpad_backspace_icon@2x.png in Resources */,
 				EBFF078E22E9B4BC00CC7215 /* ExistingAccountCell.xib in Resources */,
 				EBC59D4622E7503A00E626DC /* Assets.xcassets in Resources */,
@@ -449,7 +470,9 @@
 				EB02A68722EB1BEF00987AFA /* MoneyKeyboard.swift in Sources */,
 				EBEB145722E8A29800291435 /* UIColor+Macro.swift in Sources */,
 				EBEB145B22E8AD7300291435 /* Transaction.swift in Sources */,
+				EB2C771B22EDBCA3009FA2C8 /* UITextView+Center.swift in Sources */,
 				EB985CBB22EC6B5800C033E8 /* Floaty.swift in Sources */,
+				EB2C771D22EDBD59009FA2C8 /* BudgetDetailViewController.swift in Sources */,
 				EB985CB522EC6B5400C033E8 /* FloatyDelegate.swift in Sources */,
 				EBD012EE22E9B22100F8126D /* CategoryTableView.swift in Sources */,
 				EB9DEBD422E9E5C400A73FD1 /* UITextField+Placeholder.swift in Sources */,
@@ -458,6 +481,7 @@
 				EB985CB922EC6B5800C033E8 /* UIView+Draggable.swift in Sources */,
 				EB02A67522EB10E700987AFA /* APNumberPad.m in Sources */,
 				EB985CB622EC6B5800C033E8 /* FloatyWindow.swift in Sources */,
+				EB2C772022EDC143009FA2C8 /* MoneyTextField.swift in Sources */,
 				EB9DEBD622E9F00600A73FD1 /* CategoryAccessoryView.swift in Sources */,
 				EBF2F67C22E8D91300C2772F /* AccountTableView.swift in Sources */,
 				EBC59D5122E750DC00E626DC /* BudgetTableViewController.swift in Sources */,

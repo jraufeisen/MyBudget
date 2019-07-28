@@ -24,7 +24,7 @@ class MoneyKeyboard: APNumberPad {
     
     private var outputView: UIKeyInput?
     
-    init(outputView: UIKeyInput) {
+    init(outputView: UIKeyInput, startingWith: String = "") {
         //super.init()
         //super.init(delegate: self)
         super.init(delegate: nil , numberPadStyleClass: nil)
@@ -33,9 +33,12 @@ class MoneyKeyboard: APNumberPad {
         leftFunctionButton.titleLabel?.adjustsFontSizeToFitWidth = true
 
         self.outputView = outputView
+        
+        characterSequence = startingWith
         updateOutputText()
         
     }
+
     
     
     required init?(coder aDecoder: NSCoder) {

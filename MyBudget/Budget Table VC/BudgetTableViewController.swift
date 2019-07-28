@@ -25,6 +25,8 @@ class BudgetTableViewCell: UITableViewCell {
         insetView.layer.borderColor = UIColor.lightGray.cgColor
         insetView.layer.cornerRadius = 10
         insetView.layer.masksToBounds = true
+        
+        selectionStyle = .none
     }
     
 }
@@ -69,6 +71,7 @@ class BudgetTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         budgetCategories = Model.shared.getAllBudgetCategories()
+
     }
     override func viewDidAppear(_ animated: Bool) {
         addFloatingActionButton()
@@ -118,7 +121,7 @@ class BudgetTableViewController: UITableViewController {
         tableView.superview?.addSubview(floaty)
     }
     
-    
+
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 10
     }
@@ -155,6 +158,12 @@ class BudgetTableViewController: UITableViewController {
     }
     
 
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cat = budgetCategories[indexPath.row]
+        let vc = BudgetDetailViewController.instantiate(with: cat)
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
     
     
