@@ -45,8 +45,9 @@ class IncomeTransaction: Transaction {
     func diaryEntry() -> DiaryEntry {
         return [
             ("", .date),
-            (", I have added ", .money),
+            (", I added ", .money),
             (" to my account ", .account),
+            (".\nName: ", .description),
         ]
     }
 
@@ -79,7 +80,7 @@ class ExpenseTransaction: Transaction {
             (", I spent ", .money),
             (" from my ", .account),
             (" account on ", .category),
-            (".\nAdditional notes: ", .description),
+            (".\nName: ", .description),
         ]
     }
     
@@ -118,10 +119,10 @@ class TransferTransaction: Transaction {
     func diaryEntry() -> DiaryEntry {
         return [
             ("", .date),
-            (", I transfered ", .money),
+            (", I transferred ", .money),
             (" from my ", .account),
             (" account to my ", .account),
-            (" account.", .description),
+            (" account.\nName: ", .description),
         ]
     }
     
