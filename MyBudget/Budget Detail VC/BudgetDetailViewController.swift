@@ -8,6 +8,19 @@
 
 import UIKit
 
+class CategoryTransacitonCell: UITableViewCell {
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var accountLabel: UILabel!
+    @IBOutlet weak var moneyLabel: UILabel!
+    
+    override func awakeFromNib() {
+        moneyLabel.textColor = .expenseColor
+        selectionStyle = .none
+    }
+}
+
+
 class BudgetDetailViewController: UITableViewController {
 
     @IBOutlet weak var unbudgetedMoneyLabel: UILabel!
@@ -60,14 +73,23 @@ class BudgetDetailViewController: UITableViewController {
         return transactions.count
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 66
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "transactionCell") else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "transactionCell") as? CategoryTransacitonCell else {
             return UITableViewCell()
         }
-        
         let tx = transactions[indexPath.row]
-        cell.textLabel?.text = tx.transactionDescription
-        cell.detailTextLabel?.text = "\(tx.value)"
+        
+        cell.nameLabel.text = tx.transactionDescription
+        cell.moneyLabel.text = "\(tx.value)"
+        
+        guard let expenseTx = tx as? ExpenseTransaction else {
+            return cell
+        }
+        cell.accountLabel.text = expenseTx.account
         
         return cell
     }
