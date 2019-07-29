@@ -29,6 +29,9 @@ class BudgetDetailViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Set title
+        title = category?.name
+        
         // Adjust money label
         budgetedMoneyLabel.text = ""
         let keyboard = MoneyKeyboard.init(outputView: self.budgetedMoneyLabel, startingWith: "\(category?.remainingMoney ?? 0000)".replacingOccurrences(of: ".", with: ""))
