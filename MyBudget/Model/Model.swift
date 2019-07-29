@@ -23,10 +23,15 @@ class Model: NSObject {
         
     }
     
+    /// Only returns banking accounts. only last component
     func getAllAccountNames() -> [String] {
         var names = [String]()
         for acc in LedgerModel.shared().accounts {
-            names.append(acc.name)
+            if acc.name.contains("Assets:Banking:"), let humanName = acc.name.components(separatedBy: ":").last {
+                if !names.contains(humanName) {
+                    names.append(humanName)
+                }
+            }
         }
         return names
     }
@@ -60,15 +65,15 @@ class Model: NSObject {
     }
     
     private func addTransaction(transaction: IncomeTransaction) {
-        _ = LedgerModel.shared().postIncome(acc: Account.init(name: transaction.account), value: "\(transaction.value.floatValue)", description: transaction.transactionDescription)
+        _ = LedgerModel.shared().postIncome(acc: Account.init(name: "Assets:Banking:\(transaction.account)"), value: "\(transaction.value.amount)", description: transaction.transactionDescription)
     }
     private func addTransaction(transaction: ExpenseTransaction) {
-        _ = LedgerModel.shared().postExpense(acc: transaction.account, value: "\(transaction.value.floatValue)", category: transaction.category, description: transaction.transactionDescription)
+        _ = LedgerModel.shared().postExpense(acc: "Assets:Banking:\(transaction.account)", value: "\(transaction.value.amount)", category: transaction.category, description: transaction.transactionDescription)
     }
     private func addTransaction(transaction: TransferTransaction) {
-        let from = Account.init(name: transaction.fromAccount)
-        let to = Account.init(name: transaction.toAccount)
-        _ = LedgerModel.shared().postTransfer(from: from, to: to, value: "\(transaction.value.floatValue)", description: transaction.transactionDescription)
+        let from = Account.init(name: "Assets:Banking:\(transaction.fromAccount)")
+        let to = Account.init(name: "Assets:Banking:\(transaction.toAccount)")
+        _ = LedgerModel.shared().postTransfer(from: from, to: to, value: "\(transaction.value.amount)", description: transaction.transactionDescription)
     }
     
     
