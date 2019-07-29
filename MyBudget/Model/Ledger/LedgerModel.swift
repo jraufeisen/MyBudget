@@ -94,6 +94,22 @@ class LedgerModel: NSObject {
     
     //MARK: Enter new data
     
+    /// Add a value (positive or negative) to the specified category. Returns true on success
+    func addBudget(category: String, value: String) -> Bool {
+        let value = value.replacingOccurrences(of: ",", with: ".")
+        guard let money = Float(value) else {print("Not a valid number");return false}
+        
+        let date = LedgerModel.dateString(date: Date())
+        let transferStatement = """
+        
+        \(date) Budget Change
+        \t(Assets:Budget:\(category))\t \(money) EUR
+        \tEquity:AntiBudget
+        
+        """
+        return appendToLedger(appendingString: transferStatement)
+    }
+    
     ///Appends a new transaction to the current ledger file. Returns YES on success
     func postTransaction(context: EntryContext) -> Bool {
         

@@ -79,7 +79,7 @@ extension BudgetDetailViewController: MoneyKeyBoardDelegate {
     func moneyKeyboardPressedDone(keyboard: MoneyKeyboard) {
         guard let cat = self.category?.name else {return}
         let money = keyboard.moneyEntered()
-        Model.shared.setBudget(category: cat, newValue: money)
+        Model.shared.setBudget(category: cat, newValue: NSNumber.init(value: (money.floatValue / 100.0)))
         budgetedMoneyLabel.resignFirstResponder()
     }
 }

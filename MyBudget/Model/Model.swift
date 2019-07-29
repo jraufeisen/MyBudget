@@ -109,7 +109,13 @@ class Model: NSObject {
     }
     
     func setBudget(category: String, newValue: NSNumber) {
-        print("I will set budget \(category) to \(newValue)")
+        let budgetAccount = Account.init(name: "Assets:Budget:\(category)")
+        let currentValue = LedgerModel.shared().balanceForAccount(acc: budgetAccount)
+        
+        let currentNumber = NSNumber.init(value: (currentValue as NSDecimalNumber).floatValue)
+        let updateValue = NSNumber.init(value:  newValue.floatValue - currentNumber.floatValue)
+        
+        LedgerModel.shared().addBudget(category: category, value: "\(updateValue)")
     }
     
 }
