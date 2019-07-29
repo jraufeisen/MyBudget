@@ -62,24 +62,31 @@ public struct EntryContext {
 
 
 
-
-class BudgetTableViewController: UITableViewController {
+/// Its easier to model this vc as a plain viewcontroller, not tableviewcontroller, because I wanna ad a floating button on top
+class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     private var budgetCategories = [BudgetCategoryViewable]()
+    @IBOutlet var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         budgetCategories = Model.shared.getAllBudgetCategories()
-
-    }
-    override func viewDidAppear(_ animated: Bool) {
         addFloatingActionButton()
+    }
+
+    
+    override func viewDidAppear(_ animated: Bool) {
         budgetCategories = Model.shared.getAllBudgetCategories()
         tableView.reloadData()
     }
     
+    var floaty = Floaty()
     private func addFloatingActionButton() {
-        let floaty = Floaty()
+        guard floaty.superview == nil else {
+            view.bringSubviewToFront(floaty)
+            return
+        }
+
         floaty.buttonColor = .white
         floaty.plusColor = .blue
         floaty.itemSize = 50
@@ -115,36 +122,36 @@ class BudgetTableViewController: UITableViewController {
         }
         floaty.addItem(item: item)
 
-        
-
-        tableView.superview?.addSubview(floaty)
+        //view.addSubview(floaty)
+        view.addSubview(floaty)
+        //tableView.superview?.addSubview(floaty)
     }
     
 
-    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 10
     }
     
-    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 10
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
     
     
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return budgetCategories.count
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "budgetCell") as? BudgetTableViewCell else {
             return UITableViewCell()
         }
@@ -158,7 +165,7 @@ class BudgetTableViewController: UITableViewController {
     
 
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cat = budgetCategories[indexPath.section]
         let vc = BudgetDetailViewController.instantiate(with: cat)
         navigationController?.pushViewController(vc, animated: true)
