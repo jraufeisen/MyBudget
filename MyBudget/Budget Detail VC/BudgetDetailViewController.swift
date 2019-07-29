@@ -47,7 +47,9 @@ class BudgetDetailViewController: UITableViewController {
         
         // Adjust money label
         budgetedMoneyLabel.text = ""
-        let keyboard = MoneyKeyboard.init(outputView: self.budgetedMoneyLabel, startingWith: "\(category?.remainingMoney ?? 0000)".replacingOccurrences(of: ".", with: ""))
+
+        let keyboard = MoneyKeyboard.init(outputView: self.budgetedMoneyLabel, startingWith: category?.remainingMoney.minorUnits ?? 0)
+        
         keyboard.delegate = self
         budgetedMoneyLabel.inputView = keyboard
         budgetedMoneyLabel.delegate = self
@@ -104,14 +106,14 @@ extension BudgetDetailViewController: MoneyKeyBoardDelegate {
     func moneyKeyboardPressedDone(keyboard: MoneyKeyboard) {
         guard let cat = self.category?.name else {return}
         let money = keyboard.moneyEntered()
-        Model.shared.setBudget(category: cat, newValue: NSNumber.init(value: (money.floatValue / 100.0)))
+        Model.shared.setBudget(category: cat, newValue: money)
         budgetedMoneyLabel.resignFirstResponder()
     }
 }
 
 extension BudgetDetailViewController: UITextFieldDelegate {
     func updateUnbudgetedLabel() {
-        unbudgetedMoneyLabel.text = "\(Model.shared.unbudgetedMoney()) €"
+        unbudgetedMoneyLabel.text = "\(Model.shared.unbudgetedMoney())"
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {

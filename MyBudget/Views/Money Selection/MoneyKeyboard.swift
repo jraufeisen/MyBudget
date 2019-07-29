@@ -24,7 +24,8 @@ class MoneyKeyboard: APNumberPad {
     
     private var outputView: UIKeyInput?
     
-    init(outputView: UIKeyInput, startingWith: String = "") {
+    /// Startng with minorUnits
+    init(outputView: UIKeyInput, startingWith: Int = 0) {
         //super.init()
         //super.init(delegate: self)
         super.init(delegate: nil , numberPadStyleClass: nil)
@@ -34,7 +35,13 @@ class MoneyKeyboard: APNumberPad {
 
         self.outputView = outputView
         
-        characterSequence = startingWith
+        
+      
+        if startingWith == 0 {
+            characterSequence = ""
+        } else {
+            characterSequence = "\(startingWith)"
+        }
         updateOutputText()
         
     }
@@ -54,12 +61,12 @@ class MoneyKeyboard: APNumberPad {
     }
 
     
-    func moneyEntered() -> NSNumber {
+    func moneyEntered() -> Money {
         let pureDigits = currentlyDisplayed.onlyDigits()
-        guard let value = Int(pureDigits) else {
+        guard let minorUnits = Int(pureDigits) else {
             fatalError("Keyboard was not able to enter money in correct format")
         }
-        return NSNumber.init(value: value)
+        return Money.init(minorUnits: minorUnits)
     }
     
     

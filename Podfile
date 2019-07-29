@@ -6,5 +6,5 @@ target 'MyBudget' do
   use_frameworks!
 
   # Pods for MyBudget
-
+  pod 'ValueCoding', '~> 3.0.0'
 end

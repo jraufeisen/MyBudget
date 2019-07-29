@@ -92,17 +92,16 @@ extension EnterNumberViewController: DiaryDelegate {
     private func processIncomeEntry(index: Int, value: Any) {
         guard let transaction = self.transaction as? IncomeTransaction else {
             fatalError("Wrong transaction type was chosen. Cannot process information")
-            return
         }
         let entryType = transaction.diaryEntry()[index].entryType
         
         switch entryType {
         case .money:
-            guard let value = value as? Int else {
+            guard let value = value as? Money else {
                 print("Unexpected type. Cannot process information")
                 return
             }
-            transaction.value = NSNumber.init(value: Float(value) / 100)
+            transaction.value = value
 
         case .date:
             print("Date not implemented yet")
@@ -131,16 +130,15 @@ extension EnterNumberViewController: DiaryDelegate {
     private func processTransferEntry(index: Int, value: Any) {
         guard let transaction = self.transaction as? TransferTransaction else {
             fatalError("Wrong transaction type was chosen. Cannot process information")
-            return
         }
         let entryType = transaction.diaryEntry()[index].entryType
         switch entryType {
         case .money:
-            guard let value = value as? Int else {
+            guard let value = value as? Money else {
                 print("Unexpected type. Cannot process information")
                 return
             }
-            transaction.value = NSNumber.init(value: Float(value) / 100)
+            transaction.value = value
 
         case .date:
             print("Date not implemented yet")
@@ -188,11 +186,11 @@ extension EnterNumberViewController: DiaryDelegate {
         
         switch entryType {
         case .money:
-            guard let value = value as? Int else {
+            guard let value = value as? Money else {
                 print("Unexpected type. Cannot process information")
                 return
             }
-            transaction.value = NSNumber.init(value: Float(value) / 100)
+            transaction.value = value
 
         case .date:
             print("Date not implemented yet")

@@ -12,7 +12,7 @@ import UIKit
 
 protocol Transaction: DiaryProvider, CustomStringConvertible {
     var tags: [String] {get set}
-    var value: NSNumber { get set } //TODO: money
+    var value: Money { get set } //TODO: money
     var type: TransactionType { get }
     var transactionDescription: String {get set}
     func ledgerString() -> String
@@ -24,7 +24,7 @@ class IncomeTransaction: Transaction {
     var type: TransactionType = .Income
 
 
-    var value: NSNumber = 0
+    var value: Money = 0
     var account: String = ""
     var transactionDescription: String = ""
     var tags = [String]()
@@ -85,7 +85,7 @@ class ExpenseTransaction: Transaction {
     
     var type: TransactionType = .Expense
     
-    var value: NSNumber = 0
+    var value: Money = 0
     var account: String = ""
     var transactionDescription: String = ""
     var category: String = ""
@@ -129,7 +129,7 @@ class TransferTransaction: Transaction {
     
     var type: TransactionType = .Transfer
     
-    var value: NSNumber = 0
+    var value: Money = 0
     var fromAccount: String = ""
     var toAccount: String = ""
     var transactionDescription: String = ""
