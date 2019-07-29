@@ -76,21 +76,28 @@ class Model: NSObject {
         
         for tx in LedgerModel.shared().transactions {
         
+            let relevantTx = ExpenseTransaction.init()
             for post in tx.postings {
                 // do not include budgeting transactions, only real expenses
                 if post.0.name.contains(category) && tx.isExpense() {
                     
-                    let relevantTx = ExpenseTransaction.init()
-                    relevantTx.account = post.0.name
                     relevantTx.category = category
                     relevantTx.transactionDescription = tx.name
                     let dec = NSDecimalNumber.init(decimal: post.1)
                     relevantTx.value = NSNumber(value: dec.floatValue )
-                    transactions.append(relevantTx)
-                    
-                    break
+                }
+                
+                if post.0.name.contains("Banking:") {
+                    if let bankingAccount = post.0.name.components(separatedBy: ":").last {
+                        relevantTx.account = bankingAccount
+                    }
                 }
             }
+            
+            if !relevantTx.category.isEmpty {
+                transactions.append(relevantTx)
+            }
+            
         }
         
         return transactions
@@ -115,7 +122,7 @@ class Model: NSObject {
         let currentNumber = NSNumber.init(value: (currentValue as NSDecimalNumber).floatValue)
         let updateValue = NSNumber.init(value:  newValue.floatValue - currentNumber.floatValue)
         
-        LedgerModel.shared().addBudget(category: category, value: "\(updateValue)")
+        _ = LedgerModel.shared().addBudget(category: category, value: "\(updateValue)")
     }
     
 }

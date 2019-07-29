@@ -147,15 +147,19 @@ class LedgerModel: NSObject {
     }
     
     ///Appends income to the current ledger file. Returns YES on success
-    func postIncome(acc: Account, value: String, description: String = "Transaktion") -> Bool {
+    func postIncome(acc: Account, value: String, description: String = "Unnamed transaction") -> Bool {
         let value = value.replacingOccurrences(of: ",", with: ".")
         guard let income = Float(value) else {print("Not a valid number");return false}
         guard income > 0 else {print("Not a positive income!");return false}
+        var txName = description
+        if txName.isEmpty {
+            txName = "Unnamed transaction"
+        }
         
         let date = LedgerModel.dateString(date: Date())
         let incomeStatement = """
         
-        \(date) \(description)
+        \(date) \(txName)
         \t\(acc.name) \t \(value) EUR
         \tEquity:Income
         
@@ -165,15 +169,19 @@ class LedgerModel: NSObject {
     }
     
     /// Appends transfer to the current ledger file Returns YES on success
-    func postTransfer(from: Account, to: Account, value: String, description: String) -> Bool {
+    func postTransfer(from: Account, to: Account, value: String, description: String = "Unnamed transaction") -> Bool {
         let value = value.replacingOccurrences(of: ",", with: ".")
         guard let income = Float(value) else {print("Not a valid number");return false}
         guard income > 0 else {print("Not a positive income!");return false}
+        var txName = description
+        if txName.isEmpty {
+            txName = "Unnamed transaction"
+        }
         
         let date = LedgerModel.dateString(date: Date())
         let transferStatement = """
         
-        \(date) \(description)
+        \(date) \(txName)
         \t\(from.name) \t -\(value) EUR
         \t\(to.name) \t \(value) EUR
         """
@@ -183,18 +191,21 @@ class LedgerModel: NSObject {
     
     
     ///Appends expense to the current ledger file. Returns YES on success
-    func postExpense(acc: String, value: String, category: String, description: String = "Transaktion") -> Bool {
+    func postExpense(acc: String, value: String, category: String, description: String = "Unnamed transaction") -> Bool {
         let value = value.replacingOccurrences(of: ",", with: ".")
         guard let expense = Float(value) else {print("Not a valid number");return false}
         guard expense > 0 else {print("Not a positive expense!");return false}
-
+        var txName = description
+        if txName.isEmpty {
+            txName = "Unnamed transaction"
+        }
         
         let date = LedgerModel.dateString(date: Date())
         let reverse_value = value.range(of: "-") == nil ? "-" + value : value.replacingOccurrences(of: "-", with: "")
 
         let expenseStatement = """
         
-        \(date) \(description)
+        \(date) \(txName)
         \tAssets:Banking:\(acc) \t \(reverse_value) EUR
         \t(Assets:Budget:\(category))\t \(reverse_value) EUR
         \tExpenses:\(category)\t \(value) EUR
