@@ -142,7 +142,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qve-9L-pq5" customClass="DiaryTextView" customModule="MyBudget" customModuleProvider="target">
-                                <rect key="frame" x="20" y="96" width="374" height="330"/>
+                                <rect key="frame" x="20" y="52" width="374" height="330"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="330" id="md3-6O-Qee"/>
@@ -161,7 +161,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1V7-0J-62o"/>
                     </view>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="diaryTextView" destination="Qve-9L-pq5" id="R9h-Ef-HY0"/>
                     </connections>
@@ -273,7 +272,6 @@
                             <outlet property="delegate" destination="eeC-0O-N3j" id="wRL-1y-cuI"/>
                         </connections>
                     </tableView>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="budgetedMoneyLabel" destination="wSP-ck-B9a" id="9h2-3C-GqE"/>
                         <outlet property="enterNumberImageView" destination="NYi-em-CcA" id="xgy-Qv-c7s"/>

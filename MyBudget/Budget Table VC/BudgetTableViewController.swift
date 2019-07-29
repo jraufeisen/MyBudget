@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class BudgetTableViewCell: UITableViewCell {
     
     
@@ -169,8 +168,8 @@ class BudgetTableViewController: UITableViewController {
     
     private func addTransaction(type: TransactionType) {
         let vc = EnterNumberViewController.instantiate(with: type)
-        //navigationController?.present(vc, animated: true, completion: nil)
-        navigationController?.pushViewController(vc, animated: true)
+        let wrapperVC = UINavigationController.init(rootViewController: vc)
+        navigationController?.present(wrapperVC, animated: true, completion: nil)
     }
     
 }

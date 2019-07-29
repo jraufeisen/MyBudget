@@ -37,8 +37,21 @@ class EnterNumberViewController: UIViewController {
         
         diaryTextView.configure(diaryProvider: transaction)
         diaryTextView.diaryDelegate = self
+        
+        addBarButtonItems()
     }
 
+    /// Adds items to the top bar which is useful when presenting the vc modally
+    private func addBarButtonItems() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .stop, target: self, action: #selector(self.pressedCancelButton))
+        navigationItem.leftBarButtonItem?.tintColor = .white
+    }
+    @objc func pressedCancelButton() {
+        _ = diaryTextView.resignFirstResponder()
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
     private func addfloatingButton() {
         let floaty = Floaty()
         floaty.buttonColor = .white
@@ -54,7 +67,7 @@ class EnterNumberViewController: UIViewController {
         item.handler = { (item) in
             print("I will now add transaction \(self.transaction)")
             Model.shared.addTransaction(transaction: self.transaction)
-            self.navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
         }
         floaty.addItem(item: item)
 
