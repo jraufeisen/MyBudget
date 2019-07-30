@@ -86,6 +86,8 @@ extension AccountAccessoryView: UITextFieldDelegate {
         if newAccount.isEmpty == false {
             accountCreationDelegate?.createAccount(name: newAccount)
         }
+        
+        textField.text = ""
         return true
     }
 }

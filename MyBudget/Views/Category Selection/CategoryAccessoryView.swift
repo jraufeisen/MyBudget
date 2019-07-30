@@ -83,12 +83,15 @@ extension CategoryAccessoryView: UITableViewDataSource {
 extension CategoryAccessoryView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        
         guard let newCategory = textField.text else {
             return true
         }
         if newCategory.isEmpty == false {
             categoryCreationDelegate?.createCategory(name: newCategory)
         }
+        
+        textField.text = ""
         return true
     }
 }

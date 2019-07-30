@@ -132,7 +132,7 @@ class DiaryTextView: UITextView {
         case .account:
             let accountView = AccountTableView.init(outputView: self, delegate: self, color: superview?.backgroundColor)
             let newAccountView = AccountAccessoryView.init(outputView: self, delegate: nil, color: superview?.backgroundColor)
-            newAccountView.accountCreationDelegate = self
+            newAccountView.accountCreationDelegate = accountView
             transitionToInputView(view: accountView, accessoryView: newAccountView)
         case .date:
             let datePicker = UIDatePicker()
@@ -145,7 +145,7 @@ class DiaryTextView: UITextView {
         case .category:
             let categoryView = CategoryTableView.init(outputView: self, delegate: self, color: superview?.backgroundColor)
             let newCategoryView = CategoryAccessoryView.init(outputView: self, delegate: nil, color: superview?.backgroundColor)
-            newCategoryView.categoryCreationDelegate = self
+            newCategoryView.categoryCreationDelegate = categoryView
             transitionToInputView(view: categoryView, accessoryView: newCategoryView)
         case .tags:
             keyboardType = .default
@@ -249,6 +249,7 @@ extension DiaryTextView: MoneyKeyBoardDelegate {
     }
 }
 
+/*
 extension DiaryTextView: AccountCreationDelegate {
     func createAccount(name: String) {
         // Send to model
@@ -263,4 +264,4 @@ extension DiaryTextView: CategoryCreationDelegate {
         print("I will now create a new category")
         // Reload input tableview (better hold a reference and call .reloadData on the tableview itself)
     }
-}
+}*/

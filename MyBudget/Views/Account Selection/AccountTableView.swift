@@ -22,7 +22,7 @@ protocol AccountSelectDelegate {
 }
 
 class AccountTableView: UITableView {
-    private let accounts = Model.shared.getAllAccountNames()
+    private var accounts = Model.shared.getAllAccountNames()
     private var accountDelegate: AccountSelectDelegate?
     private var outputView: UIKeyInput?
     
@@ -82,3 +82,9 @@ extension AccountTableView: UITableViewDelegate {
     }
 }
 
+extension AccountTableView: AccountCreationDelegate {
+    func createAccount(name: String) {
+        accounts.insert(name, at: 0)
+        reloadSections([0], with: .automatic)
+    }
+}
