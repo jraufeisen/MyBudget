@@ -16,6 +16,7 @@ class BudgetTableViewCell: UITableViewCell {
 
     @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var percentFillView: PercentFillView!
     
     @IBOutlet weak var detailLabel: UILabel!
     
@@ -24,6 +25,7 @@ class BudgetTableViewCell: UITableViewCell {
         insetView.layer.borderColor = UIColor.lightGray.cgColor
         insetView.layer.cornerRadius = 10
         insetView.layer.masksToBounds = true
+        
         
         selectionStyle = .none
     }
@@ -72,12 +74,28 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
         budgetCategories = Model.shared.getAllBudgetCategories()
         addFloatingActionButton()
+
+        
     }
 
     
     override func viewDidAppear(_ animated: Bool) {
         budgetCategories = Model.shared.getAllBudgetCategories()
         tableView.reloadData()
+        let unbudgetedMoney = Model.shared.unbudgetedMoney()
+        if unbudgetedMoney < 0 {
+            navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.expenseColor]
+            navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.expenseColor]
+            title = "Budget \(unbudgetedMoney)"
+        } else if unbudgetedMoney == 0 {
+            navigationController?.navigationBar.titleTextAttributes = nil
+            navigationController?.navigationBar.largeTitleTextAttributes = nil
+            title = "Budget"
+        } else {
+            navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.incomeColor]
+            navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.incomeColor]
+            title = "Budget \(unbudgetedMoney)"
+        }
     }
     
     var floaty = Floaty()
@@ -160,6 +178,9 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
 
         cell.moneyLabel.text = "\(category.remainingMoney)"
         cell.categoryLabel.text = category.name
+        cell.percentFillView.fillProportion = CGFloat(category.percentLeft)
+        cell.detailLabel.text = category.detailString
+        
         return cell
     }
     

@@ -43,10 +43,17 @@ class Model: NSObject {
         
         for i in 0...dummyCategories.count-1 {
             let category = dummyCategories[i]
-            let remainingMoney = LedgerModel.shared().budgetInCategory(category: category) as NSNumber
+            let categoryAccount = Account.init(name: "Assets:Budget:\(category)")
+            let remainingMoney = LedgerModel.shared().budgetInCategory(category: category)
+            let spentThisMonth = LedgerModel.shared().balanceSinceDate(acc: categoryAccount, date: Date().firstDayOfCurrentMonth())
+            let spentVsBudgeted = remainingMoney / (remainingMoney+spentThisMonth)
+            var fillPercent = (spentVsBudgeted as NSNumber).doubleValue
+            if fillPercent.isNaN || fillPercent.isInfinite {
+                fillPercent = 0
+            }
+            let detailText = "You have spent \(Int(fillPercent*100)) % this month"
             
-            
-            let viewable = BudgetCategoryViewable.init(name: dummyCategories[i], remainingMoney: Money.init(remainingMoney.floatValue), percentLeft: Double(i*20), detailString: "")
+            let viewable = BudgetCategoryViewable.init(name: dummyCategories[i], remainingMoney: Money.init((remainingMoney as NSNumber).floatValue), percentLeft: fillPercent, detailString: detailText)
             categoryViewables.append(viewable)
         }
         
