@@ -38,8 +38,9 @@ class Model: NSObject {
     
     func getAllBudgetCategories() -> [BudgetCategoryViewable] {
         var categoryViewables = [BudgetCategoryViewable]()
-        
         let dummyCategories = LedgerModel.shared().categories()
+        guard dummyCategories.count > 0 else {return categoryViewables}
+        
         for i in 0...dummyCategories.count-1 {
             let category = dummyCategories[i]
             let remainingMoney = LedgerModel.shared().budgetInCategory(category: category) as NSNumber
