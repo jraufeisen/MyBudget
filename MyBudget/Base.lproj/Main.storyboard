@@ -111,7 +111,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Hf2-uc-nyz"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Budget" id="3kp-Gt-pSs"/>
+                    <navigationItem key="navigationItem" title="Budget" id="3kp-Gt-pSs">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" id="5HR-PG-DFq">
+                            <connections>
+                                <action selector="pressedMenuButton:" destination="K8T-vI-pGy" id="YBj-Cg-WoM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="x9a-7i-SkL" id="Fds-ti-i7n"/>
                     </connections>
@@ -119,6 +125,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Moh-O0-Mtt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="470" y="27"/>
+        </scene>
+        <!--Menu-->
+        <scene sceneID="YxC-yK-2ja">
+            <objects>
+                <tableViewController storyboardIdentifier="MenuViewController" title="Menu" id="6w7-Fp-Ix0" customClass="MenuTableViewController" customModule="MyBudget" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RZA-CX-KLc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gzT-Wn-G2o">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gzT-Wn-G2o" id="lL8-Iv-hst">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="6w7-Fp-Ix0" id="pen-2D-w36"/>
+                            <outlet property="delegate" destination="6w7-Fp-Ix0" id="13j-sx-znO"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="4I9-aE-9YF"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1kV-qI-pCe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2313.04347826087" y="-457.36607142857139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fvN-0f-UDq">
@@ -131,6 +166,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <segue destination="K8T-vI-pGy" kind="relationship" relationship="rootViewController" id="vUz-QY-kgd"/>
                     </connections>

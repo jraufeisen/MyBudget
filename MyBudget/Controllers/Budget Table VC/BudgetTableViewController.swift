@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SideMenu
 class BudgetTableViewCell: UITableViewCell {
     
     
@@ -203,4 +203,8 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
         navigationController?.present(wrapperVC, animated: true, completion: nil)
     }
     
+    @IBAction func pressedMenuButton(_ sender: Any) {
+        let menu = SlideMenuViewController.instantiate()
+        present(menu, animated: true, completion: nil)
+    }
 }

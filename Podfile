@@ -7,4 +7,7 @@ target 'MyBudget' do
 
   # Pods for MyBudget
   pod 'ValueCoding', '~> 3.0.0'
+  
+  source 'https://github.com/CocoaPods/Specs.git'
+  pod 'SideMenu', '~> 6.0'
 end

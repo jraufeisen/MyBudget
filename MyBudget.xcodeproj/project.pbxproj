@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		705B8E4F9B8AF8BE4BA797A5 /* Pods_MyBudget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 160BB9A2AF30D0BE54C34C8C /* Pods_MyBudget.framework */; };
 		EB02A67222EB10E700987AFA /* APNumberPadDefaultStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02A66A22EB10E600987AFA /* APNumberPadDefaultStyle.m */; };
 		EB02A67322EB10E700987AFA /* APNumberButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02A66C22EB10E700987AFA /* APNumberButton.m */; };
 		EB02A67422EB10E700987AFA /* NSBundle+APNumberPad.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02A66D22EB10E700987AFA /* NSBundle+APNumberPad.m */; };
@@ -21,12 +20,15 @@
 		EB2C772022EDC143009FA2C8 /* MoneyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2C771F22EDC143009FA2C8 /* MoneyTextField.swift */; };
 		EB2C772222EDC8CA009FA2C8 /* pencil.png in Resources */ = {isa = PBXBuildFile; fileRef = EB2C772122EDC8CA009FA2C8 /* pencil.png */; };
 		EB2C772622EDCA56009FA2C8 /* edit-2.png in Resources */ = {isa = PBXBuildFile; fileRef = EB2C772522EDCA56009FA2C8 /* edit-2.png */; };
+		EB34D5DE22F32EB7000FACAC /* Pods_MyBudget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 160BB9A2AF30D0BE54C34C8C /* Pods_MyBudget.framework */; };
 		EB558EB322ECA28100039651 /* LedgerTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB558EB222ECA28000039651 /* LedgerTransaction.swift */; };
 		EB558EB722ECA3A200039651 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB558EB622ECA3A200039651 /* CloudKit.framework */; };
 		EB582E7122F0A10D00422323 /* AddAccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB582E7022F0A10D00422323 /* AddAccountsViewController.swift */; };
 		EB582E7422F0ACC500422323 /* PercentFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB582E7322F0ACC500422323 /* PercentFillView.swift */; };
 		EB582E7622F0AE1800422323 /* Date+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB582E7522F0AE1800422323 /* Date+Utilities.swift */; };
 		EB5C600922F32417004F81CF /* TextAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C600822F32417004F81CF /* TextAnimation.swift */; };
+		EB5C600C22F32960004F81CF /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C600B22F32960004F81CF /* MenuTableViewController.swift */; };
+		EB5C600F22F329B2004F81CF /* SlideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C600E22F329B2004F81CF /* SlideMenuViewController.swift */; };
 		EB60C8E322EF1F3B000DC7C6 /* Bitcoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB60C8D922EF1F35000DC7C6 /* Bitcoin.swift */; };
 		EB60C8E422EF1F3B000DC7C6 /* Locale.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB60C8DA22EF1F35000DC7C6 /* Locale.swift */; };
 		EB60C8E522EF1F3B000DC7C6 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB60C8DB22EF1F35000DC7C6 /* Currency.swift */; };
@@ -104,6 +106,8 @@
 		EB582E7322F0ACC500422323 /* PercentFillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentFillView.swift; sourceTree = "<group>"; };
 		EB582E7522F0AE1800422323 /* Date+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Utilities.swift"; sourceTree = "<group>"; };
 		EB5C600822F32417004F81CF /* TextAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnimation.swift; sourceTree = "<group>"; };
+		EB5C600B22F32960004F81CF /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		EB5C600E22F329B2004F81CF /* SlideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlideMenuViewController.swift; sourceTree = "<group>"; };
 		EB60C8D922EF1F35000DC7C6 /* Bitcoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bitcoin.swift; sourceTree = "<group>"; };
 		EB60C8DA22EF1F35000DC7C6 /* Locale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locale.swift; sourceTree = "<group>"; };
 		EB60C8DB22EF1F35000DC7C6 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
@@ -161,7 +165,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				705B8E4F9B8AF8BE4BA797A5 /* Pods_MyBudget.framework in Frameworks */,
+				EB34D5DE22F32EB7000FACAC /* Pods_MyBudget.framework in Frameworks */,
 				EB558EB722ECA3A200039651 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,6 +259,26 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		EB5C600A22F32946004F81CF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EB5C600D22F3296B004F81CF /* Menu */,
+				EBD012E322E99A1200F8126D /* Budget Table VC */,
+				EBEB145122E8A1B500291435 /* New Transaction VC */,
+				EB2C771E22EDBD5E009FA2C8 /* Budget Detail VC */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		EB5C600D22F3296B004F81CF /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				EB5C600B22F32960004F81CF /* MenuTableViewController.swift */,
+				EB5C600E22F329B2004F81CF /* SlideMenuViewController.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		EB60C8D822EF1F35000DC7C6 /* Money */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,9 +342,7 @@
 				EBD012E222E99A0700F8126D /* Views */,
 				EBD012E122E999FB00F8126D /* Model */,
 				EBEB145922E8A2A200291435 /* Extensions */,
-				EBD012E322E99A1200F8126D /* Budget Table VC */,
-				EBEB145122E8A1B500291435 /* New Transaction VC */,
-				EB2C771E22EDBD5E009FA2C8 /* Budget Detail VC */,
+				EB5C600A22F32946004F81CF /* Controllers */,
 				EBC59D4A22E7503A00E626DC /* Info.plist */,
 			);
 			path = MyBudget;
@@ -548,6 +570,7 @@
 				EB985CB722EC6B5800C033E8 /* FloatyManager.swift in Sources */,
 				EB985CBD22EC74F800C033E8 /* String+OnlyDigits.swift in Sources */,
 				EBEB145022E8A1B100291435 /* EnterNumberViewController.swift in Sources */,
+				EB5C600C22F32960004F81CF /* MenuTableViewController.swift in Sources */,
 				EB60C8EB22EF1F3B000DC7C6 /* Autogenerated.swift in Sources */,
 				EB02A67322EB10E700987AFA /* APNumberButton.m in Sources */,
 				EB02A68722EB1BEF00987AFA /* MoneyKeyboard.swift in Sources */,
@@ -556,6 +579,7 @@
 				EB60C8EC22EF1F3B000DC7C6 /* NSDecimalExtensions.swift in Sources */,
 				EBEB145B22E8AD7300291435 /* Transaction.swift in Sources */,
 				EB2C771B22EDBCA3009FA2C8 /* UITextView+Center.swift in Sources */,
+				EB5C600F22F329B2004F81CF /* SlideMenuViewController.swift in Sources */,
 				EB985CBB22EC6B5800C033E8 /* Floaty.swift in Sources */,
 				EB2C771D22EDBD59009FA2C8 /* BudgetDetailViewController.swift in Sources */,
 				EB582E7622F0AE1800422323 /* Date+Utilities.swift in Sources */,
