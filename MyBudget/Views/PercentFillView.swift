@@ -8,24 +8,27 @@
 
 import UIKit
 
-class PercentFillView: UIView {
+/// Draws a certain percentage of its bounds using its tintColor.
+@IBDesignable class PercentFillView: UIView {
+
 
     
     
     ///Between 0 and 1
-    var fillProportion: CGFloat = 0 {
+    @IBInspectable var fillProportion: CGFloat = 0.5 {
         didSet { setNeedsDisplay() }
     }
     
     override func awakeFromNib() {
-        layer.borderColor = UIColor.black.cgColor
+        backgroundColor = .clear
+        layer.borderColor = tintColor?.cgColor
         layer.borderWidth = 1
         layer.cornerRadius = 5
     }
     
     override func draw(_ rect: CGRect) {
         let rect = CGRect.init(x: 0, y: 0, width: self.frame.width * fillProportion, height: self.frame.height)
-        UIColor.black.set()
+        tintColor?.set()
         // UIRectFill(rect)
         
         //Crosshatch
