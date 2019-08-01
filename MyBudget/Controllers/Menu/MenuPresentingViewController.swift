@@ -34,7 +34,7 @@ extension MenuPresentingViewController: UISideMenuNavigationControllerDelegate {
         view.addSubview(darkOverlayView)
     }
     
-  
+
     func sideMenuWillDisappear(menu: UISideMenuNavigationController, animated: Bool) {
         darkOverlayView.removeFromSuperview()
     }

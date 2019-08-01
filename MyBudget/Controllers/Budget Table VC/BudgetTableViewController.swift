@@ -26,6 +26,7 @@ class BudgetTableViewCell: UITableViewCell {
         insetView.layer.cornerRadius = 10
         insetView.layer.masksToBounds = true
         
+        percentFillView.tintColor = .blueActionColor
         
         selectionStyle = .none
     }
