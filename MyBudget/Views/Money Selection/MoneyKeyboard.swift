@@ -42,10 +42,14 @@ class MoneyKeyboard: APNumberPad {
         } else {
             characterSequence = "\(startingWith)"
         }
-        updateOutputText()
-        
+        insertInitialText()
     }
 
+    private func insertInitialText() {
+        outputView?.addTextAnimated(text: currentMoneyText(), completion: {
+            self.currentlyDisplayed = self.currentMoneyText()
+        })
+    }
     
     
     required init?(coder aDecoder: NSCoder) {

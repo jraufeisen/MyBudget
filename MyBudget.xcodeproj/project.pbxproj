@@ -26,6 +26,7 @@
 		EB582E7122F0A10D00422323 /* AddAccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB582E7022F0A10D00422323 /* AddAccountsViewController.swift */; };
 		EB582E7422F0ACC500422323 /* PercentFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB582E7322F0ACC500422323 /* PercentFillView.swift */; };
 		EB582E7622F0AE1800422323 /* Date+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB582E7522F0AE1800422323 /* Date+Utilities.swift */; };
+		EB5C600922F32417004F81CF /* TextAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C600822F32417004F81CF /* TextAnimation.swift */; };
 		EB60C8E322EF1F3B000DC7C6 /* Bitcoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB60C8D922EF1F35000DC7C6 /* Bitcoin.swift */; };
 		EB60C8E422EF1F3B000DC7C6 /* Locale.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB60C8DA22EF1F35000DC7C6 /* Locale.swift */; };
 		EB60C8E522EF1F3B000DC7C6 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB60C8DB22EF1F35000DC7C6 /* Currency.swift */; };
@@ -102,6 +103,7 @@
 		EB582E7022F0A10D00422323 /* AddAccountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountsViewController.swift; sourceTree = "<group>"; };
 		EB582E7322F0ACC500422323 /* PercentFillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentFillView.swift; sourceTree = "<group>"; };
 		EB582E7522F0AE1800422323 /* Date+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Utilities.swift"; sourceTree = "<group>"; };
+		EB5C600822F32417004F81CF /* TextAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnimation.swift; sourceTree = "<group>"; };
 		EB60C8D922EF1F35000DC7C6 /* Bitcoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bitcoin.swift; sourceTree = "<group>"; };
 		EB60C8DA22EF1F35000DC7C6 /* Locale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locale.swift; sourceTree = "<group>"; };
 		EB60C8DB22EF1F35000DC7C6 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 				EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */,
 				EB985CBC22EC74F800C033E8 /* String+OnlyDigits.swift */,
 				EB2C771A22EDBCA3009FA2C8 /* UITextView+Center.swift */,
+				EB5C600822F32417004F81CF /* TextAnimation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -570,6 +573,7 @@
 				EB9DEBD622E9F00600A73FD1 /* CategoryAccessoryView.swift in Sources */,
 				EBF2F67C22E8D91300C2772F /* AccountTableView.swift in Sources */,
 				EBC59D5122E750DC00E626DC /* BudgetTableViewController.swift in Sources */,
+				EB5C600922F32417004F81CF /* TextAnimation.swift in Sources */,
 				EBC59D3F22E7503900E626DC /* AppDelegate.swift in Sources */,
 				EB60C8E922EF1F3B000DC7C6 /* ApplePay.swift in Sources */,
 				EBC59D5322E750E900E626DC /* Model.swift in Sources */,

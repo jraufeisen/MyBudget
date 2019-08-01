@@ -93,19 +93,7 @@ class DiaryTextView: UITextView {
 
 
    
-    private func addTextAnimated(text: String, completion: @escaping () -> Void) {
-        let timeInBetween = 0.05
-        var remainingText = text
-        Timer.scheduledTimer(withTimeInterval: timeInBetween, repeats: true) { (timer) in
-            if remainingText == "" {
-                timer.invalidate()
-                completion()
-                return
-            }
-            let c = remainingText.removeFirst()
-            self.text += String(c)
-        }
-    }
+    
     
 
     private func transitionToInputView(view: UIView, accessoryView: UIView?) {
