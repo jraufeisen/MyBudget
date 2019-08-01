@@ -112,7 +112,7 @@
                         <viewLayoutGuide key="safeArea" id="Hf2-uc-nyz"/>
                     </view>
                     <navigationItem key="navigationItem" title="Budget" id="3kp-Gt-pSs">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" id="5HR-PG-DFq">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" image="menu.png" id="5HR-PG-DFq">
                             <connections>
                                 <action selector="pressedMenuButton:" destination="K8T-vI-pGy" id="YBj-Cg-WoM"/>
                             </connections>
@@ -130,30 +130,88 @@
         <scene sceneID="YxC-yK-2ja">
             <objects>
                 <tableViewController storyboardIdentifier="MenuViewController" title="Menu" id="6w7-Fp-Ix0" customClass="MenuTableViewController" customModule="MyBudget" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RZA-CX-KLc">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="RZA-CX-KLc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gzT-Wn-G2o">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gzT-Wn-G2o" id="lL8-Iv-hst">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <sections>
+                            <tableViewSection id="WJd-h3-P9Y">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="54" id="gzT-Wn-G2o">
+                                        <rect key="frame" x="0.0" y="35" width="414" height="54"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gzT-Wn-G2o" id="lL8-Iv-hst">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="53.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drawer.png" translatesAutoresizingMaskIntoConstraints="NO" id="P6M-D8-395">
+                                                    <rect key="frame" x="20" y="15" width="24" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="P6M-D8-395" secondAttribute="height" multiplier="1:1" id="Zas-Pc-TIx"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Budget" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zeT-Bf-Xpt">
+                                                    <rect key="frame" x="51.5" y="16.5" width="56" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="P6M-D8-395" firstAttribute="top" secondItem="lL8-Iv-hst" secondAttribute="top" constant="15" id="52P-ez-shY"/>
+                                                <constraint firstItem="zeT-Bf-Xpt" firstAttribute="centerY" secondItem="lL8-Iv-hst" secondAttribute="centerY" id="E94-On-B3v"/>
+                                                <constraint firstItem="P6M-D8-395" firstAttribute="leading" secondItem="lL8-Iv-hst" secondAttribute="leading" constant="20" id="PTi-0a-Ge3"/>
+                                                <constraint firstItem="zeT-Bf-Xpt" firstAttribute="leading" secondItem="P6M-D8-395" secondAttribute="trailing" constant="7.5" id="wRH-wJ-ncd"/>
+                                                <constraint firstItem="P6M-D8-395" firstAttribute="centerY" secondItem="lL8-Iv-hst" secondAttribute="centerY" id="y1Q-3e-wid"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="54" id="4g1-Wm-oQU">
+                                        <rect key="frame" x="0.0" y="89" width="414" height="54"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4g1-Wm-oQU" id="4ER-d0-N0p">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="53.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="euro.png" translatesAutoresizingMaskIntoConstraints="NO" id="DvT-fs-YP6">
+                                                    <rect key="frame" x="20" y="15" width="24" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="DvT-fs-YP6" secondAttribute="height" multiplier="1:1" id="RPk-je-ncs"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accounts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkb-Fg-TxV">
+                                                    <rect key="frame" x="51.5" y="16.5" width="72" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="DvT-fs-YP6" firstAttribute="centerY" secondItem="4ER-d0-N0p" secondAttribute="centerY" id="4ET-4l-Xn7"/>
+                                                <constraint firstItem="fkb-Fg-TxV" firstAttribute="centerY" secondItem="4ER-d0-N0p" secondAttribute="centerY" id="JzD-VY-Qpq"/>
+                                                <constraint firstItem="DvT-fs-YP6" firstAttribute="top" secondItem="4ER-d0-N0p" secondAttribute="top" constant="15" id="WnC-Ef-x2H"/>
+                                                <constraint firstItem="fkb-Fg-TxV" firstAttribute="leading" secondItem="DvT-fs-YP6" secondAttribute="trailing" constant="7.5" id="aP4-QY-H5K"/>
+                                                <constraint firstItem="DvT-fs-YP6" firstAttribute="leading" secondItem="4ER-d0-N0p" secondAttribute="leading" constant="20" id="eVW-Ly-WmR"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
                         <connections>
                             <outlet property="dataSource" destination="6w7-Fp-Ix0" id="pen-2D-w36"/>
                             <outlet property="delegate" destination="6w7-Fp-Ix0" id="13j-sx-znO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="4I9-aE-9YF"/>
+                    <navigationItem key="navigationItem" title="Menu" largeTitleDisplayMode="always" id="4I9-aE-9YF"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1kV-qI-pCe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2313.04347826087" y="-457.36607142857139"/>
+            <point key="canvasLocation" x="1853.6231884057972" y="-510.26785714285711"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fvN-0f-UDq">
@@ -383,7 +441,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="drawer.png" width="384" height="384"/>
         <image name="edit-2.png" width="51.200000762939453" height="51.200000762939453"/>
         <image name="euro.png" width="384" height="384"/>
+        <image name="menu.png" width="24" height="24"/>
     </resources>
 </document>

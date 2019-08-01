@@ -21,13 +21,13 @@ class SlideMenuViewController: UISideMenuNavigationController {
    static func instantiate() -> UISideMenuNavigationController {
         let menuTable = MenuTableViewController.instantiate()
         let sidemenu = UISideMenuNavigationController.init(rootViewController: menuTable)
-    
+        sidemenu.navigationBar.prefersLargeTitles = true
         sidemenu.leftSide = true
         sidemenu.presentationStyle = .menuSlideIn
-        sidemenu.presentationStyle.backgroundColor = .clear // Prevents bug with black status abr
+    
 
-
-        sidemenu.statusBarEndAlpha = 1.0
+        //sidemenu.presentationStyle.backgroundColor = .clear // Prevents bug with black status abr
+        sidemenu.statusBarEndAlpha = 0
         return sidemenu
     }
     
