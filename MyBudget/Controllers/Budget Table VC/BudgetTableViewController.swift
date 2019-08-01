@@ -69,6 +69,7 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
 
     private var budgetCategories = [BudgetCategoryViewable]()
     @IBOutlet var tableView: UITableView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -211,9 +212,11 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     @IBAction func pressedMenuButton(_ sender: Any) {
-        guard let menu = SideMenuManager.default.leftMenuNavigationController else {
-            fatalError("No menu loaded to the side menu manager")
+        guard let menuPresentingController = navigationController as? MenuPresentingViewController else {
+            fatalError("The presenting navigationcontroller is not a menu presenting view controller")
         }
-        present(menu, animated: true, completion: nil)
+
+        menuPresentingController.showMenu()
+        
     }
 }

@@ -7,11 +7,11 @@
 //
 
 import UIKit
-
+import SideMenu
 /// Tableview with the actual contents
 class MenuTableViewController: UITableViewController {
 
-    
+
     /// Use this method to configure the View controller appropriately.
     internal static func instantiate() -> MenuTableViewController {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MenuViewController") as! MenuTableViewController
@@ -24,3 +24,4 @@ class MenuTableViewController: UITableViewController {
     
 
 }
+
