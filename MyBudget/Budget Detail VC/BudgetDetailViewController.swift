@@ -13,6 +13,7 @@ class CategoryTransacitonCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var accountLabel: UILabel!
     @IBOutlet weak var moneyLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     override func awakeFromNib() {
         moneyLabel.textColor = .expenseColor
@@ -92,6 +93,8 @@ class BudgetDetailViewController: UITableViewController {
             return cell
         }
         cell.accountLabel.text = expenseTx.account
+        let localizedDateString = DateFormatter.localizedString(from: expenseTx.date, dateStyle: .medium, timeStyle: .none)
+        cell.dateLabel.text = localizedDateString
         
         return cell
     }

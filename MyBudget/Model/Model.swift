@@ -100,6 +100,7 @@ class Model: NSObject {
                     relevantTx.transactionDescription = tx.name
                     let dec = NSDecimalNumber.init(decimal: post.1)
                     relevantTx.value = Money(dec.floatValue)
+                    relevantTx.date = tx.date
                 }
                 
                 if post.0.name.contains("Banking:") {

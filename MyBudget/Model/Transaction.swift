@@ -15,15 +15,18 @@ protocol Transaction: DiaryProvider, CustomStringConvertible {
     var value: Money { get set } //TODO: money
     var type: TransactionType { get }
     var transactionDescription: String {get set}
+    var date: Date { get set }
     func ledgerString() -> String
 }
 
 class IncomeTransaction: Transaction {
+    var date: Date = Date()
+    
    
     
     var type: TransactionType = .Income
 
-
+    
     var value: Money = 0
     var account: String = ""
     var transactionDescription: String = ""
@@ -59,7 +62,8 @@ class IncomeTransaction: Transaction {
 }
 
 class ExpenseTransaction: Transaction {
-    
+    var date: Date = Date()
+
     var description: String {
         get {
             return """
@@ -102,7 +106,8 @@ class ExpenseTransaction: Transaction {
 }
 
 class TransferTransaction: Transaction {
-    
+    var date: Date = Date()
+
     var description: String {
         get {
             return """

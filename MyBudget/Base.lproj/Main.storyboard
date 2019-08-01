@@ -289,24 +289,32 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="42.42" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rAJ-QW-z6t">
-                                            <rect key="frame" x="349" y="28.5" width="45" height="21"/>
+                                            <rect key="frame" x="349" y="11" width="45" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.81960784310000001" green="0.23137254900000001" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="31th July" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fut-mI-MXM">
+                                            <rect key="frame" x="325" y="46" width="69" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Fut-mI-MXM" secondAttribute="trailing" constant="20" id="0sG-El-dEy"/>
                                         <constraint firstItem="QyA-fH-WiE" firstAttribute="leading" secondItem="rXb-G2-tiM" secondAttribute="leading" constant="20" id="3zu-xu-Wmr"/>
-                                        <constraint firstItem="rAJ-QW-z6t" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QyA-fH-WiE" secondAttribute="trailing" constant="20" id="7TO-yb-OYx"/>
-                                        <constraint firstItem="rAJ-QW-z6t" firstAttribute="centerY" secondItem="rXb-G2-tiM" secondAttribute="centerY" id="7ra-gg-FWE"/>
-                                        <constraint firstAttribute="trailing" secondItem="rAJ-QW-z6t" secondAttribute="trailing" constant="20" id="Mz1-Ca-f7x"/>
+                                        <constraint firstItem="rAJ-QW-z6t" firstAttribute="centerY" secondItem="QyA-fH-WiE" secondAttribute="centerY" id="Ai4-3e-bQM"/>
                                         <constraint firstAttribute="bottom" secondItem="06U-ko-w0Y" secondAttribute="bottom" constant="10.5" id="SA5-92-Pvs"/>
                                         <constraint firstItem="QyA-fH-WiE" firstAttribute="top" secondItem="rXb-G2-tiM" secondAttribute="top" constant="11" id="Wq9-R9-SJd"/>
+                                        <constraint firstAttribute="trailing" secondItem="rAJ-QW-z6t" secondAttribute="trailing" constant="20" id="XQ1-Dj-eWN"/>
+                                        <constraint firstItem="Fut-mI-MXM" firstAttribute="centerY" secondItem="06U-ko-w0Y" secondAttribute="centerY" id="aQH-Vj-qqn"/>
                                         <constraint firstItem="06U-ko-w0Y" firstAttribute="leading" secondItem="rXb-G2-tiM" secondAttribute="leading" constant="20" id="eK5-Wp-oVD"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="accountLabel" destination="06U-ko-w0Y" id="ETr-tj-vsh"/>
+                                    <outlet property="dateLabel" destination="Fut-mI-MXM" id="Hj8-Gc-Pke"/>
                                     <outlet property="moneyLabel" destination="rAJ-QW-z6t" id="Ay7-6H-SUc"/>
                                     <outlet property="nameLabel" destination="QyA-fH-WiE" id="kcN-gD-cU4"/>
                                 </connections>
