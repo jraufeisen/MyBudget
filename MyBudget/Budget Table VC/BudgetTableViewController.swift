@@ -74,14 +74,11 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
         budgetCategories = Model.shared.getAllBudgetCategories()
         addFloatingActionButton()
-
-        
     }
 
-    
-    override func viewDidAppear(_ animated: Bool) {
+    private func updateUI() {
         budgetCategories = Model.shared.getAllBudgetCategories()
-        tableView.reloadData()
+        tableView.reloadSections([0], with: .automatic)
         let unbudgetedMoney = Model.shared.unbudgetedMoney()
         if unbudgetedMoney < 0 {
             navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.expenseColor]
@@ -96,12 +93,18 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
             navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.incomeColor]
             title = "Budget \(unbudgetedMoney)"
         }
+
+    }
+    
+   
+    
+    override func viewDidAppear(_ animated: Bool) {
+        updateUI()
     }
     
     var floaty = Floaty()
     private func addFloatingActionButton() {
         guard floaty.superview == nil else {
-            view.bringSubviewToFront(floaty)
             return
         }
 

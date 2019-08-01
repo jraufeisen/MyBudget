@@ -36,6 +36,7 @@ class Model: NSObject {
         return names
     }
     
+    /// Sorted by name
     func getAllBudgetCategories() -> [BudgetCategoryViewable] {
         var categoryViewables = [BudgetCategoryViewable]()
         let dummyCategories = LedgerModel.shared().categories()
@@ -47,7 +48,6 @@ class Model: NSObject {
             let remainingMoney = LedgerModel.shared().budgetInCategory(category: category)
             let spentThisMonth = LedgerModel.shared().balanceSinceDate(acc: categoryAccount, date: Date().firstDayOfCurrentMonth())
             let spentVsBudgeted = remainingMoney / (remainingMoney+spentThisMonth)
-            print(remainingMoney, spentThisMonth)
             var fillPercent = (spentVsBudgeted as NSNumber).doubleValue
             if fillPercent.isNaN || fillPercent.isInfinite {
                 fillPercent = 0
@@ -58,7 +58,9 @@ class Model: NSObject {
             categoryViewables.append(viewable)
         }
         
-        return categoryViewables
+        return categoryViewables.sorted(by: { (bv1, bv2) -> Bool in
+            bv1.name < bv2.name
+        })
     }
     
     func addTransaction(transaction: Transaction) {
@@ -85,7 +87,7 @@ class Model: NSObject {
         _ = LedgerModel.shared().postTransfer(from: from, to: to, value: "\(transaction.value.amount)", description: transaction.transactionDescription)
     }
     
-    
+    /// Sorted by date
     func transactions(for category: String) -> [Transaction] {
         var transactions = [Transaction]()
         

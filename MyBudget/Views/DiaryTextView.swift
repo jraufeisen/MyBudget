@@ -192,7 +192,6 @@ extension DiaryTextView: UITextViewDelegate {
 
         // Only allow character deletion if we are in the allowed scope
         if text == "" {
-            print(range.length)
             if range.length > currentlyEntteredByKeyboard.count {
                 self.text.removeLast(currentlyEntteredByKeyboard.count)
                 currentlyEntteredByKeyboard = ""
