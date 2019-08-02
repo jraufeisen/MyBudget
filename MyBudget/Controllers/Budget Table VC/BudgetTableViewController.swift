@@ -76,14 +76,8 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
         super.viewDidLoad()
         budgetCategories = Model.shared.getAllBudgetCategories()
         addFloatingActionButton()
-        setupSideMenu()
     }
 
-    private func setupSideMenu() {
-        let menu = SlideMenuViewController.instantiate()
-        SideMenuManager.default.addScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
-        SideMenuManager.default.leftMenuNavigationController = menu
-    }
     
     private func updateUI() {
         budgetCategories = Model.shared.getAllBudgetCategories()

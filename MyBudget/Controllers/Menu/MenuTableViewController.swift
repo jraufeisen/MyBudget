@@ -9,15 +9,25 @@
 import UIKit
 import SideMenu
 
+enum MenuItem {
+    case Budget
+    case Accounts
+    case Reports
+    case Export
+}
+
+/// Protocol to select menus on click
+protocol MenuSelectionDelegate {
+    func didSelectMenuItem(item: MenuItem)
+}
+
+
 
 /// Uses tintcolor to paint
 class MenuSelectionView: UIView {
-    
-    
     override func draw(_ rect: CGRect) {
         let rect = CGRect.init(x: -20, y: 0, width: self.frame.width - 10, height: self.frame.height)
         tintColor?.set()
-        // UIRectFill(rect)
         
         //Crosshatch
         let path:UIBezierPath = UIBezierPath(roundedRect: rect, cornerRadius: 20)
@@ -36,12 +46,8 @@ class MenuSelectionView: UIView {
 }
 
 class MenuCell: UITableViewCell {
-    
-
     @IBOutlet weak var label: UILabel!
 
- 
-    
     override func awakeFromNib() {
         
         // Adjust selection color
@@ -79,7 +85,11 @@ class MenuCell: UITableViewCell {
 /// Tableview with the actual contents
 class MenuTableViewController: UITableViewController {
 
-
+    // Delegate for menu selection
+    var menuDelegate: MenuSelectionDelegate?
+    
+    var menuItems: [MenuItem] = [.Budget, .Accounts, .Reports, .Export]
+    
     /// Use this method to configure the View controller appropriately.
     internal static func instantiate() -> MenuTableViewController {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MenuViewController") as! MenuTableViewController
@@ -90,11 +100,15 @@ class MenuTableViewController: UITableViewController {
         super.viewDidLoad()
     }
     
-    /*override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) as? MenuCell else {
-            fatalError("Menu cell not found on selection")
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.row < menuItems.count else {
+            fatalError("Selected menu item out of bounds")
         }
-        cell.markSelected(selected: true)
-    }*/
+        
+        
+        
+        let selectedItem = menuItems[indexPath.row]
+        menuDelegate?.didSelectMenuItem(item: selectedItem)
+    }
 }
 

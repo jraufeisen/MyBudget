@@ -10,33 +10,55 @@ import UIKit
 import SideMenu
 
 class MenuPresentingViewController: UINavigationController {
-    let darkOverlayView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height))
+    
+    override func viewDidLoad() {
+        setupSideMenu()
+    }
+    
+    
+    func loadMenuController() -> UISideMenuNavigationController {
+        // Load and configure content view controller of the menu
+        let menuTable = MenuTableViewController.instantiate()
+        menuTable.menuDelegate = self
+        
+        // Initilaize side menu controller
+        let sidemenu = UISideMenuNavigationController.init(rootViewController: menuTable)
+        
+        sidemenu.navigationBar.prefersLargeTitles = true
+        sidemenu.leftSide = true
+        sidemenu.presentationStyle = .menuSlideIn
+        sidemenu.menuWidth = 300
+        sidemenu.presentDuration = 0.3
+        sidemenu.initialSpringVelocity = 3
+        sidemenu.statusBarEndAlpha = 0 // Prevents bug with black status bar
+        sidemenu.presentationStyle.presentingEndAlpha = 0.5 // Dark background on presenting vc
 
+        return sidemenu
+    }
+
+    
+    
+    private func setupSideMenu() {
+        let menu = loadMenuController()
+        //SideMenuManager.default.addScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
+        SideMenuManager.default.leftMenuNavigationController = menu
+    }
+    
+    
+    
     func showMenu() {
         guard let menu = SideMenuManager.default.leftMenuNavigationController  else {
             fatalError("No menu loaded to the side menu manager")
         }
-
-        menu.sideMenuDelegate = self
         present(menu, animated: true, completion: nil)
-
     }
-    
-    
-    
 }
-extension MenuPresentingViewController: UISideMenuNavigationControllerDelegate {
-   
-    
-    func sideMenuWillAppear(menu: UISideMenuNavigationController, animated: Bool) {
-        darkOverlayView.backgroundColor = .black
-        darkOverlayView.alpha = 0.5
-        view.addSubview(darkOverlayView)
-    }
-    
 
-    func sideMenuWillDisappear(menu: UISideMenuNavigationController, animated: Bool) {
-        darkOverlayView.removeFromSuperview()
+extension MenuPresentingViewController: MenuSelectionDelegate {
+    func didSelectMenuItem(item: MenuItem) {
+        SideMenuManager.default.leftMenuNavigationController?.dismiss(animated: true, completion: nil)
+        
     }
-   
 }
+
+
