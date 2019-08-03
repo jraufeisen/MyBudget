@@ -30,6 +30,7 @@
 		EB582E7622F0AE1800422323 /* Date+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB582E7522F0AE1800422323 /* Date+Utilities.swift */; };
 		EB5C600922F32417004F81CF /* TextAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C600822F32417004F81CF /* TextAnimation.swift */; };
 		EB5C600C22F32960004F81CF /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C600B22F32960004F81CF /* MenuTableViewController.swift */; };
+		EB5CADB722F55DC600205AC8 /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5CADB622F55DC600205AC8 /* AccountTableViewController.swift */; };
 		EB60C8E322EF1F3B000DC7C6 /* Bitcoin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB60C8D922EF1F35000DC7C6 /* Bitcoin.swift */; };
 		EB60C8E422EF1F3B000DC7C6 /* Locale.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB60C8DA22EF1F35000DC7C6 /* Locale.swift */; };
 		EB60C8E522EF1F3B000DC7C6 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB60C8DB22EF1F35000DC7C6 /* Currency.swift */; };
@@ -110,6 +111,7 @@
 		EB582E7522F0AE1800422323 /* Date+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Utilities.swift"; sourceTree = "<group>"; };
 		EB5C600822F32417004F81CF /* TextAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnimation.swift; sourceTree = "<group>"; };
 		EB5C600B22F32960004F81CF /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
+		EB5CADB622F55DC600205AC8 /* AccountTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
 		EB60C8D922EF1F35000DC7C6 /* Bitcoin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bitcoin.swift; sourceTree = "<group>"; };
 		EB60C8DA22EF1F35000DC7C6 /* Locale.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locale.swift; sourceTree = "<group>"; };
 		EB60C8DB22EF1F35000DC7C6 /* Currency.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 		EB5C600A22F32946004F81CF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EB5CADB622F55DC600205AC8 /* AccountTableViewController.swift */,
 				EB5C600D22F3296B004F81CF /* Menu */,
 				EBD012E322E99A1200F8126D /* Budget Table VC */,
 				EBEB145122E8A1B500291435 /* New Transaction VC */,
@@ -579,6 +582,7 @@
 				EB024C2522F35C5A00228855 /* MenuPresentingViewController.swift in Sources */,
 				EB02A67322EB10E700987AFA /* APNumberButton.m in Sources */,
 				EB02A68722EB1BEF00987AFA /* MoneyKeyboard.swift in Sources */,
+				EB5CADB722F55DC600205AC8 /* AccountTableViewController.swift in Sources */,
 				EB582E7422F0ACC500422323 /* PercentFillView.swift in Sources */,
 				EBEB145722E8A29800291435 /* UIColor+Macro.swift in Sources */,
 				EB60C8EC22EF1F3B000DC7C6 /* NSDecimalExtensions.swift in Sources */,
