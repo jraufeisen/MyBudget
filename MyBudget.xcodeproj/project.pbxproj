@@ -70,6 +70,7 @@
 		EBD012F322E9B39D00F8126D /* drawer.png in Resources */ = {isa = PBXBuildFile; fileRef = EBD012F222E9B39D00F8126D /* drawer.png */; };
 		EBD012F622E9B47F00F8126D /* NewCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD012F422E9B47F00F8126D /* NewCategoryCell.xib */; };
 		EBD012F722E9B47F00F8126D /* ExistingCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD012F522E9B47F00F8126D /* ExistingCategoryCell.xib */; };
+		EBDA26CD22F6FDCC0073DC50 /* IncomeStatementPercentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDA26CC22F6FDCC0073DC50 /* IncomeStatementPercentView.swift */; };
 		EBEB145022E8A1B100291435 /* EnterNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB144722E8A1B100291435 /* EnterNumberViewController.swift */; };
 		EBEB145722E8A29800291435 /* UIColor+Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145622E8A29800291435 /* UIColor+Macro.swift */; };
 		EBEB145B22E8AD7300291435 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145A22E8AD7300291435 /* Transaction.swift */; };
@@ -157,6 +158,7 @@
 		EBD012F222E9B39D00F8126D /* drawer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drawer.png; sourceTree = "<group>"; };
 		EBD012F422E9B47F00F8126D /* NewCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewCategoryCell.xib; sourceTree = "<group>"; };
 		EBD012F522E9B47F00F8126D /* ExistingCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExistingCategoryCell.xib; sourceTree = "<group>"; };
+		EBDA26CC22F6FDCC0073DC50 /* IncomeStatementPercentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeStatementPercentView.swift; sourceTree = "<group>"; };
 		EBEB144722E8A1B100291435 /* EnterNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNumberViewController.swift; sourceTree = "<group>"; };
 		EBEB145622E8A29800291435 /* UIColor+Macro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Macro.swift"; sourceTree = "<group>"; };
 		EBEB145A22E8AD7300291435 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
@@ -266,8 +268,8 @@
 		EB5C600A22F32946004F81CF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EB5CADB622F55DC600205AC8 /* AccountTableViewController.swift */,
 				EB5C600D22F3296B004F81CF /* Menu */,
+				EBDA26CE22F708340073DC50 /* Accounts */,
 				EBD012E322E99A1200F8126D /* Budget Table VC */,
 				EBEB145122E8A1B500291435 /* New Transaction VC */,
 				EB2C771E22EDBD5E009FA2C8 /* Budget Detail VC */,
@@ -375,6 +377,7 @@
 				EBD012EF22E9B2C800F8126D /* Category Selection */,
 				EBD012EC22E9B20400F8126D /* Account Selection */,
 				EB582E7322F0ACC500422323 /* PercentFillView.swift */,
+				EBDA26CC22F6FDCC0073DC50 /* IncomeStatementPercentView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -410,6 +413,14 @@
 				EBD012F522E9B47F00F8126D /* ExistingCategoryCell.xib */,
 			);
 			path = "Category Selection";
+			sourceTree = "<group>";
+		};
+		EBDA26CE22F708340073DC50 /* Accounts */ = {
+			isa = PBXGroup;
+			children = (
+				EB5CADB622F55DC600205AC8 /* AccountTableViewController.swift */,
+			);
+			path = Accounts;
 			sourceTree = "<group>";
 		};
 		EBEB145122E8A1B500291435 /* New Transaction VC */ = {
@@ -609,6 +620,7 @@
 				EBC59D3F22E7503900E626DC /* AppDelegate.swift in Sources */,
 				EB60C8E922EF1F3B000DC7C6 /* ApplePay.swift in Sources */,
 				EBC59D5322E750E900E626DC /* Model.swift in Sources */,
+				EBDA26CD22F6FDCC0073DC50 /* IncomeStatementPercentView.swift in Sources */,
 				EB60C8E522EF1F3B000DC7C6 /* Currency.swift in Sources */,
 				EB60C8E622EF1F3B000DC7C6 /* Decimal.swift in Sources */,
 				EBD012E022E9974700F8126D /* DiaryTextView.swift in Sources */,

@@ -72,6 +72,12 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet var tableView: UITableView!
 
     
+    static func instantiate() -> BudgetTableViewController {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "budgetTableViewController") as! BudgetTableViewController
+        return vc
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         budgetCategories = Model.shared.getAllBudgetCategories()
@@ -146,9 +152,7 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
         }
         floaty.addItem(item: item)
 
-        //view.addSubview(floaty)
         view.addSubview(floaty)
-        //tableView.superview?.addSubview(floaty)
     }
     
 

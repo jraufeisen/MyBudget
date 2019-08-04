@@ -265,6 +265,23 @@ class LedgerModel: NSObject {
         return sum
     }
     
+    func incomeSinceDate(acc:Account, date: Date) -> Decimal {
+        var sum: Decimal = 0
+        for tx in transactions {
+            if tx.date >= date && tx.isIncome() { sum += tx.valueForAccount(acc: acc) }
+        }
+        return sum
+    }
+    
+    
+    func expenseSinceDate(acc:Account, date: Date) -> Decimal {
+        var sum: Decimal = 0
+        for tx in transactions {
+            if tx.date >= date && tx.isExpense() { sum += tx.valueForAccount(acc: acc) }
+        }
+        return sum
+    }
+    
     /*
      *   Calculates the balance regarding all transactions that occured not earlier than the given date
      */

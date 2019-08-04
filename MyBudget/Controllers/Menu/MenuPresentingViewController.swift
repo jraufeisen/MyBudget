@@ -57,6 +57,15 @@ class MenuPresentingViewController: UINavigationController {
 extension MenuPresentingViewController: MenuSelectionDelegate {
     func didSelectMenuItem(item: MenuItem) {
         SideMenuManager.default.leftMenuNavigationController?.dismiss(animated: true, completion: nil)
+
+        switch item {
+        case .Budget:
+            self.setViewControllers([BudgetTableViewController.instantiate()], animated: false)
+        case .Accounts:
+            self.setViewControllers([AccountTableViewController.instantiate()], animated: false)
+        default:
+            break
+        }
         
     }
 }

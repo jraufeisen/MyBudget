@@ -16,10 +16,18 @@ import UIKit
     
     ///Between 0 and 1
     @IBInspectable var fillProportion: CGFloat = 0.5 {
-        didSet { setNeedsDisplay() }
+        didSet {
+            setUpView()
+            setNeedsDisplay()
+            
+        }
     }
     
-    override func awakeFromNib() {
+    override func prepareForInterfaceBuilder() {
+        setUpView()
+    }
+    
+    private func setUpView() {
         backgroundColor = .clear
         layer.borderColor = tintColor?.cgColor
         layer.borderWidth = 1
@@ -29,9 +37,7 @@ import UIKit
     override func draw(_ rect: CGRect) {
         let rect = CGRect.init(x: 0, y: 0, width: self.frame.width * fillProportion, height: self.frame.height)
         tintColor?.set()
-        // UIRectFill(rect)
-        
-        //Crosshatch
+
         let path:UIBezierPath = UIBezierPath(roundedRect: rect, cornerRadius: 5)
         path.addClip()
         
@@ -43,8 +49,6 @@ import UIKit
         path.addLine(to: p2)
         path.lineWidth = bounds.width * 2
         
-     //   let dashes:[CGFloat] = [0.5, 7.0]
-     //   path.setLineDash(dashes, count: 2, phase: 0.0)
         path.stroke()
 
     }

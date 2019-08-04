@@ -11,9 +11,22 @@ import UIKit
 
 struct BudgetCategoryViewable {
     let name: String
-    let remainingMoney: Money //Todo: Money
+    let remainingMoney: Money
     let percentLeft: Double // Between 0 and 100
     let detailString: String
+}
+
+struct AccountViewable {
+    let name: String
+    let remainingMoney: Money
+    let spentThisMonth: Money
+    let earnedThisMonth: Money
+}
+
+/// Income statement across all accounts
+struct IncomeStatementViewable {
+    let spentThisMonth: Money
+    let earnedThisMonth: Money
 }
 
 class Model: NSObject {
@@ -21,6 +34,37 @@ class Model: NSObject {
     static let shared = Model()
     private override init() {
         
+    }
+    
+    /// Income statement for whole month and all accounts
+    func getIncomeStatementViewable() -> IncomeStatementViewable {
+        let bankingAccount = Account.init(name: "Assets:Banking")
+
+        let spentThisMonth = LedgerModel.shared().expenseSinceDate(acc: bankingAccount, date: Date().firstDayOfCurrentMonth())
+        let earnedThisMonth = LedgerModel.shared().incomeSinceDate(acc: bankingAccount, date: Date().firstDayOfCurrentMonth())
+        
+        let viewable = IncomeStatementViewable.init(spentThisMonth: Money((spentThisMonth as NSNumber).floatValue), earnedThisMonth: Money((earnedThisMonth as NSNumber).floatValue))
+
+        return viewable
+    }
+    
+    /// Sorted by name
+    func getAllAccountViewables() -> [AccountViewable] {
+        var accountViewables = [AccountViewable]()
+        let names = getAllAccountNames()
+        
+        for name in names {
+            let bankingAccount = Account.init(name: "Assets:Banking:\(name)")
+            let remainingMoney = LedgerModel.shared().balanceForAccount(acc: bankingAccount)
+            let spentThisMonth = LedgerModel.shared().expenseSinceDate(acc: bankingAccount, date: Date().firstDayOfCurrentMonth())
+            let earnedThisMonth = LedgerModel.shared().incomeSinceDate(acc: bankingAccount, date: Date().firstDayOfCurrentMonth())
+            let viewable = AccountViewable.init(name: name, remainingMoney: Money((remainingMoney as NSNumber).floatValue), spentThisMonth: Money((spentThisMonth as NSNumber).floatValue), earnedThisMonth: Money((earnedThisMonth as NSNumber).floatValue))
+            accountViewables.append(viewable)
+        }
+        
+        return accountViewables.sorted(by: { (v1, v2) -> Bool in
+            v1.name < v2.name
+        })
     }
     
     /// Only returns banking accounts. only last component
