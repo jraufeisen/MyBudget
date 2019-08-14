@@ -282,6 +282,17 @@ class LedgerModel: NSObject {
         return sum
     }
     
+    
+    func expense(acc: Account, from: Date, to: Date) -> Decimal {
+        var sum: Decimal = 0
+        for tx in transactions {
+            if tx.date >= from && tx.date <= to  && tx.isExpense() { sum += tx.valueForAccount(acc: acc) }
+        }
+        return sum
+
+    }
+    
+    
     /*
      *   Calculates the balance regarding all transactions that occured not earlier than the given date
      */

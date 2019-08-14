@@ -710,6 +710,76 @@
             </objects>
             <point key="canvasLocation" x="508.69565217391306" y="908.70535714285711"/>
         </scene>
+        <!--Reports-->
+        <scene sceneID="uII-JL-GFF">
+            <objects>
+                <viewController storyboardIdentifier="monthlyAverageVC" title="Reports" id="evH-lk-FTK" customClass="MonthlyAverageViewController" customModule="MyBudget" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MDv-TH-XYa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="lVi-dh-ACz">
+                                <rect key="frame" x="0.0" y="27" width="414" height="896"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="monthlyAverageCell" textLabel="dgk-2b-YU9" detailTextLabel="BkD-au-MTK" style="IBUITableViewCellStyleValue1" id="JrM-Eq-D6N">
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JrM-Eq-D6N" id="T1j-gv-His">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dgk-2b-YU9">
+                                                    <rect key="frame" x="20" y="12" width="33.5" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BkD-au-MTK">
+                                                    <rect key="frame" x="350" y="12" width="44" height="20.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.81960784310000001" green="0.23137254900000001" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="evH-lk-FTK" id="9cP-ay-0zh"/>
+                                    <outlet property="delegate" destination="evH-lk-FTK" id="CtP-Hv-qAq"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lVi-dh-ACz" firstAttribute="height" secondItem="MDv-TH-XYa" secondAttribute="height" id="Bu8-gM-n0b"/>
+                            <constraint firstItem="lVi-dh-ACz" firstAttribute="centerY" secondItem="34u-8b-4ND" secondAttribute="centerY" id="Dwb-Ad-csq"/>
+                            <constraint firstItem="lVi-dh-ACz" firstAttribute="centerX" secondItem="34u-8b-4ND" secondAttribute="centerX" id="n2b-ez-Rma"/>
+                            <constraint firstItem="lVi-dh-ACz" firstAttribute="width" secondItem="MDv-TH-XYa" secondAttribute="width" id="uhH-BJ-fae"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="34u-8b-4ND"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Average monthly spending" id="fxA-DK-tJg">
+                        <barButtonItem key="leftBarButtonItem" title="Menu" image="menu.png" id="jw2-yz-BdP">
+                            <connections>
+                                <action selector="pressedMenu:" destination="evH-lk-FTK" id="OZF-so-SjO"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="lVi-dh-ACz" id="862-Z1-sdl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y9a-xn-1Bx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="479.71014492753625" y="1597.7678571428571"/>
+        </scene>
     </scenes>
     <resources>
         <image name="drawer.png" width="384" height="384"/>

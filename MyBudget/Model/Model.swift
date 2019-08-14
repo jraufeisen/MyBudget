@@ -29,11 +29,43 @@ struct IncomeStatementViewable {
     let earnedThisMonth: Money
 }
 
+
+/// Average expense in a specific category
+struct MonthlyAverageCategoryViewable {
+    let name: String
+    let averageSpent: Money
+}
+
 class Model: NSObject {
 
     static let shared = Model()
     private override init() {
         
+    }
+    
+    /// Retrieve all necessary information to display average monthly spendings in each category
+    func getMonthlyAverages() -> [MonthlyAverageCategoryViewable] {
+        var monthlyAverageViewables = [MonthlyAverageCategoryViewable]()
+        let categories = LedgerModel.shared().categories()
+        // Average over the last 3 months only
+        let month1 = Date().firstDayOfCurrentMonth()
+        guard let month2 = month1.decrementByOneMonth() else {return monthlyAverageViewables}
+        guard let month3 = month2.decrementByOneMonth() else {return monthlyAverageViewables}
+
+        
+        for category in categories {
+            let spendingAccount = Account.init(name: "Expenses:\(category)")
+            let val1 = LedgerModel.shared().expenseSinceDate(acc: spendingAccount, date: month1)
+            let val2 = LedgerModel.shared().expense(acc: spendingAccount, from: month2, to: month1)
+            let val3 = LedgerModel.shared().expense(acc: spendingAccount, from: month3, to: month2)
+            // Check that there are any transactions older than 3 months...
+            let average = Money( (val1+val2+val3 as NSNumber).floatValue/3.0 )
+            let viewable = MonthlyAverageCategoryViewable.init(name: category, averageSpent: average)
+            monthlyAverageViewables.append(viewable)
+        }
+     
+        
+        return monthlyAverageViewables
     }
     
     /// Income statement for whole month and all accounts

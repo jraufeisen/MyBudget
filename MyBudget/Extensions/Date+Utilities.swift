@@ -15,6 +15,9 @@ extension Date {
     */
     func firstDayOfCurrentMonth() -> Date {
         return Calendar.current.date(from: Calendar.current.dateComponents([.year, .month], from: Calendar.current.startOfDay(for: self)))!
-        
+    }
+    
+    func decrementByOneMonth() -> Date? {
+        return Calendar.current.date(byAdding: .month, value: -1, to: self)
     }
 }

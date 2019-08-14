@@ -54,6 +54,7 @@
 		EB9DEBD222E9E02800A73FD1 /* AccountAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD122E9E02800A73FD1 /* AccountAccessoryView.swift */; };
 		EB9DEBD422E9E5C400A73FD1 /* UITextField+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */; };
 		EB9DEBD622E9F00600A73FD1 /* CategoryAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD522E9F00600A73FD1 /* CategoryAccessoryView.swift */; };
+		EBA192222304829E00DA9308 /* MonthlyAverageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA192212304829E00DA9308 /* MonthlyAverageViewController.swift */; };
 		EBC59D3F22E7503900E626DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC59D3E22E7503900E626DC /* AppDelegate.swift */; };
 		EBC59D4422E7503900E626DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBC59D4222E7503900E626DC /* Main.storyboard */; };
 		EBC59D4622E7503A00E626DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBC59D4522E7503A00E626DC /* Assets.xcassets */; };
@@ -138,6 +139,7 @@
 		EB9DEBD122E9E02800A73FD1 /* AccountAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAccessoryView.swift; sourceTree = "<group>"; };
 		EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Placeholder.swift"; sourceTree = "<group>"; };
 		EB9DEBD522E9F00600A73FD1 /* CategoryAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAccessoryView.swift; sourceTree = "<group>"; };
+		EBA192212304829E00DA9308 /* MonthlyAverageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyAverageViewController.swift; sourceTree = "<group>"; };
 		EBC59D3B22E7503900E626DC /* MyBudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBC59D3E22E7503900E626DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBC59D4322E7503900E626DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -273,6 +275,7 @@
 				EBD012E322E99A1200F8126D /* Budget Table VC */,
 				EBEB145122E8A1B500291435 /* New Transaction VC */,
 				EB2C771E22EDBD5E009FA2C8 /* Budget Detail VC */,
+				EBA19223230482A200DA9308 /* Monthly Average */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -317,6 +320,14 @@
 				EB985CB222EC6B2300C033E8 /* FloatyDelegate.swift */,
 			);
 			path = Floaty;
+			sourceTree = "<group>";
+		};
+		EBA19223230482A200DA9308 /* Monthly Average */ = {
+			isa = PBXGroup;
+			children = (
+				EBA192212304829E00DA9308 /* MonthlyAverageViewController.swift */,
+			);
+			path = "Monthly Average";
 			sourceTree = "<group>";
 		};
 		EBC59D3222E7503900E626DC = {
@@ -613,6 +624,7 @@
 				EB60C8E322EF1F3B000DC7C6 /* Bitcoin.swift in Sources */,
 				EB985CB622EC6B5800C033E8 /* FloatyWindow.swift in Sources */,
 				EB2C772022EDC143009FA2C8 /* MoneyTextField.swift in Sources */,
+				EBA192222304829E00DA9308 /* MonthlyAverageViewController.swift in Sources */,
 				EB9DEBD622E9F00600A73FD1 /* CategoryAccessoryView.swift in Sources */,
 				EBF2F67C22E8D91300C2772F /* AccountTableView.swift in Sources */,
 				EBC59D5122E750DC00E626DC /* BudgetTableViewController.swift in Sources */,

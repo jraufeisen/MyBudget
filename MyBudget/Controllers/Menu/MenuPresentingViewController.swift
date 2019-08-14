@@ -63,6 +63,8 @@ extension MenuPresentingViewController: MenuSelectionDelegate {
             self.setViewControllers([BudgetTableViewController.instantiate()], animated: false)
         case .Accounts:
             self.setViewControllers([AccountTableViewController.instantiate()], animated: false)
+        case .Reports:
+            self.setViewControllers([MonthlyAverageViewController.instantiate()], animated: false)
         default:
             break
         }
