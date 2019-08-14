@@ -31,7 +31,7 @@ struct IncomeStatementViewable {
 
 
 /// Average expense in a specific category
-struct MonthlyAverageCategoryViewable {
+struct MonthlySpendingCategoryViewable {
     let name: String
     let averageSpent: Money
 }
@@ -43,28 +43,24 @@ class Model: NSObject {
         
     }
     
-    /// Retrieve all necessary information to display average monthly spendings in each category
-    func getMonthlyAverages() -> [MonthlyAverageCategoryViewable] {
-        var monthlyAverageViewables = [MonthlyAverageCategoryViewable]()
+    /// Retrieve all necessary information to display average monthly spendings in each category.
+    /// Only include spending > 0
+    func getLastMonthSpending() -> [MonthlySpendingCategoryViewable] {
+        var monthlyAverageViewables = [MonthlySpendingCategoryViewable]()
         let categories = LedgerModel.shared().categories()
         // Average over the last 3 months only
-        let month1 = Date().firstDayOfCurrentMonth()
-        guard let month2 = month1.decrementByOneMonth() else {return monthlyAverageViewables}
-        guard let month3 = month2.decrementByOneMonth() else {return monthlyAverageViewables}
+        let thisMonth = Date().firstDayOfCurrentMonth()
+        guard let month1 = thisMonth.decrementByOneMonth() else {return monthlyAverageViewables}
 
-        
         for category in categories {
             let spendingAccount = Account.init(name: "Expenses:\(category)")
-            let val1 = LedgerModel.shared().expenseSinceDate(acc: spendingAccount, date: month1)
-            let val2 = LedgerModel.shared().expense(acc: spendingAccount, from: month2, to: month1)
-            let val3 = LedgerModel.shared().expense(acc: spendingAccount, from: month3, to: month2)
-            // Check that there are any transactions older than 3 months...
-            let average = Money( (val1+val2+val3 as NSNumber).floatValue/3.0 )
-            let viewable = MonthlyAverageCategoryViewable.init(name: category, averageSpent: average)
+            let val1 = LedgerModel.shared().expense(acc: spendingAccount, from: month1, to: thisMonth)
+            guard val1 > 0 else {continue}
+            let average = Money( (val1 as NSNumber).floatValue )
+            let viewable = MonthlySpendingCategoryViewable.init(name: category, averageSpent: average)
             monthlyAverageViewables.append(viewable)
         }
      
-        
         return monthlyAverageViewables
     }
     

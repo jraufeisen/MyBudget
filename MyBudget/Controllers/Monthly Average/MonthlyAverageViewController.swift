@@ -13,7 +13,7 @@ class MonthlyAverageViewController: UIViewController, UITableViewDelegate, UITab
 
     @IBOutlet weak var tableView: UITableView!
     
-    private let viewables = Model.shared.getMonthlyAverages()
+    private let viewables = Model.shared.getLastMonthSpending()
     
     
     internal static func instantiate() -> MonthlyAverageViewController {

@@ -763,7 +763,7 @@
                         <viewLayoutGuide key="safeArea" id="34u-8b-4ND"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Average monthly spending" id="fxA-DK-tJg">
+                    <navigationItem key="navigationItem" title="Spent last month" id="fxA-DK-tJg">
                         <barButtonItem key="leftBarButtonItem" title="Menu" image="menu.png" id="jw2-yz-BdP">
                             <connections>
                                 <action selector="pressedMenu:" destination="evH-lk-FTK" id="OZF-so-SjO"/>
