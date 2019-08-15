@@ -135,6 +135,11 @@ class Model: NSObject {
         })
     }
     
+    
+    func addBankingAccount(name: String, balance: Money) {
+        _ = LedgerModel.shared().createBankingAccount(name: name, balance: "\(balance.amount)")
+    }
+    
     func addTransaction(transaction: Transaction) {
         switch transaction.type {
         case .Income:

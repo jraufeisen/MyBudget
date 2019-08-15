@@ -16,6 +16,8 @@
 		EB02A68222EB1BAF00987AFA /* apnumberpad_backspace_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB02A67E22EB1BAA00987AFA /* apnumberpad_backspace_icon@2x.png */; };
 		EB02A68322EB1BAF00987AFA /* apnumberpad_backspace_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB02A67F22EB1BAA00987AFA /* apnumberpad_backspace_icon@3x.png */; };
 		EB02A68722EB1BEF00987AFA /* MoneyKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB02A68622EB1BEF00987AFA /* MoneyKeyboard.swift */; };
+		EB1BCBBC2305AD2A0023E11F /* NewAccountDiaryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1BCBBB2305AD2A0023E11F /* NewAccountDiaryProvider.swift */; };
+		EB1BCBBE2305ADB20023E11F /* NewAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1BCBBD2305ADB20023E11F /* NewAccountViewController.swift */; };
 		EB2C771B22EDBCA3009FA2C8 /* UITextView+Center.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2C771A22EDBCA3009FA2C8 /* UITextView+Center.swift */; };
 		EB2C771D22EDBD59009FA2C8 /* BudgetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2C771C22EDBD59009FA2C8 /* BudgetDetailViewController.swift */; };
 		EB2C772022EDC143009FA2C8 /* MoneyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2C771F22EDC143009FA2C8 /* MoneyTextField.swift */; };
@@ -102,6 +104,8 @@
 		EB02A67F22EB1BAA00987AFA /* apnumberpad_backspace_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apnumberpad_backspace_icon@3x.png"; sourceTree = "<group>"; };
 		EB02A68022EB1BAA00987AFA /* apnumberpad_backspace_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apnumberpad_backspace_icon.png; sourceTree = "<group>"; };
 		EB02A68622EB1BEF00987AFA /* MoneyKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyKeyboard.swift; sourceTree = "<group>"; };
+		EB1BCBBB2305AD2A0023E11F /* NewAccountDiaryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountDiaryProvider.swift; sourceTree = "<group>"; };
+		EB1BCBBD2305ADB20023E11F /* NewAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewAccountViewController.swift; path = "/Users/jojo/Developer/xCode_Projekte/MyBudget/MyBudget/Controllers/New Transaction VC/NewAccountViewController.swift"; sourceTree = "<absolute>"; };
 		EB2C771A22EDBCA3009FA2C8 /* UITextView+Center.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Center.swift"; sourceTree = "<group>"; };
 		EB2C771C22EDBD59009FA2C8 /* BudgetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetDetailViewController.swift; sourceTree = "<group>"; };
 		EB2C771F22EDC143009FA2C8 /* MoneyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTextField.swift; sourceTree = "<group>"; };
@@ -243,6 +247,14 @@
 			path = APNumberPad;
 			sourceTree = "<group>";
 		};
+		EB1BCBC02305ADBD0023E11F /* New Account */ = {
+			isa = PBXGroup;
+			children = (
+				EB1BCBBD2305ADB20023E11F /* NewAccountViewController.swift */,
+			);
+			path = "New Account";
+			sourceTree = "<group>";
+		};
 		EB2C771E22EDBD5E009FA2C8 /* Budget Detail VC */ = {
 			isa = PBXGroup;
 			children = (
@@ -276,6 +288,7 @@
 		EB5C600A22F32946004F81CF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EB1BCBC02305ADBD0023E11F /* New Account */,
 				EBF595B82305852700BF9E40 /* Lock Screen */,
 				EB5C600D22F3296B004F81CF /* Menu */,
 				EBDA26CE22F708340073DC50 /* Accounts */,
@@ -396,6 +409,7 @@
 			isa = PBXGroup;
 			children = (
 				EBC59D5222E750E900E626DC /* Model.swift */,
+				EB1BCBBB2305AD2A0023E11F /* NewAccountDiaryProvider.swift */,
 				EBEB145A22E8AD7300291435 /* Transaction.swift */,
 				EB60C8D822EF1F35000DC7C6 /* Money */,
 				EB558EB422ECA29D00039651 /* Ledger */,
@@ -667,6 +681,7 @@
 				EB60C8E922EF1F3B000DC7C6 /* ApplePay.swift in Sources */,
 				EBC59D5322E750E900E626DC /* Model.swift in Sources */,
 				EBDA26CD22F6FDCC0073DC50 /* IncomeStatementPercentView.swift in Sources */,
+				EB1BCBBE2305ADB20023E11F /* NewAccountViewController.swift in Sources */,
 				EB60C8E522EF1F3B000DC7C6 /* Currency.swift in Sources */,
 				EB60C8E622EF1F3B000DC7C6 /* Decimal.swift in Sources */,
 				EBD012E022E9974700F8126D /* DiaryTextView.swift in Sources */,
@@ -678,6 +693,7 @@
 				EB582E7122F0A10D00422323 /* AddAccountsViewController.swift in Sources */,
 				EB9DEBD222E9E02800A73FD1 /* AccountAccessoryView.swift in Sources */,
 				EBF595B72305852100BF9E40 /* LockScreenViewController.swift in Sources */,
+				EB1BCBBC2305AD2A0023E11F /* NewAccountDiaryProvider.swift in Sources */,
 				EB60C8E722EF1F3B000DC7C6 /* Money.swift in Sources */,
 				EB985CB822EC6B5800C033E8 /* FloatyItem.swift in Sources */,
 				EB60C8E422EF1F3B000DC7C6 /* Locale.swift in Sources */,

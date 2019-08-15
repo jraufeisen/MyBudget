@@ -235,20 +235,3 @@ extension DiaryTextView: MoneyKeyBoardDelegate {
         finishDataEntry()
     }
 }
-
-/*
-extension DiaryTextView: AccountCreationDelegate {
-    func createAccount(name: String) {
-        // Send to model
-        print("I will now creae a new acount")
-        // Reload input tableview (better hold a reference and call .reloadData on the tableview itself)
-    }
-}
-
-extension DiaryTextView: CategoryCreationDelegate {
-    func createCategory(name: String) {
-        // Send to model
-        print("I will now create a new category")
-        // Reload input tableview (better hold a reference and call .reloadData on the tableview itself)
-    }
-}*/

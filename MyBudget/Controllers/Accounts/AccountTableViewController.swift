@@ -141,5 +141,12 @@ class AccountTableViewController: UIViewController, UITableViewDelegate, UITable
         
         menuPresentingController.showMenu()
     }
+    
+    
+    @IBAction func pressedPlus(_ sender: Any) {
+        let newAccountVC = NewAccountViewController()
+        let wrapperVC = UINavigationController.init(rootViewController: newAccountVC)
+        present(wrapperVC, animated: true, completion: nil)
+    }
 }
 

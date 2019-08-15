@@ -746,7 +746,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6Jk-B1-dWf"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Budget" id="Yhm-4q-x4q"/>
+                    <navigationItem key="navigationItem" title="Accounts" id="Yhm-4q-x4q">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="pc4-uj-8dY">
+                            <connections>
+                                <action selector="pressedPlus:" destination="8LR-fY-mkU" id="0nf-uv-RDM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="K0I-1E-Zya" id="z4t-Te-gV2"/>
                     </connections>

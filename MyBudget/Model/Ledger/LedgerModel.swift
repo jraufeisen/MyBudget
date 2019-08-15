@@ -161,7 +161,7 @@ class LedgerModel: NSObject {
         
         \(date) \(txName)
         \t\(acc.name) \t \(value) EUR
-        \tEquity:Income
+        \tIncome
         
         """
         return appendToLedger(appendingString: incomeStatement)
@@ -216,7 +216,16 @@ class LedgerModel: NSObject {
         
     }
 
-    
+    func createBankingAccount(name: String, balance: String) -> Bool {
+        let date = LedgerModel.dateString(date: Date())
+        let accountOpeningStatement = """
+
+        \(date) Account Opening
+        \tAssets:Banking:\(name) \t \(balance) EUR
+        \tIncome
+        """
+        return appendToLedger(appendingString: accountOpeningStatement)
+    }
     
     
     

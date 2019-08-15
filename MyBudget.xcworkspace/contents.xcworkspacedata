@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/jojo/Developer/xCode_Projekte/MyBudget/MyBudget/Controllers/New Transaction VC/NewAccountViewController.swift">
+   </FileRef>
+   <FileRef
       location = "group:MyBudget.xcodeproj">
    </FileRef>
    <FileRef
