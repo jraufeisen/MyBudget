@@ -87,7 +87,9 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
     
     private func updateUI() {
         budgetCategories = Model.shared.getAllBudgetCategories()
-        tableView.reloadSections([0], with: .automatic)
+        if !budgetCategories.isEmpty {
+            tableView.reloadSections([0], with: .automatic)
+        }
         let unbudgetedMoney = Model.shared.unbudgetedMoney()
         if unbudgetedMoney < 0 {
             navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.expenseColor]
