@@ -152,6 +152,7 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
         }
         floaty.addItem(item: item)
 
+        
         view.addSubview(floaty)
     }
     

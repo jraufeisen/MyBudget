@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Whq-2e-P1F">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GSZ-AS-OBq">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -111,13 +111,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Hf2-uc-nyz"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Budget" id="3kp-Gt-pSs">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" image="menu.png" id="5HR-PG-DFq">
-                            <connections>
-                                <action selector="pressedMenuButton:" destination="K8T-vI-pGy" id="YBj-Cg-WoM"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Budget" id="3kp-Gt-pSs"/>
                     <connections>
                         <outlet property="tableView" destination="x9a-7i-SkL" id="Fds-ti-i7n"/>
                     </connections>
@@ -285,10 +279,11 @@
             </objects>
             <point key="canvasLocation" x="1853.6231884057972" y="-510.26785714285711"/>
         </scene>
-        <!--Menu Presenting View Controller-->
+        <!--Budget-->
         <scene sceneID="fvN-0f-UDq">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Whq-2e-P1F" customClass="MenuPresentingViewController" customModule="MyBudget" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Budget" id="aYr-Bw-ZEY"/>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="60n-N2-8k6">
@@ -306,6 +301,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ewe-9m-aqb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-320.28985507246381" y="237.72321428571428"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="LuQ-zD-a5z">
+            <objects>
+                <tabBarController id="GSZ-AS-OBq" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gkD-qs-8Sd">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Whq-2e-P1F" kind="relationship" relationship="viewControllers" id="Nyq-ft-8Gz"/>
+                        <segue destination="Tsb-Gp-Lf9" kind="relationship" relationship="viewControllers" id="zqe-CG-0mg"/>
+                        <segue destination="L6P-JU-Nes" kind="relationship" relationship="viewControllers" id="7rw-CC-8C4"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qkz-T1-wX1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2258" y="471"/>
         </scene>
         <!--Add Accounts View Controller-->
         <scene sceneID="a6N-FK-vs4">
@@ -347,7 +361,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MTe-cO-8VR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1497" y="-97"/>
+            <point key="canvasLocation" x="-320" y="-619"/>
         </scene>
         <!--Enter Number View Controller-->
         <scene sceneID="tgf-jQ-UOh">
@@ -694,13 +708,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6Jk-B1-dWf"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Budget" id="Yhm-4q-x4q">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" image="menu.png" id="I59-JT-WXe">
-                            <connections>
-                                <action selector="pressedMenu:" destination="8LR-fY-mkU" id="UCC-kQ-dEY"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Budget" id="Yhm-4q-x4q"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="K0I-1E-Zya" id="z4t-Te-gV2"/>
@@ -708,7 +716,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nUs-Km-iOa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="508.69565217391306" y="908.70535714285711"/>
+            <point key="canvasLocation" x="1418.840579710145" y="908.70535714285711"/>
         </scene>
         <!--Reports-->
         <scene sceneID="uII-JL-GFF">
@@ -719,7 +727,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="lVi-dh-ACz">
-                                <rect key="frame" x="0.0" y="27" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="2.5" width="414" height="896"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="monthlyAverageCell" textLabel="dgk-2b-YU9" detailTextLabel="BkD-au-MTK" style="IBUITableViewCellStyleValue1" id="JrM-Eq-D6N">
@@ -763,28 +771,58 @@
                         <viewLayoutGuide key="safeArea" id="34u-8b-4ND"/>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Spent last month" id="fxA-DK-tJg">
-                        <barButtonItem key="leftBarButtonItem" title="Menu" image="menu.png" id="jw2-yz-BdP">
-                            <connections>
-                                <action selector="pressedMenu:" destination="evH-lk-FTK" id="OZF-so-SjO"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Spent last month" id="fxA-DK-tJg"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="tableView" destination="lVi-dh-ACz" id="862-Z1-sdl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y9a-xn-1Bx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="479.71014492753625" y="1597.7678571428571"/>
+            <point key="canvasLocation" x="1105.7971014492755" y="1629.9107142857142"/>
+        </scene>
+        <!--Accounts-->
+        <scene sceneID="PxE-rD-mbU">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Tsb-Gp-Lf9" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Accounts" id="94B-q8-phK"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="t6o-z7-LaW">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8LR-fY-mkU" kind="relationship" relationship="rootViewController" id="cRI-RW-nL7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QBg-fO-S8P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="508.69565217391306" y="908.70535714285711"/>
+        </scene>
+        <!--Spendings-->
+        <scene sceneID="HBi-na-qPt">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="L6P-JU-Nes" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Spendings" id="GNX-Cg-YA2"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="RaB-ju-8VE">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="evH-lk-FTK" kind="relationship" relationship="rootViewController" id="1CK-dl-MQd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y7K-ou-9Dd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="195.6521739130435" y="1629.9107142857142"/>
         </scene>
     </scenes>
     <resources>
         <image name="drawer.png" width="384" height="384"/>
         <image name="edit-2.png" width="51.200000762939453" height="51.200000762939453"/>
         <image name="euro.png" width="384" height="384"/>
-        <image name="menu.png" width="24" height="24"/>
     </resources>
 </document>
