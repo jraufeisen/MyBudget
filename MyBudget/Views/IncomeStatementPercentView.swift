@@ -79,8 +79,12 @@ import UIKit
     
     
     override func draw(_ rect: CGRect) {
-        //Draw at least as wide as the label goes
-        let drawWidth = max(self.frame.width * fillProportion, overlayLabel.frame.maxX + 8)
+        // Draw at least as wide as the label goes.
+        // Exception: If the value to display is exactly 0, dont show anything at all
+        var drawWidth = max(self.frame.width * fillProportion, overlayLabel.frame.maxX + 8)
+        if fillProportion == 0 {
+            drawWidth = 0
+        }
         
         let rect = CGRect.init(x: 0, y: 0, width: drawWidth, height: self.frame.height)
         tintColor?.set()
