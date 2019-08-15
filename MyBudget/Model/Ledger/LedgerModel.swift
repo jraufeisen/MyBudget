@@ -8,6 +8,12 @@
 
 import UIKit
 
+
+let ModelChangedNotification = NSNotification.Name.init("Ledger Model did change")
+
+
+
+
 class LedgerModel: NSObject {
 
     
@@ -236,11 +242,14 @@ class LedgerModel: NSObject {
         let together = LedgerModel.defaultJournal + "\n" + appendingString
         do {
             try together.write(to: LedgerModel.defaultURL, atomically: true, encoding: String.Encoding.utf8)
+            NotificationCenter.default.post(name: ModelChangedNotification, object: nil)
+
             return true
         } catch {
             print("Could not write to ledgerFile")
             return false
         }
+        
         
     }
     

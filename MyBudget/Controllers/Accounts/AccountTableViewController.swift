@@ -56,6 +56,15 @@ class AccountTableViewController: UIViewController, UITableViewDelegate, UITable
     private var incomestatement: IncomeStatementViewable = Model.shared.getIncomeStatementViewable()
     private var accounts: [AccountViewable] = Model.shared.getAllAccountViewables()
     
+    @objc private func updateModel() {
+        incomestatement = Model.shared.getIncomeStatementViewable()
+        accounts = Model.shared.getAllAccountViewables()
+        tableView.reloadData()
+    }
+    
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return accounts.count+1
     }
@@ -132,8 +141,12 @@ class AccountTableViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         
         navigationItem.title = "Accounts"
+
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateModel), name: ModelChangedNotification, object: nil)
     }
 
+    
+    
     @IBAction func pressedMenu(_ sender: Any) {
         guard let menuPresentingController = navigationController as? MenuPresentingViewController else {
             fatalError("The presenting navigationcontroller is not a menu presenting view controller")

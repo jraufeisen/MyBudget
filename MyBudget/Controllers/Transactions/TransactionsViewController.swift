@@ -10,21 +10,30 @@ import UIKit
 
 class TransactionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    let transactions = Model.shared.transactions()
+    var transactions = Model.shared.transactions()
     var filteredTransactions = [Transaction]()
     var searchFilter = "" {
         didSet {
-            if searchFilter == "" {
-                filteredTransactions = transactions
-            } else {
-                filteredTransactions = transactions.filter({ (tx) -> Bool in
-                    tx.transactionDescription.lowercased().contains(searchFilter.lowercased())
-                })
-            }
-            
+            updateSearchResults()
             self.tableView.reloadData()
         }
     }
+    private func updateSearchResults() {
+        if searchFilter == "" {
+            filteredTransactions = transactions
+        } else {
+            filteredTransactions = transactions.filter({ (tx) -> Bool in
+                tx.transactionDescription.lowercased().contains(searchFilter.lowercased())
+            })
+        }
+    }
+    
+    @objc private func updateModel() {
+        transactions = Model.shared.transactions()
+        updateSearchResults()
+        self.tableView.reloadData()
+    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredTransactions.count
@@ -83,8 +92,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 
         navigationItem.searchController = search
 
-        
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateModel), name: ModelChangedNotification, object: nil)
     }
 }
 

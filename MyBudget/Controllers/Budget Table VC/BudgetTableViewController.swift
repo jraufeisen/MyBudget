@@ -81,11 +81,12 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         budgetCategories = Model.shared.getAllBudgetCategories()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateUI), name: ModelChangedNotification, object: nil)
 
     }
 
     
-    private func updateUI() {
+    @objc private func updateUI() {
         budgetCategories = Model.shared.getAllBudgetCategories()
         if !budgetCategories.isEmpty {
             tableView.reloadSections([0], with: .automatic)
