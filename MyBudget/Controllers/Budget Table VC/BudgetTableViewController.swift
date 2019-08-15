@@ -92,7 +92,8 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
         if unbudgetedMoney < 0 {
             navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.expenseColor]
             navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.expenseColor]
-            navigationItem.title = "Budget \(unbudgetedMoney)"
+            navigationItem.title = "Budget \(unbudgetedMoney.negative)"
+            navigationItem.prompt = "You have overbudgeted by \(unbudgetedMoney.negative)"
         } else if unbudgetedMoney == 0 {
             navigationController?.navigationBar.titleTextAttributes = nil
             navigationController?.navigationBar.largeTitleTextAttributes = nil
@@ -101,6 +102,7 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
             navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.incomeColor]
             navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.incomeColor]
             navigationItem.title = "Budget \(unbudgetedMoney)"
+            navigationItem.prompt = "You have \(unbudgetedMoney) left to budget"
         }
 
     }
