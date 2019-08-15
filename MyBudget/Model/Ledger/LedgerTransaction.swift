@@ -101,8 +101,11 @@ class LedgerTransaction: NSObject {
     
     
     func isIncome() -> Bool {
-        return !isExpense()
-    }
+        for (account, _) in postings {
+            if account.name.contains("Income") {return true}
+        }
+        
+        return false    }
     
     func isExpense() -> Bool {
         for (account, _) in postings {

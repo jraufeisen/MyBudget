@@ -277,7 +277,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1kV-qI-pCe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1853.6231884057972" y="-510.26785714285711"/>
+            <point key="canvasLocation" x="-2259" y="-320"/>
         </scene>
         <!--Budget-->
         <scene sceneID="fvN-0f-UDq">
@@ -302,10 +302,10 @@
             </objects>
             <point key="canvasLocation" x="-320.28985507246381" y="237.72321428571428"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tabbar View Controller-->
         <scene sceneID="LuQ-zD-a5z">
             <objects>
-                <tabBarController id="GSZ-AS-OBq" sceneMemberID="viewController">
+                <tabBarController id="GSZ-AS-OBq" customClass="TabbarViewController" customModule="MyBudget" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gkD-qs-8Sd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -315,6 +315,7 @@
                         <segue destination="Whq-2e-P1F" kind="relationship" relationship="viewControllers" id="Nyq-ft-8Gz"/>
                         <segue destination="Tsb-Gp-Lf9" kind="relationship" relationship="viewControllers" id="zqe-CG-0mg"/>
                         <segue destination="L6P-JU-Nes" kind="relationship" relationship="viewControllers" id="7rw-CC-8C4"/>
+                        <segue destination="w5V-fb-VLB" kind="relationship" relationship="viewControllers" id="Vrp-tK-2lk"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qkz-T1-wX1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -361,7 +362,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MTe-cO-8VR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-320" y="-619"/>
+            <point key="canvasLocation" x="-296" y="-575"/>
         </scene>
         <!--Enter Number View Controller-->
         <scene sceneID="tgf-jQ-UOh">
@@ -401,7 +402,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h3X-oS-u4I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1462.3188405797102" y="237.72321428571428"/>
+            <point key="canvasLocation" x="1428" y="238"/>
         </scene>
         <!--Strom-->
         <scene sceneID="Mj7-QQ-sFU">
@@ -523,7 +524,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Yx-Ke-mQL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2286.9565217391305" y="258.48214285714283"/>
+            <point key="canvasLocation" x="2217" y="238"/>
         </scene>
         <!--Accounts-->
         <scene sceneID="Wj6-FU-KtU">
@@ -709,14 +710,13 @@
                         <viewLayoutGuide key="safeArea" id="6Jk-B1-dWf"/>
                     </view>
                     <navigationItem key="navigationItem" title="Budget" id="Yhm-4q-x4q"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="K0I-1E-Zya" id="z4t-Te-gV2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nUs-Km-iOa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1418.840579710145" y="908.70535714285711"/>
+            <point key="canvasLocation" x="590" y="928"/>
         </scene>
         <!--Reports-->
         <scene sceneID="uII-JL-GFF">
@@ -727,7 +727,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="lVi-dh-ACz">
-                                <rect key="frame" x="0.0" y="2.5" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="28.5" width="414" height="896"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="monthlyAverageCell" textLabel="dgk-2b-YU9" detailTextLabel="BkD-au-MTK" style="IBUITableViewCellStyleValue1" id="JrM-Eq-D6N">
@@ -772,14 +772,13 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Spent last month" id="fxA-DK-tJg"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="lVi-dh-ACz" id="862-Z1-sdl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y9a-xn-1Bx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1105.7971014492755" y="1629.9107142857142"/>
+            <point key="canvasLocation" x="590" y="1641"/>
         </scene>
         <!--Accounts-->
         <scene sceneID="PxE-rD-mbU">
@@ -798,7 +797,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QBg-fO-S8P" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="508.69565217391306" y="908.70535714285711"/>
+            <point key="canvasLocation" x="-320" y="928"/>
         </scene>
         <!--Spendings-->
         <scene sceneID="HBi-na-qPt">
@@ -817,7 +816,123 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y7K-ou-9Dd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="195.6521739130435" y="1629.9107142857142"/>
+            <point key="canvasLocation" x="-320" y="1641"/>
+        </scene>
+        <!--Transactions-->
+        <scene sceneID="29q-x8-IJ3">
+            <objects>
+                <viewController id="q9W-M4-2Gu" customClass="TransactionsViewController" customModule="MyBudget" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6Qv-zp-w8W">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b8m-qa-qFV">
+                                <rect key="frame" x="0.0" y="28.5" width="414" height="896"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="transactionCell" rowHeight="78" id="YtA-Ud-31m" customClass="CategoryTransacitonCell" customModule="MyBudget" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="78"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YtA-Ud-31m" id="F8F-Dk-AqD">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="77.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" text="Buying some cool stuff" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dWP-eg-pDW">
+                                                    <rect key="frame" x="20" y="11" width="176" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account: Savings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyI-7p-7Kh">
+                                                    <rect key="frame" x="20" y="46" width="133" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="42.42" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LHd-09-vh2">
+                                                    <rect key="frame" x="349" y="11" width="45" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.81960784310000001" green="0.23137254900000001" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="31th July" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SNR-kO-qp0">
+                                                    <rect key="frame" x="325" y="46" width="69" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.57414853570000002" green="0.57416242360000003" blue="0.57415497299999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="SNR-kO-qp0" firstAttribute="centerY" secondItem="hyI-7p-7Kh" secondAttribute="centerY" id="IjP-qe-vt0"/>
+                                                <constraint firstItem="LHd-09-vh2" firstAttribute="centerY" secondItem="dWP-eg-pDW" secondAttribute="centerY" id="JHk-C4-TEU"/>
+                                                <constraint firstAttribute="trailing" secondItem="LHd-09-vh2" secondAttribute="trailing" constant="20" id="JWm-eS-zT2"/>
+                                                <constraint firstItem="LHd-09-vh2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dWP-eg-pDW" secondAttribute="trailing" constant="10" id="Nu9-Nl-MvR"/>
+                                                <constraint firstItem="dWP-eg-pDW" firstAttribute="top" secondItem="F8F-Dk-AqD" secondAttribute="top" constant="11" id="OdL-d9-OaN"/>
+                                                <constraint firstAttribute="bottom" secondItem="hyI-7p-7Kh" secondAttribute="bottom" constant="10.5" id="WJN-SH-Rpc"/>
+                                                <constraint firstAttribute="trailing" secondItem="SNR-kO-qp0" secondAttribute="trailing" constant="20" id="XdN-zT-tk3"/>
+                                                <constraint firstItem="hyI-7p-7Kh" firstAttribute="leading" secondItem="F8F-Dk-AqD" secondAttribute="leading" constant="20" id="gcN-DD-qs6"/>
+                                                <constraint firstItem="dWP-eg-pDW" firstAttribute="leading" secondItem="F8F-Dk-AqD" secondAttribute="leading" constant="20" id="tkh-Ap-Le4"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="accountLabel" destination="hyI-7p-7Kh" id="LUr-zK-K5L"/>
+                                            <outlet property="dateLabel" destination="SNR-kO-qp0" id="bzF-GX-Iaz"/>
+                                            <outlet property="moneyLabel" destination="LHd-09-vh2" id="Exx-Wq-LOD"/>
+                                            <outlet property="nameLabel" destination="dWP-eg-pDW" id="yhF-0O-y2M"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="q9W-M4-2Gu" id="bbL-4N-NbN"/>
+                                    <outlet property="delegate" destination="q9W-M4-2Gu" id="pO5-WW-W3M"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="b8m-qa-qFV" firstAttribute="height" secondItem="6Qv-zp-w8W" secondAttribute="height" id="3QQ-ZB-uC6"/>
+                            <constraint firstItem="b8m-qa-qFV" firstAttribute="centerY" secondItem="xLo-AP-qya" secondAttribute="centerY" id="IgK-99-nNY"/>
+                            <constraint firstItem="b8m-qa-qFV" firstAttribute="centerX" secondItem="xLo-AP-qya" secondAttribute="centerX" id="MdU-1u-yZR"/>
+                            <constraint firstItem="b8m-qa-qFV" firstAttribute="width" secondItem="6Qv-zp-w8W" secondAttribute="width" id="R5j-b8-GBI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xLo-AP-qya"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Transactions" id="6XQ-7K-xRJ"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="tWI-cS-TYF" id="Scg-dJ-nYo"/>
+                        <outlet property="tableView" destination="b8m-qa-qFV" id="jiy-Iq-0fl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jvp-B0-XrF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="tWI-cS-TYF">
+                    <connections>
+                        <outlet property="delegate" destination="q9W-M4-2Gu" id="gEE-s4-fuz"/>
+                        <outlet property="searchContentsController" destination="q9W-M4-2Gu" id="4cB-Gq-Sal"/>
+                        <outlet property="searchResultsDataSource" destination="q9W-M4-2Gu" id="BaU-Hx-rus"/>
+                        <outlet property="searchResultsDelegate" destination="q9W-M4-2Gu" id="ZZX-6U-ttK"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="586.95652173913049" y="2368.5267857142858"/>
+        </scene>
+        <!--Transactions-->
+        <scene sceneID="qCx-o7-TAG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="w5V-fb-VLB" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Transactions" id="MAm-Kk-vgC"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="id7-OB-tQi">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="q9W-M4-2Gu" kind="relationship" relationship="rootViewController" id="u65-4u-dim"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hHV-mN-9GE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-323.1884057971015" y="2368.5267857142858"/>
         </scene>
     </scenes>
     <resources>

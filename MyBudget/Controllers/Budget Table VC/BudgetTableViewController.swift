@@ -81,7 +81,7 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewDidLoad() {
         super.viewDidLoad()
         budgetCategories = Model.shared.getAllBudgetCategories()
-        addFloatingActionButton()
+
     }
 
     
@@ -109,51 +109,6 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidAppear(_ animated: Bool) {
         updateUI()
-    }
-    
-    var floaty = Floaty()
-    private func addFloatingActionButton() {
-        guard floaty.superview == nil else {
-            return
-        }
-
-        floaty.buttonColor = .white
-        floaty.plusColor = .blue
-        floaty.itemSize = 50
-
-        var item = FloatyItem()
-        item.icon = UIImage.init(named: "euro")?.withRenderingMode(.alwaysTemplate)
-        item.tintColor = .white
-        item.buttonColor = .incomeColor
-        item.size = floaty.itemSize
-        item.handler = { (item) in
-            self.addTransaction(type: .Income)
-        }
-        floaty.addItem(item: item)
-
-        
-        item = FloatyItem()
-        item.icon = UIImage.init(named: "euro")?.withRenderingMode(.alwaysTemplate)
-        item.tintColor = .white
-        item.buttonColor = .transferColor
-        item.size = floaty.itemSize
-        item.handler = { (item) in
-            self.addTransaction(type: .Transfer)
-        }
-        floaty.addItem(item: item)
-
-        item = FloatyItem()
-        item.icon = UIImage.init(named: "euro")?.withRenderingMode(.alwaysTemplate)
-        item.tintColor = .white
-        item.buttonColor = .expenseColor
-        item.size = floaty.itemSize
-        item.handler = { (item) in
-            self.addTransaction(type: .Expense)
-        }
-        floaty.addItem(item: item)
-
-        
-        view.addSubview(floaty)
     }
     
 
@@ -205,11 +160,6 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
     
     
     
-    private func addTransaction(type: TransactionType) {
-        let vc = EnterNumberViewController.instantiate(with: type)
-        let wrapperVC = UINavigationController.init(rootViewController: vc)
-        navigationController?.present(wrapperVC, animated: true, completion: nil)
-    }
     
     @IBAction func pressedMenuButton(_ sender: Any) {
         guard let menuPresentingController = navigationController as? MenuPresentingViewController else {

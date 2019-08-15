@@ -55,6 +55,8 @@
 		EB9DEBD422E9E5C400A73FD1 /* UITextField+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */; };
 		EB9DEBD622E9F00600A73FD1 /* CategoryAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD522E9F00600A73FD1 /* CategoryAccessoryView.swift */; };
 		EBA192222304829E00DA9308 /* MonthlyAverageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA192212304829E00DA9308 /* MonthlyAverageViewController.swift */; };
+		EBB21C8023054E70004E4E8F /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB21C7F23054E70004E4E8F /* TabbarViewController.swift */; };
+		EBB21C8323055530004E4E8F /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB21C8223055530004E4E8F /* TransactionsViewController.swift */; };
 		EBC59D3F22E7503900E626DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC59D3E22E7503900E626DC /* AppDelegate.swift */; };
 		EBC59D4422E7503900E626DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBC59D4222E7503900E626DC /* Main.storyboard */; };
 		EBC59D4622E7503A00E626DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBC59D4522E7503A00E626DC /* Assets.xcassets */; };
@@ -140,6 +142,8 @@
 		EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Placeholder.swift"; sourceTree = "<group>"; };
 		EB9DEBD522E9F00600A73FD1 /* CategoryAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAccessoryView.swift; sourceTree = "<group>"; };
 		EBA192212304829E00DA9308 /* MonthlyAverageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyAverageViewController.swift; sourceTree = "<group>"; };
+		EBB21C7F23054E70004E4E8F /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
+		EBB21C8223055530004E4E8F /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 		EBC59D3B22E7503900E626DC /* MyBudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBC59D3E22E7503900E626DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBC59D4322E7503900E626DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -275,7 +279,9 @@
 				EBD012E322E99A1200F8126D /* Budget Table VC */,
 				EBEB145122E8A1B500291435 /* New Transaction VC */,
 				EB2C771E22EDBD5E009FA2C8 /* Budget Detail VC */,
+				EBB21C8123054E77004E4E8F /* Custom UITabbar */,
 				EBA19223230482A200DA9308 /* Monthly Average */,
+				EBB21C8423055536004E4E8F /* Transactions */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -328,6 +334,22 @@
 				EBA192212304829E00DA9308 /* MonthlyAverageViewController.swift */,
 			);
 			path = "Monthly Average";
+			sourceTree = "<group>";
+		};
+		EBB21C8123054E77004E4E8F /* Custom UITabbar */ = {
+			isa = PBXGroup;
+			children = (
+				EBB21C7F23054E70004E4E8F /* TabbarViewController.swift */,
+			);
+			path = "Custom UITabbar";
+			sourceTree = "<group>";
+		};
+		EBB21C8423055536004E4E8F /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				EBB21C8223055530004E4E8F /* TransactionsViewController.swift */,
+			);
+			path = Transactions;
 			sourceTree = "<group>";
 		};
 		EBC59D3222E7503900E626DC = {
@@ -611,6 +633,7 @@
 				EBEB145B22E8AD7300291435 /* Transaction.swift in Sources */,
 				EB2C771B22EDBCA3009FA2C8 /* UITextView+Center.swift in Sources */,
 				EB985CBB22EC6B5800C033E8 /* Floaty.swift in Sources */,
+				EBB21C8023054E70004E4E8F /* TabbarViewController.swift in Sources */,
 				EB2C771D22EDBD59009FA2C8 /* BudgetDetailViewController.swift in Sources */,
 				EB582E7622F0AE1800422323 /* Date+Utilities.swift in Sources */,
 				EB985CB522EC6B5400C033E8 /* FloatyDelegate.swift in Sources */,
@@ -639,6 +662,7 @@
 				EB985CBA22EC6B5800C033E8 /* FloatyViewController.swift in Sources */,
 				EBCECC6822ECA20E00D85F7C /* Parser.swift in Sources */,
 				EB02A67222EB10E700987AFA /* APNumberPadDefaultStyle.m in Sources */,
+				EBB21C8323055530004E4E8F /* TransactionsViewController.swift in Sources */,
 				EB558EB322ECA28100039651 /* LedgerTransaction.swift in Sources */,
 				EB582E7122F0A10D00422323 /* AddAccountsViewController.swift in Sources */,
 				EB9DEBD222E9E02800A73FD1 /* AccountAccessoryView.swift in Sources */,

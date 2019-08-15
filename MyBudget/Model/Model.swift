@@ -159,6 +159,58 @@ class Model: NSObject {
         _ = LedgerModel.shared().postTransfer(from: from, to: to, value: "\(transaction.value.amount)", description: transaction.transactionDescription)
     }
     
+    
+    
+    /// All transactions
+    func transactions() -> [Transaction] {
+        var transactions = [Transaction]()
+        
+        for tx in LedgerModel.shared().transactions {
+            if tx.isExpense() {
+                let relevantTx = ExpenseTransaction()
+                relevantTx.transactionDescription = tx.name
+                for post in tx.postings {
+                    let dec = NSDecimalNumber.init(decimal: post.1)
+                    relevantTx.value = Money(dec.floatValue)
+                    relevantTx.date = tx.date
+                    
+                    if post.0.name.contains("Banking:") {
+                        if let bankingAccount = post.0.name.components(separatedBy: ":").last {
+                            relevantTx.account = bankingAccount
+                        }
+                    }
+                }
+                // do not include budgeting transactions, only real expenses or income
+                if relevantTx.value != 0 {
+                    transactions.append(relevantTx)
+                }
+
+            } else if tx.isIncome() {
+                let relevantTx = IncomeTransaction()
+                relevantTx.transactionDescription = tx.name
+                for post in tx.postings {
+                    let dec = NSDecimalNumber.init(decimal: post.1)
+                    relevantTx.value = Money(-dec.floatValue)
+                    relevantTx.date = tx.date
+                    
+                    if post.0.name.contains("Banking:") {
+                        if let bankingAccount = post.0.name.components(separatedBy: ":").last {
+                            relevantTx.account = bankingAccount
+                        }
+                    }
+                }
+                // do not include budgeting transactions, only real expenses or income
+                if relevantTx.value != 0 {
+                    transactions.append(relevantTx)
+                }
+            }
+            
+            
+        }
+        
+        return transactions
+    }
+    
     /// Sorted by date
     func transactions(for category: String) -> [Transaction] {
         var transactions = [Transaction]()
