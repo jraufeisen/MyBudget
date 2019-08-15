@@ -1,5 +1,5 @@
 //
-//  NewAccount.swift
+//  NewBudgetCategoryDiaryProvider.swift
 //  MyBudget
 //
 //  Created by Johannes on 15.08.19.
@@ -8,11 +8,11 @@
 
 import Foundation
 
-/// Provides diary information to create a new account
-class NewAccountDiaryProvider: DiaryProvider {
+/// Provides diary information to create a new budget category
+class NewBudgetCategoryDiaryProvider: DiaryProvider {
     func diaryEntry() -> DiaryEntry {
         return [
-            ("Create a new account named ", .description),
+            ("Create a new budget category named ", .description),
             (" with an initial balance of ", .money),
         ]
     }

@@ -1,18 +1,19 @@
 //
-//  NewAccountViewController.swift
-//  
+//  NewBudgetCategoryViewController.swift
+//  MyBudget
 //
 //  Created by Johannes on 15.08.19.
+//  Copyright © 2019 Johannes Raufeisen. All rights reserved.
 //
 
 import UIKit
 
-class NewAccountViewController: UIViewController {
-
+class NewBudgetCategoryViewController: UIViewController {
+    
     /// Entered by the diary textview
-    private var accountName: String?
+    private var categoryName: String?
     private var initialBalance: Money?
-
+    
     
     
     private var _diaryTextView: DiaryTextView? = nil
@@ -25,10 +26,10 @@ class NewAccountViewController: UIViewController {
             dtv.backgroundColor = .clear
             dtv.font = UIFont.systemFont(ofSize: 31)
             dtv.textColor = .white
-            dtv.configure(diaryProvider: NewAccountDiaryProvider())
+            dtv.configure(diaryProvider: NewBudgetCategoryDiaryProvider())
             _diaryTextView = dtv
             view.addSubview(dtv)
-        
+            
             return dtv
         }
     }
@@ -44,7 +45,7 @@ class NewAccountViewController: UIViewController {
         diaryTextView.becomeFirstResponder()
     }
     
-
+    
     /// Adds items to the top bar which is useful when presenting the vc modally
     private func addBarButtonItems() {
         navigationItem.leftBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .stop, target: self, action: #selector(self.pressedCancelButton))
@@ -54,12 +55,12 @@ class NewAccountViewController: UIViewController {
         _ = diaryTextView.resignFirstResponder()
         dismiss(animated: true, completion: nil)
     }
-
     
-
+    
+    
 }
 
-extension NewAccountViewController: DiaryDelegate {
+extension NewBudgetCategoryViewController: DiaryDelegate {
     
     private func addFloatingFinishButton() {
         let floaty = Floaty()
@@ -74,9 +75,10 @@ extension NewAccountViewController: DiaryDelegate {
         item.buttonColor = .blue
         item.size = floaty.itemSize
         item.handler = { (item) in
-            if let accountName = self.accountName, let balance = self.initialBalance {
+            if let accountName = self.categoryName, let balance = self.initialBalance {
+                print("I will now add new category \(self.categoryName) with balance \(self.initialBalance)")
+                Model.shared.addBudgetCategory(name: accountName, balance: balance)
 
-                Model.shared.addBankingAccount(name: accountName, balance: balance)
             }
             self.dismiss(animated: true, completion: nil)
         }
@@ -84,7 +86,7 @@ extension NewAccountViewController: DiaryDelegate {
         
         view.addSubview(floaty)
     }
-
+    
     
     
     func didFinishDiaryEntry() {
@@ -93,7 +95,7 @@ extension NewAccountViewController: DiaryDelegate {
     
     func didEnterDiaryPair(index: Int, value: Any) {
         if let name = value as? String {
-            accountName = name
+            categoryName = name
             return
         }
         

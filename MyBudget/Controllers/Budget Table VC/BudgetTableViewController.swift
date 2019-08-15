@@ -88,8 +88,10 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
     
     @objc private func updateUI() {
         budgetCategories = Model.shared.getAllBudgetCategories()
-        if !budgetCategories.isEmpty {
+        if tableView.numberOfSections > 0 {
             tableView.reloadSections([0], with: .automatic)
+        } else {
+            tableView.reloadData()
         }
         let unbudgetedMoney = Model.shared.unbudgetedMoney()
         if unbudgetedMoney < 0 {
@@ -101,6 +103,7 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
             navigationController?.navigationBar.titleTextAttributes = nil
             navigationController?.navigationBar.largeTitleTextAttributes = nil
             navigationItem.title = "Budget"
+            navigationItem.prompt = ""
         } else {
             navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.incomeColor]
             navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.incomeColor]
@@ -163,7 +166,7 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    
+    // MARK: IB Actions
     
     
     @IBAction func pressedMenuButton(_ sender: Any) {
@@ -174,4 +177,12 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
         menuPresentingController.showMenu()
         
     }
+    
+    @IBAction func pressedPlusButton(_ sender: Any) {
+        let newCategoryVC = NewBudgetCategoryViewController()
+        let wrapperVC = UINavigationController.init(rootViewController: newCategoryVC)
+        present(wrapperVC, animated: true, completion: nil)
+    }
+    
+    
 }

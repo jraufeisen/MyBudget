@@ -233,6 +233,16 @@ class LedgerModel: NSObject {
         return appendToLedger(appendingString: accountOpeningStatement)
     }
     
+    func createBudgetCategory(name: String, balance: String) -> Bool {
+        let date = LedgerModel.dateString(date: Date())
+        let accountOpeningStatement = """
+        
+        \(date) Create Budget
+        \tAssets:Budget:\(name) \t \(balance) EUR
+        \tEquity:AntiBudget
+        """
+        return appendToLedger(appendingString: accountOpeningStatement)
+    }
     
     
     ///Appends string to the current ledger file. Returns YES on success

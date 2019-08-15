@@ -140,6 +140,11 @@ class Model: NSObject {
         _ = LedgerModel.shared().createBankingAccount(name: name, balance: "\(balance.amount)")
     }
     
+    func addBudgetCategory(name: String, balance: Money) {
+        _ = LedgerModel.shared().createBudgetCategory(name: name, balance: "\(balance.amount)")
+    }
+    
+    
     func addTransaction(transaction: Transaction) {
         switch transaction.type {
         case .Income:

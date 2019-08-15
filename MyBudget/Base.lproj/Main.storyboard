@@ -111,7 +111,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="Hf2-uc-nyz"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Budget" id="3kp-Gt-pSs"/>
+                    <navigationItem key="navigationItem" title="Budget" id="3kp-Gt-pSs">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Dve-AP-YOK">
+                            <connections>
+                                <action selector="pressedPlusButton:" destination="K8T-vI-pGy" id="CXy-BQ-0Sc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="x9a-7i-SkL" id="Fds-ti-i7n"/>
                     </connections>
