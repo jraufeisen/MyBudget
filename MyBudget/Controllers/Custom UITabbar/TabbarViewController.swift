@@ -10,6 +10,15 @@ import UIKit
 
 class TabbarViewController: UITabBarController, FloatyDelegate {
 
+    /// Instantiate from storyboard
+    internal static func instantiate() -> TabbarViewController {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabbarController") as! TabbarViewController
+        return vc
+    }
+
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCenterButton()

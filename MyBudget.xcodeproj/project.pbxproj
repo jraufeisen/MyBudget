@@ -78,6 +78,7 @@
 		EBEB145722E8A29800291435 /* UIColor+Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145622E8A29800291435 /* UIColor+Macro.swift */; };
 		EBEB145B22E8AD7300291435 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145A22E8AD7300291435 /* Transaction.swift */; };
 		EBF2F67C22E8D91300C2772F /* AccountTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF2F67B22E8D91300C2772F /* AccountTableView.swift */; };
+		EBF595B72305852100BF9E40 /* LockScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF595B62305852100BF9E40 /* LockScreenViewController.swift */; };
 		EBFF078D22E9B4BA00CC7215 /* NewAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD012F122E9B2D400F8126D /* NewAccountCell.xib */; };
 		EBFF078E22E9B4BC00CC7215 /* ExistingAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD012F022E9B2D400F8126D /* ExistingAccountCell.xib */; };
 /* End PBXBuildFile section */
@@ -169,6 +170,7 @@
 		EBEB145622E8A29800291435 /* UIColor+Macro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Macro.swift"; sourceTree = "<group>"; };
 		EBEB145A22E8AD7300291435 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		EBF2F67B22E8D91300C2772F /* AccountTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableView.swift; sourceTree = "<group>"; };
+		EBF595B62305852100BF9E40 /* LockScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenViewController.swift; sourceTree = "<group>"; };
 		F52E2EACC6135F8774DB4426 /* Pods-MyBudget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBudget.debug.xcconfig"; path = "Target Support Files/Pods-MyBudget/Pods-MyBudget.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -274,6 +276,7 @@
 		EB5C600A22F32946004F81CF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EBF595B82305852700BF9E40 /* Lock Screen */,
 				EB5C600D22F3296B004F81CF /* Menu */,
 				EBDA26CE22F708340073DC50 /* Accounts */,
 				EBD012E322E99A1200F8126D /* Budget Table VC */,
@@ -478,6 +481,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		EBF595B82305852700BF9E40 /* Lock Screen */ = {
+			isa = PBXGroup;
+			children = (
+				EBF595B62305852100BF9E40 /* LockScreenViewController.swift */,
+			);
+			path = "Lock Screen";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -666,6 +677,7 @@
 				EB558EB322ECA28100039651 /* LedgerTransaction.swift in Sources */,
 				EB582E7122F0A10D00422323 /* AddAccountsViewController.swift in Sources */,
 				EB9DEBD222E9E02800A73FD1 /* AccountAccessoryView.swift in Sources */,
+				EBF595B72305852100BF9E40 /* LockScreenViewController.swift in Sources */,
 				EB60C8E722EF1F3B000DC7C6 /* Money.swift in Sources */,
 				EB985CB822EC6B5800C033E8 /* FloatyItem.swift in Sources */,
 				EB60C8E422EF1F3B000DC7C6 /* Locale.swift in Sources */,
