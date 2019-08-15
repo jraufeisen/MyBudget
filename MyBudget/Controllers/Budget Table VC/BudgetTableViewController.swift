@@ -92,15 +92,15 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
         if unbudgetedMoney < 0 {
             navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.expenseColor]
             navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.expenseColor]
-            title = "Budget \(unbudgetedMoney)"
+            navigationItem.title = "Budget \(unbudgetedMoney)"
         } else if unbudgetedMoney == 0 {
             navigationController?.navigationBar.titleTextAttributes = nil
             navigationController?.navigationBar.largeTitleTextAttributes = nil
-            title = "Budget"
+            navigationItem.title = "Budget"
         } else {
             navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.incomeColor]
             navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.incomeColor]
-            title = "Budget \(unbudgetedMoney)"
+            navigationItem.title = "Budget \(unbudgetedMoney)"
         }
 
     }

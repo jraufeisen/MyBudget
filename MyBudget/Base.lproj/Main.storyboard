@@ -283,7 +283,7 @@
         <scene sceneID="fvN-0f-UDq">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Whq-2e-P1F" customClass="MenuPresentingViewController" customModule="MyBudget" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Budget" id="aYr-Bw-ZEY"/>
+                    <tabBarItem key="tabBarItem" title="Budget" image="Bag" id="aYr-Bw-ZEY"/>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="60n-N2-8k6">
@@ -821,7 +821,7 @@
         <scene sceneID="PxE-rD-mbU">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Tsb-Gp-Lf9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Accounts" id="94B-q8-phK"/>
+                    <tabBarItem key="tabBarItem" title="Accounts" image="Credit Cards" id="94B-q8-phK"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="t6o-z7-LaW">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -840,7 +840,7 @@
         <scene sceneID="HBi-na-qPt">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="L6P-JU-Nes" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Spendings" id="GNX-Cg-YA2"/>
+                    <tabBarItem key="tabBarItem" title="Spendings" image="Pie Chart" id="GNX-Cg-YA2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="RaB-ju-8VE">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -956,7 +956,7 @@
         <scene sceneID="qCx-o7-TAG">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="w5V-fb-VLB" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Transactions" id="MAm-Kk-vgC"/>
+                    <tabBarItem key="tabBarItem" title="Transactions" image="List" id="MAm-Kk-vgC"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="id7-OB-tQi">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -973,6 +973,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Bag" width="24" height="24"/>
+        <image name="Credit Cards" width="24" height="24"/>
+        <image name="List" width="24" height="24"/>
+        <image name="Pie Chart" width="24" height="24"/>
         <image name="drawer.png" width="384" height="384"/>
         <image name="edit-2.png" width="51.200000762939453" height="51.200000762939453"/>
         <image name="euro.png" width="384" height="384"/>

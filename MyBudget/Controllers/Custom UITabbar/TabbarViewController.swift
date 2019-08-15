@@ -36,7 +36,7 @@ class TabbarViewController: UITabBarController, FloatyDelegate {
         floaty.frame = centerButtonFrame
         
         floaty.buttonColor = .white
-        floaty.plusColor = .blue
+        floaty.plusColor = tabBar.tintColor //Standard blue tint color
         floaty.itemSize = 50
         floaty.overlayColor = .clear // Use custom blur instead, so that tabbar stays white
         floaty.fabDelegate = self
