@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TabbarViewController: UITabBarController {
+class TabbarViewController: UITabBarController, FloatyDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +29,13 @@ class TabbarViewController: UITabBarController {
         floaty.buttonColor = .white
         floaty.plusColor = .blue
         floaty.itemSize = 50
+        floaty.overlayColor = .clear // Use custom blur instead, so that tabbar stays white
+        floaty.fabDelegate = self
         
         var item = FloatyItem()
+        item.titleColor = .darkText
         item.icon = UIImage.init(named: "euro")?.withRenderingMode(.alwaysTemplate)
+        item.title = "Income"
         item.tintColor = .white
         item.buttonColor = .incomeColor
         item.size = floaty.itemSize
@@ -42,7 +46,9 @@ class TabbarViewController: UITabBarController {
         
         
         item = FloatyItem()
+        item.titleColor = .darkText
         item.icon = UIImage.init(named: "euro")?.withRenderingMode(.alwaysTemplate)
+        item.title = "Transfer"
         item.tintColor = .white
         item.buttonColor = .transferColor
         item.size = floaty.itemSize
@@ -52,7 +58,9 @@ class TabbarViewController: UITabBarController {
         floaty.addItem(item: item)
         
         item = FloatyItem()
+        item.titleColor = .darkText
         item.icon = UIImage.init(named: "euro")?.withRenderingMode(.alwaysTemplate)
+        item.title = "Expense"
         item.tintColor = .white
         item.buttonColor = .expenseColor
         item.size = floaty.itemSize
@@ -78,4 +86,27 @@ class TabbarViewController: UITabBarController {
     }
 
 
+
+
+    let effectView = UIVisualEffectView.init(effect: UIBlurEffect.init(style: .prominent))
+    let effectViewFadeDuration = 0.2
+    func floatyWillOpen(_ floaty: Floaty) {
+        effectView.frame = view.frame
+        effectView.alpha = 0.0
+        selectedViewController?.view.addSubview(effectView)
+        let animator = UIViewPropertyAnimator.init(duration: effectViewFadeDuration, curve: .easeIn) {
+            self.effectView.alpha = 1.0
+        }
+        animator.startAnimation()
+    }
+    
+    func floatyWillClose(_ floaty: Floaty) {
+        let animator = UIViewPropertyAnimator.init(duration: effectViewFadeDuration, curve: .easeIn) {
+            self.effectView.alpha = 0.0
+        }
+        animator.startAnimation()
+        animator.addCompletion { (position) in
+            self.effectView.removeFromSuperview()
+        }
+    }
 }
