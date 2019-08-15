@@ -8,6 +8,7 @@
 
 import UIKit
 import LocalAuthentication
+import paper_onboarding
 
 class LockScreenViewController: UIViewController {
     /// Instantiate from storyboard
@@ -20,8 +21,30 @@ class LockScreenViewController: UIViewController {
         authenticateUser()
     }
     
+    let onboarding = PaperOnboarding()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        onboarding.dataSource = self
+        onboarding.delegate = self
+        onboarding.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(onboarding)
+        
+        // add constraints
+        for attribute: NSLayoutConstraint.Attribute in [.left, .right, .top, .bottom] {
+            let constraint = NSLayoutConstraint(item: onboarding,
+                                                attribute: attribute,
+                                                relatedBy: .equal,
+                                                toItem: view,
+                                                attribute: attribute,
+                                                multiplier: 1,
+                                                constant: 0)
+            view.addConstraint(constraint)
+        }
+
+        
+        
     }
     
     @IBAction func tappedAuthenticationButton(_ sender: Any) {
@@ -62,3 +85,51 @@ class LockScreenViewController: UIViewController {
     }
 
 }
+
+
+extension LockScreenViewController: PaperOnboardingDataSource, PaperOnboardingDelegate {
+    func onboardingItemsCount() -> Int {
+        return 3
+    }
+    func onboardingItem(at index: Int) -> OnboardingItemInfo {
+        return [
+        
+            OnboardingItemInfo(informationImage: UIImage.bagImage(),
+                               title: "Every dollar has a job!",
+                               description: "Budget your money in categories. So you always have your saving goals in mind!",
+                               pageIcon: UIImage.bagImage(),
+                               color: UIColor.incomeColor,
+                               titleColor: UIColor.white,
+                               descriptionColor: UIColor.white,
+                               titleFont: UIFont.systemFont(ofSize: 31 as CGFloat),
+                               descriptionFont: UIFont.systemFont(ofSize: 20 as CGFloat)),
+            
+            OnboardingItemInfo(informationImage: UIImage.creditcardsImage(),
+                               title: "Track your expenses",
+                               description: "It just takes seconds. And it definitely pays off in the end.",
+                               pageIcon: UIImage.bagImage(),
+                               color: UIColor.transferColor,
+                               titleColor: UIColor.white,
+                               descriptionColor: UIColor.white,
+                               titleFont: UIFont.systemFont(ofSize: 31 as CGFloat),
+                               descriptionFont: UIFont.systemFont(ofSize: 20 as CGFloat)),
+
+            OnboardingItemInfo(informationImage: UIImage.creditcardsImage(),
+                               title: "Analyze your spending behavior",
+                               description: "So you always know where your money goes to.",
+                               pageIcon: UIImage.bagImage(),
+                               color: UIColor.expenseColor,
+                               titleColor: UIColor.white,
+                               descriptionColor: UIColor.white,
+                               titleFont: UIFont.systemFont(ofSize: 31 as CGFloat),
+                               descriptionFont: UIFont.systemFont(ofSize: 20 as CGFloat)),
+            ][index]
+
+    }
+    
+    
+    func onboardingWillTransitonToLeaving() {
+        onboarding.removeFromSuperview()
+    }
+}
+ 

@@ -10,4 +10,6 @@ target 'MyBudget' do
   
   source 'https://github.com/CocoaPods/Specs.git'
   pod 'SideMenu', '~> 6.0'
+  
+  pod 'paper-onboarding', '~> 6.1.3'
 end
