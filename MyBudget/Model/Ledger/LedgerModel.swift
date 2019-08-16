@@ -37,9 +37,37 @@ class LedgerModel: NSObject {
     
     
     //MARK: Initializers
+    
+    /// We always try to work in the iCloud folder, but if not possible, we operate locally.
     class var defaultURL: URL {
-        guard let iCloudDocumentsURL = FileManager.default.url(forUbiquityContainerIdentifier: nil)?.appendingPathComponent("Documents") else {print("iCloud URL not found");return URL.init(fileURLWithPath: "")}
+        func localURL() -> URL {
+            let documentsURL = FileManager.documentsURL()
+            return documentsURL.appendingPathComponent("finances.txt")
+        }
+        
+        guard let iCloudDocumentsURL = FileManager.default.url(forUbiquityContainerIdentifier: "iCloud.com.jraufeisen.MyBudget")?.appendingPathComponent("Documents") else {
+            print("iCloud URL not found");
+            return localURL()
+        }
+
+        // Create documents directory if necessary
+        if !FileManager.default.fileExists(atPath: iCloudDocumentsURL.path) {
+            do {
+                try FileManager.default.createDirectory(at: iCloudDocumentsURL, withIntermediateDirectories: true, attributes: nil)
+            } catch {
+                print("Error while getting default file location: iCloud Directory not found.")
+                return localURL()
+            }
+        }
+        
+        // Create finance file if necessary
         let finance_URL = iCloudDocumentsURL.appendingPathComponent("finances.txt")
+        if !FileManager.default.fileExists(atPath: finance_URL.path) {
+            if !FileManager.default.createFile(atPath: finance_URL.path, contents: nil, attributes: nil) {
+                return localURL()
+            }
+        }
+
         return finance_URL
     }
     
@@ -48,14 +76,15 @@ class LedgerModel: NSObject {
             /*
             If the file is not found on the device, check for permissions, possible duplicates, snyc failures, etc..
             */
-            print("FATAL ERROR: Ledger file not found")
-            print(LedgerModel.defaultURL.path)
+            print("WARNING: Ledger file not found. I will try to create it on the device")
+
             return ""
             
         }
         guard let string_contents = String.init(data: found, encoding: String.Encoding.utf8) else {return ""}
         return string_contents
     }
+    
     
     
     init(ledgerString: String) {

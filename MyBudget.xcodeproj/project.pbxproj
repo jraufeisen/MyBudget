@@ -18,6 +18,7 @@
 		EB02A68722EB1BEF00987AFA /* MoneyKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB02A68622EB1BEF00987AFA /* MoneyKeyboard.swift */; };
 		EB1BCBBC2305AD2A0023E11F /* NewAccountDiaryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1BCBBB2305AD2A0023E11F /* NewAccountDiaryProvider.swift */; };
 		EB1BCBBE2305ADB20023E11F /* NewAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1BCBBD2305ADB20023E11F /* NewAccountViewController.swift */; };
+		EB203BF4230716CA008C9EE5 /* FileManager+DocDir.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB203BF3230716CA008C9EE5 /* FileManager+DocDir.swift */; };
 		EB2C771B22EDBCA3009FA2C8 /* UITextView+Center.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2C771A22EDBCA3009FA2C8 /* UITextView+Center.swift */; };
 		EB2C771D22EDBD59009FA2C8 /* BudgetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2C771C22EDBD59009FA2C8 /* BudgetDetailViewController.swift */; };
 		EB2C772022EDC143009FA2C8 /* MoneyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2C771F22EDC143009FA2C8 /* MoneyTextField.swift */; };
@@ -110,6 +111,7 @@
 		EB02A68622EB1BEF00987AFA /* MoneyKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyKeyboard.swift; sourceTree = "<group>"; };
 		EB1BCBBB2305AD2A0023E11F /* NewAccountDiaryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountDiaryProvider.swift; sourceTree = "<group>"; };
 		EB1BCBBD2305ADB20023E11F /* NewAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewAccountViewController.swift; path = "/Users/jojo/Developer/xCode_Projekte/MyBudget/MyBudget/Controllers/New Transaction VC/NewAccountViewController.swift"; sourceTree = "<absolute>"; };
+		EB203BF3230716CA008C9EE5 /* FileManager+DocDir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+DocDir.swift"; sourceTree = "<group>"; };
 		EB2C771A22EDBCA3009FA2C8 /* UITextView+Center.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Center.swift"; sourceTree = "<group>"; };
 		EB2C771C22EDBD59009FA2C8 /* BudgetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetDetailViewController.swift; sourceTree = "<group>"; };
 		EB2C771F22EDC143009FA2C8 /* MoneyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTextField.swift; sourceTree = "<group>"; };
@@ -497,6 +499,7 @@
 			isa = PBXGroup;
 			children = (
 				EB582E7522F0AE1800422323 /* Date+Utilities.swift */,
+				EB203BF3230716CA008C9EE5 /* FileManager+DocDir.swift */,
 				EBF560FC2305F47F00E850E7 /* UIImage+Macro.swift */,
 				EBEB145622E8A29800291435 /* UIColor+Macro.swift */,
 				EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */,
@@ -678,6 +681,7 @@
 				EB60C8EC22EF1F3B000DC7C6 /* NSDecimalExtensions.swift in Sources */,
 				EBEB145B22E8AD7300291435 /* Transaction.swift in Sources */,
 				EB2C771B22EDBCA3009FA2C8 /* UITextView+Center.swift in Sources */,
+				EB203BF4230716CA008C9EE5 /* FileManager+DocDir.swift in Sources */,
 				EB985CBB22EC6B5800C033E8 /* Floaty.swift in Sources */,
 				EBB21C8023054E70004E4E8F /* TabbarViewController.swift in Sources */,
 				EB2C771D22EDBD59009FA2C8 /* BudgetDetailViewController.swift in Sources */,
