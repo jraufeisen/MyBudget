@@ -46,6 +46,22 @@
             <key>File</key>
             <string>Licenses/Icons</string>
         </dict>
+        <dict>
+            <key>Type</key>
+            <string>PSChildPaneSpecifier</string>
+            <key>Title</key>
+            <string>Floaty</string>
+            <key>File</key>
+            <string>Licenses/Floaty</string>
+        </dict>
+        <dict>
+            <key>Type</key>
+            <string>PSChildPaneSpecifier</string>
+            <key>Title</key>
+            <string>APNumberPad</string>
+            <key>File</key>
+            <string>Licenses/APNumberPad</string>
+        </dict>
 
 	</array>
 </dict>
