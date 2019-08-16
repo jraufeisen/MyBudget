@@ -72,6 +72,7 @@ class AccountTableViewController: UIViewController, UITableViewDelegate, UITable
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if accounts.isEmpty {return 0} // No extra cell for total income statement
         return accounts.count+1
     }
     
