@@ -18,7 +18,7 @@ class LockScreenViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        authenticateUser()
+       // authenticateUser()
     }
     
     let onboarding = PaperOnboarding()
@@ -52,7 +52,6 @@ class LockScreenViewController: UIViewController {
     }
     
     func authenticateUser() {
-        print("Authenticating...")
         let context = LAContext()
         var error: NSError?
         let reasonString = "Authentication is needed to access your financial data."
@@ -63,8 +62,6 @@ class LockScreenViewController: UIViewController {
                 
                 if success {
                     self.showApplication()
-                }  else{
-                    print("Bin nicht drin")
                 }
                 
             })]
@@ -89,47 +86,58 @@ class LockScreenViewController: UIViewController {
 
 extension LockScreenViewController: PaperOnboardingDataSource, PaperOnboardingDelegate {
     func onboardingItemsCount() -> Int {
-        return 3
+        return 4
     }
     func onboardingItem(at index: Int) -> OnboardingItemInfo {
         return [
         
-            OnboardingItemInfo(informationImage: UIImage.bagImage(),
+            OnboardingItemInfo(informationImage: UIImage.piggyBankImage(),
                                title: "Every dollar has a job!",
                                description: "Budget your money in categories. So you always have your saving goals in mind!",
-                               pageIcon: UIImage.bagImage(),
+                               pageIcon: UIImage(),
                                color: UIColor.incomeColor,
                                titleColor: UIColor.white,
                                descriptionColor: UIColor.white,
                                titleFont: UIFont.systemFont(ofSize: 31 as CGFloat),
                                descriptionFont: UIFont.systemFont(ofSize: 20 as CGFloat)),
             
-            OnboardingItemInfo(informationImage: UIImage.creditcardsImage(),
+            OnboardingItemInfo(informationImage: UIImage.bigCreditCardImage(),
                                title: "Track your expenses",
-                               description: "It just takes seconds. And it definitely pays off in the end.",
-                               pageIcon: UIImage.bagImage(),
+                               description: "It just takes seconds and it pays off in the end!",
+                               pageIcon: UIImage(),
                                color: UIColor.transferColor,
                                titleColor: UIColor.white,
                                descriptionColor: UIColor.white,
                                titleFont: UIFont.systemFont(ofSize: 31 as CGFloat),
                                descriptionFont: UIFont.systemFont(ofSize: 20 as CGFloat)),
 
-            OnboardingItemInfo(informationImage: UIImage.creditcardsImage(),
+            OnboardingItemInfo(informationImage: UIImage.moneyTrendlineImage(),
                                title: "Analyze your spending behavior",
                                description: "So you always know where your money goes to.",
-                               pageIcon: UIImage.bagImage(),
+                               pageIcon: UIImage(),
                                color: UIColor.expenseColor,
                                titleColor: UIColor.white,
                                descriptionColor: UIColor.white,
                                titleFont: UIFont.systemFont(ofSize: 31 as CGFloat),
                                descriptionFont: UIFont.systemFont(ofSize: 20 as CGFloat)),
+            
+            OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "Security Shield"),
+                               title: "Your data stays safe",
+                               description: "We use Touch ID to authenticate you",
+                               pageIcon: UIImage(),
+                               color: UIColor.transferColor,
+                               titleColor: UIColor.white,
+                               descriptionColor: UIColor.white,
+                               titleFont: UIFont.systemFont(ofSize: 31 as CGFloat),
+                               descriptionFont: UIFont.systemFont(ofSize: 20 as CGFloat)),
+
             ][index]
 
     }
     
     
     func onboardingWillTransitonToLeaving() {
-        onboarding.removeFromSuperview()
+        authenticateUser()
     }
 }
  

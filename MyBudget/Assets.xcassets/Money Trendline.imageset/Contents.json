@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "bag-personal-outline.png",
+      "filename" : "earnings-3.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "bag-personal-outline-2.png",
+      "filename" : "earnings-2.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "bag-personal-outline-1.png",
+      "filename" : "earnings.png",
       "scale" : "3x"
     }
   ],
