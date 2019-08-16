@@ -80,9 +80,44 @@ class TabbarViewController: UITabBarController, FloatyDelegate {
         
         // Dont move - ever. Stay fixed in the tabbar
         floaty.respondsToKeyboard = false
-        
+        floaty.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(floaty)
-        view.layoutIfNeeded()
+        
+        // Add constraints
+        let width = NSLayoutConstraint(item: floaty,
+                                       attribute: .width,
+                                       relatedBy: .equal,
+                                       toItem: tabBar,
+                                       attribute: .height,
+                                       multiplier: 0,
+                                       constant: 55)
+        view.addConstraint(width)
+        let height = NSLayoutConstraint(item: floaty,
+                                        attribute: .height,
+                                        relatedBy: .equal,
+                                        toItem: tabBar,
+                                        attribute: .height,
+                                        multiplier: 1,
+                                        constant: 5)
+        view.addConstraint(height)
+
+        
+        let center_x_Constraint = NSLayoutConstraint(item: floaty,
+                                            attribute: .centerX,
+                                            relatedBy: .equal,
+                                            toItem: view,
+                                            attribute: .centerX,
+                                            multiplier: 1,
+                                            constant: 0)
+        view.addConstraint(center_x_Constraint)
+        let center_y_Constraint = NSLayoutConstraint(item: floaty,
+                                                     attribute: .centerY,
+                                                     relatedBy: .equal,
+                                                     toItem: tabBar,
+                                                     attribute: .topMargin,
+                                                     multiplier: 1,
+                                                     constant: -5)
+        view.addConstraint(center_y_Constraint)
         
     }
     

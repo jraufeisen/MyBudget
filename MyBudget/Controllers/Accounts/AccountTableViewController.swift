@@ -160,8 +160,13 @@ class AccountTableViewController: UIViewController, UITableViewDelegate, UITable
         titleHelpingLabel.font = UIFont.boldSystemFont(ofSize: 20)
         titleHelpingLabel.center = view.center
         titleHelpingLabel.text = "Add your banking accounts"
+        titleHelpingLabel.sizeToFit()
+        titleHelpingLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(titleHelpingLabel)
-        
+        var centerX = NSLayoutConstraint.init(item: titleHelpingLabel, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0)
+        var centerY = NSLayoutConstraint.init(item: titleHelpingLabel, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: -20)
+        view.addConstraints([centerX, centerY])
+
         
         descriptionHelpingLabel.frame = CGRect.init(x: 0, y: titleHelpingLabel.center.y + 15, width: view.bounds.width - 60, height: 100)
         descriptionHelpingLabel.textAlignment = .center
@@ -170,7 +175,14 @@ class AccountTableViewController: UIViewController, UITableViewDelegate, UITable
         descriptionHelpingLabel.textColor = .lightGray
         descriptionHelpingLabel.center = CGPoint.init(x: titleHelpingLabel.center.x, y: descriptionHelpingLabel.center.y)
         descriptionHelpingLabel.text = "Add a new account by clicking + in the top right corner"
+        descriptionHelpingLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(descriptionHelpingLabel)
+        let width = NSLayoutConstraint.init(item: descriptionHelpingLabel, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 1, constant: -60)
+        let height = NSLayoutConstraint.init(item: descriptionHelpingLabel, attribute: .height, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 0, constant: 100)
+        centerX = NSLayoutConstraint.init(item: descriptionHelpingLabel, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0)
+        centerY = NSLayoutConstraint.init(item: descriptionHelpingLabel, attribute: .top, relatedBy: .equal, toItem: titleHelpingLabel, attribute: .bottom, multiplier: 1, constant: 0)
+        view.addConstraints([width, height, centerX, centerY])
+
     }
     
     
