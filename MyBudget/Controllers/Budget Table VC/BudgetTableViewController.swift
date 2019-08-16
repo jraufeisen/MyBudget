@@ -154,14 +154,6 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
 
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 10
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 10
-    }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
@@ -170,11 +162,11 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
     // MARK: - Table view data source
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        return budgetCategories.count
+        return 1
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return budgetCategories.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -182,7 +174,7 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
             return UITableViewCell()
         }
 
-        let category = budgetCategories[indexPath.section]
+        let category = budgetCategories[indexPath.row]
 
         cell.moneyLabel.text = "\(category.remainingMoney)"
         cell.categoryLabel.text = category.name

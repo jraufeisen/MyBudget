@@ -40,10 +40,12 @@ class DiaryTextView: UITextView {
     /// Current entry index
     private var entryIndex = -1
     
-    /// Keeps track of all characters entered via the keyboard and only allows editing within this range
-    private var currentlyEntteredByKeyboard = ""
-
+    /// Stores the earliest possible position at which the diary textview is currently modifiable. Applies to the current diary entry only.
+    private var keyboardInputBeginPosition: String.Index?
+    
     var diaryDelegate: DiaryDelegate?
+    
+
     
     /// Configure diary entry for given provider.
     public func configure(diaryProvider: DiaryProvider) {
@@ -82,19 +84,15 @@ class DiaryTextView: UITextView {
             return
         }
         
-       // text += currentEntry.text
+
         addTextAnimated(text: currentEntry.text) {
+            self.keyboardInputBeginPosition = self.text.endIndex
             // Ask for new input depending on the entry type
             self.configureInput(type: currentEntry.entryType)
         }
 
         
     }
-
-
-   
-    
-    
 
     private func transitionToInputView(view: UIView, accessoryView: UIView?) {
         inputView?.addSubview(view)
@@ -170,38 +168,26 @@ extension DiaryTextView: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         
-        // Do not print a new line, instead finish data entry
-        if text == "\n" {
-            diaryDelegate?.didEnterDiaryPair(index: entryIndex, value: currentlyEntteredByKeyboard) // Forward entered text to delegate
-            currentlyEntteredByKeyboard = ""    // Reset counter
+        // Do not print a new line when entered by the keyboard, instead finish data entry
+        if text == "\n", let startIndex = keyboardInputBeginPosition {
+            let currentlyEnteredByKeyboard = String(self.text[startIndex...])
+            guard !currentlyEnteredByKeyboard.isEmpty else {return false} // No input is not valid
+            
+            diaryDelegate?.didEnterDiaryPair(index: entryIndex, value: currentlyEnteredByKeyboard) // Forward entered text to delegate
             finishDataEntry()                   // Show next keyboard
             return false
         }
 
-        // Only allow character deletion if we are in the allowed scope
-        if text == "" {
-            if range.length > currentlyEntteredByKeyboard.count {
-                self.text.removeLast(currentlyEntteredByKeyboard.count)
-                currentlyEntteredByKeyboard = ""
+        // Only allow editing after keyboardInputBeginPosition
+        if let startIndex = keyboardInputBeginPosition {
+            let forbiddenRange = NSRange.init(..<startIndex, in: self.text)
+            if range.intersection(forbiddenRange) != nil {
+                if self.text.endIndex > startIndex {
+                    self.text = String(self.text[..<startIndex])
+                }
                 return false
             }
-            
-            if currentlyEntteredByKeyboard.isEmpty {
-                return false
-            }
-
-            if range.length > 1 {
-                currentlyEntteredByKeyboard.removeLast(1)
-                self.text.removeLast(1)
-                return false
-            } else {
-                currentlyEntteredByKeyboard.removeLast(1)
-            }
-            return true
-        } else {
-            currentlyEntteredByKeyboard += text
         }
-        
         return true
     }
     
