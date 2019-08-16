@@ -80,7 +80,7 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        budgetCategories = Model.shared.getAllBudgetCategories()
+        updateUI()
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateUI), name: ModelChangedNotification, object: nil)
 
     }
@@ -111,9 +111,43 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
             navigationItem.prompt = "You have \(unbudgetedMoney) left to budget"
         }
 
+        
+
+        if budgetCategories.count == 0 {
+            addHelpingLabels()
+        } else {
+            removeHelpingLabels()
+        }
+        
     }
     
-   
+    let titleHelpingLabel = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: 40, height: 50))
+    let descriptionHelpingLabel = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: 40, height: 50))
+    private func addHelpingLabels() {
+        titleHelpingLabel.frame = CGRect.init(x: 0, y: 0, width: view.bounds.width - 60, height: 50)
+        titleHelpingLabel.textAlignment = .center
+        titleHelpingLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        titleHelpingLabel.center = view.center
+        titleHelpingLabel.text = "Create your own budget"
+        view.addSubview(titleHelpingLabel)
+        
+        
+        descriptionHelpingLabel.frame = CGRect.init(x: 0, y: titleHelpingLabel.center.y + 15, width: view.bounds.width - 60, height: 100)
+        descriptionHelpingLabel.textAlignment = .center
+        descriptionHelpingLabel.numberOfLines = 10
+        descriptionHelpingLabel.font = UIFont.systemFont(ofSize: 17)
+        descriptionHelpingLabel.textColor = .lightGray
+        descriptionHelpingLabel.center = CGPoint.init(x: titleHelpingLabel.center.x, y: descriptionHelpingLabel.center.y)
+        descriptionHelpingLabel.text = "Create budget categories for rent, groceries and whatever is important to you by clicking + in the top right corner"
+        view.addSubview(descriptionHelpingLabel)
+    }
+    
+    
+    private func removeHelpingLabels() {
+        titleHelpingLabel.removeFromSuperview()
+        descriptionHelpingLabel.removeFromSuperview()
+    }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         updateUI()

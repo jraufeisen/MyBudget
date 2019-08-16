@@ -60,6 +60,12 @@ class AccountTableViewController: UIViewController, UITableViewDelegate, UITable
         incomestatement = Model.shared.getIncomeStatementViewable()
         accounts = Model.shared.getAllAccountViewables()
         tableView.reloadData()
+        
+        if accounts.count == 0 {
+            addHelpingLabels()
+        } else {
+            removeHelpingLabels()
+        }
     }
     
     
@@ -139,12 +145,41 @@ class AccountTableViewController: UIViewController, UITableViewDelegate, UITable
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        updateModel()
         navigationItem.title = "Accounts"
-
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateModel), name: ModelChangedNotification, object: nil)
     }
 
+    
+    let titleHelpingLabel = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: 40, height: 50))
+    let descriptionHelpingLabel = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: 40, height: 50))
+    private func addHelpingLabels() {
+        titleHelpingLabel.frame = CGRect.init(x: 0, y: 0, width: view.bounds.width - 60, height: 50)
+        titleHelpingLabel.textAlignment = .center
+        titleHelpingLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        titleHelpingLabel.center = view.center
+        titleHelpingLabel.text = "Add your banking accounts"
+        view.addSubview(titleHelpingLabel)
+        
+        
+        descriptionHelpingLabel.frame = CGRect.init(x: 0, y: titleHelpingLabel.center.y + 15, width: view.bounds.width - 60, height: 100)
+        descriptionHelpingLabel.textAlignment = .center
+        descriptionHelpingLabel.numberOfLines = 10
+        descriptionHelpingLabel.font = UIFont.systemFont(ofSize: 17)
+        descriptionHelpingLabel.textColor = .lightGray
+        descriptionHelpingLabel.center = CGPoint.init(x: titleHelpingLabel.center.x, y: descriptionHelpingLabel.center.y)
+        descriptionHelpingLabel.text = "Add a new account by clicking + in the top right corner"
+        view.addSubview(descriptionHelpingLabel)
+    }
+    
+    
+    private func removeHelpingLabels() {
+        titleHelpingLabel.removeFromSuperview()
+        descriptionHelpingLabel.removeFromSuperview()
+    }
+
+    
+    
     
     
     @IBAction func pressedMenu(_ sender: Any) {
