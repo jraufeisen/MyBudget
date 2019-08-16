@@ -17,15 +17,12 @@ class LockScreenViewController: UIViewController {
         return vc
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-       // authenticateUser()
+    private func shouldShowOnboarding() -> Bool {
+        return arc4random() % 10 < 5
     }
-    
     let onboarding = PaperOnboarding()
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        
+    private func showOnboarding() {
+        guard onboarding.superview == nil else {return}
         onboarding.dataSource = self
         onboarding.delegate = self
         onboarding.translatesAutoresizingMaskIntoConstraints = false
@@ -33,16 +30,29 @@ class LockScreenViewController: UIViewController {
         
         // add constraints
         for attribute: NSLayoutConstraint.Attribute in [.left, .right, .top, .bottom] {
-            let constraint = NSLayoutConstraint(item: onboarding,
-                                                attribute: attribute,
-                                                relatedBy: .equal,
-                                                toItem: view,
-                                                attribute: attribute,
-                                                multiplier: 1,
-                                                constant: 0)
-            view.addConstraint(constraint)
-        }
+             let constraint = NSLayoutConstraint(item: onboarding,
+             attribute: attribute,
+             relatedBy: .equal,
+             toItem: view,
+             attribute: attribute,
+             multiplier: 1,
+             constant: 0)
+             view.addConstraint(constraint)
+         }
+    }
+    func isShowingOnboarding() -> Bool {
+        return onboarding.superview != nil
+    }
+    
+    
 
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if shouldShowOnboarding() {
+            showOnboarding()
+        }
         
         
     }

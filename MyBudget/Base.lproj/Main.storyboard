@@ -316,16 +316,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="euro.png" translatesAutoresizingMaskIntoConstraints="NO" id="Uor-Hk-252">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="App Artwork" translatesAutoresizingMaskIntoConstraints="NO" id="Uor-Hk-252">
                                 <rect key="frame" x="87" y="142" width="240" height="240"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="240" id="6hI-fe-XpV"/>
                                     <constraint firstAttribute="width" secondItem="Uor-Hk-252" secondAttribute="height" multiplier="1:1" id="n1V-Ve-Iae"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pIC-3Z-4Q0">
-                                <rect key="frame" x="101" y="433" width="212" height="30"/>
-                                <state key="normal" title="Tap here to login with Touch ID"/>
+                                <rect key="frame" x="95" y="433" width="224" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Tap here to login with Touch ID">
+                                    <color key="titleColor" red="0.12406424432992935" green="0.41386914253234863" blue="0.93142408132553101" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="tappedAuthenticationButton:" destination="6ED-mj-fiq" eventType="touchUpInside" id="0Pb-3D-FA5"/>
                                 </connections>
@@ -985,6 +993,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="App Artwork" width="341.33334350585938" height="341.33334350585938"/>
         <image name="Bag" width="24" height="24"/>
         <image name="Credit Cards" width="24" height="24"/>
         <image name="List" width="24" height="24"/>
