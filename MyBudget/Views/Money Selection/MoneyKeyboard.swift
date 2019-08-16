@@ -60,6 +60,11 @@ class MoneyKeyboard: APNumberPad {
         guard let buttonText = sender.titleLabel?.text else {
             return
         }
+        if characterSequence.isEmpty && buttonText == "0" {
+            // Ignore leading zeros
+            return
+        }
+        
         characterSequence += buttonText
         updateOutputText()
     }
@@ -118,8 +123,8 @@ class MoneyKeyboard: APNumberPad {
                 fillUpZeros += "0"
                 i -= 1
             }
-            
-            return "00," + characterSequence + fillUpZeros + "€"
+            print(characterSequence)
+            return "00," + fillUpZeros + characterSequence + "€"
         } else {
             let decimalBegin = characterSequence.index(characterSequence.endIndex, offsetBy: -2)
             let decimalEnd = characterSequence.index(characterSequence.endIndex, offsetBy: -1)
