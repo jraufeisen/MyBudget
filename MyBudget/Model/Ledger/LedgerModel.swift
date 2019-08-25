@@ -37,6 +37,22 @@ class LedgerModel: NSObject {
     
     
     //MARK: Initializers
+
+    static let documentsQuery = NSMetadataQuery()
+    private class func initializeCloud() {
+        documentsQuery.searchScopes = [NSMetadataQueryUbiquitousDocumentsScope]
+        documentsQuery.valueListAttributes = [NSMetadataUbiquitousItemPercentDownloadedKey,NSMetadataUbiquitousItemDownloadingStatusKey]
+        documentsQuery.predicate = NSPredicate(format: "%K like 'finances.txt'", argumentArray: [NSMetadataItemFSNameKey])
+        documentsQuery.start()
+        documentsQuery.enableUpdates()
+        NotificationCenter.default.addObserver(self, selector: #selector(queryUpdate(notification:)), name: NSNotification.Name.NSMetadataQueryDidUpdate, object: documentsQuery)
+    }
+
+    @objc private class func queryUpdate(notification: Notification) {
+        privateShared = nil
+        NotificationCenter.default.post(name: ModelChangedNotification, object: nil)
+        documentsQuery.stop()
+    }
     
     /// We always try to work in the iCloud folder, but if not possible, we operate locally.
     class var defaultURL: URL {
@@ -44,7 +60,6 @@ class LedgerModel: NSObject {
             let documentsURL = FileManager.documentsURL()
             return documentsURL.appendingPathComponent("finances.txt")
         }
-        
         guard let iCloudDocumentsURL = FileManager.default.url(forUbiquityContainerIdentifier: "iCloud.com.jraufeisen.MyBudget")?.appendingPathComponent("Documents") else {
             print("iCloud URL not found");
             return localURL()
@@ -63,8 +78,14 @@ class LedgerModel: NSObject {
         // Create finance file if necessary
         let finance_URL = iCloudDocumentsURL.appendingPathComponent("finances.txt")
         if !FileManager.default.fileExists(atPath: finance_URL.path) {
-            if !FileManager.default.createFile(atPath: finance_URL.path, contents: nil, attributes: nil) {
-                return localURL()
+            do {
+                try FileManager.default.startDownloadingUbiquitousItem(at: finance_URL)
+            } catch {
+                print("File exisiterti nicht")
+                if !FileManager.default.createFile(atPath: finance_URL.path, contents: nil, attributes: nil) {
+                    return localURL()
+                }
+
             }
         }
 
@@ -77,7 +98,7 @@ class LedgerModel: NSObject {
             If the file is not found on the device, check for permissions, possible duplicates, snyc failures, etc..
             */
             print("WARNING: Ledger file not found. I will try to create it on the device")
-
+            initializeCloud()
             return ""
             
         }
