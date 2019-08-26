@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Swift_Ledger
 
 class IncomeStatementCell : UITableViewCell {
     @IBOutlet weak var headerLabel: UILabel!

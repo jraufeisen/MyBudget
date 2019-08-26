@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Swift_Ledger
 
 class TransactionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     

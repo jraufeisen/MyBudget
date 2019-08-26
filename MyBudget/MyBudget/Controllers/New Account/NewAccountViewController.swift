@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Swift_Ledger
 
 class NewAccountViewController: UIViewController {
 
@@ -13,8 +14,6 @@ class NewAccountViewController: UIViewController {
     private var accountName: String?
     private var initialBalance: Money?
 
-    
-    
     private var _diaryTextView: DiaryTextView? = nil
     var diaryTextView: DiaryTextView {
         get {
@@ -33,7 +32,6 @@ class NewAccountViewController: UIViewController {
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         addBarButtonItems()
@@ -44,18 +42,16 @@ class NewAccountViewController: UIViewController {
         diaryTextView.becomeFirstResponder()
     }
     
-
     /// Adds items to the top bar which is useful when presenting the vc modally
     private func addBarButtonItems() {
         navigationItem.leftBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .stop, target: self, action: #selector(self.pressedCancelButton))
         navigationItem.leftBarButtonItem?.tintColor = .white
     }
+    
     @objc func pressedCancelButton() {
         _ = diaryTextView.resignFirstResponder()
         dismiss(animated: true, completion: nil)
     }
-
-    
 
 }
 
@@ -85,8 +81,6 @@ extension NewAccountViewController: DiaryDelegate {
         view.addSubview(floaty)
     }
 
-    
-    
     func didFinishDiaryEntry() {
         addFloatingFinishButton()
     }
@@ -102,6 +96,5 @@ extension NewAccountViewController: DiaryDelegate {
             return
         }
     }
-    
     
 }

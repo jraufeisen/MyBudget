@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Swift_Ledger
 
 
 protocol Transaction: DiaryProvider, CustomStringConvertible {

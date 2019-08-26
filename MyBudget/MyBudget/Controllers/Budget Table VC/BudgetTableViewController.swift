@@ -8,6 +8,8 @@
 
 import UIKit
 import SideMenu
+import Swift_Ledger
+
 class BudgetTableViewCell: UITableViewCell {
     
     

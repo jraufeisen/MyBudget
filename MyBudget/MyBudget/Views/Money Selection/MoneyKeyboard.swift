@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Swift_Ledger
 
 protocol MoneyKeyBoardDelegate {
     func moneyKeyboardPressedDone(keyboard: MoneyKeyboard)
