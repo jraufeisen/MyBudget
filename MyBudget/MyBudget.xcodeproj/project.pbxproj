@@ -45,6 +45,8 @@
 		EB60C8EC22EF1F3B000DC7C6 /* NSDecimalExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB60C8E222EF1F35000DC7C6 /* NSDecimalExtensions.swift */; };
 		EB60C8EE22EF1F47000DC7C6 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = EB60C8ED22EF1F47000DC7C6 /* LICENSE */; };
 		EB8472892306AA4400DCD330 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EB8472882306AA4400DCD330 /* Settings.bundle */; };
+		EB971A8F231465B90089D220 /* Pods_MyBudget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B8B8649E433172893306AF /* Pods_MyBudget.framework */; };
+		EB971A90231465B90089D220 /* Pods_MyBudget.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 54B8B8649E433172893306AF /* Pods_MyBudget.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EB985CA722EC699200C033E8 /* verify-sign.png in Resources */ = {isa = PBXBuildFile; fileRef = EB985CA622EC699200C033E8 /* verify-sign.png */; };
 		EB985CB522EC6B5400C033E8 /* FloatyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CB222EC6B2300C033E8 /* FloatyDelegate.swift */; };
 		EB985CB622EC6B5800C033E8 /* FloatyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CAC22EC6B2300C033E8 /* FloatyWindow.swift */; };
@@ -100,6 +102,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				EBEB8B17231451F3009F65B8 /* Swift_Ledger.framework in Embed Frameworks */,
+				EB971A90231465B90089D220 /* Pods_MyBudget.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB558EB722ECA3A200039651 /* CloudKit.framework in Frameworks */,
+				EB971A8F231465B90089D220 /* Pods_MyBudget.framework in Frameworks */,
 				E8E331681C9B8F4D5D9E8116 /* Pods_MyBudget.framework in Frameworks */,
 				EBEB8B16231451F3009F65B8 /* Swift_Ledger.framework in Frameworks */,
 			);
