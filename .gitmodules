@@ -1,0 +1,4 @@
+[submodule "MyBudget_MacOS"]
+	url = https://github.com/jraufeisen/MyBudget-macOS.git
+[submodule "Swift-Ledger"]
+	url = https://github.com/jraufeisen/Swift-Ledger.git
