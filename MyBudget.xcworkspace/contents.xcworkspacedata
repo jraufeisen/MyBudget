@@ -2,13 +2,13 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/jojo/Developer/xCode_Projekte/MyBudget/MyBudget/Controllers/New Transaction VC/NewAccountViewController.swift">
+      location = "group:Swift-Ledger/Swift-Ledger.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Settings.bundle">
+      location = "group:MyBudget/MyBudget.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:MyBudget.xcodeproj">
+      location = "group:MyBudget_MacOS/MyBudget_MacOS.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
