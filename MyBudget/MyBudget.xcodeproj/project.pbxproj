@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E8E331681C9B8F4D5D9E8116 /* Pods_MyBudget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B8B8649E433172893306AF /* Pods_MyBudget.framework */; };
 		EB024C2522F35C5A00228855 /* MenuPresentingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB024C2422F35C5A00228855 /* MenuPresentingViewController.swift */; };
 		EB02A67222EB10E700987AFA /* APNumberPadDefaultStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02A66A22EB10E600987AFA /* APNumberPadDefaultStyle.m */; };
 		EB02A67322EB10E700987AFA /* APNumberButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02A66C22EB10E700987AFA /* APNumberButton.m */; };
@@ -25,6 +24,8 @@
 		EB2C772222EDC8CA009FA2C8 /* pencil.png in Resources */ = {isa = PBXBuildFile; fileRef = EB2C772122EDC8CA009FA2C8 /* pencil.png */; };
 		EB2C772622EDCA56009FA2C8 /* edit-2.png in Resources */ = {isa = PBXBuildFile; fileRef = EB2C772522EDCA56009FA2C8 /* edit-2.png */; };
 		EB34D5E222F3362D000FACAC /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = EB34D5E122F3362C000FACAC /* menu.png */; };
+		EB4A9BDC231495C200BA4FBE /* Pods_MyBudget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B8B8649E433172893306AF /* Pods_MyBudget.framework */; };
+		EB4A9BDD231495C200BA4FBE /* Pods_MyBudget.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 54B8B8649E433172893306AF /* Pods_MyBudget.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EB558EB722ECA3A200039651 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB558EB622ECA3A200039651 /* CloudKit.framework */; };
 		EB582E7122F0A10D00422323 /* AddAccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB582E7022F0A10D00422323 /* AddAccountsViewController.swift */; };
 		EB582E7422F0ACC500422323 /* PercentFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB582E7322F0ACC500422323 /* PercentFillView.swift */; };
@@ -33,8 +34,6 @@
 		EB5C600C22F32960004F81CF /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C600B22F32960004F81CF /* MenuTableViewController.swift */; };
 		EB5CADB722F55DC600205AC8 /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5CADB622F55DC600205AC8 /* AccountTableViewController.swift */; };
 		EB8472892306AA4400DCD330 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EB8472882306AA4400DCD330 /* Settings.bundle */; };
-		EB971A8F231465B90089D220 /* Pods_MyBudget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B8B8649E433172893306AF /* Pods_MyBudget.framework */; };
-		EB971A90231465B90089D220 /* Pods_MyBudget.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 54B8B8649E433172893306AF /* Pods_MyBudget.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EB985CA722EC699200C033E8 /* verify-sign.png in Resources */ = {isa = PBXBuildFile; fileRef = EB985CA622EC699200C033E8 /* verify-sign.png */; };
 		EB985CB522EC6B5400C033E8 /* FloatyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CB222EC6B2300C033E8 /* FloatyDelegate.swift */; };
 		EB985CB622EC6B5800C033E8 /* FloatyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CAC22EC6B2300C033E8 /* FloatyWindow.swift */; };
@@ -87,7 +86,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				EBEB8B17231451F3009F65B8 /* Swift_Ledger.framework in Embed Frameworks */,
-				EB971A90231465B90089D220 /* Pods_MyBudget.framework in Embed Frameworks */,
+				EB4A9BDD231495C200BA4FBE /* Pods_MyBudget.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -122,6 +121,7 @@
 		EB2C772122EDC8CA009FA2C8 /* pencil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pencil.png; sourceTree = "<group>"; };
 		EB2C772522EDCA56009FA2C8 /* edit-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit-2.png"; sourceTree = "<group>"; };
 		EB34D5E122F3362C000FACAC /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		EB4A9BD92314958A00BA4FBE /* Pods_MyBudget_MacOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_MyBudget_MacOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB558EB522ECA39D00039651 /* MyBudget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyBudget.entitlements; sourceTree = "<group>"; };
 		EB558EB622ECA3A200039651 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		EB582E7022F0A10D00422323 /* AddAccountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountsViewController.swift; sourceTree = "<group>"; };
@@ -184,9 +184,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB4A9BDC231495C200BA4FBE /* Pods_MyBudget.framework in Frameworks */,
 				EB558EB722ECA3A200039651 /* CloudKit.framework in Frameworks */,
-				EB971A8F231465B90089D220 /* Pods_MyBudget.framework in Frameworks */,
-				E8E331681C9B8F4D5D9E8116 /* Pods_MyBudget.framework in Frameworks */,
 				EBEB8B16231451F3009F65B8 /* Swift_Ledger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,6 +345,7 @@
 		EBC59D3222E7503900E626DC = {
 			isa = PBXGroup;
 			children = (
+				EB4A9BD92314958A00BA4FBE /* Pods_MyBudget_MacOS.framework */,
 				EBEB8B15231451F2009F65B8 /* Swift_Ledger.framework */,
 				EBC59D3D22E7503900E626DC /* MyBudget */,
 				EBC59D3C22E7503900E626DC /* Products */,
