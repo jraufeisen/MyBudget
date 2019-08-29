@@ -28,5 +28,7 @@ target 'MyBudget_MacOS' do
 	pod 'ValueCoding', '~> 3.0.0'
 
 	pod 'Charts', '~> 3.3.0'
+	
+	pod 'SwiftyStoreKit'
 end
 
