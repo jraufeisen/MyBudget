@@ -28,6 +28,13 @@
 		EB4A9BDD231495C200BA4FBE /* Pods_MyBudget.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 54B8B8649E433172893306AF /* Pods_MyBudget.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EB4F7895231968860045077E /* ServerReceiptValidatorReceiptValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F7894231968860045077E /* ServerReceiptValidatorReceiptValidator.swift */; };
 		EB4F789723196F220045077E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4F789623196F220045077E /* StoreKit.framework */; };
+		EB4F789A2319A2600045077E /* SubscriptionOnboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F78992319A2600045077E /* SubscriptionOnboardController.swift */; };
+		EB4F789D2319B31C0045077E /* SubscriptionSelectorBulletin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F789C2319B31C0045077E /* SubscriptionSelectorBulletin.swift */; };
+		EB4F789F2319B34D0045077E /* FeedbackPageBulletinItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F789E2319B34D0045077E /* FeedbackPageBulletinItem.swift */; };
+		EB4F78A12319B37D0045077E /* FeedbackGenerators.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F78A02319B37D0045077E /* FeedbackGenerators.swift */; };
+		EB4F78A32319B3BA0045077E /* CollectionUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F78A22319B3BA0045077E /* CollectionUtilities.swift */; };
+		EB4F78A52319B3CA0045077E /* SubcriptionTypeBulletinItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F78A42319B3CA0045077E /* SubcriptionTypeBulletinItem.swift */; };
+		EB4F78A72319B5760045077E /* BulletinDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F78A62319B5750045077E /* BulletinDataSource.swift */; };
 		EB558EB722ECA3A200039651 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB558EB622ECA3A200039651 /* CloudKit.framework */; };
 		EB582E7122F0A10D00422323 /* AddAccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB582E7022F0A10D00422323 /* AddAccountsViewController.swift */; };
 		EB582E7422F0ACC500422323 /* PercentFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB582E7322F0ACC500422323 /* PercentFillView.swift */; };
@@ -126,6 +133,13 @@
 		EB4A9BD92314958A00BA4FBE /* Pods_MyBudget_MacOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_MyBudget_MacOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB4F7894231968860045077E /* ServerReceiptValidatorReceiptValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerReceiptValidatorReceiptValidator.swift; sourceTree = "<group>"; };
 		EB4F789623196F220045077E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		EB4F78992319A2600045077E /* SubscriptionOnboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionOnboardController.swift; sourceTree = "<group>"; };
+		EB4F789C2319B31C0045077E /* SubscriptionSelectorBulletin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionSelectorBulletin.swift; sourceTree = "<group>"; };
+		EB4F789E2319B34D0045077E /* FeedbackPageBulletinItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackPageBulletinItem.swift; sourceTree = "<group>"; };
+		EB4F78A02319B37D0045077E /* FeedbackGenerators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackGenerators.swift; sourceTree = "<group>"; };
+		EB4F78A22319B3BA0045077E /* CollectionUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionUtilities.swift; sourceTree = "<group>"; };
+		EB4F78A42319B3CA0045077E /* SubcriptionTypeBulletinItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubcriptionTypeBulletinItem.swift; sourceTree = "<group>"; };
+		EB4F78A62319B5750045077E /* BulletinDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinDataSource.swift; sourceTree = "<group>"; };
 		EB558EB522ECA39D00039651 /* MyBudget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyBudget.entitlements; sourceTree = "<group>"; };
 		EB558EB622ECA3A200039651 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		EB582E7022F0A10D00422323 /* AddAccountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountsViewController.swift; sourceTree = "<group>"; };
@@ -274,6 +288,27 @@
 			path = "Budget Detail VC";
 			sourceTree = "<group>";
 		};
+		EB4F78982319A2450045077E /* Onboard_Subscription */ = {
+			isa = PBXGroup;
+			children = (
+				EB4F78992319A2600045077E /* SubscriptionOnboardController.swift */,
+			);
+			path = Onboard_Subscription;
+			sourceTree = "<group>";
+		};
+		EB4F789B2319B30A0045077E /* Bulletin */ = {
+			isa = PBXGroup;
+			children = (
+				EB4F78A62319B5750045077E /* BulletinDataSource.swift */,
+				EB4F78A22319B3BA0045077E /* CollectionUtilities.swift */,
+				EB4F78A42319B3CA0045077E /* SubcriptionTypeBulletinItem.swift */,
+				EB4F789C2319B31C0045077E /* SubscriptionSelectorBulletin.swift */,
+				EB4F78A02319B37D0045077E /* FeedbackGenerators.swift */,
+				EB4F789E2319B34D0045077E /* FeedbackPageBulletinItem.swift */,
+			);
+			path = Bulletin;
+			sourceTree = "<group>";
+		};
 		EB582E7222F0A11500422323 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,6 +320,7 @@
 		EB5C600A22F32946004F81CF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EB4F78982319A2450045077E /* Onboard_Subscription */,
 				EBF560F92305EFD800E850E7 /* New Budget Category */,
 				EB1BCBC02305ADBD0023E11F /* New Account */,
 				EBF595B82305852700BF9E40 /* Lock Screen */,
@@ -336,6 +372,7 @@
 			isa = PBXGroup;
 			children = (
 				EBB21C7F23054E70004E4E8F /* TabbarViewController.swift */,
+				EB4F789B2319B30A0045077E /* Bulletin */,
 			);
 			path = "Custom UITabbar";
 			sourceTree = "<group>";
@@ -645,6 +682,7 @@
 				EBEB145022E8A1B100291435 /* EnterNumberViewController.swift in Sources */,
 				EB5C600C22F32960004F81CF /* MenuTableViewController.swift in Sources */,
 				EB024C2522F35C5A00228855 /* MenuPresentingViewController.swift in Sources */,
+				EB4F789F2319B34D0045077E /* FeedbackPageBulletinItem.swift in Sources */,
 				EB02A67322EB10E700987AFA /* APNumberButton.m in Sources */,
 				EB02A68722EB1BEF00987AFA /* MoneyKeyboard.swift in Sources */,
 				EB5CADB722F55DC600205AC8 /* AccountTableViewController.swift in Sources */,
@@ -652,15 +690,18 @@
 				EBEB145722E8A29800291435 /* UIColor+Macro.swift in Sources */,
 				EBEB145B22E8AD7300291435 /* Transaction.swift in Sources */,
 				EB2C771B22EDBCA3009FA2C8 /* UITextView+Center.swift in Sources */,
+				EB4F789A2319A2600045077E /* SubscriptionOnboardController.swift in Sources */,
 				EB203BF4230716CA008C9EE5 /* FileManager+DocDir.swift in Sources */,
 				EB985CBB22EC6B5800C033E8 /* Floaty.swift in Sources */,
 				EBB21C8023054E70004E4E8F /* TabbarViewController.swift in Sources */,
+				EB4F78A72319B5760045077E /* BulletinDataSource.swift in Sources */,
 				EB2C771D22EDBD59009FA2C8 /* BudgetDetailViewController.swift in Sources */,
 				EB582E7622F0AE1800422323 /* Date+Utilities.swift in Sources */,
 				EB985CB522EC6B5400C033E8 /* FloatyDelegate.swift in Sources */,
 				EB4F7895231968860045077E /* ServerReceiptValidatorReceiptValidator.swift in Sources */,
 				EBF560FB2305F06C00E850E7 /* NewBudgetCategoryDiaryProvider.swift in Sources */,
 				EBEB8B1C23145D5C009F65B8 /* NewAccountViewController.swift in Sources */,
+				EB4F78A52319B3CA0045077E /* SubcriptionTypeBulletinItem.swift in Sources */,
 				EBD012EE22E9B22100F8126D /* CategoryTableView.swift in Sources */,
 				EB9DEBD422E9E5C400A73FD1 /* UITextField+Placeholder.swift in Sources */,
 				EB02A67422EB10E700987AFA /* NSBundle+APNumberPad.m in Sources */,
@@ -675,8 +716,10 @@
 				EBF2F67C22E8D91300C2772F /* AccountTableView.swift in Sources */,
 				EBC59D5122E750DC00E626DC /* BudgetTableViewController.swift in Sources */,
 				EB5C600922F32417004F81CF /* TextAnimation.swift in Sources */,
+				EB4F78A12319B37D0045077E /* FeedbackGenerators.swift in Sources */,
 				EBC59D3F22E7503900E626DC /* AppDelegate.swift in Sources */,
 				EBC59D5322E750E900E626DC /* Model.swift in Sources */,
+				EB4F78A32319B3BA0045077E /* CollectionUtilities.swift in Sources */,
 				EBDA26CD22F6FDCC0073DC50 /* IncomeStatementPercentView.swift in Sources */,
 				EBD012E022E9974700F8126D /* DiaryTextView.swift in Sources */,
 				EB985CBA22EC6B5800C033E8 /* FloatyViewController.swift in Sources */,
@@ -687,6 +730,7 @@
 				EBF595B72305852100BF9E40 /* LockScreenViewController.swift in Sources */,
 				EB1BCBBC2305AD2A0023E11F /* NewAccountDiaryProvider.swift in Sources */,
 				EB985CB822EC6B5800C033E8 /* FloatyItem.swift in Sources */,
+				EB4F789D2319B31C0045077E /* SubscriptionSelectorBulletin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

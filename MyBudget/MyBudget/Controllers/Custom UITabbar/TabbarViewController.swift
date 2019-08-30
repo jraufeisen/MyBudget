@@ -9,6 +9,7 @@
 import UIKit
 import SwiftyStoreKit
 import CloudKit
+import BLTNBoard
 
 class TabbarViewController: UITabBarController, FloatyDelegate {
 
@@ -18,17 +19,21 @@ class TabbarViewController: UITabBarController, FloatyDelegate {
         return vc
     }
 
-    
-    
-    
+    lazy private var bulletinManager: BLTNItemManager = {
+       
+        let subscriptionPage = BulletinDataSource.makeSubscriptionPage()
+        subscriptionPage.next = BulletinDataSource.makeChoicePage()
+        
+        let manager = BLTNItemManager(rootItem: subscriptionPage)
+
+        return manager
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCenterButton()
     }
     
-
-    
-
     func setupCenterButton() {
         let floaty = Floaty.init(frame: CGRect(x: 0, y: 10, width: 55, height: 55))
         
@@ -82,23 +87,13 @@ class TabbarViewController: UITabBarController, FloatyDelegate {
         
         item = FloatyItem()
         item.titleColor = .darkText
-        item.icon = #imageLiteral(resourceName: "App Artwork")
+        item.icon = #imageLiteral(resourceName: "Logo_Only").withRenderingMode(.alwaysTemplate)
         item.title = "Subscribe"
         item.tintColor = .white
         item.buttonColor = .blueActionColor
         item.size = floaty.itemSize
         item.handler = { (item) in
-            let monthlySubscriptionID = "Monthly_Subscription"
-            
-            CKContainer.default().fetchUserRecordID { (recordID, error) in
-                print("I found iCloud user with ID \(String(describing: recordID))")
-                guard let cloudID = recordID?.recordName else {return} //TODO: Buy without cloud
-                SwiftyStoreKit.purchaseProduct(monthlySubscriptionID, quantity: 1, atomically: false, applicationUsername: cloudID, simulatesAskToBuyInSandbox: false, completion: { (result) in
-                    print(result)
-                })
-
-            }
-
+            self.bulletinManager.showBulletin(above: self)
         }
         floaty.addItem(item: item)
 

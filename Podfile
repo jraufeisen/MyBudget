@@ -17,6 +17,7 @@ target 'MyBudget' do
 	pod 'paper-onboarding', '~> 6.1.3'
 	
 	pod 'SwiftyStoreKit'
+	pod 'BulletinBoard'
 end
 
  
