@@ -26,6 +26,8 @@
 		EB34D5E222F3362D000FACAC /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = EB34D5E122F3362C000FACAC /* menu.png */; };
 		EB4A9BDC231495C200BA4FBE /* Pods_MyBudget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B8B8649E433172893306AF /* Pods_MyBudget.framework */; };
 		EB4A9BDD231495C200BA4FBE /* Pods_MyBudget.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 54B8B8649E433172893306AF /* Pods_MyBudget.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EB4F7895231968860045077E /* ServerReceiptValidatorReceiptValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F7894231968860045077E /* ServerReceiptValidatorReceiptValidator.swift */; };
+		EB4F789723196F220045077E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4F789623196F220045077E /* StoreKit.framework */; };
 		EB558EB722ECA3A200039651 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB558EB622ECA3A200039651 /* CloudKit.framework */; };
 		EB582E7122F0A10D00422323 /* AddAccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB582E7022F0A10D00422323 /* AddAccountsViewController.swift */; };
 		EB582E7422F0ACC500422323 /* PercentFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB582E7322F0ACC500422323 /* PercentFillView.swift */; };
@@ -122,6 +124,8 @@
 		EB2C772522EDCA56009FA2C8 /* edit-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit-2.png"; sourceTree = "<group>"; };
 		EB34D5E122F3362C000FACAC /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		EB4A9BD92314958A00BA4FBE /* Pods_MyBudget_MacOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_MyBudget_MacOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB4F7894231968860045077E /* ServerReceiptValidatorReceiptValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerReceiptValidatorReceiptValidator.swift; sourceTree = "<group>"; };
+		EB4F789623196F220045077E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		EB558EB522ECA39D00039651 /* MyBudget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyBudget.entitlements; sourceTree = "<group>"; };
 		EB558EB622ECA3A200039651 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		EB582E7022F0A10D00422323 /* AddAccountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountsViewController.swift; sourceTree = "<group>"; };
@@ -187,6 +191,7 @@
 				EB4A9BDC231495C200BA4FBE /* Pods_MyBudget.framework in Frameworks */,
 				EB558EB722ECA3A200039651 /* CloudKit.framework in Frameworks */,
 				EBEB8B16231451F3009F65B8 /* Swift_Ledger.framework in Frameworks */,
+				EB4F789723196F220045077E /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +210,7 @@
 		1CF7C6954939ED9D3DD0375D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB4F789623196F220045077E /* StoreKit.framework */,
 				EB668B9D22EF2DDE0082D54B /* MaterialComponents.framework */,
 				EB558EB622ECA3A200039651 /* CloudKit.framework */,
 				54B8B8649E433172893306AF /* Pods_MyBudget.framework */,
@@ -386,6 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				EBC59D5222E750E900E626DC /* Model.swift */,
+				EB4F7894231968860045077E /* ServerReceiptValidatorReceiptValidator.swift */,
 				EB1BCBBB2305AD2A0023E11F /* NewAccountDiaryProvider.swift */,
 				EBF560FA2305F06C00E850E7 /* NewBudgetCategoryDiaryProvider.swift */,
 				EBEB145A22E8AD7300291435 /* Transaction.swift */,
@@ -527,6 +534,9 @@
 						CreatedOnToolsVersion = 10.2.1;
 						LastSwiftMigration = 1030;
 						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -648,6 +658,7 @@
 				EB2C771D22EDBD59009FA2C8 /* BudgetDetailViewController.swift in Sources */,
 				EB582E7622F0AE1800422323 /* Date+Utilities.swift in Sources */,
 				EB985CB522EC6B5400C033E8 /* FloatyDelegate.swift in Sources */,
+				EB4F7895231968860045077E /* ServerReceiptValidatorReceiptValidator.swift in Sources */,
 				EBF560FB2305F06C00E850E7 /* NewBudgetCategoryDiaryProvider.swift in Sources */,
 				EBEB8B1C23145D5C009F65B8 /* NewAccountViewController.swift in Sources */,
 				EBD012EE22E9B22100F8126D /* CategoryTableView.swift in Sources */,

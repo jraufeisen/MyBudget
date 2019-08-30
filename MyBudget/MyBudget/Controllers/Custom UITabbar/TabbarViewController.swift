@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SwiftyStoreKit
+import CloudKit
 
 class TabbarViewController: UITabBarController, FloatyDelegate {
 
@@ -78,6 +80,30 @@ class TabbarViewController: UITabBarController, FloatyDelegate {
         }
         floaty.addItem(item: item)
         
+        item = FloatyItem()
+        item.titleColor = .darkText
+        item.icon = #imageLiteral(resourceName: "App Artwork")
+        item.title = "Subscribe"
+        item.tintColor = .white
+        item.buttonColor = .blueActionColor
+        item.size = floaty.itemSize
+        item.handler = { (item) in
+            let monthlySubscriptionID = "Monthly_Subscription"
+            
+            CKContainer.default().fetchUserRecordID { (recordID, error) in
+                print("I found iCloud user with ID \(String(describing: recordID))")
+                guard let cloudID = recordID?.recordName else {return} //TODO: Buy without cloud
+                SwiftyStoreKit.purchaseProduct(monthlySubscriptionID, quantity: 1, atomically: false, applicationUsername: cloudID, simulatesAskToBuyInSandbox: false, completion: { (result) in
+                    print(result)
+                })
+
+            }
+
+        }
+        floaty.addItem(item: item)
+
+        
+        
         // Dont move - ever. Stay fixed in the tabbar
         floaty.respondsToKeyboard = false
         floaty.translatesAutoresizingMaskIntoConstraints = false
@@ -124,9 +150,27 @@ class TabbarViewController: UITabBarController, FloatyDelegate {
     // MARK: - Floating button actions
     
     private func addTransaction(type: TransactionType) {
-        let vc = EnterNumberViewController.instantiate(with: type)
-        let wrapperVC = UINavigationController.init(rootViewController: vc)
-        present(wrapperVC, animated: true, completion: nil)
+
+        func show() {
+            let vc = EnterNumberViewController.instantiate(with: type)
+            let wrapperVC = UINavigationController.init(rootViewController: vc)
+            present(wrapperVC, animated: true, completion: nil)
+        }
+        SwiftyStoreKit.verifyReceipt(using: ServerReceiptValidator()) { (result) in
+
+            
+            
+            switch result {
+                
+            case .success(let receipt):
+                show()
+            case .error(let error):
+                print("You need an active subscription to do that!")
+            @unknown default:
+                show()
+            }
+
+        }
     }
 
 

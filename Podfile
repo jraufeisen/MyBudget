@@ -15,6 +15,8 @@ target 'MyBudget' do
 	pod 'SideMenu', '~> 6.0'
 	
 	pod 'paper-onboarding', '~> 6.1.3'
+	
+	pod 'SwiftyStoreKit'
 end
 
  
