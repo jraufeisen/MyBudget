@@ -191,6 +191,7 @@ class SubscriptionSelectorBulletin: FeedbackPageBLTNItem {
                         
                         switch result {
                         case .success(let purchase):
+                            ServerReceiptValidator().updateExpirationDate()
                             self.next = BulletinDataSource.makeCompletionPage()
                             self.manager?.displayNextItem()
                         case .error(let error):

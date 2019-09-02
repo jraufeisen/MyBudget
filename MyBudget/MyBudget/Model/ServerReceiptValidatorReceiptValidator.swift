@@ -34,6 +34,33 @@ extension CharacterSet {
 
 class ServerReceiptValidator: ReceiptValidator {
     
+    static let subscriptionStatusDidChangeMessage = Notification.Name.init("subscriptionStatusDidChange")
+    
+    private let expKey = "expDate"
+    func updateExpirationDate() {
+        SwiftyStoreKit.verifyReceipt(using: ServerReceiptValidator()) { (result) in
+            print("Verifying receipt: \(result)")
+            switch result {
+            case .success(let receipt):
+                guard let expTimestamp = receipt[self.expKey] as? TimeInterval else {return}
+                KeychainWrapper.standard.set(expTimestamp, forKey: self.expKey)
+            case .error:
+                break
+            }
+            NotificationCenter.default.post(name: ServerReceiptValidator.subscriptionStatusDidChangeMessage, object: nil)
+            
+        }
+    }
+    
+    func isSubscribed() -> Bool {
+        guard let expTimestamp = KeychainWrapper.standard.double(forKey: expKey) else {
+            return false
+        }
+        
+        let expDate = Date.init(timeIntervalSince1970: expTimestamp)
+        print("Your subscription ends at \(expDate)")
+        return expDate > Date()
+    }
     
     
     func validate(receiptData: Data, completion: @escaping (VerifyReceiptResult) -> Void) {
@@ -51,7 +78,8 @@ class ServerReceiptValidator: ReceiptValidator {
                 parameters["uid"] = userName
             }
             request.httpBody = parameters.percentEscaped().data(using: .utf8)
-
+            
+            
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 // there is an error
                 if let networkError = error {
@@ -69,22 +97,30 @@ class ServerReceiptValidator: ReceiptValidator {
                     completion(.error(error: .noRemoteData))
                     return
                 }
-                print(responseString)
                 
-                if responseString == "True" {
-                    completion(.success(receipt: ReceiptInfo()))
-
-                } else {
+                let answerComponents = responseString.components(separatedBy: ":")
+                print(answerComponents)
+                
+                guard answerComponents.count == 2 && answerComponents.first == "True" else {
                     completion(.error(error: .receiptInvalid(receipt: ReceiptInfo(), status: .subscriptionExpired)))
+                    return
                 }
+                guard let expTimestamp = Double(answerComponents[1]) else {
+                    completion(.error(error: .receiptInvalid(receipt: ReceiptInfo(), status: .subscriptionExpired)))
+                    return
+                }
+                
+                var info = ReceiptInfo()
+                info[self.expKey] = expTimestamp as AnyObject
+                completion(.success(receipt: info))
             }
-        
+            
             task.resume()
         }
     }
     
     
-
+    
 }
 
 

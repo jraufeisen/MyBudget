@@ -6,21 +6,30 @@
 //  Copyright © 2019 Johannes Raufeisen. All rights reserved.
 //
 
-import UIKit
+import Foundation
 import Swift_Ledger
 
-struct BudgetCategoryViewable {
+struct BudgetCategoryViewable: Equatable {
     let name: String
     let remainingMoney: Money
     let percentLeft: Double // Between 0 and 100
     let detailString: String
+    
+    static func emptyBudgetViewable() -> BudgetCategoryViewable {
+        return BudgetCategoryViewable.init(name: "New Budget", remainingMoney: Money(0), percentLeft: 0, detailString: "")
+    }
 }
 
-struct AccountViewable {
+struct AccountViewable: Equatable {
     let name: String
     let remainingMoney: Money
     let spentThisMonth: Money
     let earnedThisMonth: Money
+    let associatedAccount: Account
+    
+    static func emptyAccountViewable() -> AccountViewable {
+        return AccountViewable.init(name: "New Account", remainingMoney: Money(0), spentThisMonth: Money(0), earnedThisMonth: Money(0), associatedAccount: Account.init(name: ""))
+    }
 }
 
 /// Income statement across all accounts
@@ -37,10 +46,28 @@ struct MonthlySpendingCategoryViewable {
 }
 
 class Model: NSObject {
-
+    
     static let shared = Model()
     private override init() {
         
+    }
+    
+    func allowedToAddTransaction() -> Bool {
+        return ServerReceiptValidator().isSubscribed() || numberOfRemainingTransactions() > 0 || numberOfRemainingTransactionsToday() > 0
+    }
+    
+    /// Based on the reduced limit of 1 per day
+    func numberOfRemainingTransactionsToday() -> Int {
+        let txToday = LedgerModel.shared().transactions.filter { (tx) -> Bool in
+            LedgerModel.dateString(date: tx.date) == LedgerModel.dateString(date: Date())
+        }
+        return max(1-txToday.count, 0)
+    }
+    
+    /// Based on the blobal limit of 100 tx in the free version
+    func numberOfRemainingTransactions() -> Int {
+        let txCount = LedgerModel.shared().transactions.count
+        return max(100 - txCount,0)
     }
     
     /// Retrieve all necessary information to display average monthly spendings in each category.
@@ -51,7 +78,7 @@ class Model: NSObject {
         // Average over the last 3 months only
         let thisMonth = Date().firstDayOfCurrentMonth()
         guard let month1 = thisMonth.decrementByOneMonth() else {return monthlyAverageViewables}
-
+        
         for category in categories {
             let spendingAccount = Account.init(name: "Expenses:\(category)")
             let val1 = LedgerModel.shared().expense(acc: spendingAccount, from: month1, to: thisMonth)
@@ -60,19 +87,29 @@ class Model: NSObject {
             let viewable = MonthlySpendingCategoryViewable.init(name: category, averageSpent: average)
             monthlyAverageViewables.append(viewable)
         }
-     
+        
         return monthlyAverageViewables
     }
     
     /// Income statement for whole month and all accounts
     func getIncomeStatementViewable() -> IncomeStatementViewable {
         let bankingAccount = Account.init(name: "Assets:Banking")
-
+        
         let spentThisMonth = LedgerModel.shared().expenseSinceDate(acc: bankingAccount, date: Date().firstDayOfCurrentMonth())
         let earnedThisMonth = LedgerModel.shared().incomeSinceDate(acc: bankingAccount, date: Date().firstDayOfCurrentMonth())
         
         let viewable = IncomeStatementViewable.init(spentThisMonth: Money((spentThisMonth as NSNumber).floatValue), earnedThisMonth: Money((earnedThisMonth as NSNumber).floatValue))
-
+        
+        return viewable
+    }
+    
+    
+    func getTotalAccountViewable() -> AccountViewable {
+        let bankingAccount = Account.init(name: "Assets:Banking")
+        let remainingMoney = LedgerModel.shared().balanceForAccount(acc: bankingAccount)
+        let spentThisMonth = LedgerModel.shared().expenseSinceDate(acc: bankingAccount, date: Date().firstDayOfCurrentMonth())
+        let earnedThisMonth = LedgerModel.shared().incomeSinceDate(acc: bankingAccount, date: Date().firstDayOfCurrentMonth())
+        let viewable = AccountViewable.init(name: "All Accounts", remainingMoney: Money((remainingMoney as NSNumber).floatValue), spentThisMonth: Money((spentThisMonth as NSNumber).floatValue), earnedThisMonth: Money((earnedThisMonth as NSNumber).floatValue), associatedAccount: bankingAccount)
         return viewable
     }
     
@@ -86,7 +123,7 @@ class Model: NSObject {
             let remainingMoney = LedgerModel.shared().balanceForAccount(acc: bankingAccount)
             let spentThisMonth = LedgerModel.shared().expenseSinceDate(acc: bankingAccount, date: Date().firstDayOfCurrentMonth())
             let earnedThisMonth = LedgerModel.shared().incomeSinceDate(acc: bankingAccount, date: Date().firstDayOfCurrentMonth())
-            let viewable = AccountViewable.init(name: name, remainingMoney: Money((remainingMoney as NSNumber).floatValue), spentThisMonth: Money((spentThisMonth as NSNumber).floatValue), earnedThisMonth: Money((earnedThisMonth as NSNumber).floatValue))
+            let viewable = AccountViewable.init(name: name, remainingMoney: Money((remainingMoney as NSNumber).floatValue), spentThisMonth: Money((spentThisMonth as NSNumber).floatValue), earnedThisMonth: Money((earnedThisMonth as NSNumber).floatValue), associatedAccount: bankingAccount)
             accountViewables.append(viewable)
         }
         
@@ -189,12 +226,18 @@ class Model: NSObject {
                             relevantTx.account = bankingAccount
                         }
                     }
+                    
+                    if post.0.name.contains("Expenses:") {
+                        if let budgetCategory = post.0.name.components(separatedBy: ":").last {
+                            relevantTx.category = budgetCategory
+                        }
+                    }
                 }
                 // do not include budgeting transactions, only real expenses or income
                 if relevantTx.value != 0 {
                     transactions.append(relevantTx)
                 }
-
+                
             } else if tx.isIncome() {
                 let relevantTx = IncomeTransaction()
                 relevantTx.transactionDescription = tx.name
@@ -213,6 +256,29 @@ class Model: NSObject {
                 if relevantTx.value != 0 {
                     transactions.append(relevantTx)
                 }
+            } else if tx.isTransfer() {
+                let relevantTx = TransferTransaction()
+                relevantTx.transactionDescription = tx.name
+                relevantTx.date = tx.date
+                for post in tx.postings {
+                    let dec = NSDecimalNumber.init(decimal: post.1)
+                    relevantTx.value = Money(abs(dec.floatValue))
+                    
+                    if dec < 0 {
+                        if let bankingAccount = post.0.name.components(separatedBy: ":").last {
+                            relevantTx.fromAccount = bankingAccount
+                        }
+                    } else {
+                        if let bankingAccount = post.0.name.components(separatedBy: ":").last {
+                            relevantTx.toAccount = bankingAccount
+                        }
+                    }
+                }
+                // do not include budgeting transactions, only real expenses or income
+                if relevantTx.value != 0 {
+                    transactions.append(relevantTx)
+                }
+                
             }
             
             
@@ -226,7 +292,7 @@ class Model: NSObject {
         var transactions = [Transaction]()
         
         for tx in LedgerModel.shared().transactions {
-        
+            
             let relevantTx = ExpenseTransaction.init()
             for post in tx.postings {
                 // do not include budgeting transactions, only real expenses
@@ -263,7 +329,7 @@ class Model: NSObject {
         let owned = LedgerModel.shared().balanceForAccount(acc: moneyAccount)
         
         let dec = NSDecimalNumber.init(decimal: owned - budgeted)
-
+        
         return Money.init(dec.floatValue)
     }
     
@@ -274,6 +340,15 @@ class Model: NSObject {
         let currentNumber = NSNumber.init(value: (currentValue as NSDecimalNumber).floatValue)
         let updateValue = NSNumber.init(value:  newValue.floatValue - currentNumber.doubleValue)
         _ = LedgerModel.shared().addBudget(category: category, value: "\(updateValue)")
+    }
+    
+    
+    func firstDate() -> Date? {
+        return LedgerModel.shared().transactions.last?.date
+    }
+    
+    func lastDate() -> Date? {
+        return LedgerModel.shared().transactions.first?.date
     }
     
 }

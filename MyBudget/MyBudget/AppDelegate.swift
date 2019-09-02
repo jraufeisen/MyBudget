@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        print(CKContainer.default().containerIdentifier)
+
         // It is recommended to add an observer here. See https://github.com/bizz84/SwiftyStoreKit#purchase-a-product-given-a-skproduct
         SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
             for purchase in purchases {
@@ -33,6 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
 
+        ServerReceiptValidator().updateExpirationDate()
+
         
         return true
     }
@@ -43,8 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+
         if let lockscreen = window?.rootViewController as? LockScreenViewController {
         } else {
             window?.rootViewController = LockScreenViewController.instantiate()
@@ -59,6 +60,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 lockscreen.authenticateUser()
             }
         }
+        
+        ServerReceiptValidator().updateExpirationDate()
+
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {

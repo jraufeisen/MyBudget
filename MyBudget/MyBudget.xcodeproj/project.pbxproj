@@ -16,6 +16,9 @@
 		EB02A68222EB1BAF00987AFA /* apnumberpad_backspace_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB02A67E22EB1BAA00987AFA /* apnumberpad_backspace_icon@2x.png */; };
 		EB02A68322EB1BAF00987AFA /* apnumberpad_backspace_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EB02A67F22EB1BAA00987AFA /* apnumberpad_backspace_icon@3x.png */; };
 		EB02A68722EB1BEF00987AFA /* MoneyKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB02A68622EB1BEF00987AFA /* MoneyKeyboard.swift */; };
+		EB09FC94231D57080063FB90 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB09FC91231D56F50063FB90 /* KeychainWrapper.swift */; };
+		EB09FC95231D57110063FB90 /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB09FC93231D56F50063FB90 /* KeychainItemAccessibility.swift */; };
+		EB09FC97231D5D830063FB90 /* SubscriptionFloaty.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB09FC96231D5D830063FB90 /* SubscriptionFloaty.swift */; };
 		EB1BCBBC2305AD2A0023E11F /* NewAccountDiaryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1BCBBB2305AD2A0023E11F /* NewAccountDiaryProvider.swift */; };
 		EB203BF4230716CA008C9EE5 /* FileManager+DocDir.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB203BF3230716CA008C9EE5 /* FileManager+DocDir.swift */; };
 		EB2C771B22EDBCA3009FA2C8 /* UITextView+Center.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2C771A22EDBCA3009FA2C8 /* UITextView+Center.swift */; };
@@ -122,6 +125,10 @@
 		EB02A67F22EB1BAA00987AFA /* apnumberpad_backspace_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "apnumberpad_backspace_icon@3x.png"; sourceTree = "<group>"; };
 		EB02A68022EB1BAA00987AFA /* apnumberpad_backspace_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apnumberpad_backspace_icon.png; sourceTree = "<group>"; };
 		EB02A68622EB1BEF00987AFA /* MoneyKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyKeyboard.swift; sourceTree = "<group>"; };
+		EB09FC90231D56F50063FB90 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		EB09FC91231D56F50063FB90 /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
+		EB09FC93231D56F50063FB90 /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
+		EB09FC96231D5D830063FB90 /* SubscriptionFloaty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionFloaty.swift; sourceTree = "<group>"; };
 		EB1BCBBB2305AD2A0023E11F /* NewAccountDiaryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountDiaryProvider.swift; sourceTree = "<group>"; };
 		EB203BF3230716CA008C9EE5 /* FileManager+DocDir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+DocDir.swift"; sourceTree = "<group>"; };
 		EB2C771A22EDBCA3009FA2C8 /* UITextView+Center.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Center.swift"; sourceTree = "<group>"; };
@@ -269,6 +276,16 @@
 			path = APNumberPad;
 			sourceTree = "<group>";
 		};
+		EB09FC8F231D56F50063FB90 /* Keychain Wrapper */ = {
+			isa = PBXGroup;
+			children = (
+				EB09FC90231D56F50063FB90 /* LICENSE */,
+				EB09FC91231D56F50063FB90 /* KeychainWrapper.swift */,
+				EB09FC93231D56F50063FB90 /* KeychainItemAccessibility.swift */,
+			);
+			path = "Keychain Wrapper";
+			sourceTree = "<group>";
+		};
 		EB1BCBC02305ADBD0023E11F /* New Account */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,6 +389,7 @@
 			isa = PBXGroup;
 			children = (
 				EBB21C7F23054E70004E4E8F /* TabbarViewController.swift */,
+				EB09FC96231D5D830063FB90 /* SubscriptionFloaty.swift */,
 				EB4F789B2319B30A0045077E /* Bulletin */,
 			);
 			path = "Custom UITabbar";
@@ -413,6 +431,7 @@
 				EBC59D3E22E7503900E626DC /* AppDelegate.swift */,
 				EBC59D4222E7503900E626DC /* Main.storyboard */,
 				EB34D5E122F3362C000FACAC /* menu.png */,
+				EB09FC8F231D56F50063FB90 /* Keychain Wrapper */,
 				EB582E7222F0A11500422323 /* Onboarding */,
 				EBC59D4522E7503A00E626DC /* Assets.xcassets */,
 				EBC59D4722E7503A00E626DC /* LaunchScreen.storyboard */,
@@ -681,7 +700,9 @@
 				EB985CBD22EC74F800C033E8 /* String+OnlyDigits.swift in Sources */,
 				EBEB145022E8A1B100291435 /* EnterNumberViewController.swift in Sources */,
 				EB5C600C22F32960004F81CF /* MenuTableViewController.swift in Sources */,
+				EB09FC97231D5D830063FB90 /* SubscriptionFloaty.swift in Sources */,
 				EB024C2522F35C5A00228855 /* MenuPresentingViewController.swift in Sources */,
+				EB09FC95231D57110063FB90 /* KeychainItemAccessibility.swift in Sources */,
 				EB4F789F2319B34D0045077E /* FeedbackPageBulletinItem.swift in Sources */,
 				EB02A67322EB10E700987AFA /* APNumberButton.m in Sources */,
 				EB02A68722EB1BEF00987AFA /* MoneyKeyboard.swift in Sources */,
@@ -691,6 +712,7 @@
 				EBEB145B22E8AD7300291435 /* Transaction.swift in Sources */,
 				EB2C771B22EDBCA3009FA2C8 /* UITextView+Center.swift in Sources */,
 				EB4F789A2319A2600045077E /* SubscriptionOnboardController.swift in Sources */,
+				EB09FC94231D57080063FB90 /* KeychainWrapper.swift in Sources */,
 				EB203BF4230716CA008C9EE5 /* FileManager+DocDir.swift in Sources */,
 				EB985CBB22EC6B5800C033E8 /* Floaty.swift in Sources */,
 				EBB21C8023054E70004E4E8F /* TabbarViewController.swift in Sources */,
