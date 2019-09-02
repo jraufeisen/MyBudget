@@ -72,13 +72,9 @@ class SubcriptionTypeBLTNItem: FeedbackPageBLTNItem {
         let delay = DispatchTime.now() + .seconds(2)
 
         DispatchQueue.main.asyncAfter(deadline: delay) {
-
             // Play success haptic feedback
-
             self.successFeedbackGenerator.prepare()
             self.successFeedbackGenerator.success()
-
-
         }
 
     }
