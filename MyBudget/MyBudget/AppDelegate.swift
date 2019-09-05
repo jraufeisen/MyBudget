@@ -43,9 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if ProcessInfo.processInfo.arguments.contains("UITests") {
             UIApplication.shared.keyWindow?.layer.speed = 100
             let url = Bundle.main.url(forResource: "finances_example", withExtension: "txt")!
-            //let exampleString = try! String.init(contentsOf: url)
-            //try! exampleString.write(to: LedgerModel.defaultURL, atomically: true, encoding: .utf8)
-            try! FileManager.default.copyItem(at: url, to: LedgerModel.defaultURL)
+            let dataString = try! String.init(contentsOf: url)
+            try! dataString.write(to: LedgerModel.defaultURL, atomically: true, encoding: .utf8)
         }
         
         return true
@@ -54,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidEnterBackground(_ application: UIApplication) {
 
-        if let lockscreen = window?.rootViewController as? LockScreenViewController {
+        if let _ = window?.rootViewController as? LockScreenViewController {
         } else {
             window?.rootViewController = LockScreenViewController.instantiate()
         }

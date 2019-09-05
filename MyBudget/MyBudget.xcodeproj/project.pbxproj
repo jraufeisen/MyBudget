@@ -39,6 +39,7 @@
 		EB4F78A52319B3CA0045077E /* SubcriptionTypeBulletinItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F78A42319B3CA0045077E /* SubcriptionTypeBulletinItem.swift */; };
 		EB4F78A72319B5760045077E /* BulletinDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F78A62319B5750045077E /* BulletinDataSource.swift */; };
 		EB51875A23216C1A0052D6B7 /* finances_example.txt in Resources */ = {isa = PBXBuildFile; fileRef = EB51875923216C1A0052D6B7 /* finances_example.txt */; };
+		EB51875B232181C10052D6B7 /* finances_example.txt in Resources */ = {isa = PBXBuildFile; fileRef = EB51875923216C1A0052D6B7 /* finances_example.txt */; };
 		EB558EB722ECA3A200039651 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB558EB622ECA3A200039651 /* CloudKit.framework */; };
 		EB582E7122F0A10D00422323 /* AddAccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB582E7022F0A10D00422323 /* AddAccountsViewController.swift */; };
 		EB582E7422F0ACC500422323 /* PercentFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB582E7322F0ACC500422323 /* PercentFillView.swift */; };
@@ -717,6 +718,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB51875B232181C10052D6B7 /* finances_example.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
