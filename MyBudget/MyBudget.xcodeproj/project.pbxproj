@@ -38,6 +38,7 @@
 		EB4F78A32319B3BA0045077E /* CollectionUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F78A22319B3BA0045077E /* CollectionUtilities.swift */; };
 		EB4F78A52319B3CA0045077E /* SubcriptionTypeBulletinItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F78A42319B3CA0045077E /* SubcriptionTypeBulletinItem.swift */; };
 		EB4F78A72319B5760045077E /* BulletinDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F78A62319B5750045077E /* BulletinDataSource.swift */; };
+		EB51875A23216C1A0052D6B7 /* finances_example.txt in Resources */ = {isa = PBXBuildFile; fileRef = EB51875923216C1A0052D6B7 /* finances_example.txt */; };
 		EB558EB722ECA3A200039651 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB558EB622ECA3A200039651 /* CloudKit.framework */; };
 		EB582E7122F0A10D00422323 /* AddAccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB582E7022F0A10D00422323 /* AddAccountsViewController.swift */; };
 		EB582E7422F0ACC500422323 /* PercentFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB582E7322F0ACC500422323 /* PercentFillView.swift */; };
@@ -161,6 +162,7 @@
 		EB4F78A22319B3BA0045077E /* CollectionUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionUtilities.swift; sourceTree = "<group>"; };
 		EB4F78A42319B3CA0045077E /* SubcriptionTypeBulletinItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubcriptionTypeBulletinItem.swift; sourceTree = "<group>"; };
 		EB4F78A62319B5750045077E /* BulletinDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletinDataSource.swift; sourceTree = "<group>"; };
+		EB51875923216C1A0052D6B7 /* finances_example.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = finances_example.txt; sourceTree = "<group>"; };
 		EB558EB522ECA39D00039651 /* MyBudget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyBudget.entitlements; sourceTree = "<group>"; };
 		EB558EB622ECA3A200039651 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		EB582E7022F0A10D00422323 /* AddAccountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountsViewController.swift; sourceTree = "<group>"; };
@@ -454,6 +456,7 @@
 		EBC59D3D22E7503900E626DC /* MyBudget */ = {
 			isa = PBXGroup;
 			children = (
+				EB51875923216C1A0052D6B7 /* finances_example.txt */,
 				EBE7E2BB2321233500BEC812 /* Constants.swift */,
 				EBEB8B1923145CAB009F65B8 /* Settings.bundle */,
 				EB558EB522ECA39D00039651 /* MyBudget.entitlements */,
@@ -701,6 +704,7 @@
 				EBD012F322E9B39D00F8126D /* drawer.png in Resources */,
 				EBD012E922E9AD5000F8126D /* euro.png in Resources */,
 				EBFF078D22E9B4BA00CC7215 /* NewAccountCell.xib in Resources */,
+				EB51875A23216C1A0052D6B7 /* finances_example.txt in Resources */,
 				EB02A68222EB1BAF00987AFA /* apnumberpad_backspace_icon@2x.png in Resources */,
 				EBFF078E22E9B4BC00CC7215 /* ExistingAccountCell.xib in Resources */,
 				EBC59D4622E7503A00E626DC /* Assets.xcassets in Resources */,

@@ -47,6 +47,7 @@ class MyBudgetUITests: XCTestCase {
 
         
         app.otherElements["New Expense"].tap()
+        sleep(1)
         let button2 = app.buttons["1"]
         button2.tap()
         app.buttons["7"].tap()
@@ -62,6 +63,7 @@ class MyBudgetUITests: XCTestCase {
         
         app.buttons["Add new transaction"].tap()
         app.otherElements["New Transfer"].tap()
+        _ = XCTWaiter.wait(for: [XCTestExpectation(description: "I will never ever exit!")], timeout: 0.5)
         app.buttons["5"].tap()
         app.buttons["8"].tap()
         app.buttons["0"].tap()
@@ -71,6 +73,7 @@ class MyBudgetUITests: XCTestCase {
 
         app.buttons["Add new transaction"].tap()
         app.otherElements["New Income"].tap()
+        _ = XCTWaiter.wait(for: [XCTestExpectation(description: "I will never ever exit!")], timeout: 0.5)
         button2.tap()
         button4.tap()
         app.buttons["3"].tap()
@@ -81,6 +84,7 @@ class MyBudgetUITests: XCTestCase {
 
         app.buttons["Add new transaction"].tap()
         app.otherElements["Subscribe"].tap()
+        _ = XCTWaiter.wait(for: [XCTestExpectation(description: "I will never ever exit!")], timeout: 0.5)
         snapshot("13SubscriptionInfo")
         app.buttons["Learn More"].tap()
         app.buttons["1 Month for 1,49€"].tap()

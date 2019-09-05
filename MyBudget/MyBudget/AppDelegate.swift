@@ -9,14 +9,13 @@
 import UIKit
 import SwiftyStoreKit
 import CloudKit
+import Swift_Ledger
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         // It is recommended to add an observer here. See https://github.com/bizz84/SwiftyStoreKit#purchase-a-product-given-a-skproduct
@@ -31,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // Unlock content
                 case .failed, .purchasing, .deferred:
                     break // do nothing
+                @unknown default:
+                    break // do nothing
                 }
             }
         }
@@ -38,18 +39,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ServerReceiptValidator().updateExpirationDate()
 
         
-        // Prepare for UI Test
+        // Prepare for UI Test and copy example data
         if ProcessInfo.processInfo.arguments.contains("UITests") {
             UIApplication.shared.keyWindow?.layer.speed = 100
+            let url = Bundle.main.url(forResource: "finances_example", withExtension: "txt")!
+            //let exampleString = try! String.init(contentsOf: url)
+            //try! exampleString.write(to: LedgerModel.defaultURL, atomically: true, encoding: .utf8)
+            try! FileManager.default.copyItem(at: url, to: LedgerModel.defaultURL)
         }
         
         return true
     }
 
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
-    }
 
     func applicationDidEnterBackground(_ application: UIApplication) {
 
@@ -70,14 +71,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         ServerReceiptValidator().updateExpirationDate()
 
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
 
