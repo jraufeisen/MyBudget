@@ -51,7 +51,7 @@ class TabbarViewController: UITabBarController, FloatyDelegate {
                 self.bulletinManager.showBulletin(above: self)
             }
         }
-
+        
         floaty.transferItem.handler = { (item) in
             if Model.shared.allowedToAddTransaction() {
                 self.addTransaction(type: .Transfer)

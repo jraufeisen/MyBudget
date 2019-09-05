@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         // It is recommended to add an observer here. See https://github.com/bizz84/SwiftyStoreKit#purchase-a-product-given-a-skproduct
@@ -35,6 +37,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         ServerReceiptValidator().updateExpirationDate()
 
+        
+        // Prepare for UI Test
+        if ProcessInfo.processInfo.arguments.contains("UITests") {
+            UIApplication.shared.keyWindow?.layer.speed = 100
+        }
         
         return true
     }

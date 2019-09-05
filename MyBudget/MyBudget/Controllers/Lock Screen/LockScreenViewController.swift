@@ -14,6 +14,7 @@ fileprivate let shouldShowOnboardingKey = "shouldShowOnboarding"
 
 
 class LockScreenViewController: UIViewController {
+    
     /// Instantiate from storyboard
     internal static func instantiate() -> LockScreenViewController {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LockScreenController") as! LockScreenViewController
@@ -24,9 +25,8 @@ class LockScreenViewController: UIViewController {
         if UserDefaults.standard.object(forKey: shouldShowOnboardingKey) == nil {
             UserDefaults.standard.set(true, forKey: shouldShowOnboardingKey)
         }
-        //return UserDefaults.standard.bool(forKey: shouldShowOnboardingKey)
-        return true
-        // return arc4random() % 10 < 5
+
+        return UserDefaults.standard.bool(forKey: shouldShowOnboardingKey) || Constants.shouldAlwaysShowOnboarding
     }
     let onboarding = PaperOnboarding()
     private func showOnboarding() {
@@ -75,7 +75,7 @@ class LockScreenViewController: UIViewController {
         let reasonString = "Authentication is needed to access your financial data."
         
         // Check if the device can evaluate the policy.
-        if context.canEvaluatePolicy(LAPolicy.deviceOwnerAuthentication, error: &error) {
+        if context.canEvaluatePolicy(LAPolicy.deviceOwnerAuthentication, error: &error) && Constants.shouldUseTouchID {
             [context .evaluatePolicy(LAPolicy.deviceOwnerAuthentication, localizedReason: reasonString, reply: { (success: Bool, evalPolicyError: Error?) -> Void in
                 
                 if success {
@@ -83,17 +83,16 @@ class LockScreenViewController: UIViewController {
                 }
                 
             })]
-        }
-        else{
+        } else {
             // If the security policy cannot be evaluated then show a short message depending on the error.
-            print("Nicht verfügbar")
+            print("TouchID Nicht verfügbar")
             showApplication()
         }
     }
     
 
     func showApplication() {
-        DispatchQueue.main.sync {
+        DispatchQueue.main.async {
             let tabbarController = TabbarViewController.instantiate()
             self.view.window?.rootViewController = tabbarController
         }

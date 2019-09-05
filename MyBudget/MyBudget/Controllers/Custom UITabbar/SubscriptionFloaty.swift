@@ -38,6 +38,9 @@ class SubscriptionFloaty: Floaty {
     }
     
     private func setup() {
+        self.accessibilityLabel = "Add new transaction"
+
+        
         buttonColor = .white
         plusColor = UITabBar().tintColor //Standard blue tint color
         itemSize = 50
@@ -49,8 +52,9 @@ class SubscriptionFloaty: Floaty {
         incomeItem.tintColor = .white
         incomeItem.buttonColor = Model.shared.allowedToAddTransaction() ? .incomeColor : .gray
         incomeItem.size = itemSize
+        incomeItem.accessibilityLabel = "New Income"
+
         addItem(item: incomeItem)
-        
         
 
         transferItem.titleColor = .darkText
@@ -60,7 +64,8 @@ class SubscriptionFloaty: Floaty {
         transferItem.buttonColor = Model.shared.allowedToAddTransaction() ? .transferColor : .gray
         transferItem.size = itemSize
         addItem(item: transferItem)
-        
+        transferItem.accessibilityLabel = "New Transfer"
+
 
         expenseItem.titleColor = .darkText
         expenseItem.icon = UIImage.init(named: "euro")?.withRenderingMode(.alwaysTemplate)
@@ -68,7 +73,8 @@ class SubscriptionFloaty: Floaty {
         expenseItem.tintColor = .white
         expenseItem.buttonColor = Model.shared.allowedToAddTransaction() ? .expenseColor : .gray
         expenseItem.size = itemSize
-       
+        expenseItem.accessibilityLabel = "New Expense"
+
         addItem(item: expenseItem)
         
 
@@ -79,10 +85,11 @@ class SubscriptionFloaty: Floaty {
         subscribeItem.tintColor = .white
         subscribeItem.buttonColor = .blueActionColor
         subscribeItem.size = itemSize
+        subscribeItem.accessibilityLabel = "Subscribe"
         if !ServerReceiptValidator().isSubscribed() {
             addItem(item: subscribeItem)
         }
-        
+
         // Dont move - ever. Stay fixed in the tabbar
         respondsToKeyboard = false
     }

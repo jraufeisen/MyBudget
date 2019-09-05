@@ -77,6 +77,8 @@
 		EBDA26CD22F6FDCC0073DC50 /* IncomeStatementPercentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDA26CC22F6FDCC0073DC50 /* IncomeStatementPercentView.swift */; };
 		EBE7E2A82321058500BEC812 /* MyBudgetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7E2A72321058500BEC812 /* MyBudgetUITests.swift */; };
 		EBE7E2B923210ADB00BEC812 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7E2B823210ADB00BEC812 /* SnapshotHelper.swift */; };
+		EBE7E2BC2321233500BEC812 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7E2BB2321233500BEC812 /* Constants.swift */; };
+		EBE7E2BE2321237400BEC812 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7E2BB2321233500BEC812 /* Constants.swift */; };
 		EBEB145022E8A1B100291435 /* EnterNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB144722E8A1B100291435 /* EnterNumberViewController.swift */; };
 		EBEB145722E8A29800291435 /* UIColor+Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145622E8A29800291435 /* UIColor+Macro.swift */; };
 		EBEB145B22E8AD7300291435 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145A22E8AD7300291435 /* Transaction.swift */; };
@@ -207,6 +209,7 @@
 		EBE7E2A72321058500BEC812 /* MyBudgetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBudgetUITests.swift; sourceTree = "<group>"; };
 		EBE7E2A92321058500BEC812 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBE7E2B823210ADB00BEC812 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = ../../fastlane/SnapshotHelper.swift; sourceTree = "<group>"; };
+		EBE7E2BB2321233500BEC812 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EBEB144722E8A1B100291435 /* EnterNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNumberViewController.swift; sourceTree = "<group>"; };
 		EBEB145622E8A29800291435 /* UIColor+Macro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Macro.swift"; sourceTree = "<group>"; };
 		EBEB145A22E8AD7300291435 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
@@ -451,6 +454,7 @@
 		EBC59D3D22E7503900E626DC /* MyBudget */ = {
 			isa = PBXGroup;
 			children = (
+				EBE7E2BB2321233500BEC812 /* Constants.swift */,
 				EBEB8B1923145CAB009F65B8 /* Settings.bundle */,
 				EB558EB522ECA39D00039651 /* MyBudget.entitlements */,
 				EBC59D3E22E7503900E626DC /* AppDelegate.swift */,
@@ -766,6 +770,7 @@
 				EBEB145022E8A1B100291435 /* EnterNumberViewController.swift in Sources */,
 				EB5C600C22F32960004F81CF /* MenuTableViewController.swift in Sources */,
 				EB09FC97231D5D830063FB90 /* SubscriptionFloaty.swift in Sources */,
+				EBE7E2BC2321233500BEC812 /* Constants.swift in Sources */,
 				EB024C2522F35C5A00228855 /* MenuPresentingViewController.swift in Sources */,
 				EB09FC95231D57110063FB90 /* KeychainItemAccessibility.swift in Sources */,
 				EB4F789F2319B34D0045077E /* FeedbackPageBulletinItem.swift in Sources */,
@@ -827,6 +832,7 @@
 			files = (
 				EBE7E2A82321058500BEC812 /* MyBudgetUITests.swift in Sources */,
 				EBE7E2B923210ADB00BEC812 /* SnapshotHelper.swift in Sources */,
+				EBE7E2BE2321237400BEC812 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
