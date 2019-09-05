@@ -600,8 +600,8 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jig-FL-egg" userLabel="Background">
                                                     <rect key="frame" x="20" y="10.5" width="374" height="110"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" text="Total activity in August 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="Krz-PX-tLe">
-                                                            <rect key="frame" x="8" y="8" width="334" height="32"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" text="Total activity in May 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="Krz-PX-tLe">
+                                                            <rect key="frame" x="8" y="8" width="299" height="32"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -993,7 +993,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="App Artwork" width="341.33334350585938" height="341.33334350585938"/>
+        <image name="App Artwork" width="512" height="512"/>
         <image name="Bag" width="24" height="24"/>
         <image name="Credit Cards" width="24" height="24"/>
         <image name="List" width="24" height="24"/>

@@ -20,4 +20,12 @@ extension Date {
     func decrementByOneMonth() -> Date? {
         return Calendar.current.date(byAdding: .month, value: -1, to: self)
     }
+    
+    
+    func monthAsString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "LLLL"
+        let nameOfMonth = dateFormatter.string(from: self)
+        return nameOfMonth
+    }
 }

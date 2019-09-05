@@ -83,7 +83,8 @@ class AccountTableViewController: UIViewController, UITableViewDelegate, UITable
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "incomeStatementCell") as? IncomeStatementCell else {
                 return UITableViewCell()
             }
-            
+        
+            cell.headerLabel.text = "Total activity in \(Date().monthAsString())"
             cell.incomeFillView.overlayText = "\(incomestatement.earnedThisMonth)"
             cell.expenseFillView.overlayText = "\(incomestatement.spentThisMonth)"
 
