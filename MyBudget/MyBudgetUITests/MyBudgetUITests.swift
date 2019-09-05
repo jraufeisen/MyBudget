@@ -20,6 +20,10 @@ class MyBudgetUITests: XCTestCase {
         app.launchArguments += ["shouldAlwaysShowOnboarding"]
         app.launchArguments += ["noTouchID"]
         app.launchArguments += ["UITests"]
+        app.launchArguments += ["-AppleLanguages",
+        "(de)",
+        "-AppleLocale",
+        "de_DE"]
 
         app.launch()
     }
@@ -63,7 +67,7 @@ class MyBudgetUITests: XCTestCase {
         
         app.buttons["Add new transaction"].tap()
         app.otherElements["New Transfer"].tap()
-        _ = XCTWaiter.wait(for: [XCTestExpectation(description: "I will never ever exit!")], timeout: 0.5)
+        _ = XCTWaiter.wait(for: [XCTestExpectation(description: "I will never ever exist!")], timeout: 0.5)
         app.buttons["5"].tap()
         app.buttons["8"].tap()
         app.buttons["0"].tap()
@@ -73,7 +77,7 @@ class MyBudgetUITests: XCTestCase {
 
         app.buttons["Add new transaction"].tap()
         app.otherElements["New Income"].tap()
-        _ = XCTWaiter.wait(for: [XCTestExpectation(description: "I will never ever exit!")], timeout: 0.5)
+        _ = XCTWaiter.wait(for: [XCTestExpectation(description: "I will never ever exist!")], timeout: 0.5)
         button2.tap()
         button4.tap()
         app.buttons["3"].tap()
@@ -84,7 +88,7 @@ class MyBudgetUITests: XCTestCase {
 
         app.buttons["Add new transaction"].tap()
         app.otherElements["Subscribe"].tap()
-        _ = XCTWaiter.wait(for: [XCTestExpectation(description: "I will never ever exit!")], timeout: 0.5)
+        _ = XCTWaiter.wait(for: [XCTestExpectation(description: "I will never ever exist!")], timeout: 0.5)
         snapshot("13SubscriptionInfo")
         app.buttons["Learn More"].tap()
         app.buttons["1 Month for 1,49€"].tap()

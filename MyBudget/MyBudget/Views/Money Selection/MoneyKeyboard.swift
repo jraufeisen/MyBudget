@@ -24,6 +24,7 @@ class MoneyKeyboard: APNumberPad {
 
     
     private var outputView: UIKeyInput?
+    private var readyToTakeInput = false
     
     /// Startng with minorUnits
     init(outputView: UIKeyInput, startingWith: Int = 0) {
@@ -36,8 +37,6 @@ class MoneyKeyboard: APNumberPad {
 
         self.outputView = outputView
         
-        
-      
         if startingWith == 0 {
             characterSequence = ""
         } else {
@@ -49,6 +48,7 @@ class MoneyKeyboard: APNumberPad {
     private func insertInitialText() {
         outputView?.addTextAnimated(text: currentMoneyText(), completion: {
             self.currentlyDisplayed = self.currentMoneyText()
+            self.readyToTakeInput = true
         })
     }
     
@@ -61,6 +61,7 @@ class MoneyKeyboard: APNumberPad {
         guard let buttonText = sender.titleLabel?.text else {
             return
         }
+        guard readyToTakeInput else {return}
         if characterSequence.isEmpty && buttonText == "0" {
             // Ignore leading zeros
             return
