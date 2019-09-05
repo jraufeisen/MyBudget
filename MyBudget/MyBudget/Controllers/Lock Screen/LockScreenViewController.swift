@@ -10,6 +10,9 @@ import UIKit
 import LocalAuthentication
 import paper_onboarding
 
+fileprivate let shouldShowOnboardingKey = "shouldShowOnboarding"
+
+
 class LockScreenViewController: UIViewController {
     /// Instantiate from storyboard
     internal static func instantiate() -> LockScreenViewController {
@@ -18,7 +21,12 @@ class LockScreenViewController: UIViewController {
     }
 
     private func shouldShowOnboarding() -> Bool {
-        return arc4random() % 10 < 5
+        if UserDefaults.standard.object(forKey: shouldShowOnboardingKey) == nil {
+            UserDefaults.standard.set(true, forKey: shouldShowOnboardingKey)
+        }
+        //return UserDefaults.standard.bool(forKey: shouldShowOnboardingKey)
+        return true
+        // return arc4random() % 10 < 5
     }
     let onboarding = PaperOnboarding()
     private func showOnboarding() {
@@ -27,7 +35,7 @@ class LockScreenViewController: UIViewController {
         onboarding.delegate = self
         onboarding.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(onboarding)
-        
+        UserDefaults.standard.set(false, forKey: shouldShowOnboardingKey)
         // add constraints
         for attribute: NSLayoutConstraint.Attribute in [.left, .right, .top, .bottom] {
              let constraint = NSLayoutConstraint(item: onboarding,
@@ -115,7 +123,7 @@ extension LockScreenViewController: PaperOnboardingDataSource, PaperOnboardingDe
                                title: "Track your expenses",
                                description: "It just takes seconds and it pays off in the end!",
                                pageIcon: UIImage(),
-                               color: UIColor.transferColor,
+                               color: UIColor.blueActionColor,
                                titleColor: UIColor.white,
                                descriptionColor: UIColor.white,
                                titleFont: UIFont.systemFont(ofSize: 31 as CGFloat),
@@ -125,17 +133,17 @@ extension LockScreenViewController: PaperOnboardingDataSource, PaperOnboardingDe
                                title: "Analyze your spending behavior",
                                description: "So you always know where your money goes to.",
                                pageIcon: UIImage(),
-                               color: UIColor.expenseColor,
+                               color: UIColor.incomeColor,
                                titleColor: UIColor.white,
                                descriptionColor: UIColor.white,
                                titleFont: UIFont.systemFont(ofSize: 31 as CGFloat),
                                descriptionFont: UIFont.systemFont(ofSize: 20 as CGFloat)),
             
             OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "Security Shield"),
-                               title: "Your data stays safe",
-                               description: "We use Touch ID to authenticate you",
+                               title: "Subscribe to unlock unlimited access",
+                               description: "You can store up to 100 transactions for free. Afterwards, you are limited to one transactions per day.",
                                pageIcon: UIImage(),
-                               color: UIColor.transferColor,
+                               color: UIColor.blueActionColor,
                                titleColor: UIColor.white,
                                descriptionColor: UIColor.white,
                                titleFont: UIFont.systemFont(ofSize: 31 as CGFloat),
