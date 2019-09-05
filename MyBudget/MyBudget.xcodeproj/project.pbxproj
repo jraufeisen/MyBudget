@@ -75,6 +75,8 @@
 		EBD012F622E9B47F00F8126D /* NewCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD012F422E9B47F00F8126D /* NewCategoryCell.xib */; };
 		EBD012F722E9B47F00F8126D /* ExistingCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD012F522E9B47F00F8126D /* ExistingCategoryCell.xib */; };
 		EBDA26CD22F6FDCC0073DC50 /* IncomeStatementPercentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDA26CC22F6FDCC0073DC50 /* IncomeStatementPercentView.swift */; };
+		EBE7E2A82321058500BEC812 /* MyBudgetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7E2A72321058500BEC812 /* MyBudgetUITests.swift */; };
+		EBE7E2B923210ADB00BEC812 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7E2B823210ADB00BEC812 /* SnapshotHelper.swift */; };
 		EBEB145022E8A1B100291435 /* EnterNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB144722E8A1B100291435 /* EnterNumberViewController.swift */; };
 		EBEB145722E8A29800291435 /* UIColor+Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145622E8A29800291435 /* UIColor+Macro.swift */; };
 		EBEB145B22E8AD7300291435 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145A22E8AD7300291435 /* Transaction.swift */; };
@@ -89,6 +91,16 @@
 		EBFF078D22E9B4BA00CC7215 /* NewAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD012F122E9B2D400F8126D /* NewAccountCell.xib */; };
 		EBFF078E22E9B4BC00CC7215 /* ExistingAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD012F022E9B2D400F8126D /* ExistingAccountCell.xib */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EBE7E2AA2321058500BEC812 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBC59D3322E7503900E626DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EBC59D3A22E7503900E626DC;
+			remoteInfo = MyBudget;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		EBEB8B18231451F3009F65B8 /* Embed Frameworks */ = {
@@ -191,6 +203,10 @@
 		EBD012F422E9B47F00F8126D /* NewCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewCategoryCell.xib; sourceTree = "<group>"; };
 		EBD012F522E9B47F00F8126D /* ExistingCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExistingCategoryCell.xib; sourceTree = "<group>"; };
 		EBDA26CC22F6FDCC0073DC50 /* IncomeStatementPercentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeStatementPercentView.swift; sourceTree = "<group>"; };
+		EBE7E2A52321058500BEC812 /* MyBudgetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyBudgetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBE7E2A72321058500BEC812 /* MyBudgetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBudgetUITests.swift; sourceTree = "<group>"; };
+		EBE7E2A92321058500BEC812 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBE7E2B823210ADB00BEC812 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = ../../fastlane/SnapshotHelper.swift; sourceTree = "<group>"; };
 		EBEB144722E8A1B100291435 /* EnterNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNumberViewController.swift; sourceTree = "<group>"; };
 		EBEB145622E8A29800291435 /* UIColor+Macro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Macro.swift"; sourceTree = "<group>"; };
 		EBEB145A22E8AD7300291435 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
@@ -213,6 +229,13 @@
 				EB558EB722ECA3A200039651 /* CloudKit.framework in Frameworks */,
 				EBEB8B16231451F3009F65B8 /* Swift_Ledger.framework in Frameworks */,
 				EB4F789723196F220045077E /* StoreKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBE7E2A22321058500BEC812 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +432,7 @@
 				EB4A9BD92314958A00BA4FBE /* Pods_MyBudget_MacOS.framework */,
 				EBEB8B15231451F2009F65B8 /* Swift_Ledger.framework */,
 				EBC59D3D22E7503900E626DC /* MyBudget */,
+				EBE7E2A62321058500BEC812 /* MyBudgetUITests */,
 				EBC59D3C22E7503900E626DC /* Products */,
 				0460BF089A1987F864510207 /* Pods */,
 				1CF7C6954939ED9D3DD0375D /* Frameworks */,
@@ -419,6 +443,7 @@
 			isa = PBXGroup;
 			children = (
 				EBC59D3B22E7503900E626DC /* MyBudget.app */,
+				EBE7E2A52321058500BEC812 /* MyBudgetUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -513,6 +538,16 @@
 			path = Accounts;
 			sourceTree = "<group>";
 		};
+		EBE7E2A62321058500BEC812 /* MyBudgetUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EBE7E2B823210ADB00BEC812 /* SnapshotHelper.swift */,
+				EBE7E2A72321058500BEC812 /* MyBudgetUITests.swift */,
+				EBE7E2A92321058500BEC812 /* Info.plist */,
+			);
+			path = MyBudgetUITests;
+			sourceTree = "<group>";
+		};
 		EBEB145122E8A1B500291435 /* New Transaction VC */ = {
 			isa = PBXGroup;
 			children = (
@@ -576,13 +611,31 @@
 			productReference = EBC59D3B22E7503900E626DC /* MyBudget.app */;
 			productType = "com.apple.product-type.application";
 		};
+		EBE7E2A42321058500BEC812 /* MyBudgetUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EBE7E2AE2321058500BEC812 /* Build configuration list for PBXNativeTarget "MyBudgetUITests" */;
+			buildPhases = (
+				EBE7E2A12321058500BEC812 /* Sources */,
+				EBE7E2A22321058500BEC812 /* Frameworks */,
+				EBE7E2A32321058500BEC812 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EBE7E2AB2321058500BEC812 /* PBXTargetDependency */,
+			);
+			name = MyBudgetUITests;
+			productName = MyBudgetUITests;
+			productReference = EBE7E2A52321058500BEC812 /* MyBudgetUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		EBC59D3322E7503900E626DC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1020;
+				LastSwiftUpdateCheck = 1030;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Johannes Raufeisen";
 				TargetAttributes = {
@@ -601,6 +654,10 @@
 							};
 						};
 					};
+					EBE7E2A42321058500BEC812 = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = EBC59D3A22E7503900E626DC;
+					};
 				};
 			};
 			buildConfigurationList = EBC59D3622E7503900E626DC /* Build configuration list for PBXProject "MyBudget" */;
@@ -617,6 +674,7 @@
 			projectRoot = "";
 			targets = (
 				EBC59D3A22E7503900E626DC /* MyBudget */,
+				EBE7E2A42321058500BEC812 /* MyBudgetUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -644,6 +702,13 @@
 				EBC59D4622E7503A00E626DC /* Assets.xcassets in Resources */,
 				EBD012E722E9AD0600F8126D /* add.png in Resources */,
 				EBC59D4422E7503900E626DC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EBE7E2A32321058500BEC812 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,7 +821,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EBE7E2A12321058500BEC812 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EBE7E2A82321058500BEC812 /* MyBudgetUITests.swift in Sources */,
+				EBE7E2B923210ADB00BEC812 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EBE7E2AB2321058500BEC812 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EBC59D3A22E7503900E626DC /* MyBudget */;
+			targetProxy = EBE7E2AA2321058500BEC812 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		EBC59D4222E7503900E626DC /* Main.storyboard */ = {
@@ -939,6 +1021,46 @@
 			};
 			name = Release;
 		};
+		EBE7E2AC2321058500BEC812 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YLJFWRHN2U;
+				INFOPLIST_FILE = MyBudgetUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jraufeisen.MyBudgetUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MyBudget;
+			};
+			name = Debug;
+		};
+		EBE7E2AD2321058500BEC812 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YLJFWRHN2U;
+				INFOPLIST_FILE = MyBudgetUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.jraufeisen.MyBudgetUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MyBudget;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -956,6 +1078,15 @@
 			buildConfigurations = (
 				EBC59D4E22E7503A00E626DC /* Debug */,
 				EBC59D4F22E7503A00E626DC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EBE7E2AE2321058500BEC812 /* Build configuration list for PBXNativeTarget "MyBudgetUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EBE7E2AC2321058500BEC812 /* Debug */,
+				EBE7E2AD2321058500BEC812 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
