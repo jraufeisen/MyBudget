@@ -37,13 +37,6 @@ class BudgetTableViewCell: UITableViewCell {
 
 
 
-
-enum TransactionType {
-    case Income
-    case Expense
-    case Transfer
-}
-
 ///This struct will be used to pass relevant context information to upfollowing interface controllers
 public struct EntryContext {
     var type: TransactionType?

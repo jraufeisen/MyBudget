@@ -9,6 +9,29 @@
 import Foundation
 import Swift_Ledger
 
+typealias DiaryEntry = [(text: String, entryType: EntryType)]
+
+
+enum EntryType {
+    case date
+    case money
+    case account
+    case category
+    case tags
+    case description
+}
+
+protocol DiaryProvider {
+    func diaryEntry() -> DiaryEntry
+}
+
+
+protocol DiaryDelegate {
+    func didFinishDiaryEntry()
+    func didEnterDiaryPair(index: Int, value: Any)
+}
+
+
 struct BudgetCategoryViewable: Equatable {
     let name: String
     let remainingMoney: Money

@@ -8,27 +8,6 @@
 
 import UIKit
 
-typealias DiaryEntry = [(text: String, entryType: EntryType)]
-
-
-enum EntryType {
-    case date
-    case money
-    case account
-    case category
-    case tags
-    case description
-}
-
-protocol DiaryProvider {
-    func diaryEntry() -> DiaryEntry
-}
-
-
-protocol DiaryDelegate {
-    func didFinishDiaryEntry()
-    func didEnterDiaryPair(index: Int, value: Any)
-}
 
 
 class DiaryTextView: UITextView {

@@ -9,6 +9,11 @@
 import UIKit
 import Swift_Ledger
 
+enum TransactionType {
+    case Income
+    case Expense
+    case Transfer
+}
 
 protocol Transaction: DiaryProvider, CustomStringConvertible {
     var tags: [String] {get set}
