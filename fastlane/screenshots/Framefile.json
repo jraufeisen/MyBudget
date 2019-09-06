@@ -1,0 +1,45 @@
+{
+    "default": {
+        "path": "./fastlane/screenshots",
+        "device_frame_version": "latest",
+        "padding": 50,
+        "background": "background.jpg",
+        "frame": "WHITE",
+        "keyword": {
+            "font": "./fonts/HelveticaNeue.ttc",
+            "color": "#D51559"
+        },
+        "title": {
+            "font": "./fonts/HelveticaNeue.ttc",
+            "color": "#0C429B"
+        }
+    },
+    
+    
+    "data": [
+        {
+            "filter": "Onboard",
+            "keyword": {
+
+            }
+        },
+        {
+            "filter": "BudgetTabbar",
+            "keyword": {
+
+            }
+        },
+        {
+            "filter": "AccountTabbar",
+            "keyword": {
+
+            }
+        },
+        {
+            "filter": "AddExpense",
+            "keyword": {
+
+            }
+        }
+    ]
+}
