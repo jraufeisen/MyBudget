@@ -31,9 +31,48 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
     
     // MARK: - Timeline Population
     
+    private var modularSmallTemplate: CLKComplicationTemplateModularSmallSimpleImage {
+        get {
+            let image = UIImage(named: "Complication/Modular")!
+            let template = CLKComplicationTemplateModularSmallSimpleImage()
+            template.imageProvider = CLKImageProvider.init(onePieceImage: image)
+            template.imageProvider.tintColor = .blueActionColor
+            return template
+        }
+    }
+    
+    private var graphicCircularTemplate: CLKComplicationTemplate? {
+        get {
+            if #available(watchOSApplicationExtension 5.0, *) {
+                let image = UIImage(named: "Complication/Graphic Circular")!
+                let template = CLKComplicationTemplateGraphicCircularImage()
+                template.imageProvider = CLKFullColorImageProvider.init(fullColorImage: image)
+                return template
+            } else {
+                return nil
+            }
+        }
+    }
+    
     func getCurrentTimelineEntry(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTimelineEntry?) -> Void) {
         // Call the handler with the current timeline entry
-        handler(nil)
+        let image = UIImage(named: "Complication/Graphic Circular")!
+        print(image)
+        
+        if complication.family == .modularSmall {
+            let entry = CLKComplicationTimelineEntry.init(date: Date(), complicationTemplate: modularSmallTemplate)
+            handler(entry)
+
+        } else {
+            if #available(watchOSApplicationExtension 5.0, *) {
+                if complication.family == .graphicCircular {
+                    let entry = CLKComplicationTimelineEntry.init(date: Date(), complicationTemplate: graphicCircularTemplate!)
+                    handler(entry)
+                } else {
+                    handler(nil)
+                }
+            }
+        }
     }
     
     func getTimelineEntries(for complication: CLKComplication, before date: Date, limit: Int, withHandler handler: @escaping ([CLKComplicationTimelineEntry]?) -> Void) {
@@ -46,11 +85,24 @@ class ComplicationController: NSObject, CLKComplicationDataSource {
         handler(nil)
     }
     
-    // MARK: - Placeholder Templates
+    
     
     func getLocalizableSampleTemplate(for complication: CLKComplication, withHandler handler: @escaping (CLKComplicationTemplate?) -> Void) {
-        // This method will be called once per supported complication, and the results will be cached
-        handler(nil)
+        let image = UIImage(named: "Complication/Graphic Circular")!
+        print(image)
+        
+        if complication.family == .modularSmall {
+            handler(modularSmallTemplate)
+        } else {
+            if #available(watchOSApplicationExtension 5.0, *) {
+                if complication.family == .graphicCircular {
+                    handler(graphicCircularTemplate)
+                } else {
+                    handler(nil)
+                }
+            }
+        }
     }
+    
     
 }
