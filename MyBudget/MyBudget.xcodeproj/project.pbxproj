@@ -33,7 +33,6 @@
 		EB399D5F232305DE00CA0BD8 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB399D5E232305DE00CA0BD8 /* NotificationController.swift */; };
 		EB399D61232305DE00CA0BD8 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB399D60232305DE00CA0BD8 /* ComplicationController.swift */; };
 		EB399D63232305DE00CA0BD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB399D62232305DE00CA0BD8 /* Assets.xcassets */; };
-		EB399D68232305DE00CA0BD8 /* MyBudget_watchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EB399D49232305D800CA0BD8 /* MyBudget_watchOS.app */; };
 		EB399D732323069E00CA0BD8 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB399D722323069E00CA0BD8 /* CloudKit.framework */; };
 		EB399D7F2323088100CA0BD8 /* WatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB399D7E2323088100CA0BD8 /* WatchSessionManager.swift */; };
 		EB399D802323088100CA0BD8 /* WatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB399D7E2323088100CA0BD8 /* WatchSessionManager.swift */; };
@@ -128,13 +127,6 @@
 			remoteGlobalIDString = EB399D54232305DD00CA0BD8;
 			remoteInfo = "MyBudget_watchOS Extension";
 		};
-		EB399D66232305DE00CA0BD8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EBC59D3322E7503900E626DC /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EB399D48232305D800CA0BD8;
-			remoteInfo = MyBudget_watchOS;
-		};
 		EBE7E2AA2321058500BEC812 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EBC59D3322E7503900E626DC /* Project object */;
@@ -162,7 +154,6 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				EB399D68232305DE00CA0BD8 /* MyBudget_watchOS.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -791,7 +782,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				EB399D67232305DE00CA0BD8 /* PBXTargetDependency */,
 			);
 			name = MyBudget;
 			productName = MyBudget;
@@ -1087,11 +1077,6 @@
 			isa = PBXTargetDependency;
 			target = EB399D54232305DD00CA0BD8 /* MyBudget_watchOS Extension */;
 			targetProxy = EB399D57232305DE00CA0BD8 /* PBXContainerItemProxy */;
-		};
-		EB399D67232305DE00CA0BD8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EB399D48232305D800CA0BD8 /* MyBudget_watchOS */;
-			targetProxy = EB399D66232305DE00CA0BD8 /* PBXContainerItemProxy */;
 		};
 		EBE7E2AB2321058500BEC812 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
