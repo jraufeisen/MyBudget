@@ -110,6 +110,20 @@ extension WatchSessionManager {
         
     }
     
+    func sendTransferMessage(fromAcc: String, toAcc: String, value: String) {
+        let message = ["Transfer": [fromAcc, toAcc, value]]
+        
+        session?.sendMessage(message, replyHandler: { (respone: [String: Any]) in
+            guard let success = respone["Success"] else {return}
+            NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: WatchSessionManager.resultNotificationName), object: success)
+        }, errorHandler: { (err: Error) in
+            NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: WatchSessionManager.resultNotificationName), object: false)
+            print("Communication-Error: Expense \(err)")
+        })
+        
+
+    }
+    
     /**
      Use this method on the Apple Wach to send a message to the phone.
      This message tells the iPhone to add an income statement to the ledger file.
@@ -159,7 +173,6 @@ extension WatchSessionManager {
             replyHandler(["Success":success])
         }
         
-        print("Received message")
         //Return categories
         if message["Ask for budget"] != nil {
             let categories = LedgerModel.shared().categories()
@@ -176,6 +189,13 @@ extension WatchSessionManager {
             replyHandler(["Success":success])
         }
 
+        if let transferArray = message["Transfer"] as? [String] {
+            let fromAcc = Account.bankingAccount(named: transferArray[0])
+            let toAcc = Account.bankingAccount(named: transferArray[1])
+
+            let success = LedgerModel.shared().postTransfer(from: fromAcc, to: toAcc, value: transferArray[2])
+            replyHandler(["Success":success])
+        }
         
 
     }

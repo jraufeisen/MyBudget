@@ -24,6 +24,7 @@ class ConfirmationController: WKInterfaceController {
         confirmationImage.startAnimatingWithImages(in: NSRange(location: 0, length: 100), duration: 1.3, repeatCount: 0)
     }
     
+    
     deinit {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.init(rawValue: WatchSessionManager.resultNotificationName), object: nil)
     }

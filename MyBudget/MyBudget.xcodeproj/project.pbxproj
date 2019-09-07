@@ -26,6 +26,8 @@
 		EB2C772022EDC143009FA2C8 /* MoneyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2C771F22EDC143009FA2C8 /* MoneyTextField.swift */; };
 		EB2C772222EDC8CA009FA2C8 /* pencil.png in Resources */ = {isa = PBXBuildFile; fileRef = EB2C772122EDC8CA009FA2C8 /* pencil.png */; };
 		EB2C772622EDCA56009FA2C8 /* edit-2.png in Resources */ = {isa = PBXBuildFile; fileRef = EB2C772522EDCA56009FA2C8 /* edit-2.png */; };
+		EB2EBEF82323FC9B00030606 /* UIColor+Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145622E8A29800291435 /* UIColor+Macro.swift */; };
+		EB3294C72323FA0C0053E3A3 /* MyBudget_watchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EB399D49232305D800CA0BD8 /* MyBudget_watchOS.app */; };
 		EB34D5E222F3362D000FACAC /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = EB34D5E122F3362C000FACAC /* menu.png */; };
 		EB399D4F232305DD00CA0BD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB399D4E232305DD00CA0BD8 /* Assets.xcassets */; };
 		EB399D56232305DE00CA0BD8 /* MyBudget_watchOS Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EB399D55232305DD00CA0BD8 /* MyBudget_watchOS Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -120,6 +122,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		EB3294C82323FA160053E3A3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBC59D3322E7503900E626DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB399D48232305D800CA0BD8;
+			remoteInfo = MyBudget_watchOS;
+		};
 		EB399D57232305DE00CA0BD8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EBC59D3322E7503900E626DC /* Project object */;
@@ -154,6 +163,7 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
+				EB3294C72323FA0C0053E3A3 /* MyBudget_watchOS.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -455,9 +465,9 @@
 			isa = PBXGroup;
 			children = (
 				EB399D792323077D00CA0BD8 /* InterfaceController.swift */,
+				EB399D7C2323077D00CA0BD8 /* EnterNumberInterfaceController.swift */,
 				EB399D7A2323077D00CA0BD8 /* AccountSelectionController.swift */,
 				EB399D7B2323077D00CA0BD8 /* BudgetController.swift */,
-				EB399D7C2323077D00CA0BD8 /* EnterNumberInterfaceController.swift */,
 				EB399D7D2323077D00CA0BD8 /* ConfirmationController.swift */,
 			);
 			path = Controller;
@@ -782,6 +792,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				EB3294C92323FA160053E3A3 /* PBXTargetDependency */,
 			);
 			name = MyBudget;
 			productName = MyBudget;
@@ -986,6 +997,7 @@
 				EB399D802323088100CA0BD8 /* WatchSessionManager.swift in Sources */,
 				EB399D9123230EBC00CA0BD8 /* String+OnlyDigits.swift in Sources */,
 				EB399D8523230A9A00CA0BD8 /* BudgetController.swift in Sources */,
+				EB2EBEF82323FC9B00030606 /* UIColor+Macro.swift in Sources */,
 				EB399D8923230B0600CA0BD8 /* AccountRow.swift in Sources */,
 				EB399D8423230A9A00CA0BD8 /* AccountSelectionController.swift in Sources */,
 				EB399D8723230A9A00CA0BD8 /* ConfirmationController.swift in Sources */,
@@ -1073,6 +1085,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		EB3294C92323FA160053E3A3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB399D48232305D800CA0BD8 /* MyBudget_watchOS */;
+			targetProxy = EB3294C82323FA160053E3A3 /* PBXContainerItemProxy */;
+		};
 		EB399D58232305DE00CA0BD8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EB399D54232305DD00CA0BD8 /* MyBudget_watchOS Extension */;

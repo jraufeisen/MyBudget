@@ -28,7 +28,9 @@ class EnterNumberInterfaceController: WKInterfaceController {
         switch type {
         case .Expense:
             numberLabel.setTextColor(UIColor.red)
-        default:
+        case .Transfer:
+            numberLabel.setTextColor(.transferColor)
+        case .Income:
             numberLabel.setTextColor(UIColor.green)
         }
         
@@ -41,6 +43,13 @@ class EnterNumberInterfaceController: WKInterfaceController {
     
     ///Updates the number label according to the digit array
     private func updateLabel() {
+        /*
+         let moneyString = digits.joined()
+         guard let moneyNumber = Double(moneyString) else {return}
+         let money = Money.init(moneyNumber)
+         numberLabel.setText("\(money)")
+
+ */
         numberLabel.setText(digits.joined() + " €")
     }
     

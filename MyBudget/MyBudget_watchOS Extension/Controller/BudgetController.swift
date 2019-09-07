@@ -61,7 +61,7 @@ class BudgetController: WKInterfaceController {
         
         guard context?.type == .Expense else {return}
         guard let money = context?.money else {return}
-        guard let account = context?.account else {return}
+        guard let account = context?.account1 else {return}
         guard let categories = self.categories else {return}
         guard categories.count > rowIndex else {return}
         let category = categories[rowIndex]

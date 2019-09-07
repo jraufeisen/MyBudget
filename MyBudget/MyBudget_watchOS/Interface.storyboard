@@ -12,24 +12,35 @@
         <!--mainMenuController-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller identifier="mainMenuController" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Budget_" customModuleProvider="target">
+                <controller identifier="mainMenuController" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="MyBudget_watchOS_Extension">
                     <items>
-                        <button width="1" height="0.5" alignment="center" title="Income" id="7Fw-xG-pm6">
+                        <button width="1" height="0.33300000000000002" alignment="center" title="Income" id="Ig5-Fq-5EQ">
                             <color key="backgroundColor" red="0.0" green="0.68713296980000005" blue="0.26746015099999998" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="font" type="system" pointSize="15"/>
                             <connections>
-                                <action selector="createNewIncome" destination="AgC-eL-Hgc" id="Ihn-5Z-sCD"/>
+                                <action selector="createNewIncome" destination="AgC-eL-Hgc" id="3MV-ST-XSh"/>
                             </connections>
                         </button>
-                        <table alignment="left" id="VQ2-hm-CBz"/>
-                        <button width="1" height="0.5" alignment="center" verticalAlignment="bottom" title="Expense" id="Gzy-MC-1rg">
-                            <color key="backgroundColor" red="0.80000000000000004" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <button width="1" height="0.33300000000000002" alignment="center" title="Transfer" id="Fsi-au-pLw">
+                            <color key="backgroundColor" red="0.85971208759999995" green="0.78687335520000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <fontDescription key="font" type="system" pointSize="15"/>
                             <connections>
-                                <action selector="createNewExpense" destination="AgC-eL-Hgc" id="C4Y-Fs-lU2"/>
+                                <action selector="createNewTransfer" destination="AgC-eL-Hgc" id="npx-YS-mGW"/>
+                            </connections>
+                        </button>
+                        <button width="1" height="0.33300000000000002" alignment="center" title="Expense" id="GCW-M7-adF">
+                            <color key="backgroundColor" red="0.81960784310000001" green="0.23137254900000001" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <fontDescription key="font" type="system" pointSize="15"/>
+                            <connections>
+                                <action selector="createNewExpense" destination="AgC-eL-Hgc" id="ezT-dg-XVc"/>
                             </connections>
                         </button>
                     </items>
+                    <connections>
+                        <outlet property="expenseButton" destination="GCW-M7-adF" id="UBa-by-6RN"/>
+                        <outlet property="incomeButton" destination="Ig5-Fq-5EQ" id="S5c-Qt-TbJ"/>
+                        <outlet property="transferButton" destination="Fsi-au-pLw" id="uVd-B1-v35"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="220" y="345"/>
@@ -37,7 +48,7 @@
         <!--enterNumber-->
         <scene sceneID="055-h7-ggE">
             <objects>
-                <controller identifier="enterNumber" id="9Pn-eR-ufi" customClass="EnterNumberInterfaceController" customModule="Budget_" customModuleProvider="target">
+                <controller identifier="enterNumber" id="9Pn-eR-ufi" customClass="EnterNumberInterfaceController" customModule="MyBudget_watchOS_Extension">
                     <items>
                         <label width="135" height="153" alignment="left" text="0 €" textAlignment="center" minimumScaleFactor="0.59999999999999998" id="V8I-oV-qQw">
                             <gestureRecognizers>
@@ -86,7 +97,7 @@
         <!--accountSelection-->
         <scene sceneID="Kvu-bE-9mi">
             <objects>
-                <controller identifier="accountSelection" id="ksn-Bs-Re4" customClass="AccountSelectionController" customModule="Budget_" customModuleProvider="target">
+                <controller identifier="accountSelection" id="ksn-Bs-Re4" customClass="AccountSelectionController" customModule="MyBudget_watchOS_Extension">
                     <items>
                         <label width="1" alignment="left" text="Income of XY€" id="l2E-DM-TOy"/>
                         <separator alignment="left" id="BXc-LL-VxC"/>
@@ -116,7 +127,7 @@
         <!--budgetController-->
         <scene sceneID="85l-hE-au0">
             <objects>
-                <controller identifier="budgetController" id="bMz-lt-20R" customClass="BudgetController" customModule="Budget_" customModuleProvider="target">
+                <controller identifier="budgetController" id="bMz-lt-20R" customClass="BudgetController" customModule="MyBudget_watchOS" customModuleProvider="target">
                     <items>
                         <table alignment="left" id="xwn-b7-LXB">
                             <items>
@@ -148,7 +159,7 @@
         <!--confirmationController-->
         <scene sceneID="Cru-fR-uVx">
             <objects>
-                <controller identifier="confirmationController" id="ebg-RW-d3a" customClass="ConfirmationController" customModule="Budget_" customModuleProvider="target">
+                <controller identifier="confirmationController" id="ebg-RW-d3a" customClass="ConfirmationController" customModule="MyBudget_watchOS" customModuleProvider="target">
                     <items>
                         <group width="1" height="1" alignment="left" layout="overlap" id="Y91-ot-5R4">
                             <items>
@@ -192,7 +203,7 @@
         <!--Notification Controller-->
         <scene sceneID="ZPc-GJ-vnh">
             <objects>
-                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="Budget_" customModuleProvider="target"/>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="MyBudget_watchOS" customModuleProvider="target"/>
             </objects>
             <point key="canvasLocation" x="468" y="643"/>
         </scene>
