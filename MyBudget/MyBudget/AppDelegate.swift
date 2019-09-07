@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
+        
         // It is recommended to add an observer here. See https://github.com/bizz84/SwiftyStoreKit#purchase-a-product-given-a-skproduct
         SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
             for purchase in purchases {
@@ -46,6 +46,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let dataString = try! String.init(contentsOf: url)
             try! dataString.write(to: LedgerModel.defaultURL, atomically: true, encoding: .utf8)
         }
+        
+        //Communication with watch app
+        WatchSessionManager.sharedManager.startSession()
+
         
         return true
     }

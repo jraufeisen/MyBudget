@@ -41,7 +41,9 @@ class WatchSessionManager: NSObject {
     var accounts: [String]?
     ///The budget as provided by the parent iOS app. Use askForBudget() to update this value. Best practice: Update all relevant information on app start
     var budget: [String:String]? {
-        didSet { dataDelegate?.newBudgetDataAvailable(newBudget: budget) }
+        didSet {
+            dataDelegate?.newBudgetDataAvailable(newBudget: budget)
+        }
     }
     
     
@@ -132,7 +134,6 @@ extension WatchSessionManager {
      */
     func askForBudget() {
         let message = ["Ask for budget": true]
-        
         session?.sendMessage(message, replyHandler: { (respone: [String: Any]) in
             guard let budget = respone["Budget"] as? [String:String] else {return}
             WatchSessionManager.sharedManager.budget = budget
@@ -148,7 +149,7 @@ extension WatchSessionManager {
 
 //MARK: Receiver
 extension WatchSessionManager {
-
+    
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
         //new income statement
         if let incomeArray = message["Income"] as? [String] {
@@ -158,6 +159,7 @@ extension WatchSessionManager {
             replyHandler(["Success":success])
         }
         
+        print("Received message")
         //Return categories
         if message["Ask for budget"] != nil {
             let categories = LedgerModel.shared().categories()

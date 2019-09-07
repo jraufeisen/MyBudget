@@ -48,6 +48,7 @@
 		EB399D8C23230EBC00CA0BD8 /* Date+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB582E7522F0AE1800422323 /* Date+Utilities.swift */; };
 		EB399D8D23230EBC00CA0BD8 /* FileManager+DocDir.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB203BF3230716CA008C9EE5 /* FileManager+DocDir.swift */; };
 		EB399D9123230EBC00CA0BD8 /* String+OnlyDigits.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CBC22EC74F800C033E8 /* String+OnlyDigits.swift */; };
+		EB4463842323B397000A260D /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB399D742323075400CA0BD8 /* Interface.storyboard */; };
 		EB4F7895231968860045077E /* ServerReceiptValidatorReceiptValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F7894231968860045077E /* ServerReceiptValidatorReceiptValidator.swift */; };
 		EB4F789723196F220045077E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4F789623196F220045077E /* StoreKit.framework */; };
 		EB4F789A2319A2600045077E /* SubscriptionOnboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F78992319A2600045077E /* SubscriptionOnboardController.swift */; };
@@ -66,6 +67,10 @@
 		EB5C600922F32417004F81CF /* TextAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C600822F32417004F81CF /* TextAnimation.swift */; };
 		EB5C600C22F32960004F81CF /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C600B22F32960004F81CF /* MenuTableViewController.swift */; };
 		EB5CADB722F55DC600205AC8 /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5CADB622F55DC600205AC8 /* AccountTableViewController.swift */; };
+		EB6EF9FF2323B84A00294846 /* Model+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EF9FE2323B84A00294846 /* Model+iOS.swift */; };
+		EB6EFA002323B87500294846 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC59D5222E750E900E626DC /* Model.swift */; };
+		EB6EFA012323B8AE00294846 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145A22E8AD7300291435 /* Transaction.swift */; };
+		EB6EFA022323B9CB00294846 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB399D742323075400CA0BD8 /* Interface.storyboard */; };
 		EB8472892306AA4400DCD330 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EB8472882306AA4400DCD330 /* Settings.bundle */; };
 		EB985CA722EC699200C033E8 /* verify-sign.png in Resources */ = {isa = PBXBuildFile; fileRef = EB985CA622EC699200C033E8 /* verify-sign.png */; };
 		EB985CB522EC6B5400C033E8 /* FloatyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CB222EC6B2300C033E8 /* FloatyDelegate.swift */; };
@@ -248,6 +253,7 @@
 		EB5C600B22F32960004F81CF /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		EB5CADB622F55DC600205AC8 /* AccountTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
 		EB668B9D22EF2DDE0082D54B /* MaterialComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MaterialComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB6EF9FE2323B84A00294846 /* Model+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Model+iOS.swift"; sourceTree = "<group>"; };
 		EB8472882306AA4400DCD330 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = SOURCE_ROOT; };
 		EB985CA622EC699200C033E8 /* verify-sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "verify-sign.png"; sourceTree = "<group>"; };
 		EB985CAC22EC6B2300C033E8 /* FloatyWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatyWindow.swift; sourceTree = "<group>"; };
@@ -265,7 +271,7 @@
 		EBA192212304829E00DA9308 /* MonthlyAverageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyAverageViewController.swift; sourceTree = "<group>"; };
 		EBB21C7F23054E70004E4E8F /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		EBB21C8223055530004E4E8F /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
-		EBC59D3B22E7503900E626DC /* MyBudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBC59D3B22E7503900E626DC /* Budget!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Budget!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBC59D3E22E7503900E626DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBC59D4322E7503900E626DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EBC59D4522E7503A00E626DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -581,7 +587,7 @@
 		EBC59D3C22E7503900E626DC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EBC59D3B22E7503900E626DC /* MyBudget.app */,
+				EBC59D3B22E7503900E626DC /* Budget!.app */,
 				EBE7E2A52321058500BEC812 /* MyBudgetUITests.xctest */,
 				EB399D49232305D800CA0BD8 /* MyBudget_watchOS.app */,
 				EB399D55232305DD00CA0BD8 /* MyBudget_watchOS Extension.appex */,
@@ -616,11 +622,12 @@
 		EBD012E122E999FB00F8126D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EBEB145A22E8AD7300291435 /* Transaction.swift */,
 				EBC59D5222E750E900E626DC /* Model.swift */,
+				EB6EF9FE2323B84A00294846 /* Model+iOS.swift */,
 				EB4F7894231968860045077E /* ServerReceiptValidatorReceiptValidator.swift */,
 				EB1BCBBB2305AD2A0023E11F /* NewAccountDiaryProvider.swift */,
 				EBF560FA2305F06C00E850E7 /* NewBudgetCategoryDiaryProvider.swift */,
-				EBEB145A22E8AD7300291435 /* Transaction.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -788,7 +795,7 @@
 			);
 			name = MyBudget;
 			productName = MyBudget;
-			productReference = EBC59D3B22E7503900E626DC /* MyBudget.app */;
+			productReference = EBC59D3B22E7503900E626DC /* Budget!.app */;
 			productType = "com.apple.product-type.application";
 		};
 		EBE7E2A42321058500BEC812 /* MyBudgetUITests */ = {
@@ -880,6 +887,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB4463842323B397000A260D /* Interface.storyboard in Resources */,
 				EB399D4F232305DD00CA0BD8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -888,6 +896,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB6EFA022323B9CB00294846 /* Interface.storyboard in Resources */,
 				EB399D63232305DE00CA0BD8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -975,7 +984,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB6EFA002323B87500294846 /* Model.swift in Sources */,
 				EB399D8323230A9900CA0BD8 /* InterfaceController.swift in Sources */,
+				EB6EFA012323B8AE00294846 /* Transaction.swift in Sources */,
 				EB399D8823230B0600CA0BD8 /* BudgetRow.swift in Sources */,
 				EB399D5F232305DE00CA0BD8 /* NotificationController.swift in Sources */,
 				EB399D61232305DE00CA0BD8 /* ComplicationController.swift in Sources */,
@@ -1021,6 +1032,7 @@
 				EB2C771D22EDBD59009FA2C8 /* BudgetDetailViewController.swift in Sources */,
 				EB582E7622F0AE1800422323 /* Date+Utilities.swift in Sources */,
 				EB985CB522EC6B5400C033E8 /* FloatyDelegate.swift in Sources */,
+				EB6EF9FF2323B84A00294846 /* Model+iOS.swift in Sources */,
 				EB4F7895231968860045077E /* ServerReceiptValidatorReceiptValidator.swift in Sources */,
 				EBF560FB2305F06C00E850E7 /* NewBudgetCategoryDiaryProvider.swift in Sources */,
 				EBEB8B1C23145D5C009F65B8 /* NewAccountViewController.swift in Sources */,
@@ -1123,7 +1135,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 5.3;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
 			};
 			name = Debug;
 		};
@@ -1142,7 +1154,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 5.3;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
 			};
 			name = Release;
 		};
@@ -1160,12 +1172,12 @@
 					"@executable_path/../../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jraufeisen.MyBudget.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 5.3;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
 			};
 			name = Debug;
 		};
@@ -1183,12 +1195,12 @@
 					"@executable_path/../../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jraufeisen.MyBudget.watchkitapp.watchkitextension;
-				PRODUCT_NAME = "${TARGET_NAME}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 5.3;
+				WATCHOS_DEPLOYMENT_TARGET = 4.3;
 			};
 			name = Release;
 		};
@@ -1323,7 +1335,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jraufeisen.MyBudget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Budget!";
 				SWIFT_OBJC_BRIDGING_HEADER = "MyBudget/Views/MyBudget-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1346,7 +1358,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jraufeisen.MyBudget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Budget!";
 				SWIFT_OBJC_BRIDGING_HEADER = "MyBudget/Views/MyBudget-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

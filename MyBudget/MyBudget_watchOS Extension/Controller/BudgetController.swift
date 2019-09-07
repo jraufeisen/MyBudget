@@ -19,8 +19,8 @@ class BudgetController: WKInterfaceController {
     var budget: [String:String]?
     
     override func awake(withContext context: Any?) {
-        WatchSessionManager.sharedManager.askForBudget()
         WatchSessionManager.sharedManager.dataDelegate = self
+        WatchSessionManager.sharedManager.askForBudget()
         guard let summary = context as? EntryContext else {return}
         self.context = summary
         
