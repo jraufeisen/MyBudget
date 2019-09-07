@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EBC59D3A22E7503900E626DC"
-               BuildableName = "MyBudget.app"
+               BuildableName = "Budget!.app"
                BlueprintName = "MyBudget"
                ReferencedContainer = "container:MyBudget.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EBC59D3A22E7503900E626DC"
-            BuildableName = "MyBudget.app"
+            BuildableName = "Budget!.app"
             BlueprintName = "MyBudget"
             ReferencedContainer = "container:MyBudget.xcodeproj">
          </BuildableReference>
@@ -66,7 +66,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EBC59D3A22E7503900E626DC"
-            BuildableName = "MyBudget.app"
+            BuildableName = "Budget!.app"
             BlueprintName = "MyBudget"
             ReferencedContainer = "container:MyBudget.xcodeproj">
          </BuildableReference>
@@ -85,7 +85,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EBC59D3A22E7503900E626DC"
-            BuildableName = "MyBudget.app"
+            BuildableName = "Budget!.app"
             BlueprintName = "MyBudget"
             ReferencedContainer = "container:MyBudget.xcodeproj">
          </BuildableReference>
