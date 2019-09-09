@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:ANTRL4/Antlr4.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Swift-Ledger/Swift-Ledger.xcodeproj">
    </FileRef>
    <FileRef

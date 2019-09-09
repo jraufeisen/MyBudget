@@ -38,7 +38,6 @@
 		EB399D732323069E00CA0BD8 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB399D722323069E00CA0BD8 /* CloudKit.framework */; };
 		EB399D7F2323088100CA0BD8 /* WatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB399D7E2323088100CA0BD8 /* WatchSessionManager.swift */; };
 		EB399D802323088100CA0BD8 /* WatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB399D7E2323088100CA0BD8 /* WatchSessionManager.swift */; };
-		EB399D82232308CA00CA0BD8 /* Swift_Ledger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB399D81232308CA00CA0BD8 /* Swift_Ledger.framework */; };
 		EB399D8323230A9900CA0BD8 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB399D792323077D00CA0BD8 /* InterfaceController.swift */; };
 		EB399D8423230A9A00CA0BD8 /* AccountSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB399D7A2323077D00CA0BD8 /* AccountSelectionController.swift */; };
 		EB399D8523230A9A00CA0BD8 /* BudgetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB399D7B2323077D00CA0BD8 /* BudgetController.swift */; };
@@ -50,6 +49,11 @@
 		EB399D8D23230EBC00CA0BD8 /* FileManager+DocDir.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB203BF3230716CA008C9EE5 /* FileManager+DocDir.swift */; };
 		EB399D9123230EBC00CA0BD8 /* String+OnlyDigits.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CBC22EC74F800C033E8 /* String+OnlyDigits.swift */; };
 		EB4463842323B397000A260D /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB399D742323075400CA0BD8 /* Interface.storyboard */; };
+		EB4831C32326629600D2B87F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC59D5222E750E900E626DC /* Model.swift */; };
+		EB4831C42326649300D2B87F /* Swift_Ledger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBEB8B15231451F2009F65B8 /* Swift_Ledger.framework */; };
+		EB4831C52326649300D2B87F /* Swift_Ledger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EBEB8B15231451F2009F65B8 /* Swift_Ledger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EB4831D823266C1300D2B87F /* Antlr4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4831D723266C1300D2B87F /* Antlr4.framework */; };
+		EB4831D923266C1300D2B87F /* Antlr4.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB4831D723266C1300D2B87F /* Antlr4.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EB4F7895231968860045077E /* ServerReceiptValidatorReceiptValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F7894231968860045077E /* ServerReceiptValidatorReceiptValidator.swift */; };
 		EB4F789723196F220045077E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4F789623196F220045077E /* StoreKit.framework */; };
 		EB4F789A2319A2600045077E /* SubscriptionOnboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F78992319A2600045077E /* SubscriptionOnboardController.swift */; };
@@ -69,7 +73,6 @@
 		EB5C600C22F32960004F81CF /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C600B22F32960004F81CF /* MenuTableViewController.swift */; };
 		EB5CADB722F55DC600205AC8 /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5CADB622F55DC600205AC8 /* AccountTableViewController.swift */; };
 		EB6EF9FF2323B84A00294846 /* Model+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EF9FE2323B84A00294846 /* Model+iOS.swift */; };
-		EB6EFA002323B87500294846 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC59D5222E750E900E626DC /* Model.swift */; };
 		EB6EFA012323B8AE00294846 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145A22E8AD7300291435 /* Transaction.swift */; };
 		EB6EFA022323B9CB00294846 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB399D742323075400CA0BD8 /* Interface.storyboard */; };
 		EB8472892306AA4400DCD330 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EB8472882306AA4400DCD330 /* Settings.bundle */; };
@@ -168,6 +171,17 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EB4831C62326649300D2B87F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EB4831C52326649300D2B87F /* Swift_Ledger.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EBEB8B18231451F3009F65B8 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -175,6 +189,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				EBEB8B17231451F3009F65B8 /* Swift_Ledger.framework in Embed Frameworks */,
+				EB4831D923266C1300D2B87F /* Antlr4.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -235,6 +250,8 @@
 		EB399D7D2323077D00CA0BD8 /* ConfirmationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationController.swift; sourceTree = "<group>"; };
 		EB399D7E2323088100CA0BD8 /* WatchSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchSessionManager.swift; sourceTree = "<group>"; };
 		EB399D81232308CA00CA0BD8 /* Swift_Ledger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Swift_Ledger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB4831BF23265D5F00D2B87F /* Antlr4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Antlr4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB4831D723266C1300D2B87F /* Antlr4.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Antlr4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB4F7894231968860045077E /* ServerReceiptValidatorReceiptValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerReceiptValidatorReceiptValidator.swift; sourceTree = "<group>"; };
 		EB4F789623196F220045077E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		EB4F78992319A2600045077E /* SubscriptionOnboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionOnboardController.swift; sourceTree = "<group>"; };
@@ -313,8 +330,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB399D82232308CA00CA0BD8 /* Swift_Ledger.framework in Frameworks */,
 				EB399D732323069E00CA0BD8 /* CloudKit.framework in Frameworks */,
+				EB4831C42326649300D2B87F /* Swift_Ledger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB558EB722ECA3A200039651 /* CloudKit.framework in Frameworks */,
+				EB4831D823266C1300D2B87F /* Antlr4.framework in Frameworks */,
 				EBEB8B16231451F3009F65B8 /* Swift_Ledger.framework in Frameworks */,
 				EB4F789723196F220045077E /* StoreKit.framework in Frameworks */,
 			);
@@ -350,6 +368,7 @@
 		1CF7C6954939ED9D3DD0375D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB4831BF23265D5F00D2B87F /* Antlr4.framework */,
 				EB399D81232308CA00CA0BD8 /* Swift_Ledger.framework */,
 				EB399D722323069E00CA0BD8 /* CloudKit.framework */,
 				EB4F789623196F220045077E /* StoreKit.framework */,
@@ -574,6 +593,7 @@
 		EBC59D3222E7503900E626DC = {
 			isa = PBXGroup;
 			children = (
+				EB4831D723266C1300D2B87F /* Antlr4.framework */,
 				EBEB8B15231451F2009F65B8 /* Swift_Ledger.framework */,
 				EBC59D3D22E7503900E626DC /* MyBudget */,
 				EBE7E2A62321058500BEC812 /* MyBudgetUITests */,
@@ -767,6 +787,7 @@
 				EB399D51232305DD00CA0BD8 /* Sources */,
 				EB399D52232305DD00CA0BD8 /* Frameworks */,
 				EB399D53232305DD00CA0BD8 /* Resources */,
+				EB4831C62326649300D2B87F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -985,7 +1006,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB6EFA002323B87500294846 /* Model.swift in Sources */,
 				EB399D8323230A9900CA0BD8 /* InterfaceController.swift in Sources */,
 				EB6EFA012323B8AE00294846 /* Transaction.swift in Sources */,
 				EB399D8823230B0600CA0BD8 /* BudgetRow.swift in Sources */,
@@ -996,6 +1016,7 @@
 				EB399D8D23230EBC00CA0BD8 /* FileManager+DocDir.swift in Sources */,
 				EB399D802323088100CA0BD8 /* WatchSessionManager.swift in Sources */,
 				EB399D9123230EBC00CA0BD8 /* String+OnlyDigits.swift in Sources */,
+				EB4831C32326629600D2B87F /* Model.swift in Sources */,
 				EB399D8523230A9A00CA0BD8 /* BudgetController.swift in Sources */,
 				EB2EBEF82323FC9B00030606 /* UIColor+Macro.swift in Sources */,
 				EB399D8923230B0600CA0BD8 /* AccountRow.swift in Sources */,
@@ -1332,6 +1353,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YLJFWRHN2U;
 				INFOPLIST_FILE = MyBudget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1355,6 +1377,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YLJFWRHN2U;
 				INFOPLIST_FILE = MyBudget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
