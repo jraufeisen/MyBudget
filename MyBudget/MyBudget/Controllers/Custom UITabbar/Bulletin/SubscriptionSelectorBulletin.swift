@@ -171,14 +171,14 @@ class SubscriptionSelectorBulletin: FeedbackPageBLTNItem {
         
         manager?.displayActivityIndicator()
         if let selected = currentSelection  {
-            var productId = "com.jraufeisen.MyBudget.Budget_monthly_iOS"
+            var productId = ""
             
             switch selected {
                 
             case .month:
-                productId = "com.jraufeisen.MyBudget.Budget_monthly_iOS"
+                productId = "com.jraufeisen.MyBudget.Budget_one_month_iOS"
             case .year:
-                productId = "com.jraufeisen.MyBudget.Budget_annual_iOS"
+                productId = "com.jraufeisen.MyBudget.Budget_one_year_iOS"
             }
             
             CKContainer.default().fetchUserRecordID { (recordID, error) in
@@ -192,6 +192,10 @@ class SubscriptionSelectorBulletin: FeedbackPageBLTNItem {
                         switch result {
                         case .success(let purchase):
                             ServerReceiptValidator().updateExpirationDate()
+                            if purchase.needsFinishTransaction {
+                                SwiftyStoreKit.finishTransaction(purchase.transaction)
+                            }
+
                             self.next = BulletinDataSource.makeCompletionPage()
                             self.manager?.displayNextItem()
                         case .error(let error):
