@@ -72,7 +72,10 @@ class ServerReceiptValidator: ReceiptValidator {
         var parameters: [String: Any] = [
             "receipt": receiptString,
         ]
-        
+        #if DEBUG
+        parameters["DEBUG"] = true
+        #endif
+
         CKContainer.init(identifier: "iCloud.com.jraufeisen.MyBudget").fetchUserRecordID { (recordID, error) in
             if let userName = recordID?.recordName {
                 parameters["uid"] = userName
