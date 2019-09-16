@@ -52,15 +52,22 @@ class ServerReceiptValidator: ReceiptValidator {
         }
     }
     
-    func isSubscribed() -> Bool {
+    func subscriptionExpirationDate() -> Date? {
         guard let expTimestamp = KeychainWrapper.standard.double(forKey: expKey) else {
+            return nil
+        }
+        let expDate = Date.init(timeIntervalSince1970: expTimestamp)
+        return expDate
+    }
+    
+    func isSubscribed() -> Bool {
+        guard let expirationDate = subscriptionExpirationDate() else {
             return false
         }
         
-        let expDate = Date.init(timeIntervalSince1970: expTimestamp)
-        print("Your subscription ends at \(expDate)")
-        return expDate > Date()
+        return expirationDate > Date()
     }
+    
     
     
     func validate(receiptData: Data, completion: @escaping (VerifyReceiptResult) -> Void) {
@@ -100,7 +107,7 @@ class ServerReceiptValidator: ReceiptValidator {
                     completion(.error(error: .noRemoteData))
                     return
                 }
-                
+
                 let answerComponents = responseString.components(separatedBy: ":")
                 print(answerComponents)
                 

@@ -122,20 +122,42 @@ class TabbarViewController: UITabBarController, FloatyDelegate {
 
         DispatchQueue.global(qos: .background).async {
             let status = ServerReceiptValidator().isSubscribed()
+            let expirationDate = ServerReceiptValidator().subscriptionExpirationDate()
             let remainingGlobal = Model.shared.numberOfRemainingTransactions()
             let remainingToday = Model.shared.numberOfRemainingTransactionsToday()
             DispatchQueue.main.async {
                 if status {
-                    self.helpingLabel?.text = "Subscribed: Unlimited access"
-                    self.helpingLabel?.textColor = .incomeColor
-                } else {
-                    if remainingGlobal > 0 {
-                        self.helpingLabel?.text = "Free version:\n\(remainingGlobal) transactions remaining"
-                        self.helpingLabel?.textColor = .blueActionColor
+                    
+                    if let expirationDate = expirationDate {
+                        let dateString = DateFormatter.localizedString(from: expirationDate, dateStyle: .medium, timeStyle: .none)
+                        self.helpingLabel?.text = "Subscribed until \(dateString)"
+                        self.helpingLabel?.textColor = .incomeColor
                     } else {
-                        self.helpingLabel?.text = "Free version:\n\(remainingToday) transactions remaining today"
-                        self.helpingLabel?.textColor = .transferColor
+                        self.helpingLabel?.text = "Subscribed: Unlimited access"
+                        self.helpingLabel?.textColor = .incomeColor
                     }
+                } else {
+                    
+                    if let expirationDate = expirationDate {
+                        let dateString = DateFormatter.localizedString(from: expirationDate, dateStyle: .medium, timeStyle: .none)
+
+                        if remainingGlobal > 0 {
+                            self.helpingLabel?.text = "Subscription expired on \(dateString):\n\(remainingGlobal) transactions remaining"
+                            self.helpingLabel?.textColor = .blueActionColor
+                        } else {
+                            self.helpingLabel?.text = "Subscription expired on \(dateString)\n\(remainingToday) transactions remaining today"
+                            self.helpingLabel?.textColor = .transferColor
+                        }
+                    } else {
+                        if remainingGlobal > 0 {
+                            self.helpingLabel?.text = "Free version:\n\(remainingGlobal) transactions remaining"
+                            self.helpingLabel?.textColor = .blueActionColor
+                        } else {
+                            self.helpingLabel?.text = "Free version:\n\(remainingToday) transactions remaining today"
+                            self.helpingLabel?.textColor = .transferColor
+                        }
+                    }
+                    
                 }
             }
         }
