@@ -91,7 +91,7 @@ class MyBudgetUITests: XCTestCase {
         _ = XCTWaiter.wait(for: [XCTestExpectation(description: "I will never ever exist!")], timeout: 0.5)
         snapshot("13SubscriptionInfo")
         app.buttons["Learn More"].tap()
-        app.buttons["1 Month for 1,49€"].tap()
+        app.buttons["1 Month for 1,09€"].tap()
         snapshot("14SubscriptionPrices")
         app.otherElements["Close"].tap()
         

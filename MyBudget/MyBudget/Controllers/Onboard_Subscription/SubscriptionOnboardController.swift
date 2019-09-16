@@ -76,7 +76,7 @@ extension SubscriptionOnboardController: PaperOnboardingDataSource, PaperOnboard
             
             OnboardingItemInfo(informationImage: UIImage.bigCreditCardImage(),
                                title: "1 Month",
-                               description: "If you are still not sure if Budget! is the right app for you, give it a try to another month. Just 1,49€.",
+                               description: "If you are still not sure if Budget! is the right app for you, give it a try to another month. Just 1,09€.",
                                pageIcon: UIImage(),
                                color: UIColor.incomeColor,
                                titleColor: UIColor.white,
@@ -86,7 +86,7 @@ extension SubscriptionOnboardController: PaperOnboardingDataSource, PaperOnboard
             
             OnboardingItemInfo(informationImage: UIImage.bigCreditCardImage(),
                                title: "1 Year",
-                               description: "A budget is most useful when using it for a longer period of time! Buy 1-year access for 20€.",
+                               description: "A budget is most useful when using it for a longer period of time!",
                                pageIcon: UIImage(),
                                color: UIColor.incomeColor,
                                titleColor: UIColor.white,

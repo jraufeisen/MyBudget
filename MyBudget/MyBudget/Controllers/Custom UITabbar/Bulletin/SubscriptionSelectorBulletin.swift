@@ -79,8 +79,8 @@ class SubscriptionSelectorBulletin: FeedbackPageBLTNItem {
         
         switch dataSource {
         case .month:
-            button.accessibilityLabel = "1 Month for 1,49€"
-            button.setTitle("1 Month - 1,49€", for: .normal)
+            button.accessibilityLabel = "1 Month for 1,09€"
+            button.setTitle("1 Month - 1,09€", for: .normal)
         case .year:
             button.accessibilityLabel = "1 Year for 9,99€"
             button.setTitle("1 Year - 9,99€", for: .normal)
