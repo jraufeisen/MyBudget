@@ -19,6 +19,10 @@
 		EB09FC94231D57080063FB90 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB09FC91231D56F50063FB90 /* KeychainWrapper.swift */; };
 		EB09FC95231D57110063FB90 /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB09FC93231D56F50063FB90 /* KeychainItemAccessibility.swift */; };
 		EB09FC97231D5D830063FB90 /* SubscriptionFloaty.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB09FC96231D5D830063FB90 /* SubscriptionFloaty.swift */; };
+		EB0CA7DE2330F6AB00C1FED2 /* Swift_Ledger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB0CA7DD2330F6A700C1FED2 /* Swift_Ledger.framework */; };
+		EB0CA7DF2330F6AB00C1FED2 /* Swift_Ledger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB0CA7DD2330F6A700C1FED2 /* Swift_Ledger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EB0CA7E02330F6AC00C1FED2 /* Antlr4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB0CA7DC2330F68700C1FED2 /* Antlr4.framework */; };
+		EB0CA7E12330F6AC00C1FED2 /* Antlr4.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB0CA7DC2330F68700C1FED2 /* Antlr4.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EB1BCBBC2305AD2A0023E11F /* NewAccountDiaryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1BCBBB2305AD2A0023E11F /* NewAccountDiaryProvider.swift */; };
 		EB203BF4230716CA008C9EE5 /* FileManager+DocDir.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB203BF3230716CA008C9EE5 /* FileManager+DocDir.swift */; };
 		EB2C771B22EDBCA3009FA2C8 /* UITextView+Center.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2C771A22EDBCA3009FA2C8 /* UITextView+Center.swift */; };
@@ -34,7 +38,6 @@
 		EB399D5F232305DE00CA0BD8 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB399D5E232305DE00CA0BD8 /* NotificationController.swift */; };
 		EB399D61232305DE00CA0BD8 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB399D60232305DE00CA0BD8 /* ComplicationController.swift */; };
 		EB399D63232305DE00CA0BD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB399D62232305DE00CA0BD8 /* Assets.xcassets */; };
-		EB399D732323069E00CA0BD8 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB399D722323069E00CA0BD8 /* CloudKit.framework */; };
 		EB399D7F2323088100CA0BD8 /* WatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB399D7E2323088100CA0BD8 /* WatchSessionManager.swift */; };
 		EB399D802323088100CA0BD8 /* WatchSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB399D7E2323088100CA0BD8 /* WatchSessionManager.swift */; };
 		EB399D8323230A9900CA0BD8 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB399D792323077D00CA0BD8 /* InterfaceController.swift */; };
@@ -49,10 +52,6 @@
 		EB399D9123230EBC00CA0BD8 /* String+OnlyDigits.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CBC22EC74F800C033E8 /* String+OnlyDigits.swift */; };
 		EB4463842323B397000A260D /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB399D742323075400CA0BD8 /* Interface.storyboard */; };
 		EB4831C32326629600D2B87F /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC59D5222E750E900E626DC /* Model.swift */; };
-		EB4831C42326649300D2B87F /* Swift_Ledger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBEB8B15231451F2009F65B8 /* Swift_Ledger.framework */; };
-		EB4831C52326649300D2B87F /* Swift_Ledger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EBEB8B15231451F2009F65B8 /* Swift_Ledger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EB4831D823266C1300D2B87F /* Antlr4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4831D723266C1300D2B87F /* Antlr4.framework */; };
-		EB4831D923266C1300D2B87F /* Antlr4.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB4831D723266C1300D2B87F /* Antlr4.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EB4F7895231968860045077E /* ServerReceiptValidatorReceiptValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F7894231968860045077E /* ServerReceiptValidatorReceiptValidator.swift */; };
 		EB4F789723196F220045077E /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB4F789623196F220045077E /* StoreKit.framework */; };
 		EB4F789A2319A2600045077E /* SubscriptionOnboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4F78992319A2600045077E /* SubscriptionOnboardController.swift */; };
@@ -111,8 +110,6 @@
 		EBEB145022E8A1B100291435 /* EnterNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB144722E8A1B100291435 /* EnterNumberViewController.swift */; };
 		EBEB145722E8A29800291435 /* UIColor+Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145622E8A29800291435 /* UIColor+Macro.swift */; };
 		EBEB145B22E8AD7300291435 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145A22E8AD7300291435 /* Transaction.swift */; };
-		EBEB8B16231451F3009F65B8 /* Swift_Ledger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBEB8B15231451F2009F65B8 /* Swift_Ledger.framework */; };
-		EBEB8B17231451F3009F65B8 /* Swift_Ledger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EBEB8B15231451F2009F65B8 /* Swift_Ledger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EBEB8B1C23145D5C009F65B8 /* NewAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB8B1B23145D5C009F65B8 /* NewAccountViewController.swift */; };
 		EBF2F67C22E8D91300C2772F /* AccountTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF2F67B22E8D91300C2772F /* AccountTableView.swift */; };
 		EBF560F82305EFD400E850E7 /* NewBudgetCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF560F72305EFD400E850E7 /* NewBudgetCategoryViewController.swift */; };
@@ -141,6 +138,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		EB0CA71F2330EC5400C1FED2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EB0CA7DF2330F6AB00C1FED2 /* Swift_Ledger.framework in Embed Frameworks */,
+				EB0CA7E12330F6AC00C1FED2 /* Antlr4.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EB399D6E232305DE00CA0BD8 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -168,19 +177,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EB4831C52326649300D2B87F /* Swift_Ledger.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EBEB8B18231451F3009F65B8 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				EBEB8B17231451F3009F65B8 /* Swift_Ledger.framework in Embed Frameworks */,
-				EB4831D923266C1300D2B87F /* Antlr4.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -211,6 +207,8 @@
 		EB09FC91231D56F50063FB90 /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		EB09FC93231D56F50063FB90 /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
 		EB09FC96231D5D830063FB90 /* SubscriptionFloaty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionFloaty.swift; sourceTree = "<group>"; };
+		EB0CA7DC2330F68700C1FED2 /* Antlr4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Antlr4.framework; sourceTree = "<group>"; };
+		EB0CA7DD2330F6A700C1FED2 /* Swift_Ledger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Swift_Ledger.framework; sourceTree = "<group>"; };
 		EB1BCBBB2305AD2A0023E11F /* NewAccountDiaryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountDiaryProvider.swift; sourceTree = "<group>"; };
 		EB203BF3230716CA008C9EE5 /* FileManager+DocDir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+DocDir.swift"; sourceTree = "<group>"; };
 		EB2C771A22EDBCA3009FA2C8 /* UITextView+Center.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Center.swift"; sourceTree = "<group>"; };
@@ -230,7 +228,6 @@
 		EB399D64232305DE00CA0BD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB399D65232305DE00CA0BD8 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		EB399D712323069800CA0BD8 /* MyBudget_watchOS Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MyBudget_watchOS Extension.entitlements"; sourceTree = "<group>"; };
-		EB399D722323069E00CA0BD8 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS5.3.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		EB399D742323075400CA0BD8 /* Interface.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Interface.storyboard; sourceTree = "<group>"; };
 		EB399D762323077D00CA0BD8 /* BudgetRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetRow.swift; sourceTree = "<group>"; };
 		EB399D772323077D00CA0BD8 /* AccountRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRow.swift; sourceTree = "<group>"; };
@@ -240,9 +237,6 @@
 		EB399D7C2323077D00CA0BD8 /* EnterNumberInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNumberInterfaceController.swift; sourceTree = "<group>"; };
 		EB399D7D2323077D00CA0BD8 /* ConfirmationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationController.swift; sourceTree = "<group>"; };
 		EB399D7E2323088100CA0BD8 /* WatchSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchSessionManager.swift; sourceTree = "<group>"; };
-		EB399D81232308CA00CA0BD8 /* Swift_Ledger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Swift_Ledger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB4831BF23265D5F00D2B87F /* Antlr4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Antlr4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB4831D723266C1300D2B87F /* Antlr4.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Antlr4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB4F7894231968860045077E /* ServerReceiptValidatorReceiptValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerReceiptValidatorReceiptValidator.swift; sourceTree = "<group>"; };
 		EB4F789623196F220045077E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		EB4F78992319A2600045077E /* SubscriptionOnboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionOnboardController.swift; sourceTree = "<group>"; };
@@ -306,7 +300,6 @@
 		EBEB144722E8A1B100291435 /* EnterNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNumberViewController.swift; sourceTree = "<group>"; };
 		EBEB145622E8A29800291435 /* UIColor+Macro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Macro.swift"; sourceTree = "<group>"; };
 		EBEB145A22E8AD7300291435 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
-		EBEB8B15231451F2009F65B8 /* Swift_Ledger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Swift_Ledger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBEB8B1923145CAB009F65B8 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		EBEB8B1B23145D5C009F65B8 /* NewAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAccountViewController.swift; sourceTree = "<group>"; };
 		EBF2F67B22E8D91300C2772F /* AccountTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableView.swift; sourceTree = "<group>"; };
@@ -321,8 +314,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB399D732323069E00CA0BD8 /* CloudKit.framework in Frameworks */,
-				EB4831C42326649300D2B87F /* Swift_Ledger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,9 +322,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB558EB722ECA3A200039651 /* CloudKit.framework in Frameworks */,
-				EB4831D823266C1300D2B87F /* Antlr4.framework in Frameworks */,
-				EBEB8B16231451F3009F65B8 /* Swift_Ledger.framework in Frameworks */,
+				EB0CA7E02330F6AC00C1FED2 /* Antlr4.framework in Frameworks */,
 				EB4F789723196F220045077E /* StoreKit.framework in Frameworks */,
+				EB0CA7DE2330F6AB00C1FED2 /* Swift_Ledger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,9 +350,8 @@
 		1CF7C6954939ED9D3DD0375D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EB4831BF23265D5F00D2B87F /* Antlr4.framework */,
-				EB399D81232308CA00CA0BD8 /* Swift_Ledger.framework */,
-				EB399D722323069E00CA0BD8 /* CloudKit.framework */,
+				EB0CA7DD2330F6A700C1FED2 /* Swift_Ledger.framework */,
+				EB0CA7DC2330F68700C1FED2 /* Antlr4.framework */,
 				EB4F789623196F220045077E /* StoreKit.framework */,
 				EB668B9D22EF2DDE0082D54B /* MaterialComponents.framework */,
 				EB558EB622ECA3A200039651 /* CloudKit.framework */,
@@ -584,8 +574,6 @@
 		EBC59D3222E7503900E626DC = {
 			isa = PBXGroup;
 			children = (
-				EB4831D723266C1300D2B87F /* Antlr4.framework */,
-				EBEB8B15231451F2009F65B8 /* Swift_Ledger.framework */,
 				EBC59D3D22E7503900E626DC /* MyBudget */,
 				EBE7E2A62321058500BEC812 /* MyBudgetUITests */,
 				EB399D4A232305D800CA0BD8 /* MyBudget_watchOS */,
@@ -798,8 +786,8 @@
 				EBC59D3822E7503900E626DC /* Frameworks */,
 				EBC59D3922E7503900E626DC /* Resources */,
 				0C2914C0F452D4A924ED9FEE /* [CP] Embed Pods Frameworks */,
-				EBEB8B18231451F3009F65B8 /* Embed Frameworks */,
 				EB399D70232305DE00CA0BD8 /* Embed Watch Content */,
+				EB0CA71F2330EC5400C1FED2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1337,6 +1325,11 @@
 				CODE_SIGN_ENTITLEMENTS = MyBudget/MyBudget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YLJFWRHN2U;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MyBudget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1361,6 +1354,11 @@
 				CODE_SIGN_ENTITLEMENTS = MyBudget/MyBudget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YLJFWRHN2U;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MyBudget/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1380,6 +1378,10 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YLJFWRHN2U;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MyBudgetUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1400,6 +1402,10 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YLJFWRHN2U;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MyBudgetUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
