@@ -31,6 +31,9 @@ class MyBudgetUITests: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+    func testmore() {
+        
+    }
     
     func testFastlaneScreenshots() {
         // Use recording to get started writing UI tests.
@@ -62,7 +65,7 @@ class MyBudgetUITests: XCTestCase {
         snapshot("10AddExpense")
         let doneButton = app.buttons["Done"]
         doneButton.tap()
-        let stopButton = app.navigationBars["MyBudget.EnterNumberView"].buttons["Stop"]
+        let stopButton = app.navigationBars["Budget_.EnterNumberView"].firstMatch.buttons["Stop"]
         stopButton.tap()
         
         app.buttons["Add new transaction"].tap()

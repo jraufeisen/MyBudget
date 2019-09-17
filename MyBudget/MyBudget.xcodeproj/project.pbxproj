@@ -21,8 +21,6 @@
 		EB09FC97231D5D830063FB90 /* SubscriptionFloaty.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB09FC96231D5D830063FB90 /* SubscriptionFloaty.swift */; };
 		EB0CA7DE2330F6AB00C1FED2 /* Swift_Ledger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB0CA7DD2330F6A700C1FED2 /* Swift_Ledger.framework */; };
 		EB0CA7DF2330F6AB00C1FED2 /* Swift_Ledger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB0CA7DD2330F6A700C1FED2 /* Swift_Ledger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EB0CA7E02330F6AC00C1FED2 /* Antlr4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB0CA7DC2330F68700C1FED2 /* Antlr4.framework */; };
-		EB0CA7E12330F6AC00C1FED2 /* Antlr4.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB0CA7DC2330F68700C1FED2 /* Antlr4.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EB1BCBBC2305AD2A0023E11F /* NewAccountDiaryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1BCBBB2305AD2A0023E11F /* NewAccountDiaryProvider.swift */; };
 		EB203BF4230716CA008C9EE5 /* FileManager+DocDir.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB203BF3230716CA008C9EE5 /* FileManager+DocDir.swift */; };
 		EB2C771B22EDBCA3009FA2C8 /* UITextView+Center.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2C771A22EDBCA3009FA2C8 /* UITextView+Center.swift */; };
@@ -111,6 +109,8 @@
 		EBEB145722E8A29800291435 /* UIColor+Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145622E8A29800291435 /* UIColor+Macro.swift */; };
 		EBEB145B22E8AD7300291435 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145A22E8AD7300291435 /* Transaction.swift */; };
 		EBEB8B1C23145D5C009F65B8 /* NewAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB8B1B23145D5C009F65B8 /* NewAccountViewController.swift */; };
+		EBEC52F923310AEA00E88BA3 /* Antlr4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBEC52F623310A9E00E88BA3 /* Antlr4.framework */; };
+		EBEC52FA23310AEA00E88BA3 /* Antlr4.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EBEC52F623310A9E00E88BA3 /* Antlr4.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EBF2F67C22E8D91300C2772F /* AccountTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF2F67B22E8D91300C2772F /* AccountTableView.swift */; };
 		EBF560F82305EFD400E850E7 /* NewBudgetCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF560F72305EFD400E850E7 /* NewBudgetCategoryViewController.swift */; };
 		EBF560FB2305F06C00E850E7 /* NewBudgetCategoryDiaryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF560FA2305F06C00E850E7 /* NewBudgetCategoryDiaryProvider.swift */; };
@@ -145,7 +145,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				EB0CA7DF2330F6AB00C1FED2 /* Swift_Ledger.framework in Embed Frameworks */,
-				EB0CA7E12330F6AC00C1FED2 /* Antlr4.framework in Embed Frameworks */,
+				EBEC52FA23310AEA00E88BA3 /* Antlr4.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -207,7 +207,6 @@
 		EB09FC91231D56F50063FB90 /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		EB09FC93231D56F50063FB90 /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
 		EB09FC96231D5D830063FB90 /* SubscriptionFloaty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionFloaty.swift; sourceTree = "<group>"; };
-		EB0CA7DC2330F68700C1FED2 /* Antlr4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Antlr4.framework; sourceTree = "<group>"; };
 		EB0CA7DD2330F6A700C1FED2 /* Swift_Ledger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Swift_Ledger.framework; sourceTree = "<group>"; };
 		EB1BCBBB2305AD2A0023E11F /* NewAccountDiaryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountDiaryProvider.swift; sourceTree = "<group>"; };
 		EB203BF3230716CA008C9EE5 /* FileManager+DocDir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+DocDir.swift"; sourceTree = "<group>"; };
@@ -302,6 +301,7 @@
 		EBEB145A22E8AD7300291435 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		EBEB8B1923145CAB009F65B8 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		EBEB8B1B23145D5C009F65B8 /* NewAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAccountViewController.swift; sourceTree = "<group>"; };
+		EBEC52F623310A9E00E88BA3 /* Antlr4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Antlr4.framework; sourceTree = "<group>"; };
 		EBF2F67B22E8D91300C2772F /* AccountTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableView.swift; sourceTree = "<group>"; };
 		EBF560F72305EFD400E850E7 /* NewBudgetCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBudgetCategoryViewController.swift; sourceTree = "<group>"; };
 		EBF560FA2305F06C00E850E7 /* NewBudgetCategoryDiaryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBudgetCategoryDiaryProvider.swift; sourceTree = "<group>"; };
@@ -322,7 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB558EB722ECA3A200039651 /* CloudKit.framework in Frameworks */,
-				EB0CA7E02330F6AC00C1FED2 /* Antlr4.framework in Frameworks */,
+				EBEC52F923310AEA00E88BA3 /* Antlr4.framework in Frameworks */,
 				EB4F789723196F220045077E /* StoreKit.framework in Frameworks */,
 				EB0CA7DE2330F6AB00C1FED2 /* Swift_Ledger.framework in Frameworks */,
 			);
@@ -350,8 +350,8 @@
 		1CF7C6954939ED9D3DD0375D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EBEC52F623310A9E00E88BA3 /* Antlr4.framework */,
 				EB0CA7DD2330F6A700C1FED2 /* Swift_Ledger.framework */,
-				EB0CA7DC2330F68700C1FED2 /* Antlr4.framework */,
 				EB4F789623196F220045077E /* StoreKit.framework */,
 				EB668B9D22EF2DDE0082D54B /* MaterialComponents.framework */,
 				EB558EB622ECA3A200039651 /* CloudKit.framework */,
@@ -1378,10 +1378,12 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YLJFWRHN2U;
+				ENABLE_ON_DEMAND_RESOURCES = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = MyBudgetUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1389,6 +1391,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_bundle;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jraufeisen.MyBudgetUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1402,10 +1405,12 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YLJFWRHN2U;
+				ENABLE_ON_DEMAND_RESOURCES = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = MyBudgetUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1413,6 +1418,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MACH_O_TYPE = mh_bundle;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jraufeisen.MyBudgetUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
