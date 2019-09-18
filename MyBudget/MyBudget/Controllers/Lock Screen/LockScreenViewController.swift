@@ -138,7 +138,7 @@ extension LockScreenViewController: PaperOnboardingDataSource, PaperOnboardingDe
                                titleFont: UIFont.systemFont(ofSize: 31 as CGFloat),
                                descriptionFont: UIFont.systemFont(ofSize: 20 as CGFloat)),
             
-            OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "Security Shield"),
+            OnboardingItemInfo(informationImage: #imageLiteral(resourceName: "Logo_Only"),
                                title: "Subscribe to unlock unlimited access",
                                description: "You can store up to 100 transactions for free. Afterwards, you are limited to one transactions per day.",
                                pageIcon: UIImage(),
@@ -154,7 +154,7 @@ extension LockScreenViewController: PaperOnboardingDataSource, PaperOnboardingDe
     
     
     func onboardingWillTransitonToLeaving() {
-        authenticateUser()
+        showApplication() // Do not ask for user permission here. Doing so right after presenting the "subscribe" onboarding info might awake the impression that the user needs to purchase to access the app.
     }
 }
  
