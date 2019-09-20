@@ -8,8 +8,13 @@
 
 import Foundation
 import WatchKit
+#if !os(watchOS)
 import Swift_Ledger
+#endif
 
+#if os(watchOS)
+import Swift_Ledger_watchOS
+#endif
 class AccountSelectionController: WKInterfaceController {
 
     @IBOutlet var summaryLabel: WKInterfaceLabel!

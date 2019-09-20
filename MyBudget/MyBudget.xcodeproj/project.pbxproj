@@ -69,8 +69,11 @@
 		EB5C600C22F32960004F81CF /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C600B22F32960004F81CF /* MenuTableViewController.swift */; };
 		EB5CADB722F55DC600205AC8 /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5CADB622F55DC600205AC8 /* AccountTableViewController.swift */; };
 		EB6EF9FF2323B84A00294846 /* Model+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EF9FE2323B84A00294846 /* Model+iOS.swift */; };
-		EB6EFA012323B8AE00294846 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145A22E8AD7300291435 /* Transaction.swift */; };
 		EB6EFA022323B9CB00294846 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB399D742323075400CA0BD8 /* Interface.storyboard */; };
+		EB7FF2552334C4F000CCB877 /* MyBudget_watchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EB399D49232305D800CA0BD8 /* MyBudget_watchOS.app */; };
+		EB7FF2582334C59100CCB877 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145A22E8AD7300291435 /* Transaction.swift */; };
+		EB7FF2852334CA5400CCB877 /* Swift_Ledger_watchOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB7FF2842334CA5000CCB877 /* Swift_Ledger_watchOS.framework */; };
+		EB7FF2862334CA5400CCB877 /* Swift_Ledger_watchOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB7FF2842334CA5000CCB877 /* Swift_Ledger_watchOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EB8472892306AA4400DCD330 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EB8472882306AA4400DCD330 /* Settings.bundle */; };
 		EB985CA722EC699200C033E8 /* verify-sign.png in Resources */ = {isa = PBXBuildFile; fileRef = EB985CA622EC699200C033E8 /* verify-sign.png */; };
 		EB985CB522EC6B5400C033E8 /* FloatyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CB222EC6B2300C033E8 /* FloatyDelegate.swift */; };
@@ -128,6 +131,13 @@
 			remoteGlobalIDString = EB399D54232305DD00CA0BD8;
 			remoteInfo = "MyBudget_watchOS Extension";
 		};
+		EB7FF2562334C4F600CCB877 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBC59D3322E7503900E626DC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB399D48232305D800CA0BD8;
+			remoteInfo = MyBudget_watchOS;
+		};
 		EBE7E2AA2321058500BEC812 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EBC59D3322E7503900E626DC /* Project object */;
@@ -167,16 +177,18 @@
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
+				EB7FF2552334C4F000CCB877 /* MyBudget_watchOS.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EB4831C62326649300D2B87F /* Embed Frameworks */ = {
+		EB7FF2632334C68A00CCB877 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				EB7FF2862334CA5400CCB877 /* Swift_Ledger_watchOS.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,6 +268,7 @@
 		EB5CADB622F55DC600205AC8 /* AccountTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
 		EB668B9D22EF2DDE0082D54B /* MaterialComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MaterialComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB6EF9FE2323B84A00294846 /* Model+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Model+iOS.swift"; sourceTree = "<group>"; };
+		EB7FF2842334CA5000CCB877 /* Swift_Ledger_watchOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Swift_Ledger_watchOS.framework; sourceTree = "<group>"; };
 		EB8472882306AA4400DCD330 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = SOURCE_ROOT; };
 		EB985CA622EC699200C033E8 /* verify-sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "verify-sign.png"; sourceTree = "<group>"; };
 		EB985CAC22EC6B2300C033E8 /* FloatyWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatyWindow.swift; sourceTree = "<group>"; };
@@ -314,6 +327,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB7FF2852334CA5400CCB877 /* Swift_Ledger_watchOS.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB7FF25C2334C63400CCB877 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,6 +371,7 @@
 		1CF7C6954939ED9D3DD0375D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB7FF2842334CA5000CCB877 /* Swift_Ledger_watchOS.framework */,
 				EBEC52F623310A9E00E88BA3 /* Antlr4.framework */,
 				EB0CA7DD2330F6A700C1FED2 /* Swift_Ledger.framework */,
 				EB4F789623196F220045077E /* StoreKit.framework */,
@@ -748,6 +770,7 @@
 			buildPhases = (
 				EB399D47232305D800CA0BD8 /* Resources */,
 				EB399D6E232305DE00CA0BD8 /* Embed App Extensions */,
+				EB7FF25C2334C63400CCB877 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -766,7 +789,7 @@
 				EB399D51232305DD00CA0BD8 /* Sources */,
 				EB399D52232305DD00CA0BD8 /* Frameworks */,
 				EB399D53232305DD00CA0BD8 /* Resources */,
-				EB4831C62326649300D2B87F /* Embed Frameworks */,
+				EB7FF2632334C68A00CCB877 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -792,6 +815,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				EB7FF2572334C4F600CCB877 /* PBXTargetDependency */,
 			);
 			name = MyBudget;
 			productName = MyBudget;
@@ -985,12 +1009,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB399D8323230A9900CA0BD8 /* InterfaceController.swift in Sources */,
-				EB6EFA012323B8AE00294846 /* Transaction.swift in Sources */,
 				EB399D8823230B0600CA0BD8 /* BudgetRow.swift in Sources */,
 				EB399D5F232305DE00CA0BD8 /* NotificationController.swift in Sources */,
 				EB399D61232305DE00CA0BD8 /* ComplicationController.swift in Sources */,
 				EB399D8C23230EBC00CA0BD8 /* Date+Utilities.swift in Sources */,
 				EB399D8623230A9A00CA0BD8 /* EnterNumberInterfaceController.swift in Sources */,
+				EB7FF2582334C59100CCB877 /* Transaction.swift in Sources */,
 				EB399D8D23230EBC00CA0BD8 /* FileManager+DocDir.swift in Sources */,
 				EB399D802323088100CA0BD8 /* WatchSessionManager.swift in Sources */,
 				EB399D9123230EBC00CA0BD8 /* String+OnlyDigits.swift in Sources */,
@@ -1089,6 +1113,11 @@
 			target = EB399D54232305DD00CA0BD8 /* MyBudget_watchOS Extension */;
 			targetProxy = EB399D57232305DE00CA0BD8 /* PBXContainerItemProxy */;
 		};
+		EB7FF2572334C4F600CCB877 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB399D48232305D800CA0BD8 /* MyBudget_watchOS */;
+			targetProxy = EB7FF2562334C4F600CCB877 /* PBXContainerItemProxy */;
+		};
 		EBE7E2AB2321058500BEC812 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EBC59D3A22E7503900E626DC /* MyBudget */;
@@ -1125,6 +1154,10 @@
 				DEVELOPMENT_TEAM = YLJFWRHN2U;
 				IBSC_MODULE = MyBudget_watchOS_Extension;
 				INFOPLIST_FILE = MyBudget_watchOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jraufeisen.MyBudget.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -1144,6 +1177,10 @@
 				DEVELOPMENT_TEAM = YLJFWRHN2U;
 				IBSC_MODULE = MyBudget_watchOS_Extension;
 				INFOPLIST_FILE = MyBudget_watchOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jraufeisen.MyBudget.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -1161,6 +1198,10 @@
 				CODE_SIGN_ENTITLEMENTS = "MyBudget_watchOS Extension/MyBudget_watchOS Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YLJFWRHN2U;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "MyBudget_watchOS Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1184,6 +1225,10 @@
 				CODE_SIGN_ENTITLEMENTS = "MyBudget_watchOS Extension/MyBudget_watchOS Extension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = YLJFWRHN2U;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "MyBudget_watchOS Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

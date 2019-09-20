@@ -7,7 +7,15 @@
 //
 
 import UIKit
+
+#if !os(watchOS)
 import Swift_Ledger
+#endif
+
+#if os(watchOS)
+import Swift_Ledger_watchOS
+#endif
+
 
 enum TransactionType {
     case Income

@@ -1,0 +1,4 @@
+framework module Swift_Ledger_watchOS {
+  header "Swift_Ledger_watchOS-Swift.h"
+  requires objc
+}

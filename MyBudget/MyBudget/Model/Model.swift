@@ -7,7 +7,13 @@
 //
 
 import Foundation
+#if !os(watchOS)
 import Swift_Ledger
+#endif
+
+#if os(watchOS)
+import Swift_Ledger_watchOS
+#endif
 
 typealias DiaryEntry = [(text: String, entryType: EntryType)]
 

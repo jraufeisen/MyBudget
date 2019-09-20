@@ -7,8 +7,13 @@
 //
 
 import WatchConnectivity
+#if !os(watchOS)
 import Swift_Ledger
+#endif
 
+#if os(watchOS)
+import Swift_Ledger_watchOS
+#endif
 /**
 This protocol can be used by classes that want to receive current ledger data.
 Conforming to this protocl will notify you of changes in budget, accounts, ...
