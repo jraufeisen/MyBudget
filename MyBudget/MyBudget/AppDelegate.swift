@@ -54,26 +54,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-
-        if let _ = window?.rootViewController as? LockScreenViewController {
-        } else {
-            window?.rootViewController = LockScreenViewController.instantiate()
-        }
-    }
-
     
     func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-        if let lockscreen = window?.rootViewController as? LockScreenViewController {
-            if !lockscreen.isShowingOnboarding() {
-                lockscreen.authenticateUser()
-            }
-        }
-        
         ServerReceiptValidator().updateExpirationDate()
-
     }
 
 

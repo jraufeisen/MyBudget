@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6ED-mj-fiq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GSZ-AS-OBq">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,7 +13,7 @@
         <!--Budget-->
         <scene sceneID="VDh-Hz-INu">
             <objects>
-                <viewController storyboardIdentifier="budgetTableViewController" id="K8T-vI-pGy" customClass="BudgetTableViewController" customModule="MyBudget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="budgetTableViewController" id="K8T-vI-pGy" customClass="BudgetTableViewController" customModule="Budget_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Y8v-t7-eh3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,7 +23,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="budgetCell" rowHeight="150" id="GAC-xO-CfU" customClass="BudgetTableViewCell" customModule="MyBudget" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="budgetCell" rowHeight="150" id="GAC-xO-CfU" customClass="BudgetTableViewCell" customModule="Budget_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="414" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GAC-xO-CfU" id="D8u-pT-PBU">
@@ -45,7 +45,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sLq-xs-ydB" customClass="PercentFillView" customModule="MyBudget" customModuleProvider="target">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sLq-xs-ydB" customClass="PercentFillView" customModule="Budget_" customModuleProvider="target">
                                                             <rect key="frame" x="8" y="50.5" width="358" height="21"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <color key="tintColor" red="0.20724826390000001" green="0.21195419520547945" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -129,7 +129,7 @@
         <!--Menu-->
         <scene sceneID="YxC-yK-2ja">
             <objects>
-                <tableViewController storyboardIdentifier="MenuViewController" title="Menu" id="6w7-Fp-Ix0" customClass="MenuTableViewController" customModule="MyBudget" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="MenuViewController" title="Menu" id="6w7-Fp-Ix0" customClass="MenuTableViewController" customModule="Budget_" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="RZA-CX-KLc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -138,7 +138,7 @@
                         <sections>
                             <tableViewSection id="WJd-h3-P9Y">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="44" id="gzT-Wn-G2o" customClass="MenuCell" customModule="MyBudget" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="44" id="gzT-Wn-G2o" customClass="MenuCell" customModule="Budget_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="35" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gzT-Wn-G2o" id="lL8-Iv-hst">
@@ -171,7 +171,7 @@
                                             <outlet property="label" destination="zeT-Bf-Xpt" id="W4U-li-ee2"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="44" id="4g1-Wm-oQU" customClass="MenuCell" customModule="MyBudget" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="44" id="4g1-Wm-oQU" customClass="MenuCell" customModule="Budget_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="79" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4g1-Wm-oQU" id="4ER-d0-N0p">
@@ -204,7 +204,7 @@
                                             <outlet property="label" destination="fkb-Fg-TxV" id="fOW-s1-7TA"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="44" id="DaK-SS-bVE" customClass="MenuCell" customModule="MyBudget" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="44" id="DaK-SS-bVE" customClass="MenuCell" customModule="Budget_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="123" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DaK-SS-bVE" id="zYd-vX-cqA">
@@ -237,7 +237,7 @@
                                             <outlet property="label" destination="tlO-WD-AoJ" id="MZw-W2-ywp"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="44" id="jJ7-nO-q95" customClass="MenuCell" customModule="MyBudget" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="44" id="jJ7-nO-q95" customClass="MenuCell" customModule="Budget_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="167" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jJ7-nO-q95" id="vRN-pW-D8a">
@@ -288,7 +288,7 @@
         <!--Budget-->
         <scene sceneID="fvN-0f-UDq">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Whq-2e-P1F" customClass="MenuPresentingViewController" customModule="MyBudget" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Whq-2e-P1F" customClass="MenuPresentingViewController" customModule="Budget_" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Budget" image="Bag" id="aYr-Bw-ZEY"/>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -311,7 +311,7 @@
         <!--Lock Screen View Controller-->
         <scene sceneID="Rzx-Qi-XYv">
             <objects>
-                <viewController storyboardIdentifier="LockScreenController" id="6ED-mj-fiq" customClass="LockScreenViewController" customModule="MyBudget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LockScreenController" id="6ED-mj-fiq" customClass="LockScreenViewController" customModule="Budget_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Faf-sX-95x">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -356,7 +356,7 @@
         <!--Tabbar View Controller-->
         <scene sceneID="LuQ-zD-a5z">
             <objects>
-                <tabBarController storyboardIdentifier="TabbarController" id="GSZ-AS-OBq" customClass="TabbarViewController" customModule="MyBudget" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabbarController" id="GSZ-AS-OBq" customClass="TabbarViewController" customModule="Budget_" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gkD-qs-8Sd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -376,7 +376,7 @@
         <!--Add Accounts View Controller-->
         <scene sceneID="a6N-FK-vs4">
             <objects>
-                <viewController id="ahe-S5-pBX" customClass="AddAccountsViewController" customModule="MyBudget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ahe-S5-pBX" customClass="AddAccountsViewController" customModule="Budget_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WOn-E8-6Fb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -418,7 +418,7 @@
         <!--Enter Number View Controller-->
         <scene sceneID="tgf-jQ-UOh">
             <objects>
-                <viewController storyboardIdentifier="EnterAmountVC" id="Kes-Lw-ZwS" customClass="EnterNumberViewController" customModule="MyBudget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EnterAmountVC" id="Kes-Lw-ZwS" customClass="EnterNumberViewController" customModule="Budget_" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yYR-nc-Ht5"/>
                         <viewControllerLayoutGuide type="bottom" id="Qbu-nK-Tmf"/>
@@ -427,7 +427,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qve-9L-pq5" customClass="DiaryTextView" customModule="MyBudget" customModuleProvider="target">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qve-9L-pq5" customClass="DiaryTextView" customModule="Budget_" customModuleProvider="target">
                                 <rect key="frame" x="20" y="52" width="374" height="330"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -458,7 +458,7 @@
         <!--Strom-->
         <scene sceneID="Mj7-QQ-sFU">
             <objects>
-                <tableViewController storyboardIdentifier="budgetDetailVC" title="Strom" id="eeC-0O-N3j" customClass="BudgetDetailViewController" customModule="MyBudget" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="budgetDetailVC" title="Strom" id="eeC-0O-N3j" customClass="BudgetDetailViewController" customModule="Budget_" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CfM-oc-6XS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -467,7 +467,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="414" height="230"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="42.42 €" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wSP-ck-B9a" customClass="MoneyTextField" customModule="MyBudget" customModuleProvider="target">
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="42.42 €" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wSP-ck-B9a" customClass="MoneyTextField" customModule="Budget_" customModuleProvider="target">
                                     <rect key="frame" x="8" y="83" width="398" height="64"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -510,7 +510,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="transactionCell" rowHeight="78" id="uhd-Et-bHP" customClass="CategoryTransacitonCell" customModule="MyBudget" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="transactionCell" rowHeight="78" id="uhd-Et-bHP" customClass="CategoryTransacitonCell" customModule="Budget_" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="258" width="414" height="78"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uhd-Et-bHP" id="rXb-G2-tiM">
@@ -580,7 +580,7 @@
         <!--Accounts-->
         <scene sceneID="Wj6-FU-KtU">
             <objects>
-                <viewController storyboardIdentifier="AccountsViewController" title="Accounts" id="8LR-fY-mkU" customClass="AccountTableViewController" customModule="MyBudget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AccountsViewController" title="Accounts" id="8LR-fY-mkU" customClass="AccountTableViewController" customModule="Budget_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ya5-pT-6tN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -590,7 +590,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="incomeStatementCell" rowHeight="150" id="Bpe-23-Ili" customClass="IncomeStatementCell" customModule="MyBudget" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="incomeStatementCell" rowHeight="150" id="Bpe-23-Ili" customClass="IncomeStatementCell" customModule="Budget_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="55.5" width="414" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bpe-23-Ili" id="M73-MC-NZs">
@@ -606,7 +606,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fg9-Cv-HGL" customClass="IncomeStatementPercentView" customModule="MyBudget" customModuleProvider="target">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fg9-Cv-HGL" customClass="IncomeStatementPercentView" customModule="Budget_" customModuleProvider="target">
                                                             <rect key="frame" x="8" y="74" width="358" height="21"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -617,7 +617,7 @@
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isIncome" value="NO"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ii-nt-K7z" customClass="IncomeStatementPercentView" customModule="MyBudget" customModuleProvider="target">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ii-nt-K7z" customClass="IncomeStatementPercentView" customModule="Budget_" customModuleProvider="target">
                                                             <rect key="frame" x="8" y="48" width="358" height="21"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -664,7 +664,7 @@
                                             <outlet property="insetView" destination="Jig-FL-egg" id="5DO-Ah-PLA"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="incomeStatemenetAccountCell" rowHeight="150" id="vtZ-Us-hgd" customClass="IncomeStatementAccountCell" customModule="MyBudget" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="incomeStatemenetAccountCell" rowHeight="150" id="vtZ-Us-hgd" customClass="IncomeStatementAccountCell" customModule="Budget_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="205.5" width="414" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vtZ-Us-hgd" id="sKe-SA-May">
@@ -686,7 +686,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T2B-e5-SyN" customClass="IncomeStatementPercentView" customModule="MyBudget" customModuleProvider="target">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T2B-e5-SyN" customClass="IncomeStatementPercentView" customModule="Budget_" customModuleProvider="target">
                                                             <rect key="frame" x="8" y="48" width="358" height="21"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -701,7 +701,7 @@
                                                                 <userDefinedRuntimeAttribute type="string" keyPath="overlayText" value="00,00 €"/>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uD1-kw-9nG" customClass="IncomeStatementPercentView" customModule="MyBudget" customModuleProvider="target">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uD1-kw-9nG" customClass="IncomeStatementPercentView" customModule="Budget_" customModuleProvider="target">
                                                             <rect key="frame" x="8" y="77" width="358" height="21"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -778,7 +778,7 @@
         <!--Reports-->
         <scene sceneID="uII-JL-GFF">
             <objects>
-                <viewController storyboardIdentifier="monthlyAverageVC" title="Reports" id="evH-lk-FTK" customClass="MonthlyAverageViewController" customModule="MyBudget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="monthlyAverageVC" title="Reports" id="evH-lk-FTK" customClass="MonthlyAverageViewController" customModule="Budget_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MDv-TH-XYa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -878,7 +878,7 @@
         <!--Transactions-->
         <scene sceneID="29q-x8-IJ3">
             <objects>
-                <viewController id="q9W-M4-2Gu" customClass="TransactionsViewController" customModule="MyBudget" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="q9W-M4-2Gu" customClass="TransactionsViewController" customModule="Budget_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Qv-zp-w8W">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -887,7 +887,7 @@
                                 <rect key="frame" x="0.0" y="28.5" width="414" height="896"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="transactionCell" rowHeight="78" id="YtA-Ud-31m" customClass="CategoryTransacitonCell" customModule="MyBudget" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="transactionCell" rowHeight="78" id="YtA-Ud-31m" customClass="CategoryTransacitonCell" customModule="Budget_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="78"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YtA-Ud-31m" id="F8F-Dk-AqD">
