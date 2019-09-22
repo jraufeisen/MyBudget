@@ -36,6 +36,28 @@ class ServerReceiptValidator: ReceiptValidator {
     
     static let subscriptionStatusDidChangeMessage = Notification.Name.init("subscriptionStatusDidChange")
     
+    func restorePurchasesAndReloadSubscriptionState(completion: (() -> ())?) {
+        SwiftyStoreKit.restorePurchases { (results: RestoreResults) in
+            for purchase in results.restoredPurchases {
+                switch purchase.transaction.transactionState {
+                case .purchased, .restored:
+                    if purchase.needsFinishTransaction {
+                        // Deliver content from server, then:
+                        SwiftyStoreKit.finishTransaction(purchase.transaction)
+                    }
+
+                case .failed, .purchasing, .deferred:
+                break // do nothing
+                @unknown default:
+                    break // do nothing
+                }
+            }
+            self.updateExpirationDate()
+            completion?()
+        }
+    }
+
+    
     private let expKey = "expDate"
     func updateExpirationDate() {
         SwiftyStoreKit.verifyReceipt(using: ServerReceiptValidator()) { (result) in

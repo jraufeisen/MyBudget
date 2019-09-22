@@ -38,14 +38,30 @@ enum BulletinDataSource {
         subscriptionPage.descriptionText = "Unlock unlimited access by subscribing either monthly or annualy."
         subscriptionPage.actionButtonTitle = "Learn More"
         subscriptionPage.actionHandler = { (item: BLTNActionItem) in
+            let choice = makeChoicePage()
+            subscriptionPage.next = choice
             item.manager?.displayNextItem()
         }
-        subscriptionPage.alternativeButtonTitle = "Not now"
+        subscriptionPage.alternativeButtonTitle = "Restore Purchases"
         subscriptionPage.alternativeHandler = { (item: BLTNActionItem) in
-            item.manager?.dismissBulletin(animated: true)
+
+            item.manager?.displayActivityIndicator()
+            ServerReceiptValidator().restorePurchasesAndReloadSubscriptionState() {
+                let completion = makeRestoreCompletedPage()
+                subscriptionPage.next = completion
+                item.manager?.displayNextItem()
+                item.manager?.hideActivityIndicator()
+
+            }
         }
         
         return subscriptionPage
+    }
+    
+    static func makeRestoreCompletedPage() -> BLTNPageItem {
+        let completion = makeCompletionPage()
+        completion.descriptionText = "Your purchases have been restored"
+        return completion
     }
     
     static func makeCompletionPage() -> BLTNPageItem {
@@ -59,7 +75,6 @@ enum BulletinDataSource {
         
         page.descriptionText = "You now have unlimited access to Budget!"
         page.actionButtonTitle = "Get started"
-        page.alternativeButtonTitle = "Dismiss"
         
         page.isDismissable = true
         
