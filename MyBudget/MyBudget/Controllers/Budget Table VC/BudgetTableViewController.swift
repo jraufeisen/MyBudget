@@ -193,7 +193,7 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cat = budgetCategories[indexPath.section]
+        let cat = budgetCategories[indexPath.row]
         let vc = BudgetDetailViewController.instantiate(with: cat)
         navigationController?.pushViewController(vc, animated: true)
     }
