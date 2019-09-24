@@ -25,9 +25,12 @@ enum BulletinDataSource {
         page.descriptionText = "All subscriptions sync across your iCloud devices"
         page.actionButtonTitle = "Purchase"
 
-        
-        return page
+        if #available(iOS 13.0, *) {
+            page.appearance.titleTextColor = .label
+            page.appearance.descriptionTextColor = .label
+        }
 
+        return page
     }
 
    
@@ -55,6 +58,12 @@ enum BulletinDataSource {
             }
         }
         
+        if #available(iOS 13.0, *) {
+            subscriptionPage.appearance.titleTextColor = .label
+            subscriptionPage.appearance.descriptionTextColor = .label
+        }
+        
+        
         return subscriptionPage
     }
     
@@ -67,6 +76,7 @@ enum BulletinDataSource {
     static func makeCompletionPage() -> BLTNPageItem {
         
         let page = BLTNPageItem(title: "Success")
+
         page.image = #imageLiteral(resourceName: "IntroCompletion")
         page.imageAccessibilityLabel = "Checkmark"
         page.appearance.actionButtonColor = #colorLiteral(red: 0.2980392157, green: 0.8509803922, blue: 0.3921568627, alpha: 1)
@@ -89,6 +99,12 @@ enum BulletinDataSource {
         page.alternativeHandler = { item in
             item.manager?.dismissBulletin(animated: true)
         }
+        
+        if #available(iOS 13.0, *) {
+            page.appearance.titleTextColor = .label
+            page.appearance.descriptionTextColor = .label
+        }
+
         
         return page
         

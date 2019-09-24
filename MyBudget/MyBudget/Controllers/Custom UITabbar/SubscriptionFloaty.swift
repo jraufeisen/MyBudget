@@ -36,11 +36,19 @@ class SubscriptionFloaty: Floaty {
         self.accessibilityLabel = "Add new transaction"
 
         buttonColor = .white
+        
+        if #available(iOS 13.0, *) {
+            buttonColor = UIColor.tertiarySystemGroupedBackground
+        }
+        
         plusColor = UITabBar().tintColor //Standard blue tint color
         itemSize = 50
         overlayColor = .clear // Use custom blur instead, so that tabbar stays white
 
         incomeItem.titleColor = .darkText
+        if #available(iOS 13.0, *) {
+            incomeItem.titleColor = UIColor.label
+        }
         incomeItem.icon = UIImage.init(named: "euro")?.withRenderingMode(.alwaysTemplate)
         incomeItem.title = "Income"
         incomeItem.tintColor = .white
@@ -51,6 +59,9 @@ class SubscriptionFloaty: Floaty {
         addItem(item: incomeItem)
         
         transferItem.titleColor = .darkText
+        if #available(iOS 13.0, *) {
+            transferItem.titleColor = UIColor.label
+        }
         transferItem.icon = UIImage.init(named: "euro")?.withRenderingMode(.alwaysTemplate)
         transferItem.title = "Transfer"
         transferItem.tintColor = .white
@@ -61,6 +72,9 @@ class SubscriptionFloaty: Floaty {
 
 
         expenseItem.titleColor = .darkText
+        if #available(iOS 13.0, *) {
+            expenseItem.titleColor = UIColor.label
+        }
         expenseItem.icon = UIImage.init(named: "euro")?.withRenderingMode(.alwaysTemplate)
         expenseItem.title = "Expense"
         expenseItem.tintColor = .white
@@ -71,6 +85,9 @@ class SubscriptionFloaty: Floaty {
         addItem(item: expenseItem)
         
         subscribeItem.titleColor = .darkText
+        if #available(iOS 13.0, *) {
+            subscribeItem.titleColor = UIColor.label
+        }
         subscribeItem.icon = #imageLiteral(resourceName: "Logo_Only").withRenderingMode(.alwaysTemplate)
         subscribeItem.title = "Subscribe"
         subscribeItem.tintColor = .white

@@ -112,6 +112,7 @@
 		EBEC52F923310AEA00E88BA3 /* Antlr4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBEC52F623310A9E00E88BA3 /* Antlr4.framework */; };
 		EBEC52FA23310AEA00E88BA3 /* Antlr4.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EBEC52F623310A9E00E88BA3 /* Antlr4.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EBF2F67C22E8D91300C2772F /* AccountTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF2F67B22E8D91300C2772F /* AccountTableView.swift */; };
+		EBF3A88B233AB926003093B7 /* StandardNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF3A88A233AB926003093B7 /* StandardNavigationViewController.swift */; };
 		EBF560F82305EFD400E850E7 /* NewBudgetCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF560F72305EFD400E850E7 /* NewBudgetCategoryViewController.swift */; };
 		EBF560FB2305F06C00E850E7 /* NewBudgetCategoryDiaryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF560FA2305F06C00E850E7 /* NewBudgetCategoryDiaryProvider.swift */; };
 		EBF560FD2305F47F00E850E7 /* UIImage+Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF560FC2305F47F00E850E7 /* UIImage+Macro.swift */; };
@@ -303,6 +304,7 @@
 		EBEB8B1B23145D5C009F65B8 /* NewAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAccountViewController.swift; sourceTree = "<group>"; };
 		EBEC52F623310A9E00E88BA3 /* Antlr4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Antlr4.framework; sourceTree = "<group>"; };
 		EBF2F67B22E8D91300C2772F /* AccountTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableView.swift; sourceTree = "<group>"; };
+		EBF3A88A233AB926003093B7 /* StandardNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardNavigationViewController.swift; sourceTree = "<group>"; };
 		EBF560F72305EFD400E850E7 /* NewBudgetCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBudgetCategoryViewController.swift; sourceTree = "<group>"; };
 		EBF560FA2305F06C00E850E7 /* NewBudgetCategoryDiaryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBudgetCategoryDiaryProvider.swift; sourceTree = "<group>"; };
 		EBF560FC2305F47F00E850E7 /* UIImage+Macro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Macro.swift"; sourceTree = "<group>"; };
@@ -517,6 +519,7 @@
 				EBB21C8123054E77004E4E8F /* Custom UITabbar */,
 				EBA19223230482A200DA9308 /* Monthly Average */,
 				EBB21C8423055536004E4E8F /* Transactions */,
+				EBF3A887233AB874003093B7 /* Standard UINavigationBar */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -721,6 +724,14 @@
 				EB5C600822F32417004F81CF /* TextAnimation.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EBF3A887233AB874003093B7 /* Standard UINavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				EBF3A88A233AB926003093B7 /* StandardNavigationViewController.swift */,
+			);
+			path = "Standard UINavigationBar";
 			sourceTree = "<group>";
 		};
 		EBF560F92305EFD800E850E7 /* New Budget Category */ = {
@@ -1067,6 +1078,7 @@
 				EBF595B72305852100BF9E40 /* LockScreenViewController.swift in Sources */,
 				EB1BCBBC2305AD2A0023E11F /* NewAccountDiaryProvider.swift in Sources */,
 				EB985CB822EC6B5800C033E8 /* FloatyItem.swift in Sources */,
+				EBF3A88B233AB926003093B7 /* StandardNavigationViewController.swift in Sources */,
 				EB4F789D2319B31C0045077E /* SubscriptionSelectorBulletin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

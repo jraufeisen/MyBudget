@@ -23,9 +23,10 @@ class TabbarViewController: UITabBarController, FloatyDelegate {
        
         let subscriptionPage = BulletinDataSource.makeSubscriptionPage()
         subscriptionPage.next = BulletinDataSource.makeChoicePage()
-        
         let manager = BLTNItemManager(rootItem: subscriptionPage)
-
+        if #available(iOS 13.0, *) {
+            manager.backgroundColor = UIColor.secondarySystemBackground
+        }
         return manager
     }()
 

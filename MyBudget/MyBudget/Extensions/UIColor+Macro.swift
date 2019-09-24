@@ -10,9 +10,9 @@ import UIKit
 
 extension UIColor {
     
-    static var incomeColor = UIColor.init(red: 0/255, green: 175/255, blue: 68/255, alpha: 1.0)
-    static var expenseColor = UIColor.init(red: 204/255, green: 0/255, blue: 0/255, alpha: 1.0)
-    static var transferColor = UIColor.init(red: 250/255, green: 193/255, blue: 0/255, alpha: 1.0)
+    static var incomeColor = UIColor.systemGreen
+    static var expenseColor = UIColor.systemRed
+    static var transferColor = UIColor.systemYellow
 
     static var blueActionColor = UIColor(red: 73/255.0, green: 151/255.0, blue: 241/255.0, alpha: 1)
 
@@ -25,7 +25,7 @@ extension UIColor {
         } else if type == .Transfer {
             return UIColor.transferColor
         }
-        return UIColor.purple
+        return UIColor.systemPurple
     }
 }
 

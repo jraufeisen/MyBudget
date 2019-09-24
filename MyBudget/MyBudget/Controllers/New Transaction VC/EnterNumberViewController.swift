@@ -24,7 +24,6 @@ class EnterNumberViewController: UIViewController {
         }
         return vc
     }
-
  
     @IBOutlet weak var diaryTextView: DiaryTextView!
     private var transaction: Transaction = IncomeTransaction()
@@ -45,12 +44,20 @@ class EnterNumberViewController: UIViewController {
     private func addBarButtonItems() {
         navigationItem.leftBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .stop, target: self, action: #selector(self.pressedCancelButton))
         navigationItem.leftBarButtonItem?.tintColor = .white
+        
+        if #available(iOS 13.0, *) {
+            navigationController?.navigationBar.backgroundColor = .clear // iOS 13 allows for a more "cardy" look
+            self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+            self.navigationController?.navigationBar.shadowImage = UIImage()
+            self.navigationController?.navigationBar.isTranslucent = true
+            self.navigationController?.view.backgroundColor = .clear
+        }
     }
+
     @objc func pressedCancelButton() {
         _ = diaryTextView.resignFirstResponder()
         dismiss(animated: true, completion: nil)
     }
-    
     
     private func addfloatingButton() {
         let floaty = Floaty()
@@ -74,13 +81,9 @@ class EnterNumberViewController: UIViewController {
         view.addSubview(floaty)
     }
    
-    
     private func updateBackground() {
         self.view.backgroundColor = UIColor.colorForTransaction(type: transaction.type)
-      
     }
-    
-    
 
 }
 

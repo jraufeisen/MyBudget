@@ -28,6 +28,11 @@ class BudgetTableViewCell: UITableViewCell {
         insetView.layer.cornerRadius = 10
         insetView.layer.masksToBounds = true
         
+        if #available(iOS 13.0, *) {
+            insetView.backgroundColor = UIColor.secondarySystemGroupedBackground
+            detailLabel.textColor = UIColor.label
+        }
+        
         percentFillView.tintColor = .blueActionColor
         
         selectionStyle = .none

@@ -22,6 +22,10 @@ class MonthlyAverageViewController: UIViewController, UITableViewDelegate, UITab
     }
 
     override func viewDidLoad() {
+
+
+        
+        
         if viewables.isEmpty {
             addHelpingLabels()
         } else {

@@ -42,6 +42,15 @@ class NewBudgetCategoryViewController: UIViewController {
         
         view.backgroundColor = .incomeColor
         
+        if #available(iOS 13.0, *) {
+            navigationController?.navigationBar.backgroundColor = .clear // iOS 13 allows for a more "cardy" look
+            self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+            self.navigationController?.navigationBar.shadowImage = UIImage()
+            self.navigationController?.navigationBar.isTranslucent = true
+            self.navigationController?.view.backgroundColor = .clear
+        }
+
+        
         diaryTextView.diaryDelegate = self
         diaryTextView.becomeFirstResponder()
     }

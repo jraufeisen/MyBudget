@@ -27,7 +27,7 @@ class EnterNumberInterfaceController: WKInterfaceController {
         guard let type = con.type else {return}
         switch type {
         case .Expense:
-            numberLabel.setTextColor(UIColor.red)
+            numberLabel.setTextColor(UIColor.red )
         case .Transfer:
             numberLabel.setTextColor(.transferColor)
         case .Income:

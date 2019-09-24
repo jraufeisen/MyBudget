@@ -83,6 +83,7 @@ import UIKit
         // Exception: If the value to display is exactly 0, dont show anything at all
         var drawWidth = max(self.frame.width * fillProportion, overlayLabel.frame.maxX + 8)
         if fillProportion == 0 {
+            overlayLabel.text = ""
             drawWidth = 0
         }
         

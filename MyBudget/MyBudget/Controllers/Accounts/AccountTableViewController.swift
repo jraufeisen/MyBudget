@@ -22,6 +22,12 @@ class IncomeStatementCell : UITableViewCell {
         insetView.layer.cornerRadius = 10
         insetView.layer.masksToBounds = true
         selectionStyle = .none
+        
+        if #available(iOS 13.0, *) {
+            insetView.backgroundColor = UIColor.secondarySystemGroupedBackground
+            headerLabel.textColor = UIColor.label
+        }
+
     }
 
     
@@ -42,6 +48,13 @@ class IncomeStatementAccountCell: UITableViewCell {
         insetView.layer.cornerRadius = 10
         insetView.layer.masksToBounds = true
         selectionStyle = .none
+        
+        if #available(iOS 13.0, *) {
+            insetView.backgroundColor = UIColor.secondarySystemGroupedBackground
+            accountLabel.textColor = UIColor.label
+            moneyLabel.textColor = UIColor.label
+        }
+
     }
     
 }
