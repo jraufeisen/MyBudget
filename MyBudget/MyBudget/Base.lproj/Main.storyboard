@@ -954,19 +954,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Transactions" id="6XQ-7K-xRJ"/>
                     <connections>
-                        <outlet property="searchDisplayController" destination="tWI-cS-TYF" id="Scg-dJ-nYo"/>
                         <outlet property="tableView" destination="b8m-qa-qFV" id="jiy-Iq-0fl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jvp-B0-XrF" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="tWI-cS-TYF">
-                    <connections>
-                        <outlet property="delegate" destination="q9W-M4-2Gu" id="gEE-s4-fuz"/>
-                        <outlet property="searchContentsController" destination="q9W-M4-2Gu" id="4cB-Gq-Sal"/>
-                        <outlet property="searchResultsDataSource" destination="q9W-M4-2Gu" id="BaU-Hx-rus"/>
-                        <outlet property="searchResultsDelegate" destination="q9W-M4-2Gu" id="ZZX-6U-ttK"/>
-                    </connections>
-                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="586.95652173913049" y="2368.5267857142858"/>
         </scene>
