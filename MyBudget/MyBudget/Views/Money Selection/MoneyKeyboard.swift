@@ -20,6 +20,7 @@ class MoneyKeyboard: APNumberPad {
     
     ///Saves sequence of entered digits. Only allows editing in this range of characters
     private var characterSequence = ""
+    /// Text which is currently displayed on screen. This includes money formatting and is autmatically created.
     private var currentlyDisplayed = ""
 
     
@@ -73,10 +74,15 @@ class MoneyKeyboard: APNumberPad {
 
     
     func moneyEntered() -> Money {
-        let pureDigits = currentlyDisplayed.onlyDigits()
+        let pureDigits = characterSequence.onlyDigits()
+
+        guard !pureDigits.isEmpty else {
+            return 0
+        }
         guard let minorUnits = Int(pureDigits) else {
             fatalError("Keyboard was not able to enter money in correct format")
         }
+        
         return Money.init(minorUnits: minorUnits)
     }
     
@@ -118,27 +124,7 @@ class MoneyKeyboard: APNumberPad {
 
   
     private func currentMoneyText() -> String {
-        if characterSequence.count <= 2 {
-            var fillUpZeros = ""
-            var i = 2 - characterSequence.count
-            while i > 0 {
-                fillUpZeros += "0"
-                i -= 1
-            }
-            print(characterSequence)
-            return "00," + fillUpZeros + characterSequence + "€"
-        } else {
-            let decimalBegin = characterSequence.index(characterSequence.endIndex, offsetBy: -2)
-            let decimalEnd = characterSequence.index(characterSequence.endIndex, offsetBy: -1)
-            let cents = String(characterSequence[decimalBegin...decimalEnd])
-            var units = String(characterSequence[characterSequence.startIndex..<decimalBegin])
-            if units.count == 1 {
-                units = "0" + units
-            }
-            
-            
-            return units + "," + cents + "€"
-        }
+        return "\(moneyEntered())" // Automatically return locaized money value
     }
     
     private func insertMoneyText() {
