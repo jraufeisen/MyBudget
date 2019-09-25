@@ -16,7 +16,7 @@ import UIKit
     private var overlayLabel : UILabel!
     
     
-    ///Between 0 and 1
+    /// Only senseful between 0 and 1
     @IBInspectable var fillProportion: CGFloat = 0.5 {
         didSet {
             setUpView()

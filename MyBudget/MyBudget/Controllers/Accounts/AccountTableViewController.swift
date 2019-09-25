@@ -102,13 +102,13 @@ class AccountTableViewController: UIViewController, UITableViewDelegate, UITable
             cell.expenseFillView.overlayText = "\(incomestatement.spentThisMonth)"
 
             //Calculate percentages
-            let totalActivity = (incomestatement.earnedThisMonth+incomestatement.spentThisMonth)
-            if totalActivity.minorUnits == 0 {
+            let totalActivity = abs(incomestatement.earnedThisMonth.floatValue)+abs(incomestatement.spentThisMonth.floatValue)
+            if totalActivity == 0 {
                 cell.incomeFillView.fillProportion = 0
                 cell.expenseFillView.fillProportion = 0
             } else {
-                cell.incomeFillView.fillProportion = CGFloat( (incomestatement.earnedThisMonth).floatValue/(totalActivity).floatValue )
-                cell.expenseFillView.fillProportion = CGFloat( (incomestatement.spentThisMonth).floatValue/(totalActivity).floatValue )
+                cell.incomeFillView.fillProportion = abs(CGFloat( (incomestatement.earnedThisMonth).floatValue/(totalActivity) ))
+                cell.expenseFillView.fillProportion = abs(CGFloat( (incomestatement.spentThisMonth).floatValue/(totalActivity) ))
             }
             
             return cell
@@ -125,13 +125,13 @@ class AccountTableViewController: UIViewController, UITableViewDelegate, UITable
         cell.expenseFillView.overlayText = "\(viewable.spentThisMonth)"
 
         //Calculate percentages
-        let totalActivity = (viewable.earnedThisMonth+viewable.spentThisMonth)
-        if totalActivity.minorUnits == 0 {
+        let totalActivity = abs(incomestatement.earnedThisMonth.floatValue)+abs(incomestatement.spentThisMonth.floatValue)
+        if totalActivity == 0 {
             cell.incomeFillView.fillProportion = 0
             cell.expenseFillView.fillProportion = 0
         } else {
-            cell.incomeFillView.fillProportion = CGFloat( (viewable.earnedThisMonth).floatValue/(totalActivity).floatValue )
-            cell.expenseFillView.fillProportion = CGFloat( (viewable.spentThisMonth).floatValue/(totalActivity).floatValue )
+            cell.incomeFillView.fillProportion = abs(CGFloat( (viewable.earnedThisMonth).floatValue/(totalActivity) ))
+            cell.expenseFillView.fillProportion = abs(CGFloat( (viewable.spentThisMonth).floatValue/(totalActivity) ))
         }
 
         return cell
