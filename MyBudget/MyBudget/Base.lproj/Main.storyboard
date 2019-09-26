@@ -961,6 +961,36 @@
             </objects>
             <point key="canvasLocation" x="586.95652173913049" y="2368.5267857142858"/>
         </scene>
+        <!--Transaction Details-->
+        <scene sceneID="imS-Xw-Cbq">
+            <objects>
+                <tableViewController storyboardIdentifier="ExpenseDetailsVC" title="Transaction Details" id="EbF-FD-uqN" customClass="ExpenseDetailTableViewController" customModule="Budget_" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="eL1-Uh-mnh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="sbC-0e-WsS">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sbC-0e-WsS" id="y1c-3G-efP">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="EbF-FD-uqN" id="JHP-fT-I3O"/>
+                            <outlet property="delegate" destination="EbF-FD-uqN" id="OY1-Pk-YCC"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Details" id="h7g-E7-psz"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ylQ-dK-dLc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1563.768115942029" y="2368.5267857142858"/>
+        </scene>
         <!--Transactions-->
         <scene sceneID="qCx-o7-TAG">
             <objects>

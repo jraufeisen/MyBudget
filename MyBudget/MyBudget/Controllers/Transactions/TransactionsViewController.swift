@@ -67,6 +67,23 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            //transactions.remove(at: indexPath.row)
+            //self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            // TODO: Implement deletion of transactions from ledger file
+            print("TODO: Delete transactions")
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let tx = filteredTransactions[indexPath.row]
+        if let expenseTx = tx as? ExpenseTransaction  {
+            // Show detail controller for expense transactions
+            navigationController?.pushViewController(ExpenseDetailTableViewController.instantiate(for: expenseTx), animated: true)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 66
     }
