@@ -2,7 +2,7 @@
 //  Model.swift
 //  MyBudget
 //
-//  Created by Johannes on 23.07.19.
+//  Created by Johannes on 23.07.value9.
 //  Copyright © 2019 Johannes Raufeisen. All rights reserved.
 //
 
@@ -223,18 +223,18 @@ class Model: NSObject {
                 let relevantTx = ExpenseTransaction()
                 relevantTx.transactionDescription = tx.name
                 for post in tx.postings {
-                    let dec = NSDecimalNumber.init(decimal: post.1)
+                    let dec = NSDecimalNumber.init(decimal: post.value)
                     relevantTx.value = Money(dec.floatValue)
                     relevantTx.date = tx.date
                     
-                    if post.0.name.contains("Banking:") {
-                        if let bankingAccount = post.0.name.components(separatedBy: ":").last {
+                    if post.account.name.contains("Banking:") {
+                        if let bankingAccount = post.account.name.components(separatedBy: ":").last {
                             relevantTx.account = bankingAccount
                         }
                     }
                     
-                    if post.0.name.contains("Expenses:") {
-                        if let budgetCategory = post.0.name.components(separatedBy: ":").last {
+                    if post.account.name.contains("Expenses:") {
+                        if let budgetCategory = post.account.name.components(separatedBy: ":").last {
                             relevantTx.category = budgetCategory
                         }
                     }
@@ -248,12 +248,12 @@ class Model: NSObject {
                 let relevantTx = IncomeTransaction()
                 relevantTx.transactionDescription = tx.name
                 for post in tx.postings {
-                    let dec = NSDecimalNumber.init(decimal: post.1)
+                    let dec = NSDecimalNumber.init(decimal: post.value)
                     relevantTx.value = Money(-dec.floatValue)
                     relevantTx.date = tx.date
                     
-                    if post.0.name.contains("Banking:") {
-                        if let bankingAccount = post.0.name.components(separatedBy: ":").last {
+                    if post.account.name.contains("Banking:") {
+                        if let bankingAccount = post.account.name.components(separatedBy: ":").last {
                             relevantTx.account = bankingAccount
                         }
                     }
@@ -267,15 +267,15 @@ class Model: NSObject {
                 relevantTx.transactionDescription = tx.name
                 relevantTx.date = tx.date
                 for post in tx.postings {
-                    let dec = NSDecimalNumber.init(decimal: post.1)
+                    let dec = NSDecimalNumber.init(decimal: post.value)
                     relevantTx.value = Money(abs(dec.floatValue))
                     
                     if dec < 0 {
-                        if let bankingAccount = post.0.name.components(separatedBy: ":").last {
+                        if let bankingAccount = post.account.name.components(separatedBy: ":").last {
                             relevantTx.fromAccount = bankingAccount
                         }
                     } else {
-                        if let bankingAccount = post.0.name.components(separatedBy: ":").last {
+                        if let bankingAccount = post.account.name.components(separatedBy: ":").last {
                             relevantTx.toAccount = bankingAccount
                         }
                     }
@@ -302,17 +302,17 @@ class Model: NSObject {
             let relevantTx = ExpenseTransaction.init()
             for post in tx.postings {
                 // do not include budgeting transactions, only real expenses
-                if post.0.name.contains(category) && tx.isExpense() {
+                if post.account.name.contains(category) && tx.isExpense() {
                     
                     relevantTx.category = category
                     relevantTx.transactionDescription = tx.name
-                    let dec = NSDecimalNumber.init(decimal: post.1)
+                    let dec = NSDecimalNumber.init(decimal: post.value)
                     relevantTx.value = Money(dec.floatValue)
                     relevantTx.date = tx.date
                 }
                 
-                if post.0.name.contains("Banking:") {
-                    if let bankingAccount = post.0.name.components(separatedBy: ":").last {
+                if post.account.name.contains("Banking:") {
+                    if let bankingAccount = post.account.name.components(separatedBy: ":").last {
                         relevantTx.account = bankingAccount
                     }
                 }
