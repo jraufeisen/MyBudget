@@ -204,7 +204,7 @@ class Model: NSObject {
         _ = LedgerModel.shared().postIncome(acc: Account.init(name: "Assets:Banking:\(transaction.account)"), value: "\(transaction.value.amount)", description: transaction.transactionDescription)
     }
     private func addTransaction(transaction: ExpenseTransaction) {
-        _ = LedgerModel.shared().postExpense(acc: "Assets:Banking:\(transaction.account)", value: "\(transaction.value.amount)", category: transaction.category, description: transaction.transactionDescription)
+        _ = LedgerModel.shared().postExpense(acc: Account.init(name: "Assets:Banking:\(transaction.account)"), value: "\(transaction.value.amount)", category: transaction.category, description: transaction.transactionDescription)
     }
     private func addTransaction(transaction: TransferTransaction) {
         let from = Account.init(name: "Assets:Banking:\(transaction.fromAccount)")
