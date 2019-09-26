@@ -184,7 +184,7 @@ extension WatchSessionManager {
 
         //New expense statement
         if let expenseArray = message["Expense"] as? [String] {
-            let success = LedgerModel.shared().postExpense(acc: expenseArray[0], value: expenseArray[1], category: expenseArray[2])
+            let success = LedgerModel.shared().postExpense(acc: Account.bankingAccount(named: expenseArray[0]), value: expenseArray[1], category: expenseArray[2])
             //Call the reply handler
             replyHandler(["Success":success])
         }
