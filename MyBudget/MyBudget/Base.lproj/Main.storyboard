@@ -985,7 +985,14 @@
                             <outlet property="delegate" destination="EbF-FD-uqN" id="OY1-Pk-YCC"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Details" id="h7g-E7-psz"/>
+                    <navigationItem key="navigationItem" title="Details" id="h7g-E7-psz">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="1F6-Yi-UFE">
+                            <connections>
+                                <action selector="pressedSave:" destination="EbF-FD-uqN" id="hrW-Vc-vqW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ylQ-dK-dLc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

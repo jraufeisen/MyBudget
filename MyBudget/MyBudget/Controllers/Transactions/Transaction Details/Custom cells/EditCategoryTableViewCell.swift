@@ -22,7 +22,11 @@ class EditCategoryTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        selectionStyle = .none
+
+
+        
+        let categoryInput = CategoryTableView.init(outputView: textfield, delegate: self, color: superview?.backgroundColor)
+        textfield.inputView = categoryInput
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -31,4 +35,16 @@ class EditCategoryTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func selectedCategory() -> String? {
+        return textfield.text
+    }
+    
+}
+
+extension EditCategoryTableViewCell: CategorySelectDelegate {
+    func didSelectCategory(category: String) {
+        textfield.text = category
+        textfield.resignFirstResponder()
+
+    }
 }

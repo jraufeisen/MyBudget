@@ -103,8 +103,6 @@
 		EBE7E2B923210ADB00BEC812 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7E2B823210ADB00BEC812 /* SnapshotHelper.swift */; };
 		EBE7E2BC2321233500BEC812 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7E2BB2321233500BEC812 /* Constants.swift */; };
 		EBE7E2BE2321237400BEC812 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7E2BB2321233500BEC812 /* Constants.swift */; };
-		EBE7FE32233CA27D0088D156 /* Swift_Ledger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBE7FE31233CA27D0088D156 /* Swift_Ledger.framework */; };
-		EBE7FE33233CA27D0088D156 /* Swift_Ledger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EBE7FE31233CA27D0088D156 /* Swift_Ledger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EBE7FE37233CBC430088D156 /* ExpenseDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7FE36233CBC430088D156 /* ExpenseDetailTableViewController.swift */; };
 		EBE7FE41233CC3720088D156 /* EditMoneyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7FE3F233CC3720088D156 /* EditMoneyTableViewCell.swift */; };
 		EBE7FE42233CC3720088D156 /* EditMoneyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBE7FE40233CC3720088D156 /* EditMoneyTableViewCell.xib */; };
@@ -116,6 +114,8 @@
 		EBE7FE50233CC55F0088D156 /* EditAccountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBE7FE4E233CC55F0088D156 /* EditAccountTableViewCell.xib */; };
 		EBE7FE55233CC5C40088D156 /* EditCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7FE54233CC5C40088D156 /* EditCategoryTableViewCell.swift */; };
 		EBE7FE56233CC9890088D156 /* EditCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBE7FE53233CC5C40088D156 /* EditCategoryTableViewCell.xib */; };
+		EBE7FE66233CF96F0088D156 /* Swift_Ledger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBE7FE65233CF96F0088D156 /* Swift_Ledger.framework */; };
+		EBE7FE67233CF96F0088D156 /* Swift_Ledger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EBE7FE65233CF96F0088D156 /* Swift_Ledger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EBEB145022E8A1B100291435 /* EnterNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB144722E8A1B100291435 /* EnterNumberViewController.swift */; };
 		EBEB145722E8A29800291435 /* UIColor+Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145622E8A29800291435 /* UIColor+Macro.swift */; };
 		EBEB145B22E8AD7300291435 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145A22E8AD7300291435 /* Transaction.swift */; };
@@ -157,7 +157,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				EBEC52FA23310AEA00E88BA3 /* Antlr4.framework in Embed Frameworks */,
-				EBE7FE33233CA27D0088D156 /* Swift_Ledger.framework in Embed Frameworks */,
+				EBE7FE67233CF96F0088D156 /* Swift_Ledger.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,7 +307,6 @@
 		EBE7E2A92321058500BEC812 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBE7E2B823210ADB00BEC812 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = ../../fastlane/SnapshotHelper.swift; sourceTree = "<group>"; };
 		EBE7E2BB2321233500BEC812 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		EBE7FE31233CA27D0088D156 /* Swift_Ledger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Swift_Ledger.framework; sourceTree = "<group>"; };
 		EBE7FE36233CBC430088D156 /* ExpenseDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseDetailTableViewController.swift; sourceTree = "<group>"; };
 		EBE7FE3F233CC3720088D156 /* EditMoneyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMoneyTableViewCell.swift; sourceTree = "<group>"; };
 		EBE7FE40233CC3720088D156 /* EditMoneyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditMoneyTableViewCell.xib; sourceTree = "<group>"; };
@@ -319,6 +318,7 @@
 		EBE7FE4E233CC55F0088D156 /* EditAccountTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditAccountTableViewCell.xib; sourceTree = "<group>"; };
 		EBE7FE53233CC5C40088D156 /* EditCategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = EditCategoryTableViewCell.xib; path = "/Users/jojo/Developer/GitHub/MyBudget/MyBudget/MyBudget/Controllers/Transactions/Transaction Details/Custom cells/EditCategoryTableViewCell.xib"; sourceTree = "<absolute>"; };
 		EBE7FE54233CC5C40088D156 /* EditCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditCategoryTableViewCell.swift; path = "/Users/jojo/Developer/GitHub/MyBudget/MyBudget/MyBudget/Controllers/Transactions/Transaction Details/Custom cells/EditCategoryTableViewCell.swift"; sourceTree = "<absolute>"; };
+		EBE7FE65233CF96F0088D156 /* Swift_Ledger.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Swift_Ledger.framework; path = "../../../../Library/Developer/Xcode/DerivedData/MyBudget-brgsbbhtuuljbrautsjbvksqwkgr/Build/Products/Debug-iphoneos/Swift_Ledger.framework"; sourceTree = "<group>"; };
 		EBEB144722E8A1B100291435 /* EnterNumberViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNumberViewController.swift; sourceTree = "<group>"; };
 		EBEB145622E8A29800291435 /* UIColor+Macro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Macro.swift"; sourceTree = "<group>"; };
 		EBEB145A22E8AD7300291435 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
@@ -346,7 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB558EB722ECA3A200039651 /* CloudKit.framework in Frameworks */,
-				EBE7FE32233CA27D0088D156 /* Swift_Ledger.framework in Frameworks */,
+				EBE7FE66233CF96F0088D156 /* Swift_Ledger.framework in Frameworks */,
 				EBEC52F923310AEA00E88BA3 /* Antlr4.framework in Frameworks */,
 				EB4F789723196F220045077E /* StoreKit.framework in Frameworks */,
 			);
@@ -374,7 +374,7 @@
 		1CF7C6954939ED9D3DD0375D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EBE7FE31233CA27D0088D156 /* Swift_Ledger.framework */,
+				EBE7FE65233CF96F0088D156 /* Swift_Ledger.framework */,
 				EBEC52F623310A9E00E88BA3 /* Antlr4.framework */,
 				EB4F789623196F220045077E /* StoreKit.framework */,
 				EB668B9D22EF2DDE0082D54B /* MaterialComponents.framework */,

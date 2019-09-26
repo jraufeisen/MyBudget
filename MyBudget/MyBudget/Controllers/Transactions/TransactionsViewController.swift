@@ -69,10 +69,18 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            //transactions.remove(at: indexPath.row)
-            //self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            let tx = transactions[indexPath.row]
+
             // TODO: Implement deletion of transactions from ledger file
-            print("TODO: Delete transactions")
+            //print("TODO: Delete transactions")
+            let toberemoved = tx.ledgerTransaction()
+            print(toberemoved)
+            LedgerModel.shared().removeTransaction(tx: toberemoved)
+               // transactions.remove(at: indexPath.row)
+               // tableView.beginUpdates()
+              //  self.tableView.deleteRows(at: [indexPath], with: .automatic)
+              //  tableView.endUpdates()
+            self.tableView.reloadData()
         }
     }
     

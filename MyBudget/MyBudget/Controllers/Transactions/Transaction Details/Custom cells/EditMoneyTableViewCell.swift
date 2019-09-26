@@ -34,12 +34,20 @@ class EditMoneyTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    
+
     func configure(for money: Money) {
         textfield.text = ""
         let keyboard = MoneyKeyboard.init(outputView: textfield, startingWith: money.minorUnits)
         keyboard.delegate = self
         textfield.inputView = keyboard
+    }
+    
+    func selectedMoney() -> Money {
+        guard let keyboard = textfield.inputAccessoryView as? MoneyKeyboard else {
+            return 0
+        }
+        
+        return keyboard.moneyEntered()
     }
     
 }

@@ -24,12 +24,27 @@ class EditAccountTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
+        
+        let accountView = AccountTableView.init(outputView: textfield, delegate: self, color: superview?.backgroundColor)
+        textfield.inputView = accountView
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func selectedAccount() -> String? {
+        return textfield.text
+    }
+}
+
+extension EditAccountTableViewCell: AccountSelectDelegate {
+    func didSelectAccount(account: String) {
+        textfield.text = account
+        textfield.resignFirstResponder()
     }
     
 }

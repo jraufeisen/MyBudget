@@ -17,6 +17,12 @@ class ExpenseDetailTableViewController: UITableViewController {
     @IBOutlet weak var accountTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!
     
+    private var moneyCell: EditMoneyTableViewCell?
+    private var dateCell: EditDateTableViewCell?
+    private var nameCell: EditNameTableViewCell?
+    private var accountCell: EditAccountTableViewCell?
+    private var categoryCell: EditCategoryTableViewCell?
+    
     class func instantiate(for transaction: ExpenseTransaction) -> ExpenseDetailTableViewController {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "ExpenseDetailsVC") as! ExpenseDetailTableViewController
         vc.transaction = transaction
@@ -51,19 +57,24 @@ class ExpenseDetailTableViewController: UITableViewController {
 
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EditMoneyTableViewCell", for: indexPath) as! EditMoneyTableViewCell
+            moneyCell = cell
             cell.configure(for: transaction.value)
             return cell
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EditDateTableViewCell", for: indexPath) as! EditDateTableViewCell
+            dateCell = cell
             return cell
         } else if indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EditNameTableViewCell", for: indexPath) as! EditNameTableViewCell
+            nameCell = cell
             return cell
         } else if indexPath.row == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EditAccountTableViewCell", for: indexPath) as! EditAccountTableViewCell
+            accountCell = cell
             return cell
         } else if indexPath.row == 4 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EditCategoryTableViewCell", for: indexPath) as! EditCategoryTableViewCell
+            categoryCell = cell
             return cell
         }
 
@@ -80,4 +91,21 @@ class ExpenseDetailTableViewController: UITableViewController {
         }
     }
     
+    @IBAction func pressedSave(_ sender: Any) {
+        guard let accountName = accountCell?.selectedAccount() else {return}
+        guard let categoryName = categoryCell?.selectedCategory() else {return}
+        guard let description = nameCell?.selectedName() else {return}
+        guard let money = moneyCell?.selectedMoney() else {return}
+        guard let date = dateCell?.selectedDate() else {return}
+        
+        let newTx = ExpenseTransaction()
+        newTx.account = accountName
+        newTx.category = categoryName
+        newTx.transactionDescription = description
+        newTx.value = money
+        newTx.date = date
+        
+        // TODO: Save changes to ledger. Replace old transaction with new one
+        print("TODO: Save changes in ledger")
+    }
 }

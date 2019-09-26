@@ -10,6 +10,18 @@ import UIKit
 class EditDateTableViewCell: UITableViewCell {
 
     @IBOutlet weak var textfield: UITextField!
+    
+    
+    private lazy var datepicker: UIDatePicker = {
+        let datepicker = UIDatePicker()
+        datepicker.date = Date()
+        datepicker.locale = NSLocale.current
+        datepicker.datePickerMode = .date
+        datepicker.addTarget(self, action: #selector(self.datePickerDidChange), for: .valueChanged)
+
+        return datepicker
+    }()
+    
     override var canBecomeFirstResponder: Bool {
         get {
             return true
@@ -23,12 +35,26 @@ class EditDateTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
+        
+        textfield.inputView = datepicker
     }
 
+    @objc private func datePickerDidChange() {
+        let formatter = DateFormatter()
+        formatter.timeStyle = .none
+        formatter.dateStyle = .medium
+        
+        let dateString = formatter.string(from: datepicker.date)
+        textfield.text = dateString
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     
+    func selectedDate() -> Date {
+        return datepicker.date
+    }
 }

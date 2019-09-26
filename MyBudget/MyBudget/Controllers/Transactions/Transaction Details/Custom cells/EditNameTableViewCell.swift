@@ -24,6 +24,7 @@ class EditNameTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
+        textfield.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -32,4 +33,14 @@ class EditNameTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func selectedName() -> String? {
+        return textfield.text
+    }
+    
+}
+
+extension EditNameTableViewCell: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return textField.resignFirstResponder()
+    }
 }
