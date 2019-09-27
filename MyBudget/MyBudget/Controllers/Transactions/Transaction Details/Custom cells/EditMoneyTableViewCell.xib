@@ -18,7 +18,7 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSw-P2-9sQ" customClass="RoundedCornerView" customModule="Budget_" customModuleProvider="target">
                         <rect key="frame" x="20" y="11" width="48" height="48"/>
-                        <color key="backgroundColor" red="1" green="0.23258557360152909" blue="0.19512251953828275" alpha="0.20221532534246575" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="0.23258557360152909" blue="0.19512251953828275" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="48" id="GDd-bo-557"/>
                             <constraint firstAttribute="width" secondItem="aSw-P2-9sQ" secondAttribute="height" multiplier="1:1" id="bD2-2n-ldk"/>
@@ -65,6 +65,8 @@
                 <constraint firstAttribute="trailing" secondItem="4rr-tS-8Ze" secondAttribute="trailing" constant="20" id="ybx-Xt-Wzg"/>
             </constraints>
             <connections>
+                <outlet property="symbolBackgroundView" destination="aSw-P2-9sQ" id="orT-yz-gRG"/>
+                <outlet property="symbolImageView" destination="inh-Uj-sHr" id="gqY-Di-eQv"/>
                 <outlet property="textfield" destination="4rr-tS-8Ze" id="77i-7Q-eB7"/>
             </connections>
             <point key="canvasLocation" x="47.826086956521742" y="34.821428571428569"/>

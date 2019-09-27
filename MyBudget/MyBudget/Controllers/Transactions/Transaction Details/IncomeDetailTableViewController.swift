@@ -47,6 +47,7 @@ class IncomeDetailTableViewController: TransactionDetailBaseTableViewController 
             let cell = tableView.dequeueReusableCell(withIdentifier: EditMoneyTableViewCell.Identifier, for: indexPath) as! EditMoneyTableViewCell
             moneyCell = cell
             cell.configure(for: transaction.value)
+            cell.colorStyle = .income
             return cell
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: EditDateTableViewCell.Identifier, for: indexPath) as! EditDateTableViewCell
@@ -62,6 +63,7 @@ class IncomeDetailTableViewController: TransactionDetailBaseTableViewController 
             let cell = tableView.dequeueReusableCell(withIdentifier: EditAccountTableViewCell.Identifier, for: indexPath) as! EditAccountTableViewCell
             accountCell = cell
             accountCell?.textfield.text = transaction.account
+            cell.colorStyle = .income
             return cell
         }
 

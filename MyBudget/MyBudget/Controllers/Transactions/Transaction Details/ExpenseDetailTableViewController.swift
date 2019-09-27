@@ -48,6 +48,7 @@ class ExpenseDetailTableViewController: TransactionDetailBaseTableViewController
             let cell = tableView.dequeueReusableCell(withIdentifier: EditMoneyTableViewCell.Identifier, for: indexPath) as! EditMoneyTableViewCell
             moneyCell = cell
             cell.configure(for: transaction.value)
+            cell.colorStyle = .expense
             return cell
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: EditDateTableViewCell.Identifier, for: indexPath) as! EditDateTableViewCell
@@ -63,11 +64,13 @@ class ExpenseDetailTableViewController: TransactionDetailBaseTableViewController
             let cell = tableView.dequeueReusableCell(withIdentifier: EditAccountTableViewCell.Identifier, for: indexPath) as! EditAccountTableViewCell
             accountCell = cell
             accountCell?.textfield.text = transaction.account
+            cell.colorStyle = .expense
             return cell
         } else if indexPath.row == 4 {
             let cell = tableView.dequeueReusableCell(withIdentifier: EditCategoryTableViewCell.Identifier, for: indexPath) as! EditCategoryTableViewCell
             categoryCell = cell
             categoryCell?.textfield.text = transaction.category
+            cell.colorStyle = .expense
             return cell
         }
 

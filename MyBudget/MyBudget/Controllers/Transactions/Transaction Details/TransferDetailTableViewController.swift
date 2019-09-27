@@ -47,6 +47,7 @@ class TransferDetailTableViewController: TransactionDetailBaseTableViewControlle
             let cell = tableView.dequeueReusableCell(withIdentifier: EditMoneyTableViewCell.Identifier, for: indexPath) as! EditMoneyTableViewCell
             moneyCell = cell
             cell.configure(for: transaction.value)
+            cell.colorStyle = .transfer
             return cell
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: EditDateTableViewCell.Identifier, for: indexPath) as! EditDateTableViewCell
@@ -62,11 +63,13 @@ class TransferDetailTableViewController: TransactionDetailBaseTableViewControlle
             let cell = tableView.dequeueReusableCell(withIdentifier: EditAccountTableViewCell.Identifier, for: indexPath) as! EditAccountTableViewCell
             fromAccountCell = cell
             fromAccountCell?.textfield.text = transaction.fromAccount
+            cell.colorStyle = .transfer
             return cell
         } else if indexPath.row == 4 {
             let cell = tableView.dequeueReusableCell(withIdentifier: EditAccountTableViewCell.Identifier, for: indexPath) as! EditAccountTableViewCell
             toAccountCell = cell
             toAccountCell?.textfield.text = transaction.toAccount
+            cell.colorStyle = .transfer
             return cell
         }
 

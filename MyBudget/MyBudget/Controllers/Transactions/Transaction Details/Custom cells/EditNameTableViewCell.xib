@@ -64,6 +64,8 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="symbolBackgroundView" destination="sKO-1n-pxF" id="JNz-wK-jwb"/>
+                <outlet property="symbolImageView" destination="8Ko-5u-Vji" id="9La-Ca-Ct1"/>
                 <outlet property="textfield" destination="Njl-aO-32e" id="cS4-Ic-zgU"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="153.34821428571428"/>

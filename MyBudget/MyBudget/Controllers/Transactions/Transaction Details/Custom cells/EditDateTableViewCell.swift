@@ -13,6 +13,15 @@ class EditDateTableViewCell: UITableViewCell {
 
     @IBOutlet weak var textfield: UITextField!
     
+    @IBOutlet weak var symbolImageView: UIImageView!
+    @IBOutlet weak var symbolBackgroundView: RoundedCornerView!
+    
+    var colorStyle: EditTransactionDetailsCellStyles = .gray {
+        didSet {
+            symbolImageView.tintColor = colorStyle.primaryColor()
+            symbolBackgroundView.backgroundColor = colorStyle.secondaryColor()
+        }
+    }
     
     private lazy var datepicker: UIDatePicker = {
         let datepicker = UIDatePicker()

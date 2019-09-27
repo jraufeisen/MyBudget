@@ -32,6 +32,7 @@
 		EB35EDE8233E0E6100C58683 /* TransactionDetailBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB35EDE7233E0E6100C58683 /* TransactionDetailBaseTableViewController.swift */; };
 		EB35EDEA233E0F9100C58683 /* IncomeDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB35EDE9233E0F9100C58683 /* IncomeDetailTableViewController.swift */; };
 		EB35EDEC233E100100C58683 /* TransferDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB35EDEB233E100100C58683 /* TransferDetailTableViewController.swift */; };
+		EB35EDEE233E12D300C58683 /* CellStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB35EDED233E12D300C58683 /* CellStyles.swift */; };
 		EB399D4F232305DD00CA0BD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB399D4E232305DD00CA0BD8 /* Assets.xcassets */; };
 		EB399D56232305DE00CA0BD8 /* MyBudget_watchOS Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EB399D55232305DD00CA0BD8 /* MyBudget_watchOS Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EB399D5D232305DE00CA0BD8 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB399D5C232305DE00CA0BD8 /* ExtensionDelegate.swift */; };
@@ -235,6 +236,7 @@
 		EB35EDE7233E0E6100C58683 /* TransactionDetailBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailBaseTableViewController.swift; sourceTree = "<group>"; };
 		EB35EDE9233E0F9100C58683 /* IncomeDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeDetailTableViewController.swift; sourceTree = "<group>"; };
 		EB35EDEB233E100100C58683 /* TransferDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferDetailTableViewController.swift; sourceTree = "<group>"; };
+		EB35EDED233E12D300C58683 /* CellStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellStyles.swift; sourceTree = "<group>"; };
 		EB399D49232305D800CA0BD8 /* MyBudget_watchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBudget_watchOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB399D4E232305DD00CA0BD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB399D50232305DD00CA0BD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -749,6 +751,7 @@
 		EBE7FE38233CBFD00088D156 /* Custom cells */ = {
 			isa = PBXGroup;
 			children = (
+				EB35EDED233E12D300C58683 /* CellStyles.swift */,
 				EBE7FE3F233CC3720088D156 /* EditMoneyTableViewCell.swift */,
 				EBE7FE40233CC3720088D156 /* EditMoneyTableViewCell.xib */,
 				EBE7FE45233CC52A0088D156 /* EditDateTableViewCell.swift */,
@@ -1153,6 +1156,7 @@
 				EBF595B72305852100BF9E40 /* LockScreenViewController.swift in Sources */,
 				EB1BCBBC2305AD2A0023E11F /* NewAccountDiaryProvider.swift in Sources */,
 				EB985CB822EC6B5800C033E8 /* FloatyItem.swift in Sources */,
+				EB35EDEE233E12D300C58683 /* CellStyles.swift in Sources */,
 				EBE7FE47233CC52B0088D156 /* EditDateTableViewCell.swift in Sources */,
 				EBF3A88B233AB926003093B7 /* StandardNavigationViewController.swift in Sources */,
 				EB4F789D2319B31C0045077E /* SubscriptionSelectorBulletin.swift in Sources */,

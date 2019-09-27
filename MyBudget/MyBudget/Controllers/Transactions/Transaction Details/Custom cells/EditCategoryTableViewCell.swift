@@ -12,6 +12,16 @@ class EditCategoryTableViewCell: UITableViewCell {
     static let Identifier = "EditCategoryTableViewCell"
 
     @IBOutlet var textfield: UITextField!
+    @IBOutlet weak var symbolImageView: UIImageView!
+    @IBOutlet weak var symbolBackgroundView: RoundedCornerView!
+    
+    var colorStyle: EditTransactionDetailsCellStyles = .gray {
+        didSet {
+            symbolImageView.tintColor = colorStyle.primaryColor()
+            symbolBackgroundView.backgroundColor = colorStyle.secondaryColor()
+        }
+    }
+    
     override var canBecomeFirstResponder: Bool {
         get {
             return true
