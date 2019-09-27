@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Swift_Ledger
 
 class ExpenseDetailTableViewController: UITableViewController {
 
@@ -63,18 +64,22 @@ class ExpenseDetailTableViewController: UITableViewController {
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EditDateTableViewCell", for: indexPath) as! EditDateTableViewCell
             dateCell = cell
+            dateCell?.date = transaction.date
             return cell
         } else if indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EditNameTableViewCell", for: indexPath) as! EditNameTableViewCell
             nameCell = cell
+            nameCell?.textfield.text = transaction.transactionDescription
             return cell
         } else if indexPath.row == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EditAccountTableViewCell", for: indexPath) as! EditAccountTableViewCell
             accountCell = cell
+            accountCell?.textfield.text = transaction.account
             return cell
         } else if indexPath.row == 4 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "EditCategoryTableViewCell", for: indexPath) as! EditCategoryTableViewCell
             categoryCell = cell
+            categoryCell?.textfield.text = transaction.category
             return cell
         }
 
@@ -105,7 +110,7 @@ class ExpenseDetailTableViewController: UITableViewController {
         newTx.value = money
         newTx.date = date
         
-        // TODO: Save changes to ledger. Replace old transaction with new one
-        print("TODO: Save changes in ledger")
+        LedgerModel.shared().replaceTransaction(oldTx: transaction.ledgerTransaction(), with: newTx.ledgerTransaction())
+        navigationController?.popViewController(animated: true)
     }
 }

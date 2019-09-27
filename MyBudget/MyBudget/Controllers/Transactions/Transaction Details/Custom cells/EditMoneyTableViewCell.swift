@@ -43,7 +43,7 @@ class EditMoneyTableViewCell: UITableViewCell {
     }
     
     func selectedMoney() -> Money {
-        guard let keyboard = textfield.inputAccessoryView as? MoneyKeyboard else {
+        guard let keyboard = textfield.inputView as? MoneyKeyboard else {
             return 0
         }
         

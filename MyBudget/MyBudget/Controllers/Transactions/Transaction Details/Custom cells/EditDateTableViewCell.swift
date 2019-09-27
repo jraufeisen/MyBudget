@@ -22,6 +22,13 @@ class EditDateTableViewCell: UITableViewCell {
         return datepicker
     }()
     
+    var date: Date = Date() {
+        didSet {
+            datepicker.date = date
+            updateDateLabel()
+        }
+    }
+    
     override var canBecomeFirstResponder: Bool {
         get {
             return true
@@ -40,12 +47,17 @@ class EditDateTableViewCell: UITableViewCell {
     }
 
     @objc private func datePickerDidChange() {
+        updateDateLabel()
+    }
+    
+    private func updateDateLabel() {
         let formatter = DateFormatter()
         formatter.timeStyle = .none
         formatter.dateStyle = .medium
         
         let dateString = formatter.string(from: datepicker.date)
         textfield.text = dateString
+
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
