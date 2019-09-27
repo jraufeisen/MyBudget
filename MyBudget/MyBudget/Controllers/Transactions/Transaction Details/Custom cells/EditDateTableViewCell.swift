@@ -9,6 +9,8 @@ import UIKit
 
 class EditDateTableViewCell: UITableViewCell {
 
+    static let Identifier = "EditDateTableViewCell"
+
     @IBOutlet weak var textfield: UITextField!
     
     

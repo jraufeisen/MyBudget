@@ -10,6 +10,8 @@ import UIKit
 
 class EditNameTableViewCell: UITableViewCell {
 
+    static let Identifier = "EditNameTableViewCell"
+
     @IBOutlet weak var textfield: UITextField!
     override var canBecomeFirstResponder: Bool {
         get {

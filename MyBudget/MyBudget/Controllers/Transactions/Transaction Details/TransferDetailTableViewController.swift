@@ -1,19 +1,19 @@
 //
-//  ExpenseDetailTableViewController.swift
+//  TransferDetailTableViewController.swift
 //  MyBudget
 //
-//  Created by Johannes on 26.09.19.
+//  Created by Johannes on 27.09.19.
 //  Copyright © 2019 Johannes Raufeisen. All rights reserved.
 //
 
 import UIKit
 import Swift_Ledger
 
-class ExpenseDetailTableViewController: TransactionDetailBaseTableViewController {
-
-    var transaction: ExpenseTransaction = ExpenseTransaction()
+class TransferDetailTableViewController: TransactionDetailBaseTableViewController {
     
-    init(transaction: ExpenseTransaction) {
+    var transaction: TransferTransaction = TransferTransaction()
+    
+    init(transaction: TransferTransaction) {
         self.transaction = transaction
         super.init(style: .grouped)
     }
@@ -26,10 +26,9 @@ class ExpenseDetailTableViewController: TransactionDetailBaseTableViewController
     private var moneyCell: EditMoneyTableViewCell?
     private var dateCell: EditDateTableViewCell?
     private var nameCell: EditNameTableViewCell?
-    private var accountCell: EditAccountTableViewCell?
-    private var categoryCell: EditCategoryTableViewCell?
-    
-    
+    private var fromAccountCell: EditAccountTableViewCell?
+    private var toAccountCell: EditAccountTableViewCell?
+
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -61,13 +60,13 @@ class ExpenseDetailTableViewController: TransactionDetailBaseTableViewController
             return cell
         } else if indexPath.row == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: EditAccountTableViewCell.Identifier, for: indexPath) as! EditAccountTableViewCell
-            accountCell = cell
-            accountCell?.textfield.text = transaction.account
+            fromAccountCell = cell
+            fromAccountCell?.textfield.text = transaction.fromAccount
             return cell
         } else if indexPath.row == 4 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: EditCategoryTableViewCell.Identifier, for: indexPath) as! EditCategoryTableViewCell
-            categoryCell = cell
-            categoryCell?.textfield.text = transaction.category
+            let cell = tableView.dequeueReusableCell(withIdentifier: EditAccountTableViewCell.Identifier, for: indexPath) as! EditAccountTableViewCell
+            toAccountCell = cell
+            toAccountCell?.textfield.text = transaction.toAccount
             return cell
         }
 
@@ -85,15 +84,15 @@ class ExpenseDetailTableViewController: TransactionDetailBaseTableViewController
     }
     
     override func pressedSave() {
-        guard let accountName = accountCell?.selectedAccount() else {return}
-        guard let categoryName = categoryCell?.selectedCategory() else {return}
+        guard let fromAccountName = fromAccountCell?.selectedAccount() else {return}
+        guard let toAccountName = toAccountCell?.selectedAccount() else {return}
         guard let description = nameCell?.selectedName() else {return}
         guard let money = moneyCell?.selectedMoney() else {return}
         guard let date = dateCell?.selectedDate() else {return}
         
-        let newTx = ExpenseTransaction()
-        newTx.account = accountName
-        newTx.category = categoryName
+        let newTx = TransferTransaction()
+        newTx.fromAccount = fromAccountName
+        newTx.toAccount = toAccountName
         newTx.transactionDescription = description
         newTx.value = money
         newTx.date = date
@@ -101,4 +100,6 @@ class ExpenseDetailTableViewController: TransactionDetailBaseTableViewController
         LedgerModel.shared().replaceTransaction(oldTx: transaction.ledgerTransaction(), with: newTx.ledgerTransaction())
         navigationController?.popViewController(animated: true)
     }
+
+
 }

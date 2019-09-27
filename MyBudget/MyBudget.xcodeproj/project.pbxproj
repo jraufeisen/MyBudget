@@ -28,6 +28,10 @@
 		EB2C772622EDCA56009FA2C8 /* edit-2.png in Resources */ = {isa = PBXBuildFile; fileRef = EB2C772522EDCA56009FA2C8 /* edit-2.png */; };
 		EB2EBEF82323FC9B00030606 /* UIColor+Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145622E8A29800291435 /* UIColor+Macro.swift */; };
 		EB34D5E222F3362D000FACAC /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = EB34D5E122F3362C000FACAC /* menu.png */; };
+		EB35EDE6233E050100C58683 /* RoundedCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB35EDE5233E050100C58683 /* RoundedCornerView.swift */; };
+		EB35EDE8233E0E6100C58683 /* TransactionDetailBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB35EDE7233E0E6100C58683 /* TransactionDetailBaseTableViewController.swift */; };
+		EB35EDEA233E0F9100C58683 /* IncomeDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB35EDE9233E0F9100C58683 /* IncomeDetailTableViewController.swift */; };
+		EB35EDEC233E100100C58683 /* TransferDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB35EDEB233E100100C58683 /* TransferDetailTableViewController.swift */; };
 		EB399D4F232305DD00CA0BD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB399D4E232305DD00CA0BD8 /* Assets.xcassets */; };
 		EB399D56232305DE00CA0BD8 /* MyBudget_watchOS Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = EB399D55232305DD00CA0BD8 /* MyBudget_watchOS Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EB399D5D232305DE00CA0BD8 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB399D5C232305DE00CA0BD8 /* ExtensionDelegate.swift */; };
@@ -227,6 +231,10 @@
 		EB2C772122EDC8CA009FA2C8 /* pencil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pencil.png; sourceTree = "<group>"; };
 		EB2C772522EDCA56009FA2C8 /* edit-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit-2.png"; sourceTree = "<group>"; };
 		EB34D5E122F3362C000FACAC /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		EB35EDE5233E050100C58683 /* RoundedCornerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerView.swift; sourceTree = "<group>"; };
+		EB35EDE7233E0E6100C58683 /* TransactionDetailBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailBaseTableViewController.swift; sourceTree = "<group>"; };
+		EB35EDE9233E0F9100C58683 /* IncomeDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeDetailTableViewController.swift; sourceTree = "<group>"; };
+		EB35EDEB233E100100C58683 /* TransferDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferDetailTableViewController.swift; sourceTree = "<group>"; };
 		EB399D49232305D800CA0BD8 /* MyBudget_watchOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBudget_watchOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB399D4E232305DD00CA0BD8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB399D50232305DD00CA0BD8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -669,6 +677,7 @@
 				EBD012EC22E9B20400F8126D /* Account Selection */,
 				EB582E7322F0ACC500422323 /* PercentFillView.swift */,
 				EBDA26CC22F6FDCC0073DC50 /* IncomeStatementPercentView.swift */,
+				EB35EDE5233E050100C58683 /* RoundedCornerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -730,6 +739,9 @@
 			children = (
 				EBE7FE38233CBFD00088D156 /* Custom cells */,
 				EBE7FE36233CBC430088D156 /* ExpenseDetailTableViewController.swift */,
+				EB35EDE9233E0F9100C58683 /* IncomeDetailTableViewController.swift */,
+				EB35EDEB233E100100C58683 /* TransferDetailTableViewController.swift */,
+				EB35EDE7233E0E6100C58683 /* TransactionDetailBaseTableViewController.swift */,
 			);
 			path = "Transaction Details";
 			sourceTree = "<group>";
@@ -1076,6 +1088,7 @@
 				EB985CB722EC6B5800C033E8 /* FloatyManager.swift in Sources */,
 				EB985CBD22EC74F800C033E8 /* String+OnlyDigits.swift in Sources */,
 				EBEB145022E8A1B100291435 /* EnterNumberViewController.swift in Sources */,
+				EB35EDEC233E100100C58683 /* TransferDetailTableViewController.swift in Sources */,
 				EB5C600C22F32960004F81CF /* MenuTableViewController.swift in Sources */,
 				EB09FC97231D5D830063FB90 /* SubscriptionFloaty.swift in Sources */,
 				EBE7E2BC2321233500BEC812 /* Constants.swift in Sources */,
@@ -1086,6 +1099,7 @@
 				EB4F789F2319B34D0045077E /* FeedbackPageBulletinItem.swift in Sources */,
 				EB02A67322EB10E700987AFA /* APNumberButton.m in Sources */,
 				EB02A68722EB1BEF00987AFA /* MoneyKeyboard.swift in Sources */,
+				EB35EDEA233E0F9100C58683 /* IncomeDetailTableViewController.swift in Sources */,
 				EB5CADB722F55DC600205AC8 /* AccountTableViewController.swift in Sources */,
 				EB582E7422F0ACC500422323 /* PercentFillView.swift in Sources */,
 				EBEB145722E8A29800291435 /* UIColor+Macro.swift in Sources */,
@@ -1096,6 +1110,7 @@
 				EB09FC94231D57080063FB90 /* KeychainWrapper.swift in Sources */,
 				EB203BF4230716CA008C9EE5 /* FileManager+DocDir.swift in Sources */,
 				EBE7FE37233CBC430088D156 /* ExpenseDetailTableViewController.swift in Sources */,
+				EB35EDE6233E050100C58683 /* RoundedCornerView.swift in Sources */,
 				EB985CBB22EC6B5800C033E8 /* Floaty.swift in Sources */,
 				EBB21C8023054E70004E4E8F /* TabbarViewController.swift in Sources */,
 				EB4F78A72319B5760045077E /* BulletinDataSource.swift in Sources */,
@@ -1124,6 +1139,7 @@
 				EB4F78A12319B37D0045077E /* FeedbackGenerators.swift in Sources */,
 				EBC59D3F22E7503900E626DC /* AppDelegate.swift in Sources */,
 				EBC59D5322E750E900E626DC /* Model.swift in Sources */,
+				EB35EDE8233E0E6100C58683 /* TransactionDetailBaseTableViewController.swift in Sources */,
 				EB4F78A32319B3BA0045077E /* CollectionUtilities.swift in Sources */,
 				EB399D7F2323088100CA0BD8 /* WatchSessionManager.swift in Sources */,
 				EBDA26CD22F6FDCC0073DC50 /* IncomeStatementPercentView.swift in Sources */,

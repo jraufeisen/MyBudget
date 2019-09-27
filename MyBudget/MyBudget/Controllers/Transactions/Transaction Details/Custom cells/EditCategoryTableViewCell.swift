@@ -9,6 +9,8 @@ import UIKit
 
 class EditCategoryTableViewCell: UITableViewCell {
 
+    static let Identifier = "EditCategoryTableViewCell"
+
     @IBOutlet var textfield: UITextField!
     override var canBecomeFirstResponder: Bool {
         get {

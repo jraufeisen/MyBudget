@@ -87,8 +87,11 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let tx = filteredTransactions[indexPath.row]
         if let expenseTx = tx as? ExpenseTransaction  {
-            // Show detail controller for expense transactions
-            navigationController?.pushViewController(ExpenseDetailTableViewController.instantiate(for: expenseTx), animated: true)
+            navigationController?.pushViewController(ExpenseDetailTableViewController.init(transaction: expenseTx), animated: true)
+        } else if let incomeTx = tx as? IncomeTransaction {
+            navigationController?.pushViewController(IncomeDetailTableViewController.init(transaction: incomeTx), animated: true)
+        } else if let transferTx = tx as? TransferTransaction {
+            navigationController?.pushViewController(TransferDetailTableViewController.init(transaction: transferTx), animated: true)
         }
     }
     

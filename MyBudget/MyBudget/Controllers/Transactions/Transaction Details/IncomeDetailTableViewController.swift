@@ -1,19 +1,19 @@
 //
-//  ExpenseDetailTableViewController.swift
+//  IncomeDetailTableViewController.swift
 //  MyBudget
 //
-//  Created by Johannes on 26.09.19.
+//  Created by Johannes on 27.09.19.
 //  Copyright © 2019 Johannes Raufeisen. All rights reserved.
 //
 
 import UIKit
 import Swift_Ledger
 
-class ExpenseDetailTableViewController: TransactionDetailBaseTableViewController {
+class IncomeDetailTableViewController: TransactionDetailBaseTableViewController {
 
-    var transaction: ExpenseTransaction = ExpenseTransaction()
+    var transaction: IncomeTransaction = IncomeTransaction()
     
-    init(transaction: ExpenseTransaction) {
+    init(transaction: IncomeTransaction) {
         self.transaction = transaction
         super.init(style: .grouped)
     }
@@ -27,7 +27,6 @@ class ExpenseDetailTableViewController: TransactionDetailBaseTableViewController
     private var dateCell: EditDateTableViewCell?
     private var nameCell: EditNameTableViewCell?
     private var accountCell: EditAccountTableViewCell?
-    private var categoryCell: EditCategoryTableViewCell?
     
     
     override func viewDidLoad() {
@@ -39,7 +38,7 @@ class ExpenseDetailTableViewController: TransactionDetailBaseTableViewController
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 4
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -64,11 +63,6 @@ class ExpenseDetailTableViewController: TransactionDetailBaseTableViewController
             accountCell = cell
             accountCell?.textfield.text = transaction.account
             return cell
-        } else if indexPath.row == 4 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: EditCategoryTableViewCell.Identifier, for: indexPath) as! EditCategoryTableViewCell
-            categoryCell = cell
-            categoryCell?.textfield.text = transaction.category
-            return cell
         }
 
         
@@ -86,14 +80,12 @@ class ExpenseDetailTableViewController: TransactionDetailBaseTableViewController
     
     override func pressedSave() {
         guard let accountName = accountCell?.selectedAccount() else {return}
-        guard let categoryName = categoryCell?.selectedCategory() else {return}
         guard let description = nameCell?.selectedName() else {return}
         guard let money = moneyCell?.selectedMoney() else {return}
         guard let date = dateCell?.selectedDate() else {return}
         
-        let newTx = ExpenseTransaction()
+        let newTx = IncomeTransaction()
         newTx.account = accountName
-        newTx.category = categoryName
         newTx.transactionDescription = description
         newTx.value = money
         newTx.date = date
@@ -101,4 +93,5 @@ class ExpenseDetailTableViewController: TransactionDetailBaseTableViewController
         LedgerModel.shared().replaceTransaction(oldTx: transaction.ledgerTransaction(), with: newTx.ledgerTransaction())
         navigationController?.popViewController(animated: true)
     }
+
 }

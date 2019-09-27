@@ -11,6 +11,8 @@ import Swift_Ledger
 
 class EditMoneyTableViewCell: UITableViewCell {
 
+    static let Identifier = "EditMoneyTableViewCell"
+    
     @IBOutlet weak var textfield: UITextField!
     
     override var canBecomeFirstResponder: Bool {

@@ -10,6 +10,8 @@ import UIKit
 
 class EditAccountTableViewCell: UITableViewCell {
 
+    static let Identifier = "EditAccountTableViewCell"
+
     @IBOutlet weak var textfield: UITextField!
     override var canBecomeFirstResponder: Bool {
         get {

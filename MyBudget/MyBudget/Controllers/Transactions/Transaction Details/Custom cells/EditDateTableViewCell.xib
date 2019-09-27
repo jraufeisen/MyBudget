@@ -9,40 +9,68 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="75q-y0-s0O" customClass="EditDateTableViewCell" customModule="Budget_" customModuleProvider="target">
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="70" id="75q-y0-s0O" customClass="EditDateTableViewCell" customModule="Budget_" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="75q-y0-s0O" id="8j0-gm-1xf">
-                <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                <rect key="frame" x="0.0" y="0.0" width="382.5" height="70"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="dCL-vR-Lf0">
-                        <rect key="frame" x="20" y="12" width="48" height="46"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FJz-ki-ADk" customClass="RoundedCornerView" customModule="Budget_" customModuleProvider="target">
+                        <rect key="frame" x="20" y="11" width="48" height="48"/>
+                        <color key="backgroundColor" systemColor="tertiarySystemFillColor" red="0.46274509800000002" green="0.46274509800000002" blue="0.50196078430000002" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="dCL-vR-Lf0" secondAttribute="height" multiplier="1:1" id="oCa-29-Bwq"/>
-                            <constraint firstAttribute="width" constant="48" id="yJr-1d-siO"/>
+                            <constraint firstAttribute="width" constant="48" id="UUy-0W-DGf"/>
+                            <constraint firstAttribute="width" secondItem="FJz-ki-ADk" secondAttribute="height" multiplier="1:1" id="wSx-R2-BkO"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="JHK-67-Ag9">
+                        <rect key="frame" x="28" y="19.5" width="32" height="31.5"/>
+                        <color key="tintColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="32" id="LHO-X9-dEy"/>
+                            <constraint firstAttribute="width" secondItem="JHK-67-Ag9" secondAttribute="height" multiplier="1:1" id="eBK-S2-SQ5"/>
                         </constraints>
                     </imageView>
-                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="25.09.2019" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5bb-H5-kU0">
-                        <rect key="frame" x="312" y="24.5" width="82" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJg-2J-1co">
+                        <rect key="frame" x="88" y="11" width="274.5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="25.09.2019" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5bb-H5-kU0">
+                        <rect key="frame" x="88" y="38" width="274.5" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="dCL-vR-Lf0" firstAttribute="leading" secondItem="8j0-gm-1xf" secondAttribute="leading" constant="20" id="W7Y-Ls-VY3"/>
-                    <constraint firstItem="5bb-H5-kU0" firstAttribute="centerY" secondItem="8j0-gm-1xf" secondAttribute="centerY" id="raL-Kj-OkQ"/>
-                    <constraint firstAttribute="trailing" secondItem="5bb-H5-kU0" secondAttribute="trailing" constant="20" id="xuz-M3-IRj"/>
-                    <constraint firstItem="dCL-vR-Lf0" firstAttribute="centerY" secondItem="8j0-gm-1xf" secondAttribute="centerY" id="zr3-1D-mjy"/>
+                    <constraint firstItem="RJg-2J-1co" firstAttribute="top" secondItem="FJz-ki-ADk" secondAttribute="top" id="5fa-vk-1a8"/>
+                    <constraint firstItem="FJz-ki-ADk" firstAttribute="leading" secondItem="8j0-gm-1xf" secondAttribute="leading" constant="20" id="Aeq-gb-9XM"/>
+                    <constraint firstItem="FJz-ki-ADk" firstAttribute="centerY" secondItem="8j0-gm-1xf" secondAttribute="centerY" id="HLj-BE-83r"/>
+                    <constraint firstItem="JHK-67-Ag9" firstAttribute="centerX" secondItem="FJz-ki-ADk" secondAttribute="centerX" id="KrJ-pA-RHF"/>
+                    <constraint firstItem="5bb-H5-kU0" firstAttribute="leading" secondItem="RJg-2J-1co" secondAttribute="leading" id="Pwm-G9-zL9"/>
+                    <constraint firstItem="5bb-H5-kU0" firstAttribute="bottom" secondItem="FJz-ki-ADk" secondAttribute="bottom" id="Tgo-my-TT4"/>
+                    <constraint firstAttribute="trailing" secondItem="RJg-2J-1co" secondAttribute="trailing" constant="20" id="Z6K-gM-ONK"/>
+                    <constraint firstItem="JHK-67-Ag9" firstAttribute="width" secondItem="JHK-67-Ag9" secondAttribute="height" multiplier="1:1" id="cpF-8N-Xtz"/>
+                    <constraint firstItem="RJg-2J-1co" firstAttribute="leading" secondItem="FJz-ki-ADk" secondAttribute="trailing" constant="20" id="gd0-7K-mCD"/>
+                    <constraint firstItem="FJz-ki-ADk" firstAttribute="width" secondItem="FJz-ki-ADk" secondAttribute="height" multiplier="1:1" id="ncm-cC-Ujs"/>
+                    <constraint firstItem="JHK-67-Ag9" firstAttribute="centerY" secondItem="FJz-ki-ADk" secondAttribute="centerY" id="rIX-Rb-9Tf"/>
+                    <constraint firstAttribute="trailing" secondItem="5bb-H5-kU0" secondAttribute="trailing" constant="20" id="ylm-j3-kGx"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="textfield" destination="5bb-H5-kU0" id="H6c-Fz-0xa"/>
             </connections>
-            <point key="canvasLocation" x="139" y="154"/>
+            <point key="canvasLocation" x="137.68115942028987" y="153.34821428571428"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="calendar" catalog="system" width="64" height="54"/>
+        <image name="calendar.circle" catalog="system" width="64" height="62"/>
     </resources>
 </document>
