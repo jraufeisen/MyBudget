@@ -74,16 +74,17 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            let tx = transactions[indexPath.row]
+            let tx = filteredTransactions[indexPath.row]
 
+            // First, animate deletion
+            filteredTransactions.remove(at: indexPath.row)
+            tableView.beginUpdates()
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.endUpdates()
+            
+            // Second, delete in model. This will automatically trigger a ModelDidChange notification and thus reload the table view again
             let toberemoved = tx.ledgerTransaction()
-            print(toberemoved)
             LedgerModel.shared().removeTransaction(tx: toberemoved)
-               // transactions.remove(at: indexPath.row)
-               // tableView.beginUpdates()
-              //  self.tableView.deleteRows(at: [indexPath], with: .automatic)
-              //  tableView.endUpdates()
-            self.tableView.reloadData()
         }
     }
     
