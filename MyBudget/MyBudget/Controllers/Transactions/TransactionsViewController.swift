@@ -48,27 +48,59 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
         
         cell.nameLabel.text = tx.transactionDescription
         cell.moneyLabel.text = "\(tx.value)"
-        
+        let localizedDateString = DateFormatter.localizedString(from: tx.date, dateStyle: .medium, timeStyle: .none)
+        cell.dateLabel.text = localizedDateString
+
         if let expenseTx = tx as? ExpenseTransaction  {
             cell.accountLabel.text = expenseTx.account
             cell.moneyLabel.textColor = .expenseColor
-            let localizedDateString = DateFormatter.localizedString(from: expenseTx.date, dateStyle: .medium, timeStyle: .none)
-            cell.dateLabel.text = localizedDateString
+            cell.colorStyle = .expense
         }
 
         if let incomeTx = tx as? IncomeTransaction {
             cell.accountLabel.text = incomeTx.account
             cell.moneyLabel.textColor = .incomeColor
-            let localizedDateString = DateFormatter.localizedString(from: incomeTx.date, dateStyle: .medium, timeStyle: .none)
-            cell.dateLabel.text = localizedDateString
+            cell.colorStyle = .income
         }
         
+        if let transferTx = tx as? TransferTransaction {
+            cell.accountLabel.text = "From \(transferTx.fromAccount) to \(transferTx.toAccount)"
+            cell.moneyLabel.textColor = .transferColor
+            cell.colorStyle = .transfer
+        }
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let tx = filteredTransactions[indexPath.row]
+
+            // First, animate deletion
+            filteredTransactions.remove(at: indexPath.row)
+            tableView.beginUpdates()
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.endUpdates()
+            
+            // Second, delete in model. This will automatically trigger a ModelDidChange notification and thus reload the table view again
+            let toberemoved = tx.ledgerTransaction()
+            LedgerModel.shared().removeTransaction(tx: toberemoved)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let tx = filteredTransactions[indexPath.row]
+        if let expenseTx = tx as? ExpenseTransaction  {
+            navigationController?.pushViewController(ExpenseDetailTableViewController.init(transaction: expenseTx), animated: true)
+        } else if let incomeTx = tx as? IncomeTransaction {
+            navigationController?.pushViewController(IncomeDetailTableViewController.init(transaction: incomeTx), animated: true)
+        } else if let transferTx = tx as? TransferTransaction {
+            navigationController?.pushViewController(TransferDetailTableViewController.init(transaction: transferTx), animated: true)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 66
+        return 70
     }
 
     @IBOutlet weak var tableView: UITableView!

@@ -15,6 +15,16 @@ class CategoryTransacitonCell: UITableViewCell {
     @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
+    @IBOutlet weak var symbolBackgroundView: RoundedCornerView!
+    @IBOutlet weak var symbolImageView: UIImageView!
+
+    var colorStyle: EditTransactionDetailsCellStyles = .expense {
+        didSet {
+            symbolBackgroundView.backgroundColor = colorStyle.secondaryColor()
+            symbolImageView.tintColor = colorStyle.primaryColor()
+        }
+    }
+    
     override func awakeFromNib() {
         moneyLabel.textColor = .expenseColor
         selectionStyle = .none
