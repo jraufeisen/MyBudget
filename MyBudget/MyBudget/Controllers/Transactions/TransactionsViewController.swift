@@ -48,21 +48,26 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
         
         cell.nameLabel.text = tx.transactionDescription
         cell.moneyLabel.text = "\(tx.value)"
-        
+        let localizedDateString = DateFormatter.localizedString(from: tx.date, dateStyle: .medium, timeStyle: .none)
+        cell.dateLabel.text = localizedDateString
+
         if let expenseTx = tx as? ExpenseTransaction  {
             cell.accountLabel.text = expenseTx.account
             cell.moneyLabel.textColor = .expenseColor
-            let localizedDateString = DateFormatter.localizedString(from: expenseTx.date, dateStyle: .medium, timeStyle: .none)
-            cell.dateLabel.text = localizedDateString
+            cell.colorStyle = .expense
         }
 
         if let incomeTx = tx as? IncomeTransaction {
             cell.accountLabel.text = incomeTx.account
             cell.moneyLabel.textColor = .incomeColor
-            let localizedDateString = DateFormatter.localizedString(from: incomeTx.date, dateStyle: .medium, timeStyle: .none)
-            cell.dateLabel.text = localizedDateString
+            cell.colorStyle = .income
         }
         
+        if let transferTx = tx as? TransferTransaction {
+            cell.accountLabel.text = "From \(transferTx.fromAccount) to \(transferTx.toAccount)"
+            cell.moneyLabel.textColor = .transferColor
+            cell.colorStyle = .transfer
+        }
         
         return cell
     }
@@ -71,8 +76,6 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
         if editingStyle == .delete {
             let tx = transactions[indexPath.row]
 
-            // TODO: Implement deletion of transactions from ledger file
-            //print("TODO: Delete transactions")
             let toberemoved = tx.ledgerTransaction()
             print(toberemoved)
             LedgerModel.shared().removeTransaction(tx: toberemoved)
@@ -96,7 +99,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 66
+        return 70
     }
 
     @IBOutlet weak var tableView: UITableView!
