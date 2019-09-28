@@ -55,6 +55,12 @@ class EditDateTableViewCell: UITableViewCell {
         selectionStyle = .none
         
         textfield.inputView = datepicker
+        
+        if #available(iOS 13.0, *) {
+            symbolImageView.image = UIImage.init(systemName: "calendar.circle") // SF symbols only available since iOS 13
+        } else {
+            symbolImageView.image = nil
+        }
     }
 
     @objc private func datePickerDidChange() {

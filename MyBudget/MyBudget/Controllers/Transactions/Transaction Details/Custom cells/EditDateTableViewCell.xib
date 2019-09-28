@@ -18,7 +18,7 @@
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FJz-ki-ADk" customClass="RoundedCornerView" customModule="Budget_" customModuleProvider="target">
                         <rect key="frame" x="20" y="11" width="48" height="48"/>
-                        <color key="backgroundColor" systemColor="tertiarySystemFillColor" red="0.46274509800000002" green="0.46274509800000002" blue="0.50196078430000002" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="tertiarySystemFillColor" red="0.46274509803921571" green="0.46274509803921571" blue="0.50196078431372548" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="48" id="UUy-0W-DGf"/>
                             <constraint firstAttribute="width" secondItem="FJz-ki-ADk" secondAttribute="height" multiplier="1:1" id="wSx-R2-BkO"/>
@@ -29,9 +29,9 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar.circle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="JHK-67-Ag9">
-                        <rect key="frame" x="28" y="19.5" width="32" height="31.5"/>
-                        <color key="tintColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JHK-67-Ag9">
+                        <rect key="frame" x="28" y="19" width="32" height="32"/>
+                        <color key="tintColor" systemColor="systemGrayColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="32" id="LHO-X9-dEy"/>
                             <constraint firstAttribute="width" secondItem="JHK-67-Ag9" secondAttribute="height" multiplier="1:1" id="eBK-S2-SQ5"/>
@@ -72,7 +72,4 @@
             <point key="canvasLocation" x="137.68115942028987" y="153.34821428571428"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="calendar.circle" catalog="system" width="64" height="62"/>
-    </resources>
 </document>

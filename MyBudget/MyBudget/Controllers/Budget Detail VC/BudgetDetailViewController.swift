@@ -28,6 +28,12 @@ class CategoryTransacitonCell: UITableViewCell {
     override func awakeFromNib() {
         moneyLabel.textColor = .expenseColor
         selectionStyle = .none
+        
+        if #available(iOS 13.0, *) {
+            symbolImageView.image = UIImage.init(systemName: "creditcard") // Use SF symbol instead
+        } else {
+            symbolImageView.image = #imageLiteral(resourceName: "Credit Cards").withRenderingMode(.alwaysTemplate)
+        }
     }
 }
 
