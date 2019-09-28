@@ -945,9 +945,11 @@
                                                 <constraint firstItem="hyI-7p-7Kh" firstAttribute="leading" secondItem="dWP-eg-pDW" secondAttribute="leading" id="4tk-Tk-io0"/>
                                                 <constraint firstItem="kOM-oa-HC0" firstAttribute="leading" secondItem="F8F-Dk-AqD" secondAttribute="leading" constant="20" id="8F7-CO-sFZ"/>
                                                 <constraint firstItem="bDD-L2-K2K" firstAttribute="centerY" secondItem="kOM-oa-HC0" secondAttribute="centerY" id="HUc-UL-rTj"/>
+                                                <constraint firstItem="SNR-kO-qp0" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="hyI-7p-7Kh" secondAttribute="trailing" constant="8" symbolic="YES" id="N8W-TQ-PyA"/>
                                                 <constraint firstItem="bDD-L2-K2K" firstAttribute="width" secondItem="bDD-L2-K2K" secondAttribute="height" multiplier="1:1" id="a8O-uJ-oCz"/>
                                                 <constraint firstItem="LHd-09-vh2" firstAttribute="centerY" secondItem="dWP-eg-pDW" secondAttribute="centerY" id="cic-kl-VMe"/>
                                                 <constraint firstItem="kOM-oa-HC0" firstAttribute="width" secondItem="kOM-oa-HC0" secondAttribute="height" multiplier="1:1" id="cog-xE-Tip"/>
+                                                <constraint firstItem="LHd-09-vh2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dWP-eg-pDW" secondAttribute="trailing" constant="10" id="eu3-ps-9oH"/>
                                                 <constraint firstItem="SNR-kO-qp0" firstAttribute="trailing" secondItem="LHd-09-vh2" secondAttribute="trailing" id="kZz-Dr-lFR"/>
                                                 <constraint firstItem="dWP-eg-pDW" firstAttribute="top" secondItem="kOM-oa-HC0" secondAttribute="top" id="r1f-Ov-klj"/>
                                                 <constraint firstAttribute="trailing" secondItem="LHd-09-vh2" secondAttribute="trailing" constant="8.5" id="vlI-bN-kBs"/>
