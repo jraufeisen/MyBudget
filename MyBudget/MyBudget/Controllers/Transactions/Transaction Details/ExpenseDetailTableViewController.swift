@@ -29,10 +29,6 @@ class ExpenseDetailTableViewController: TransactionDetailBaseTableViewController
     private var accountCell: EditAccountTableViewCell?
     private var categoryCell: EditCategoryTableViewCell?
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1

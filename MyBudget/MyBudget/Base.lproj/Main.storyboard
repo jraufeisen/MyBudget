@@ -875,7 +875,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b8m-qa-qFV">
-                                <rect key="frame" x="0.0" y="28.5" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="transactionCell" rowHeight="70" id="YtA-Ud-31m" customClass="CategoryTransacitonCell" customModule="Budget_" customModuleProvider="target">
@@ -968,10 +968,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="b8m-qa-qFV" firstAttribute="height" secondItem="6Qv-zp-w8W" secondAttribute="height" id="3QQ-ZB-uC6"/>
                             <constraint firstItem="b8m-qa-qFV" firstAttribute="centerY" secondItem="xLo-AP-qya" secondAttribute="centerY" id="IgK-99-nNY"/>
                             <constraint firstItem="b8m-qa-qFV" firstAttribute="centerX" secondItem="xLo-AP-qya" secondAttribute="centerX" id="MdU-1u-yZR"/>
                             <constraint firstItem="b8m-qa-qFV" firstAttribute="width" secondItem="6Qv-zp-w8W" secondAttribute="width" id="R5j-b8-GBI"/>
+                            <constraint firstItem="b8m-qa-qFV" firstAttribute="top" secondItem="xLo-AP-qya" secondAttribute="top" id="U5I-6U-g9M"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xLo-AP-qya"/>
                     </view>
