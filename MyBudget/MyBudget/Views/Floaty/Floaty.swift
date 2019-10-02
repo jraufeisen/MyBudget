@@ -848,10 +848,25 @@ open class Floaty: UIView {
   }
   
   fileprivate func recalculateItemsOrigin() {
+    var count = 1
+    var originY: CGFloat = 0
+    let originX: CGFloat = 0
+
     for item in items {
       let big = size > item.size ? size : item.size
       let small = size <= item.size ? size : item.size
-      item.frame.origin = CGPoint(x: big/2-small/2, y: big/2-small/2)
+        if originY == 0 {
+            originY -= big
+            originY -= itemSpace
+        } else {
+            originY -= big/2-small/2
+            originY -= itemSpace
+        }
+
+      item.frame.origin = CGPoint(x: originX, y: originY)
+
+      originY -= item.size
+      count += 1
     }
   }
   
