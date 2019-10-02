@@ -89,7 +89,8 @@ class SubscriptionFloaty: Floaty {
             subscribeItem.titleColor = UIColor.label
         }
         subscribeItem.icon = #imageLiteral(resourceName: "Logo_Only").withRenderingMode(.alwaysTemplate)
-        subscribeItem.title = "Subscribe"
+        subscribeItem.title = "Subscribed"
+
         subscribeItem.tintColor = .white
         subscribeItem.buttonColor = .blueActionColor
         subscribeItem.size = itemSize

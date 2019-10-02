@@ -110,8 +110,31 @@ class TabbarViewController: UITabBarController, FloatyDelegate {
 
 
     let effectView = UIVisualEffectView.init(effect: UIBlurEffect.init(style: .prominent))
+    
+    private func addConstraintsToEffectView() {
+        
+        guard let superView = effectView.superview else {return}
+        
+        effectView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let right = NSLayoutConstraint.init(item: effectView, attribute: .trailing, relatedBy: .equal, toItem: superView, attribute: .trailing, multiplier: 1, constant: 0)
+        right.isActive = true
+
+        let left = NSLayoutConstraint.init(item: effectView, attribute: .leading, relatedBy: .equal, toItem: superView, attribute: .leading, multiplier: 1, constant: 0)
+        left.isActive = true
+        
+        let top = NSLayoutConstraint.init(item: effectView, attribute: .top, relatedBy: .equal, toItem: superView, attribute: .top, multiplier: 1, constant: 0)
+        top.isActive = true
+        
+        let bottom = NSLayoutConstraint.init(item: effectView, attribute: .bottom, relatedBy: .equal, toItem: superView, attribute: .bottom, multiplier: 1, constant: 0)
+        bottom.isActive = true
+        
+    }
+    
+    
     let effectViewFadeDuration = 0.2
     var helpingLabel: UILabel?
+    
     
     func floatyWillOpen(_ floaty: Floaty) {
         effectView.frame = view.frame
@@ -169,11 +192,30 @@ class TabbarViewController: UITabBarController, FloatyDelegate {
         effectView.contentView.addSubview(helpingLabel!)
         
         selectedViewController?.view.addSubview(effectView)
+        addConstraintsToEffectView()
         let animator = UIViewPropertyAnimator.init(duration: effectViewFadeDuration, curve: .easeIn) {
             self.effectView.alpha = 1.0
             self.helpingLabel?.alpha = 1.0
         }
         animator.startAnimation()
+    }
+    
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        helpingLabel?.translatesAutoresizingMaskIntoConstraints = false
+
+        if size.width < size.height { // Portrait
+            let animator = UIViewPropertyAnimator.init(duration: coordinator.transitionDuration, curve: coordinator.completionCurve) {
+                self.helpingLabel?.alpha = 1
+            }
+            animator.startAnimation()
+        } else { // Landscape
+            let animator = UIViewPropertyAnimator.init(duration: coordinator.transitionDuration, curve: coordinator.completionCurve) {
+                self.helpingLabel?.alpha = 0
+            }
+            animator.startAnimation()
+        }
     }
     
     func floatyWillClose(_ floaty: Floaty) {
