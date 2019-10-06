@@ -88,6 +88,8 @@
 		EB9DEBD422E9E5C400A73FD1 /* UITextField+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */; };
 		EB9DEBD622E9F00600A73FD1 /* CategoryAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD522E9F00600A73FD1 /* CategoryAccessoryView.swift */; };
 		EBA192222304829E00DA9308 /* MonthlyAverageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA192212304829E00DA9308 /* MonthlyAverageViewController.swift */; };
+		EBAAE3DA234A96AD00257A35 /* LargeTitleNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAAE3D9234A96AD00257A35 /* LargeTitleNavigationBar.swift */; };
+		EBAAE3DB234A96AD00257A35 /* LargeTitleNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAAE3D9234A96AD00257A35 /* LargeTitleNavigationBar.swift */; };
 		EBB21C8023054E70004E4E8F /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB21C7F23054E70004E4E8F /* TabbarViewController.swift */; };
 		EBB21C8323055530004E4E8F /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB21C8223055530004E4E8F /* TransactionsViewController.swift */; };
 		EBC59D3F22E7503900E626DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC59D3E22E7503900E626DC /* AppDelegate.swift */; };
@@ -292,6 +294,7 @@
 		EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Placeholder.swift"; sourceTree = "<group>"; };
 		EB9DEBD522E9F00600A73FD1 /* CategoryAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAccessoryView.swift; sourceTree = "<group>"; };
 		EBA192212304829E00DA9308 /* MonthlyAverageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyAverageViewController.swift; sourceTree = "<group>"; };
+		EBAAE3D9234A96AD00257A35 /* LargeTitleNavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LargeTitleNavigationBar.swift; sourceTree = "<group>"; };
 		EBB21C7F23054E70004E4E8F /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		EBB21C8223055530004E4E8F /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 		EBC59D3B22E7503900E626DC /* Budget!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Budget!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -687,6 +690,7 @@
 		EBD012E322E99A1200F8126D /* Budget Table VC */ = {
 			isa = PBXGroup;
 			children = (
+				EBAAE3D9234A96AD00257A35 /* LargeTitleNavigationBar.swift */,
 				EBC59D5022E750DC00E626DC /* BudgetTableViewController.swift */,
 			);
 			path = "Budget Table VC";
@@ -1093,6 +1097,7 @@
 				EBEB145022E8A1B100291435 /* EnterNumberViewController.swift in Sources */,
 				EB35EDEC233E100100C58683 /* TransferDetailTableViewController.swift in Sources */,
 				EB5C600C22F32960004F81CF /* MenuTableViewController.swift in Sources */,
+				EBAAE3DA234A96AD00257A35 /* LargeTitleNavigationBar.swift in Sources */,
 				EB09FC97231D5D830063FB90 /* SubscriptionFloaty.swift in Sources */,
 				EBE7E2BC2321233500BEC812 /* Constants.swift in Sources */,
 				EB024C2522F35C5A00228855 /* MenuPresentingViewController.swift in Sources */,
@@ -1169,6 +1174,7 @@
 			files = (
 				EBE7E2A82321058500BEC812 /* MyBudgetUITests.swift in Sources */,
 				EBE7E2B923210ADB00BEC812 /* SnapshotHelper.swift in Sources */,
+				EBAAE3DB234A96AD00257A35 /* LargeTitleNavigationBar.swift in Sources */,
 				EBE7E2BE2321237400BEC812 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

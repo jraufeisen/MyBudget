@@ -94,23 +94,28 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
             tableView.reloadData()
         }
         let unbudgetedMoney = Model.shared.unbudgetedMoney()
-        if unbudgetedMoney < 0 {
-            navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.expenseColor]
-            navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.expenseColor]
-            navigationItem.title = "Budget \(unbudgetedMoney.negative)"
-            navigationItem.prompt = "You have overbudgeted by \(unbudgetedMoney.negative)"
-        } else if unbudgetedMoney == 0 {
-            navigationController?.navigationBar.titleTextAttributes = nil
-            navigationController?.navigationBar.largeTitleTextAttributes = nil
-            navigationItem.title = "Budget"
-            navigationItem.prompt = ""
-        } else {
-            navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.incomeColor]
-            navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.incomeColor]
-            navigationItem.title = "Budget \(unbudgetedMoney)"
-            navigationItem.prompt = "You have \(unbudgetedMoney) left to budget"
-        }
+        
+        if let bar = navigationController?.navigationBar as? LargeTitleNavigationBar {
+            bar.setUpForHeight(height: 80)
+            bar.titleLabel.text = "Overbudgeted by \(unbudgetedMoney.negative)"
+            bar.titleLabel.textColor = UIColor.red
+            
+            if unbudgetedMoney < 0 {
+                bar.titleLabel.text = "Overbudgeted by \(unbudgetedMoney)"
+                bar.titleLabel.textColor = UIColor.expenseColor
+            } else if unbudgetedMoney == 0 {
+                bar.titleLabel.text = "Balanced budget"
+                if #available(iOS 13.0, *) {
+                    bar.titleLabel.textColor = UIColor.label
+                } else {
+                    bar.titleLabel.textColor = UIColor.black
+                }
+            } else {
+                bar.titleLabel.text = "\(unbudgetedMoney) reamining"
+                bar.titleLabel.textColor = UIColor.incomeColor
+            }
 
+        }
         
 
         if budgetCategories.count == 0 {
