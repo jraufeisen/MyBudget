@@ -88,6 +88,8 @@
 		EB9DEBD422E9E5C400A73FD1 /* UITextField+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */; };
 		EB9DEBD622E9F00600A73FD1 /* CategoryAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD522E9F00600A73FD1 /* CategoryAccessoryView.swift */; };
 		EBA192222304829E00DA9308 /* MonthlyAverageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA192212304829E00DA9308 /* MonthlyAverageViewController.swift */; };
+		EBAE2ED92364A37100040980 /* BudgetTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAE2ED82364A37100040980 /* BudgetTableHeaderView.swift */; };
+		EBAE2EDE2364AB3600040980 /* BudgetTableHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAE2EDD2364AB3600040980 /* BudgetTableHeaderViewController.swift */; };
 		EBB21C8023054E70004E4E8F /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB21C7F23054E70004E4E8F /* TabbarViewController.swift */; };
 		EBB21C8323055530004E4E8F /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB21C8223055530004E4E8F /* TransactionsViewController.swift */; };
 		EBC59D3F22E7503900E626DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC59D3E22E7503900E626DC /* AppDelegate.swift */; };
@@ -292,6 +294,8 @@
 		EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Placeholder.swift"; sourceTree = "<group>"; };
 		EB9DEBD522E9F00600A73FD1 /* CategoryAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAccessoryView.swift; sourceTree = "<group>"; };
 		EBA192212304829E00DA9308 /* MonthlyAverageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyAverageViewController.swift; sourceTree = "<group>"; };
+		EBAE2ED82364A37100040980 /* BudgetTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTableHeaderView.swift; sourceTree = "<group>"; };
+		EBAE2EDD2364AB3600040980 /* BudgetTableHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTableHeaderViewController.swift; sourceTree = "<group>"; };
 		EBB21C7F23054E70004E4E8F /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		EBB21C8223055530004E4E8F /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 		EBC59D3B22E7503900E626DC /* Budget!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Budget!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -687,7 +691,9 @@
 		EBD012E322E99A1200F8126D /* Budget Table VC */ = {
 			isa = PBXGroup;
 			children = (
+				EBAE2EDD2364AB3600040980 /* BudgetTableHeaderViewController.swift */,
 				EBC59D5022E750DC00E626DC /* BudgetTableViewController.swift */,
+				EBAE2ED82364A37100040980 /* BudgetTableHeaderView.swift */,
 			);
 			path = "Budget Table VC";
 			sourceTree = "<group>";
@@ -1144,10 +1150,12 @@
 				EBC59D5322E750E900E626DC /* Model.swift in Sources */,
 				EB35EDE8233E0E6100C58683 /* TransactionDetailBaseTableViewController.swift in Sources */,
 				EB4F78A32319B3BA0045077E /* CollectionUtilities.swift in Sources */,
+				EBAE2ED92364A37100040980 /* BudgetTableHeaderView.swift in Sources */,
 				EB399D7F2323088100CA0BD8 /* WatchSessionManager.swift in Sources */,
 				EBDA26CD22F6FDCC0073DC50 /* IncomeStatementPercentView.swift in Sources */,
 				EBE7FE4F233CC55F0088D156 /* EditAccountTableViewCell.swift in Sources */,
 				EBD012E022E9974700F8126D /* DiaryTextView.swift in Sources */,
+				EBAE2EDE2364AB3600040980 /* BudgetTableHeaderViewController.swift in Sources */,
 				EB985CBA22EC6B5800C033E8 /* FloatyViewController.swift in Sources */,
 				EB02A67222EB10E700987AFA /* APNumberPadDefaultStyle.m in Sources */,
 				EBB21C8323055530004E4E8F /* TransactionsViewController.swift in Sources */,

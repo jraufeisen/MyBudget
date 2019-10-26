@@ -71,6 +71,9 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
     private var budgetCategories = [BudgetCategoryViewable]()
     @IBOutlet var tableView: UITableView!
 
+
+    private var headerController: BudgetTableHeaderViewController? = nil
+    
     
     static func instantiate() -> BudgetTableViewController {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "budgetTableViewController") as! BudgetTableViewController
@@ -87,6 +90,7 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
 
     
     @objc private func updateUI() {
+
         budgetCategories = Model.shared.getAllBudgetCategories()
         if tableView.numberOfSections > 0 {
             tableView.reloadSections([0], with: .automatic)
@@ -94,23 +98,8 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
             tableView.reloadData()
         }
         let unbudgetedMoney = Model.shared.unbudgetedMoney()
-        if unbudgetedMoney < 0 {
-            navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.expenseColor]
-            navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.expenseColor]
-            navigationItem.title = "Budget \(unbudgetedMoney.negative)"
-            navigationItem.prompt = "You have overbudgeted by \(unbudgetedMoney.negative)"
-        } else if unbudgetedMoney == 0 {
-            navigationController?.navigationBar.titleTextAttributes = nil
-            navigationController?.navigationBar.largeTitleTextAttributes = nil
-            navigationItem.title = "Budget"
-            navigationItem.prompt = ""
-        } else {
-            navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.incomeColor]
-            navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.incomeColor]
-            navigationItem.title = "Budget \(unbudgetedMoney)"
-            navigationItem.prompt = "You have \(unbudgetedMoney) left to budget"
-        }
 
+        headerController?.configure(money: unbudgetedMoney)
         
 
         if budgetCategories.count == 0 {
@@ -221,5 +210,10 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
         present(wrapperVC, animated: true, completion: nil)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueheaderContainer" {
+            headerController = segue.destination as? BudgetTableHeaderViewController
+        }
+    }
     
 }
