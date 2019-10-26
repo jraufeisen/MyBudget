@@ -72,8 +72,8 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet var tableView: UITableView!
 
 
-    private var headerController: BudgetTableHeaderViewController? = nil
-    
+    private var headerController = BudgetTableHeaderViewController.instantiate()
+    private var shouldHideHeader = false
     
     static func instantiate() -> BudgetTableViewController {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "budgetTableViewController") as! BudgetTableViewController
@@ -81,11 +81,21 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     
+    override func viewWillAppear(_ animated: Bool) {
+           updateUI()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateUI()
+       // updateUI()
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateUI), name: ModelChangedNotification, object: nil)
+    }
 
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return headerController.view
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return shouldHideHeader == true ? 0 : 100
     }
 
     
@@ -97,11 +107,13 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
         } else {
             tableView.reloadData()
         }
+
+        // Update header
         let unbudgetedMoney = Model.shared.unbudgetedMoney()
-
-        headerController?.configure(money: unbudgetedMoney)
+        shouldHideHeader = unbudgetedMoney.minorUnits == 0
+        headerController.configure(money: unbudgetedMoney)
         
-
+        // Add helping labels when tableview is empty
         if budgetCategories.count == 0 {
             addHelpingLabels()
         } else {
@@ -149,9 +161,6 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     
-    override func viewDidAppear(_ animated: Bool) {
-        updateUI()
-    }
     
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -209,11 +218,5 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
         let wrapperVC = UINavigationController.init(rootViewController: newCategoryVC)
         present(wrapperVC, animated: true, completion: nil)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segueheaderContainer" {
-            headerController = segue.destination as? BudgetTableHeaderViewController
-        }
-    }
-    
+        
 }

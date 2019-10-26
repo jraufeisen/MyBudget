@@ -12,6 +12,12 @@ import Swift_Ledger
 class BudgetTableHeaderViewController: UIViewController {
 
     @IBOutlet weak var label: UILabel!
+    
+    class func instantiate() -> BudgetTableHeaderViewController {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BudgetTableHeaderViewControllerIdentifier") as! BudgetTableHeaderViewController
+        return vc
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

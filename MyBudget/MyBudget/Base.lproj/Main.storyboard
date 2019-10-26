@@ -20,16 +20,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <containerView key="tableHeaderView" opaque="NO" contentMode="scaleToFill" id="WVO-9n-sFR">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="91"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                    <connections>
-                                        <segue destination="IGm-w1-4Vh" kind="embed" identifier="segueheaderContainer" id="Q2F-dz-CkX"/>
-                                    </connections>
-                                </containerView>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="budgetCell" rowHeight="150" id="GAC-xO-CfU" customClass="BudgetTableViewCell" customModule="Budget_" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="146.5" width="414" height="150"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GAC-xO-CfU" id="D8u-pT-PBU">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
@@ -1013,21 +1006,21 @@
         <!--Budget Table Header View Controller-->
         <scene sceneID="gN4-0g-Coy">
             <objects>
-                <viewController id="IGm-w1-4Vh" customClass="BudgetTableHeaderViewController" customModule="Budget_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BudgetTableHeaderViewControllerIdentifier" id="IGm-w1-4Vh" customClass="BudgetTableHeaderViewController" customModule="Budget_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6ZR-Im-ATO" customClass="BudgetTableHeaderView" customModule="Budget_" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="91"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.382,67 € waiting to be budgeted" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLQ-L6-ECy">
-                                <rect key="frame" x="20" y="0.0" width="394" height="91"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <rect key="frame" x="20" y="0.0" width="374" height="896"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="nLQ-L6-ECy" secondAttribute="trailing" id="MfA-rz-OER"/>
+                            <constraint firstAttribute="trailing" secondItem="nLQ-L6-ECy" secondAttribute="trailing" constant="20" id="MfA-rz-OER"/>
                             <constraint firstAttribute="bottom" secondItem="nLQ-L6-ECy" secondAttribute="bottom" id="TnE-de-6he"/>
                             <constraint firstItem="nLQ-L6-ECy" firstAttribute="leading" secondItem="6ZR-Im-ATO" secondAttribute="leading" constant="20" id="V3F-vZ-r9V"/>
                             <constraint firstItem="nLQ-L6-ECy" firstAttribute="top" secondItem="6ZR-Im-ATO" secondAttribute="top" id="ZIU-78-wmC"/>
@@ -1043,7 +1036,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fYJ-8e-ofj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1236" y="112"/>
+            <point key="canvasLocation" x="1135" y="64"/>
         </scene>
     </scenes>
     <resources>
