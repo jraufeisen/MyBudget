@@ -1099,6 +1099,7 @@
 				EBEB145022E8A1B100291435 /* EnterNumberViewController.swift in Sources */,
 				EB35EDEC233E100100C58683 /* TransferDetailTableViewController.swift in Sources */,
 				EB5C600C22F32960004F81CF /* MenuTableViewController.swift in Sources */,
+				EBAAE3DA234A96AD00257A35 /* LargeTitleNavigationBar.swift in Sources */,
 				EB09FC97231D5D830063FB90 /* SubscriptionFloaty.swift in Sources */,
 				EBE7E2BC2321233500BEC812 /* Constants.swift in Sources */,
 				EB024C2522F35C5A00228855 /* MenuPresentingViewController.swift in Sources */,
@@ -1177,6 +1178,7 @@
 			files = (
 				EBE7E2A82321058500BEC812 /* MyBudgetUITests.swift in Sources */,
 				EBE7E2B923210ADB00BEC812 /* SnapshotHelper.swift in Sources */,
+				EBAAE3DB234A96AD00257A35 /* LargeTitleNavigationBar.swift in Sources */,
 				EBE7E2BE2321237400BEC812 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
