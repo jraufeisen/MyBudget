@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		663262797FA0440D3870E37D /* Pods_MyBudget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B8B8649E433172893306AF /* Pods_MyBudget.framework */; };
 		EB024C2522F35C5A00228855 /* MenuPresentingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB024C2422F35C5A00228855 /* MenuPresentingViewController.swift */; };
 		EB02A67222EB10E700987AFA /* APNumberPadDefaultStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02A66A22EB10E600987AFA /* APNumberPadDefaultStyle.m */; };
 		EB02A67322EB10E700987AFA /* APNumberButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02A66C22EB10E700987AFA /* APNumberButton.m */; };
@@ -348,6 +349,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D2F8D93A0BDFB0332E59440F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EB399D52232305DD00CA0BD8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -363,6 +371,7 @@
 				EBE7FE66233CF96F0088D156 /* Swift_Ledger.framework in Frameworks */,
 				EBEC52F923310AEA00E88BA3 /* Antlr4.framework in Frameworks */,
 				EB4F789723196F220045077E /* StoreKit.framework in Frameworks */,
+				663262797FA0440D3870E37D /* Pods_MyBudget.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -829,6 +838,7 @@
 			buildPhases = (
 				EB399D47232305D800CA0BD8 /* Resources */,
 				EB399D6E232305DE00CA0BD8 /* Embed App Extensions */,
+				D2F8D93A0BDFB0332E59440F /* Frameworks */,
 			);
 			buildRules = (
 			);
