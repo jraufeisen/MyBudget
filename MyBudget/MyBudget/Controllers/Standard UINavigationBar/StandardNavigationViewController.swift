@@ -11,13 +11,11 @@ import UIKit
 class StandardNavigationViewController: UINavigationController {
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setupView()
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-    }
     
     private func setupView() {
         if #available(iOS 13.0, *) {

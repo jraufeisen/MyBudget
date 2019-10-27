@@ -37,6 +37,12 @@ class EditNameTableViewCell: UITableViewCell {
         super.awakeFromNib()
         selectionStyle = .none
         textfield.delegate = self
+        
+        if #available(iOS 13.0, *) {
+            symbolImageView.image = UIImage.init(systemName: "text.justify") // SF symbols only available since iOS 13
+        } else {
+            symbolImageView.image = nil
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

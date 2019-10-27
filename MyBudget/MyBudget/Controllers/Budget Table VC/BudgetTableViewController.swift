@@ -71,6 +71,9 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
     private var budgetCategories = [BudgetCategoryViewable]()
     @IBOutlet var tableView: UITableView!
 
+
+    private var headerController = BudgetTableHeaderViewController.instantiate()
+    private var shouldHideHeader = false
     
     static func instantiate() -> BudgetTableViewController {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "budgetTableViewController") as! BudgetTableViewController
@@ -78,41 +81,39 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     
+    override func viewWillAppear(_ animated: Bool) {
+           updateUI()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateUI()
+       // updateUI()
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateUI), name: ModelChangedNotification, object: nil)
+    }
 
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return headerController.view
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return shouldHideHeader == true ? 0 : 100
     }
 
     
     @objc private func updateUI() {
+
         budgetCategories = Model.shared.getAllBudgetCategories()
         if tableView.numberOfSections > 0 {
             tableView.reloadSections([0], with: .automatic)
         } else {
             tableView.reloadData()
         }
+
+        // Update header
         let unbudgetedMoney = Model.shared.unbudgetedMoney()
-        if unbudgetedMoney < 0 {
-            navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.expenseColor]
-            navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.expenseColor]
-            navigationItem.title = "Budget \(unbudgetedMoney.negative)"
-            navigationItem.prompt = "You have overbudgeted by \(unbudgetedMoney.negative)"
-        } else if unbudgetedMoney == 0 {
-            navigationController?.navigationBar.titleTextAttributes = nil
-            navigationController?.navigationBar.largeTitleTextAttributes = nil
-            navigationItem.title = "Budget"
-            navigationItem.prompt = ""
-        } else {
-            navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.incomeColor]
-            navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.incomeColor]
-            navigationItem.title = "Budget \(unbudgetedMoney)"
-            navigationItem.prompt = "You have \(unbudgetedMoney) left to budget"
-        }
-
+        shouldHideHeader = unbudgetedMoney.minorUnits == 0
+        headerController.configure(money: unbudgetedMoney)
         
-
+        // Add helping labels when tableview is empty
         if budgetCategories.count == 0 {
             addHelpingLabels()
         } else {
@@ -160,9 +161,6 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     
-    override func viewDidAppear(_ animated: Bool) {
-        updateUI()
-    }
     
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -220,6 +218,5 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
         let wrapperVC = UINavigationController.init(rootViewController: newCategoryVC)
         present(wrapperVC, animated: true, completion: nil)
     }
-    
-    
+        
 }

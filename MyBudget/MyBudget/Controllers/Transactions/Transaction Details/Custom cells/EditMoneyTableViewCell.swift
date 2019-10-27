@@ -38,6 +38,13 @@ class EditMoneyTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
+        
+        if #available(iOS 13.0, *) {
+            symbolImageView.image = UIImage.init(systemName: "eurosign.circle") // SF symbols only available since iOS 13
+        } else {
+            symbolImageView.image = #imageLiteral(resourceName: "add.png").withRenderingMode(.alwaysTemplate)
+        }
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -107,13 +107,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     
     let search = UISearchController.init(searchResultsController: nil)
 
-    override func viewWillAppear(_ animated: Bool) {
-        navigationItem.hidesSearchBarWhenScrolling = false
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        navigationItem.hidesSearchBarWhenScrolling = true
-    }
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         searchFilter = "" // No filter at start
@@ -124,6 +118,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
         search.searchBar.sizeToFit()
 
         navigationItem.searchController = search
+        navigationItem.hidesSearchBarWhenScrolling = true
 
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateModel), name: ModelChangedNotification, object: nil)
     }
