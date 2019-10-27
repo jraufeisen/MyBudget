@@ -22,6 +22,9 @@
 		EB09FC97231D5D830063FB90 /* SubscriptionFloaty.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB09FC96231D5D830063FB90 /* SubscriptionFloaty.swift */; };
 		EB1BCBBC2305AD2A0023E11F /* NewAccountDiaryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1BCBBB2305AD2A0023E11F /* NewAccountDiaryProvider.swift */; };
 		EB203BF4230716CA008C9EE5 /* FileManager+DocDir.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB203BF3230716CA008C9EE5 /* FileManager+DocDir.swift */; };
+		EB205AE423660E920050130E /* PieChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB205AE223660E920050130E /* PieChartTableViewCell.swift */; };
+		EB205AE523660E920050130E /* PieChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB205AE323660E920050130E /* PieChartTableViewCell.xib */; };
+		EB205AE723660F570050130E /* ReportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB205AE623660F570050130E /* ReportsViewController.swift */; };
 		EB2C771B22EDBCA3009FA2C8 /* UITextView+Center.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2C771A22EDBCA3009FA2C8 /* UITextView+Center.swift */; };
 		EB2C771D22EDBD59009FA2C8 /* BudgetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2C771C22EDBD59009FA2C8 /* BudgetDetailViewController.swift */; };
 		EB2C772022EDC143009FA2C8 /* MoneyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2C771F22EDC143009FA2C8 /* MoneyTextField.swift */; };
@@ -128,8 +131,6 @@
 		EBEB145722E8A29800291435 /* UIColor+Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145622E8A29800291435 /* UIColor+Macro.swift */; };
 		EBEB145B22E8AD7300291435 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145A22E8AD7300291435 /* Transaction.swift */; };
 		EBEB8B1C23145D5C009F65B8 /* NewAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB8B1B23145D5C009F65B8 /* NewAccountViewController.swift */; };
-		EBEC52F923310AEA00E88BA3 /* Antlr4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBEC52F623310A9E00E88BA3 /* Antlr4.framework */; };
-		EBEC52FA23310AEA00E88BA3 /* Antlr4.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EBEC52F623310A9E00E88BA3 /* Antlr4.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EBF2F67C22E8D91300C2772F /* AccountTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF2F67B22E8D91300C2772F /* AccountTableView.swift */; };
 		EBF3A88B233AB926003093B7 /* StandardNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF3A88A233AB926003093B7 /* StandardNavigationViewController.swift */; };
 		EBF560F82305EFD400E850E7 /* NewBudgetCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF560F72305EFD400E850E7 /* NewBudgetCategoryViewController.swift */; };
@@ -164,7 +165,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EBEC52FA23310AEA00E88BA3 /* Antlr4.framework in Embed Frameworks */,
 				EBE7FE67233CF96F0088D156 /* Swift_Ledger.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -229,6 +229,9 @@
 		EB09FC96231D5D830063FB90 /* SubscriptionFloaty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionFloaty.swift; sourceTree = "<group>"; };
 		EB1BCBBB2305AD2A0023E11F /* NewAccountDiaryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountDiaryProvider.swift; sourceTree = "<group>"; };
 		EB203BF3230716CA008C9EE5 /* FileManager+DocDir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+DocDir.swift"; sourceTree = "<group>"; };
+		EB205AE223660E920050130E /* PieChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartTableViewCell.swift; sourceTree = "<group>"; };
+		EB205AE323660E920050130E /* PieChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PieChartTableViewCell.xib; sourceTree = "<group>"; };
+		EB205AE623660F570050130E /* ReportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsViewController.swift; sourceTree = "<group>"; };
 		EB2C771A22EDBCA3009FA2C8 /* UITextView+Center.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Center.swift"; sourceTree = "<group>"; };
 		EB2C771C22EDBD59009FA2C8 /* BudgetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetDetailViewController.swift; sourceTree = "<group>"; };
 		EB2C771F22EDC143009FA2C8 /* MoneyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTextField.swift; sourceTree = "<group>"; };
@@ -260,6 +263,7 @@
 		EB399D7C2323077D00CA0BD8 /* EnterNumberInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNumberInterfaceController.swift; sourceTree = "<group>"; };
 		EB399D7D2323077D00CA0BD8 /* ConfirmationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationController.swift; sourceTree = "<group>"; };
 		EB399D7E2323088100CA0BD8 /* WatchSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchSessionManager.swift; sourceTree = "<group>"; };
+		EB3D8CD62366139500B71C4E /* Antlr4.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Antlr4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB4F7894231968860045077E /* ServerReceiptValidatorReceiptValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerReceiptValidatorReceiptValidator.swift; sourceTree = "<group>"; };
 		EB4F789623196F220045077E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		EB4F78992319A2600045077E /* SubscriptionOnboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionOnboardController.swift; sourceTree = "<group>"; };
@@ -369,7 +373,6 @@
 			files = (
 				EB558EB722ECA3A200039651 /* CloudKit.framework in Frameworks */,
 				EBE7FE66233CF96F0088D156 /* Swift_Ledger.framework in Frameworks */,
-				EBEC52F923310AEA00E88BA3 /* Antlr4.framework in Frameworks */,
 				EB4F789723196F220045077E /* StoreKit.framework in Frameworks */,
 				663262797FA0440D3870E37D /* Pods_MyBudget.framework in Frameworks */,
 			);
@@ -397,6 +400,7 @@
 		1CF7C6954939ED9D3DD0375D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB3D8CD62366139500B71C4E /* Antlr4.framework */,
 				EBE7FE65233CF96F0088D156 /* Swift_Ledger.framework */,
 				EBEC52F623310A9E00E88BA3 /* Antlr4.framework */,
 				EB4F789623196F220045077E /* StoreKit.framework */,
@@ -460,6 +464,24 @@
 				EBEB8B1B23145D5C009F65B8 /* NewAccountViewController.swift */,
 			);
 			path = "New Account";
+			sourceTree = "<group>";
+		};
+		EB205AE023660E4F0050130E /* Reports */ = {
+			isa = PBXGroup;
+			children = (
+				EB205AE623660F570050130E /* ReportsViewController.swift */,
+				EB205AE123660E620050130E /* Report Cells */,
+			);
+			path = Reports;
+			sourceTree = "<group>";
+		};
+		EB205AE123660E620050130E /* Report Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EB205AE223660E920050130E /* PieChartTableViewCell.swift */,
+				EB205AE323660E920050130E /* PieChartTableViewCell.xib */,
+			);
+			path = "Report Cells";
 			sourceTree = "<group>";
 		};
 		EB2C771E22EDBD5E009FA2C8 /* Budget Detail VC */ = {
@@ -552,6 +574,7 @@
 		EB5C600A22F32946004F81CF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EB205AE023660E4F0050130E /* Reports */,
 				EB4F78982319A2450045077E /* Onboard_Subscription */,
 				EBF560F92305EFD800E850E7 /* New Budget Category */,
 				EB1BCBC02305ADBD0023E11F /* New Account */,
@@ -997,6 +1020,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB2C772222EDC8CA009FA2C8 /* pencil.png in Resources */,
+				EB205AE523660E920050130E /* PieChartTableViewCell.xib in Resources */,
 				EB8472892306AA4400DCD330 /* Settings.bundle in Resources */,
 				EB02A68122EB1BAF00987AFA /* apnumberpad_backspace_icon.png in Resources */,
 				EB34D5E222F3362D000FACAC /* menu.png in Resources */,
@@ -1128,6 +1152,7 @@
 				EB4F789A2319A2600045077E /* SubscriptionOnboardController.swift in Sources */,
 				EB09FC94231D57080063FB90 /* KeychainWrapper.swift in Sources */,
 				EB203BF4230716CA008C9EE5 /* FileManager+DocDir.swift in Sources */,
+				EB205AE723660F570050130E /* ReportsViewController.swift in Sources */,
 				EBE7FE37233CBC430088D156 /* ExpenseDetailTableViewController.swift in Sources */,
 				EB35EDE6233E050100C58683 /* RoundedCornerView.swift in Sources */,
 				EB985CBB22EC6B5800C033E8 /* Floaty.swift in Sources */,
@@ -1160,6 +1185,7 @@
 				EBC59D5322E750E900E626DC /* Model.swift in Sources */,
 				EB35EDE8233E0E6100C58683 /* TransactionDetailBaseTableViewController.swift in Sources */,
 				EB4F78A32319B3BA0045077E /* CollectionUtilities.swift in Sources */,
+				EB205AE423660E920050130E /* PieChartTableViewCell.swift in Sources */,
 				EBAE2ED92364A37100040980 /* BudgetTableHeaderView.swift in Sources */,
 				EB399D7F2323088100CA0BD8 /* WatchSessionManager.swift in Sources */,
 				EBDA26CD22F6FDCC0073DC50 /* IncomeStatementPercentView.swift in Sources */,
