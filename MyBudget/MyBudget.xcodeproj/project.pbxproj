@@ -23,7 +23,6 @@
 		EB1BCBBC2305AD2A0023E11F /* NewAccountDiaryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1BCBBB2305AD2A0023E11F /* NewAccountDiaryProvider.swift */; };
 		EB203BF4230716CA008C9EE5 /* FileManager+DocDir.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB203BF3230716CA008C9EE5 /* FileManager+DocDir.swift */; };
 		EB205AE423660E920050130E /* PieChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB205AE223660E920050130E /* PieChartTableViewCell.swift */; };
-		EB205AE523660E920050130E /* PieChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB205AE323660E920050130E /* PieChartTableViewCell.xib */; };
 		EB205AE723660F570050130E /* ReportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB205AE623660F570050130E /* ReportsViewController.swift */; };
 		EB2C771B22EDBCA3009FA2C8 /* UITextView+Center.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2C771A22EDBCA3009FA2C8 /* UITextView+Center.swift */; };
 		EB2C771D22EDBD59009FA2C8 /* BudgetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2C771C22EDBD59009FA2C8 /* BudgetDetailViewController.swift */; };
@@ -109,6 +108,9 @@
 		EBD012F322E9B39D00F8126D /* drawer.png in Resources */ = {isa = PBXBuildFile; fileRef = EBD012F222E9B39D00F8126D /* drawer.png */; };
 		EBD012F622E9B47F00F8126D /* NewCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD012F422E9B47F00F8126D /* NewCategoryCell.xib */; };
 		EBD012F722E9B47F00F8126D /* ExistingCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD012F522E9B47F00F8126D /* ExistingCategoryCell.xib */; };
+		EBD4649523671AA20004F900 /* PieChartCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD4649423671AA20004F900 /* PieChartCard.swift */; };
+		EBD4649B236721B00004F900 /* PieChartCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD4649A236721B00004F900 /* PieChartCard.xib */; };
+		EBD4649D236730C30004F900 /* PieChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD4649C236730BF0004F900 /* PieChartTableViewCell.xib */; };
 		EBDA26CD22F6FDCC0073DC50 /* IncomeStatementPercentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDA26CC22F6FDCC0073DC50 /* IncomeStatementPercentView.swift */; };
 		EBE7E2A82321058500BEC812 /* MyBudgetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7E2A72321058500BEC812 /* MyBudgetUITests.swift */; };
 		EBE7E2B923210ADB00BEC812 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7E2B823210ADB00BEC812 /* SnapshotHelper.swift */; };
@@ -230,7 +232,6 @@
 		EB1BCBBB2305AD2A0023E11F /* NewAccountDiaryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountDiaryProvider.swift; sourceTree = "<group>"; };
 		EB203BF3230716CA008C9EE5 /* FileManager+DocDir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+DocDir.swift"; sourceTree = "<group>"; };
 		EB205AE223660E920050130E /* PieChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartTableViewCell.swift; sourceTree = "<group>"; };
-		EB205AE323660E920050130E /* PieChartTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PieChartTableViewCell.xib; sourceTree = "<group>"; };
 		EB205AE623660F570050130E /* ReportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsViewController.swift; sourceTree = "<group>"; };
 		EB2C771A22EDBCA3009FA2C8 /* UITextView+Center.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Center.swift"; sourceTree = "<group>"; };
 		EB2C771C22EDBD59009FA2C8 /* BudgetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetDetailViewController.swift; sourceTree = "<group>"; };
@@ -320,6 +321,9 @@
 		EBD012F222E9B39D00F8126D /* drawer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drawer.png; sourceTree = "<group>"; };
 		EBD012F422E9B47F00F8126D /* NewCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewCategoryCell.xib; sourceTree = "<group>"; };
 		EBD012F522E9B47F00F8126D /* ExistingCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExistingCategoryCell.xib; sourceTree = "<group>"; };
+		EBD4649423671AA20004F900 /* PieChartCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartCard.swift; sourceTree = "<group>"; };
+		EBD4649A236721B00004F900 /* PieChartCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PieChartCard.xib; sourceTree = "<group>"; };
+		EBD4649C236730BF0004F900 /* PieChartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PieChartTableViewCell.xib; sourceTree = "<group>"; };
 		EBDA26CC22F6FDCC0073DC50 /* IncomeStatementPercentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeStatementPercentView.swift; sourceTree = "<group>"; };
 		EBE7E2A52321058500BEC812 /* MyBudgetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyBudgetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBE7E2A72321058500BEC812 /* MyBudgetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBudgetUITests.swift; sourceTree = "<group>"; };
@@ -479,7 +483,9 @@
 			isa = PBXGroup;
 			children = (
 				EB205AE223660E920050130E /* PieChartTableViewCell.swift */,
-				EB205AE323660E920050130E /* PieChartTableViewCell.xib */,
+				EBD4649C236730BF0004F900 /* PieChartTableViewCell.xib */,
+				EBD4649423671AA20004F900 /* PieChartCard.swift */,
+				EBD4649A236721B00004F900 /* PieChartCard.xib */,
 			);
 			path = "Report Cells";
 			sourceTree = "<group>";
@@ -1020,11 +1026,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB2C772222EDC8CA009FA2C8 /* pencil.png in Resources */,
-				EB205AE523660E920050130E /* PieChartTableViewCell.xib in Resources */,
 				EB8472892306AA4400DCD330 /* Settings.bundle in Resources */,
 				EB02A68122EB1BAF00987AFA /* apnumberpad_backspace_icon.png in Resources */,
 				EB34D5E222F3362D000FACAC /* menu.png in Resources */,
 				EB2C772622EDCA56009FA2C8 /* edit-2.png in Resources */,
+				EBD4649D236730C30004F900 /* PieChartTableViewCell.xib in Resources */,
 				EB985CA722EC699200C033E8 /* verify-sign.png in Resources */,
 				EBC59D4922E7503A00E626DC /* LaunchScreen.storyboard in Resources */,
 				EB02A68322EB1BAF00987AFA /* apnumberpad_backspace_icon@3x.png in Resources */,
@@ -1032,6 +1038,7 @@
 				EBD012F722E9B47F00F8126D /* ExistingCategoryCell.xib in Resources */,
 				EBD012F322E9B39D00F8126D /* drawer.png in Resources */,
 				EBE7FE42233CC3720088D156 /* EditMoneyTableViewCell.xib in Resources */,
+				EBD4649B236721B00004F900 /* PieChartCard.xib in Resources */,
 				EBD012E922E9AD5000F8126D /* euro.png in Resources */,
 				EBE7FE56233CC9890088D156 /* EditCategoryTableViewCell.xib in Resources */,
 				EBE7FE48233CC5350088D156 /* EditDateTableViewCell.xib in Resources */,
@@ -1185,6 +1192,7 @@
 				EBC59D5322E750E900E626DC /* Model.swift in Sources */,
 				EB35EDE8233E0E6100C58683 /* TransactionDetailBaseTableViewController.swift in Sources */,
 				EB4F78A32319B3BA0045077E /* CollectionUtilities.swift in Sources */,
+				EBD4649523671AA20004F900 /* PieChartCard.swift in Sources */,
 				EB205AE423660E920050130E /* PieChartTableViewCell.swift in Sources */,
 				EBAE2ED92364A37100040980 /* BudgetTableHeaderView.swift in Sources */,
 				EB399D7F2323088100CA0BD8 /* WatchSessionManager.swift in Sources */,

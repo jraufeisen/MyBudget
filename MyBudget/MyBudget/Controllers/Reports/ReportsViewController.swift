@@ -16,6 +16,12 @@ class ReportsViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         tableView.register(UINib(nibName: "PieChartTableViewCell", bundle: nil), forCellReuseIdentifier: PieChartTableViewCell.Identifier)
 
+        if #available(iOS 13.0, *) {
+            tableView.automaticallyAdjustsScrollIndicatorInsets = true
+        }
+
+        //navigationController?.extendedLayoutIncludesOpaqueBars = true
+        //tableView.contentInset = UIEdgeInsets.init(top: 50, left: 0, bottom: 0, right: 0)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -33,7 +39,15 @@ class ReportsViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PieChartTableViewCell.Identifier, for: indexPath) as! PieChartTableViewCell
+        //let cell = tableView.dequeueReusableCell(withIdentifier: "PieChartTableViewCellID") as! PieChartTableViewCell
+        
 
+        print(cell.frame)
+        print(cell.chartContainer.frame)
+        cell.addChart(entries: [(400, "Rent"), (100, "Groceries"), (100, "Stuff"), (10, "More"), (20, "Beer"), (50, "More stuff")])
+        cell.addChart(entries: [(10000, "Rent"), (100, "Groceries"), (100, "Stuff"), (10, "More"), (20, "Beer"), (50, "More stuff")])
+
+        
         return cell
     }
 
