@@ -42,11 +42,8 @@ class ReportsViewController: UIViewController, UITableViewDelegate, UITableViewD
         //let cell = tableView.dequeueReusableCell(withIdentifier: "PieChartTableViewCellID") as! PieChartTableViewCell
         
 
-        print(cell.frame)
-        print(cell.chartContainer.frame)
         cell.addChart(entries: [(400, "Rent"), (100, "Groceries"), (100, "Stuff"), (10, "More"), (20, "Beer"), (50, "More stuff")])
         cell.addChart(entries: [(10000, "Rent"), (100, "Groceries"), (100, "Stuff"), (10, "More"), (20, "Beer"), (50, "More stuff")])
-
         
         return cell
     }

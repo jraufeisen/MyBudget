@@ -32,13 +32,21 @@ class PieChartTableViewCell: UITableViewCell {
     
     func addChart(entries: [(money: Money, label: String)]) {
 
+        let newFrame = CGRect(x: 0, y:0, width: self.frame.width, height: self.frame.height - 20)
+        let card = PieChartCard.init(frame: newFrame)
+        card.frame.size = CGSize(width: card.frame.width - 50, height: card.frame.height - 20)
+        card.center = CGPoint(x: self.center.x + self.frame.width * CGFloat(numberOfCharts) , y:self.center.y)
+        
+        
         var pieEntries = [PieChartDataEntry]()
         
         for entry in entries {
             pieEntries.append(PieChartDataEntry.init(value: entry.money.floatValue, label: entry.label))
         }
         
-        let pieChart = PieChartView.init(frame: chartContainer.frame)
+        let pieChart = PieChartView.init(frame: card.chartContainer.frame)
+        pieChart.frame.origin = CGPoint.zero
+        
         let dataSet = PieChartDataSet.init(entries: pieEntries, label: "")
         dataSet.drawValuesEnabled = false
         
@@ -51,26 +59,32 @@ class PieChartTableViewCell: UITableViewCell {
         
         pieChart.legend.enabled = false
         
+        
         pieChart.rotationEnabled = false
         pieChart.highlightPerTapEnabled = false
         pieChart.drawEntryLabelsEnabled = false
 
         
         pieChart.drawHoleEnabled = true
-        pieChart.drawCenterTextEnabled = true
-        pieChart.centerText = "January 2019"
+        pieChart.holeColor = .clear
+        pieChart.drawSlicesUnderHoleEnabled = false
+        pieChart.holeRadiusPercent = 0.65
+        pieChart.transparentCircleColor = .clear
         
-        let newFrame = CGRect(x: 0, y:0, width: self.frame.width, height: self.frame.height - 20)
-    
-        let card = PieChartCard.init(frame: newFrame)
-        card.frame.size = CGSize(width: card.frame.width - 50, height: card.frame.height - 20)
-        card.center = CGPoint(x: self.center.x + self.frame.width * CGFloat(numberOfCharts) , y:self.center.y)
-        
-        card.layer.cornerRadius = 10
-        card.layer.masksToBounds = true // The rounded corner a valid for the whole card. Nothing can reach over it.
-        
-        card.addSubview(pieChart)
         chartContainer.addSubview(card)
+        
+        
+        card.chartContainer.addSubview(pieChart)
+        pieChart.translatesAutoresizingMaskIntoConstraints = false
+        // Align pie chart to its container
+        NSLayoutConstraint.activate([
+            NSLayoutConstraint.init(item: pieChart, attribute: .top, relatedBy: .equal, toItem: card.chartContainer, attribute: .top, multiplier: 1, constant: 0),
+            NSLayoutConstraint.init(item: pieChart, attribute: .left, relatedBy: .equal, toItem: card.chartContainer, attribute: .left, multiplier: 1, constant: 0),
+            NSLayoutConstraint.init(item: pieChart, attribute: .right, relatedBy: .equal, toItem: card.chartContainer, attribute: .right, multiplier: 1, constant: 0),
+            NSLayoutConstraint.init(item: pieChart, attribute: .bottom, relatedBy: .equal, toItem: card.chartContainer, attribute: .bottom, multiplier: 1, constant: 0),
+        ])
+
+
         numberOfCharts += 1
 
         chartContainer.contentSize = CGSize(width: CGFloat(numberOfCharts)*self.frame.width, height: self.frame.height)
