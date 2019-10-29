@@ -1,57 +1,61 @@
 //
-//  PieChartTableViewCell.swift
+//  IncomeStatementTableViewCell.swift
 //  MyBudget
 //
-//  Created by Johannes on 27.10.19.
+//  Created by Johannes on 29.10.19.
 //  Copyright © 2019 Johannes Raufeisen. All rights reserved.
 //
 
 import UIKit
-import Charts
 import Swift_Ledger
+import Charts
 
-class PieChartTableViewCell: UITableViewCell {
+class IncomeStatementTableViewCell: UITableViewCell {
 
-    static let Identifier = "PieChartTableViewCellID"
+    static let Identifier = "IncomeStatementTableViewCellID"
     
-    @IBOutlet weak var chartContainer: UIScrollView!
-    
+    @IBOutlet weak var scrollView: UIScrollView!
+
     override func awakeFromNib() {
         super.awakeFromNib()
+
         selectionStyle = .none
         
         backgroundColor = .clear // Cell is clear, the cards will provide a background
         
-        chartContainer.isPagingEnabled = true
-        chartContainer.contentSize = CGSize(width: CGFloat(1)*self.frame.width, height: self.frame.height)
+        scrollView.isPagingEnabled = true
+        scrollView.contentSize = CGSize(width: CGFloat(1)*self.frame.width, height: self.frame.height)
 
     }
 
-    
+
     private var numberOfCharts = 0
-    
     func reset() {
         numberOfCharts = 0
-        for subview in chartContainer.subviews {
+        for subview in scrollView.subviews {
             subview.removeFromSuperview()
         }
     }
     
-    func addChart(entries: [(money: Money, label: String)]) {
+    func addChart(income: Money, expense: Money, label: String) {
 
         let cardOffsetX: CGFloat = 25
         let cardOffsetY: CGFloat = 20
         
         let newFrame = CGRect(x: 0, y:0, width: self.frame.width - 2*cardOffsetX, height: self.frame.height - 2*cardOffsetY)
-        let card = PieChartCard.init(frame: newFrame)
+        let card = IncomeStatementCard.init(frame: newFrame)
         card.center = CGPoint(x: self.center.x + self.frame.width * CGFloat(numberOfCharts) , y: self.bounds.height / 2)
+        card.titleLabel.text = label
         
+        card.incomeAmountLabel.text = "\(income)"
+        card.expenseAmountLabel.text = "\(expense)"
         
         var pieEntries = [PieChartDataEntry]()
         
-        for entry in entries {
-            pieEntries.append(PieChartDataEntry.init(value: entry.money.floatValue, label: entry.label))
-        }
+      
+        pieEntries.append(PieChartDataEntry.init(value: income.floatValue, label: "Income"))
+        pieEntries.append(PieChartDataEntry.init(value: expense.floatValue, label: "Expense"))
+
         
         let pieChart = PieChartView.init(frame: card.chartContainer.frame)
         pieChart.frame.origin = CGPoint.zero
@@ -59,7 +63,7 @@ class PieChartTableViewCell: UITableViewCell {
         let dataSet = PieChartDataSet.init(entries: pieEntries, label: "")
         dataSet.drawValuesEnabled = false
         
-        dataSet.colors = [NSUIColor.systemRed, NSUIColor.systemBlue, NSUIColor.systemGreen, NSUIColor.systemOrange]
+        dataSet.colors = [NSUIColor.incomeColor, NSUIColor.expenseColor]
         
         //let data = ChartData.init(dataSet: dataSet)
         let data = PieChartData.init(dataSet: dataSet)
@@ -80,8 +84,7 @@ class PieChartTableViewCell: UITableViewCell {
         pieChart.holeRadiusPercent = 0.65
         pieChart.transparentCircleColor = .clear
         
-        chartContainer.addSubview(card)
-        
+        scrollView.addSubview(card)
         
         card.chartContainer.addSubview(pieChart)
         pieChart.translatesAutoresizingMaskIntoConstraints = false
@@ -96,8 +99,10 @@ class PieChartTableViewCell: UITableViewCell {
 
         numberOfCharts += 1
 
-        chartContainer.contentSize = CGSize(width: CGFloat(numberOfCharts)*self.frame.width, height: self.frame.height)
+        scrollView.contentSize = CGSize(width: CGFloat(numberOfCharts)*self.frame.width, height: self.frame.height)
 
+        
     }
+    
     
 }

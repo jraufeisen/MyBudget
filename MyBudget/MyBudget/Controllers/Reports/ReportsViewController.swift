@@ -16,13 +16,12 @@ class ReportsViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         tableView.register(UINib(nibName: "PieChartTableViewCell", bundle: nil), forCellReuseIdentifier: PieChartTableViewCell.Identifier)
         tableView.register(UINib(nibName: "NetValueTableViewCell", bundle: nil), forCellReuseIdentifier: NetValueTableViewCell.Identifier)
+        tableView.register(UINib(nibName: "IncomeStatementTableViewCell", bundle: nil), forCellReuseIdentifier: IncomeStatementTableViewCell.Identifier)
 
         if #available(iOS 13.0, *) {
             tableView.automaticallyAdjustsScrollIndicatorInsets = true
         }
 
-        //navigationController?.extendedLayoutIncludesOpaqueBars = true
-        //tableView.contentInset = UIEdgeInsets.init(top: 50, left: 0, bottom: 0, right: 0)
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -31,15 +30,17 @@ class ReportsViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let cell = tableView.cellForRow(at: indexPath)
+
         if indexPath.row == 0 {
             return 250
         } else if indexPath.row == 1 {
             return 350
+        } else if indexPath.row == 2 {
+            return 250
         }
         
         return 250
@@ -49,12 +50,21 @@ class ReportsViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: PieChartTableViewCell.Identifier, for: indexPath) as! PieChartTableViewCell
+            cell.reset()
             cell.addChart(entries: [(400, "Rent"), (100, "Groceries"), (100, "Stuff"), (10, "More"), (20, "Beer"), (50, "More stuff")])
-            cell.addChart(entries: [(10000, "Rent"), (100, "Groceries"), (100, "Stuff"), (10, "More"), (20, "Beer"), (50, "More stuff")])
+            cell.addChart(entries: [(1000, "Rent"), (100, "Groceries"), (100, "Stuff"), (10, "More"), (20, "Beer"), (50, "More stuff")])
             return cell
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: NetValueTableViewCell.Identifier, for: indexPath) as! NetValueTableViewCell
+            cell.reset()
             cell.addChart(entries: [(400, "January 2019"), (100, "February 2019"), (100, "March 2019"), (10, "April 2019"), (20, "May 2019"), (50, "June 2019")])
+
+            return cell
+        } else if indexPath.row == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: IncomeStatementTableViewCell.Identifier, for: indexPath) as! IncomeStatementTableViewCell
+            cell.reset()
+            cell.addChart(income: 400, expense: 200, label: "October 2019")
+            cell.addChart(income: 100, expense: 200, label: "November 2019")
 
             return cell
         }

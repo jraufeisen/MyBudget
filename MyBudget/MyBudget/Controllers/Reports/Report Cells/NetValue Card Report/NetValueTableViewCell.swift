@@ -47,6 +47,12 @@ class NetValueTableViewCell: UITableViewCell {
 
     }
 
+    func reset() {
+        for subview in scrollView.subviews {
+            subview.removeFromSuperview()
+        }
+    }
+    
     func addChart(entries: [(money: Money, label: String)]) {
 
         var chartEntries = [ChartDataEntry]()
