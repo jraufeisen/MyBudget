@@ -14,7 +14,14 @@ class PieChartCard: UIView {
     @IBOutlet weak var chartContainer: UIView!
  
     @IBOutlet weak var contentView: UIView!
-    
+    @IBOutlet weak var titleLabel: UILabel!
+
+    @IBOutlet weak var label1: UILabel!
+    @IBOutlet weak var label2: UILabel!
+    @IBOutlet weak var label3: UILabel!
+    @IBOutlet weak var label4: UILabel!
+    @IBOutlet weak var label5: UILabel!
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()

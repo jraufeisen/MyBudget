@@ -357,4 +357,34 @@ class Model: NSObject {
         return LedgerModel.shared().transactions.first?.date
     }
     
+    
+    // MARK: Reports
+    
+    /// Returns all monthly spendings since begin of records until the last completed month
+    func getMonthlySpendings() -> [PieChartSpendingsData] {
+        let spendings = [PieChartSpendingsData]()
+        
+        guard let beginDate = firstDate() else {return spendings}
+        guard let endDate = lastDate() else {return spendings}
+        
+        var currentDate = beginDate
+        while currentDate < endDate {
+            guard let nextDate = Calendar.current.date(byAdding: .month, value: 1, to: currentDate) else {
+                return spendings
+            }
+            
+            // Calculate spendings between currentDate and nextDate in every budget category
+            
+            
+            currentDate = nextDate
+        }
+        
+        return spendings
+    }
+    
+}
+
+struct PieChartSpendingsData {
+    let month: String
+    let entries: [(money: Money, category: String)]
 }

@@ -10,6 +10,8 @@ import UIKit
 import Charts
 import Swift_Ledger
 
+
+
 class PieChartTableViewCell: UITableViewCell {
 
     static let Identifier = "PieChartTableViewCellID"
@@ -37,14 +39,64 @@ class PieChartTableViewCell: UITableViewCell {
         }
     }
     
-    func addChart(entries: [(money: Money, label: String)]) {
+    func addChart(entries: [(money: Money, label: String)], chartName: String = "Expenses") {
 
         let cardOffsetX: CGFloat = 25
         let cardOffsetY: CGFloat = 20
         
+        let colors = [NSUIColor.systemRed, NSUIColor.systemBlue, NSUIColor.systemGreen, NSUIColor.systemOrange, NSUIColor.systemYellow]
+        
         let newFrame = CGRect(x: 0, y:0, width: self.frame.width - 2*cardOffsetX, height: self.frame.height - 2*cardOffsetY)
         let card = PieChartCard.init(frame: newFrame)
         card.center = CGPoint(x: self.center.x + self.frame.width * CGFloat(numberOfCharts) , y: self.bounds.height / 2)
+        card.titleLabel.text = chartName
+        
+        
+        
+        // Sort descending and name the biggest five categories
+        let entries = entries.sorted(by: { (arg1, arg2) -> Bool in
+            return arg2.money < arg1.money
+        })
+        let totalMoney: Double = entries.reduce(0) { (result, arg) -> Double in
+            return result + arg.money.floatValue
+        }
+        
+
+        if entries.count > 0 {
+            let percent = Int(round(entries[0].money.floatValue / totalMoney * 100))
+            card.label1.text = "\(percent) % " + entries[0].label
+        } else {
+            card.label1.text = ""
+        }
+        
+        if entries.count > 1 {
+            let percent = Int(round(entries[1].money.floatValue / totalMoney * 100))
+            card.label2.text = "\(percent) % " + entries[1].label
+            
+        } else {
+            card.label2.text = ""
+        }
+        
+        if entries.count > 2 {
+            let percent = Int(round(entries[2].money.floatValue / totalMoney * 100))
+            card.label3.text = "\(percent) % " + entries[2].label
+        } else {
+            card.label3.text = ""
+        }
+        
+        if entries.count > 3 {
+            let percent = Int(round(entries[3].money.floatValue / totalMoney * 100))
+            card.label4.text = "\(percent) % " + entries[3].label
+        } else {
+            card.label5.text = ""
+        }
+        
+        if entries.count > 4 {
+            let percent = Int(round(entries[4].money.floatValue / totalMoney * 100))
+            card.label5.text = "\(percent) % " + entries[4].label
+        } else {
+            card.label5.text = ""
+        }
         
         
         var pieEntries = [PieChartDataEntry]()
@@ -59,7 +111,7 @@ class PieChartTableViewCell: UITableViewCell {
         let dataSet = PieChartDataSet.init(entries: pieEntries, label: "")
         dataSet.drawValuesEnabled = false
         
-        dataSet.colors = [NSUIColor.systemRed, NSUIColor.systemBlue, NSUIColor.systemGreen, NSUIColor.systemOrange]
+        dataSet.colors = colors
         
         //let data = ChartData.init(dataSet: dataSet)
         let data = PieChartData.init(dataSet: dataSet)

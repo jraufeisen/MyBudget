@@ -12,6 +12,12 @@
             <connections>
                 <outlet property="chartContainer" destination="gEl-Dc-lBl" id="qoH-yT-oV2"/>
                 <outlet property="contentView" destination="OuT-AL-apO" id="XzW-3O-SCG"/>
+                <outlet property="label1" destination="oua-7a-zEL" id="aIF-Rc-rwz"/>
+                <outlet property="label2" destination="jQK-od-E74" id="xpc-cJ-XcP"/>
+                <outlet property="label3" destination="Slf-Wm-Cje" id="QWd-t7-RVA"/>
+                <outlet property="label4" destination="Gy2-Fz-kmq" id="YQy-na-Uv1"/>
+                <outlet property="label5" destination="uAt-cL-AEk" id="noQ-wA-iWr"/>
+                <outlet property="titleLabel" destination="Gbp-KS-AUY" id="Qvi-nn-jVl"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

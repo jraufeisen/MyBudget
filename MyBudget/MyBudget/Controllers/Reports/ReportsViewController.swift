@@ -51,8 +51,9 @@ class ReportsViewController: UIViewController, UITableViewDelegate, UITableViewD
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: PieChartTableViewCell.Identifier, for: indexPath) as! PieChartTableViewCell
             cell.reset()
-            cell.addChart(entries: [(400, "Rent"), (100, "Groceries"), (100, "Stuff"), (10, "More"), (20, "Beer"), (50, "More stuff")])
-            cell.addChart(entries: [(1000, "Rent"), (100, "Groceries"), (100, "Stuff"), (10, "More"), (20, "Beer"), (50, "More stuff")])
+
+            cell.addChart(entries: [(400, "Rent"), (100, "Groceries"), (100, "Stuff"), (10, "More"), (20, "Beer"), (50, "More stuff")], chartName: "October 1999")
+            cell.addChart(entries: [(1000, "Rent"), (100, "Groceries"), (100, "Stuff"), (10, "More"), (20, "Beer"), (50, "More stuff")], chartName: "November 1999")
             return cell
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: NetValueTableViewCell.Identifier, for: indexPath) as! NetValueTableViewCell
