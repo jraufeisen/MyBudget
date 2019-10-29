@@ -95,6 +95,8 @@
 		EBAE2EDE2364AB3600040980 /* BudgetTableHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAE2EDD2364AB3600040980 /* BudgetTableHeaderViewController.swift */; };
 		EBB21C8023054E70004E4E8F /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB21C7F23054E70004E4E8F /* TabbarViewController.swift */; };
 		EBB21C8323055530004E4E8F /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB21C8223055530004E4E8F /* TransactionsViewController.swift */; };
+		EBC0A90B23681B110031A411 /* NetValueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC0A90923681B110031A411 /* NetValueTableViewCell.swift */; };
+		EBC0A90C23681B110031A411 /* NetValueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBC0A90A23681B110031A411 /* NetValueTableViewCell.xib */; };
 		EBC59D3F22E7503900E626DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC59D3E22E7503900E626DC /* AppDelegate.swift */; };
 		EBC59D4422E7503900E626DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBC59D4222E7503900E626DC /* Main.storyboard */; };
 		EBC59D4622E7503A00E626DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBC59D4522E7503A00E626DC /* Assets.xcassets */; };
@@ -304,6 +306,8 @@
 		EBAE2EDD2364AB3600040980 /* BudgetTableHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTableHeaderViewController.swift; sourceTree = "<group>"; };
 		EBB21C7F23054E70004E4E8F /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		EBB21C8223055530004E4E8F /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
+		EBC0A90923681B110031A411 /* NetValueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetValueTableViewCell.swift; sourceTree = "<group>"; };
+		EBC0A90A23681B110031A411 /* NetValueTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NetValueTableViewCell.xib; sourceTree = "<group>"; };
 		EBC59D3B22E7503900E626DC /* Budget!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Budget!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBC59D3E22E7503900E626DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBC59D4322E7503900E626DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -482,10 +486,8 @@
 		EB205AE123660E620050130E /* Report Cells */ = {
 			isa = PBXGroup;
 			children = (
-				EB205AE223660E920050130E /* PieChartTableViewCell.swift */,
-				EBD4649C236730BF0004F900 /* PieChartTableViewCell.xib */,
-				EBD4649423671AA20004F900 /* PieChartCard.swift */,
-				EBD4649A236721B00004F900 /* PieChartCard.xib */,
+				EBC0A90623681AA80031A411 /* Pie Card Report */,
+				EBC0A90D23681B1A0031A411 /* NetValue Card Report */,
 			);
 			path = "Report Cells";
 			sourceTree = "<group>";
@@ -647,6 +649,26 @@
 				EBE7FE35233CBC0A0088D156 /* Transaction Details */,
 			);
 			path = Transactions;
+			sourceTree = "<group>";
+		};
+		EBC0A90623681AA80031A411 /* Pie Card Report */ = {
+			isa = PBXGroup;
+			children = (
+				EB205AE223660E920050130E /* PieChartTableViewCell.swift */,
+				EBD4649C236730BF0004F900 /* PieChartTableViewCell.xib */,
+				EBD4649423671AA20004F900 /* PieChartCard.swift */,
+				EBD4649A236721B00004F900 /* PieChartCard.xib */,
+			);
+			path = "Pie Card Report";
+			sourceTree = "<group>";
+		};
+		EBC0A90D23681B1A0031A411 /* NetValue Card Report */ = {
+			isa = PBXGroup;
+			children = (
+				EBC0A90923681B110031A411 /* NetValueTableViewCell.swift */,
+				EBC0A90A23681B110031A411 /* NetValueTableViewCell.xib */,
+			);
+			path = "NetValue Card Report";
 			sourceTree = "<group>";
 		};
 		EBC59D3222E7503900E626DC = {
@@ -1051,6 +1073,7 @@
 				EBC59D4622E7503A00E626DC /* Assets.xcassets in Resources */,
 				EBD012E722E9AD0600F8126D /* add.png in Resources */,
 				EBC59D4422E7503900E626DC /* Main.storyboard in Resources */,
+				EBC0A90C23681B110031A411 /* NetValueTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1174,6 +1197,7 @@
 				EBEB8B1C23145D5C009F65B8 /* NewAccountViewController.swift in Sources */,
 				EB4F78A52319B3CA0045077E /* SubcriptionTypeBulletinItem.swift in Sources */,
 				EBD012EE22E9B22100F8126D /* CategoryTableView.swift in Sources */,
+				EBC0A90B23681B110031A411 /* NetValueTableViewCell.swift in Sources */,
 				EB9DEBD422E9E5C400A73FD1 /* UITextField+Placeholder.swift in Sources */,
 				EB02A67422EB10E700987AFA /* NSBundle+APNumberPad.m in Sources */,
 				EBF560F82305EFD400E850E7 /* NewBudgetCategoryViewController.swift in Sources */,

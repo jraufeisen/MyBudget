@@ -32,9 +32,11 @@ class PieChartTableViewCell: UITableViewCell {
     
     func addChart(entries: [(money: Money, label: String)]) {
 
-        let newFrame = CGRect(x: 0, y:0, width: self.frame.width, height: self.frame.height - 20)
+        let cardOffsetX: CGFloat = 25
+        let cardOffsetY: CGFloat = 20
+        
+        let newFrame = CGRect(x: 0, y:0, width: self.frame.width - 2*cardOffsetX, height: self.frame.height - 2*cardOffsetY)
         let card = PieChartCard.init(frame: newFrame)
-        card.frame.size = CGSize(width: card.frame.width - 50, height: card.frame.height - 20)
         card.center = CGPoint(x: self.center.x + self.frame.width * CGFloat(numberOfCharts) , y:self.center.y)
         
         
