@@ -360,9 +360,30 @@ class Model: NSObject {
     
     // MARK: Reports
     
+    private func expenses(from: Date, to: Date) -> PieChartSpendingsData {
+        
+        let name = from.monthAsString() + " " + from.yearAsString()
+        let categories = LedgerModel.shared().categories()
+        
+        var entries = [(money: Money, category: String)]()
+        for cat in categories {
+            let expAccount = Account.expensesAccount(for: cat)
+            let spentInThisCategory = LedgerModel.shared().expense(acc: expAccount, from: from, to: to)
+            
+            if spentInThisCategory != 0 {
+                let spentMoney = Money((abs(spentInThisCategory) as NSDecimalNumber).floatValue) // Dont forget to take absolute value
+                let newEntry = (spentMoney, cat)
+                entries.append(newEntry)
+            }
+        }
+        
+        let data = PieChartSpendingsData.init(label: name, entries: entries)
+        return data
+    }
+    
     /// Returns all monthly spendings since begin of records until the last completed month
     func getMonthlySpendings() -> [PieChartSpendingsData] {
-        let spendings = [PieChartSpendingsData]()
+        var spendings = [PieChartSpendingsData]()
         
         guard let beginDate = firstDate() else {return spendings}
         guard let endDate = lastDate() else {return spendings}
@@ -374,7 +395,8 @@ class Model: NSObject {
             }
             
             // Calculate spendings between currentDate and nextDate in every budget category
-            
+            let thisMonthsSpendings = expenses(from: currentDate, to: nextDate)
+            spendings.append(thisMonthsSpendings)
             
             currentDate = nextDate
         }
@@ -384,7 +406,27 @@ class Model: NSObject {
     
 }
 
-struct PieChartSpendingsData {
-    let month: String
-    let entries: [(money: Money, category: String)]
+struct PieChartSpendingsData: Equatable {
+    static func == (lhs: PieChartSpendingsData, rhs: PieChartSpendingsData) -> Bool {
+        if lhs.label != rhs.label {
+            return false
+        }
+        
+        if lhs.entries.count != rhs.entries.count {
+            return false
+        }
+        
+        for i in 0..<lhs.entries.count {
+            let lhEntry = lhs.entries[i]
+            let rhEntry = rhs.entries[i]
+            if lhEntry != rhEntry {
+                return false
+            }
+        }
+        
+        return true
+    }
+    
+    let label: String
+    let entries: [(Money, String)]
 }

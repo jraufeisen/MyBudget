@@ -30,16 +30,37 @@ class PieChartTableViewCell: UITableViewCell {
     }
 
     
+    /// The real chart data. use this to update the cells content.
+    private var chartData = [PieChartSpendingsData]()
+    
+    /// Public setter which acts as a "gateway" to the eral chartdata.
+    var data = [PieChartSpendingsData]() {
+        didSet {
+            if data != chartData { // Only update cell if content changed
+                chartData = data
+                updateContent()
+            }
+        }
+    }
     private var numberOfCharts = 0
     
-    func reset() {
+    private func reset() {
         numberOfCharts = 0
         for subview in chartContainer.subviews {
             subview.removeFromSuperview()
         }
     }
     
-    func addChart(entries: [(money: Money, label: String)], chartName: String = "Expenses") {
+    private func updateContent() {
+        print("we update pie chart cell content")
+        reset()
+        for data in chartData {
+            addChart(entries: data.entries, chartName: data.label)
+        }
+        chartContainer.scrollRectToVisible(CGRect(x: chartContainer.contentSize.width - 10, y: 0, width: 10, height: chartContainer.frame.height), animated: false)
+    }
+    
+    private func addChart(entries: [(money: Money, label: String)], chartName: String = "Expenses") {
 
         let cardOffsetX: CGFloat = 25
         let cardOffsetY: CGFloat = 20
@@ -88,7 +109,7 @@ class PieChartTableViewCell: UITableViewCell {
             let percent = Int(round(entries[3].money.floatValue / totalMoney * 100))
             card.label4.text = "\(percent) % " + entries[3].label
         } else {
-            card.label5.text = ""
+            card.label4.text = ""
         }
         
         if entries.count > 4 {
