@@ -404,6 +404,38 @@ class Model: NSObject {
         return spendings
     }
     
+    func getNetValueReport() -> [(Money, String)] {
+        var netValues = [(Money, String)]()
+        
+        guard let beginDate = firstDate() else {return netValues}
+        guard let endDate = lastDate() else {return netValues}
+        
+        guard var currentDate = Calendar.current.date(byAdding: .month, value: 1, to: beginDate) else {
+            return netValues
+        }
+        
+        while currentDate < endDate {
+            guard let nextDate = Calendar.current.date(byAdding: .month, value: 1, to: currentDate) else {
+                return netValues
+            }
+            
+            // Calculate spendings between currentDate and nextDate in every budget category
+            let bankingAccount = Account.bankingAccount(named: "")
+            let netValue = LedgerModel.shared().balanceUpToDate(acc: bankingAccount, date: currentDate)
+            let netValueMoney = Money((netValue as NSDecimalNumber).floatValue)
+
+            let timeString = currentDate.monthAsString() + " " + currentDate.yearAsString()
+
+            netValues.append((netValueMoney, timeString))
+            
+            currentDate = nextDate
+        }
+        
+        return netValues
+
+    }
+    
+    
 }
 
 struct PieChartSpendingsData: Equatable {

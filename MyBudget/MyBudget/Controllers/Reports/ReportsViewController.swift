@@ -57,13 +57,17 @@ class ReportsViewController: UIViewController, UITableViewDelegate, UITableViewD
                     cell.data = spendings
                 }
             }
-
             
             return cell
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: NetValueTableViewCell.Identifier, for: indexPath) as! NetValueTableViewCell
-            cell.reset()
-            cell.addChart(entries: [(400, "January 2019"), (100, "February 2019"), (100, "March 2019"), (10, "April 2019"), (20, "May 2019"), (50, "June 2019")])
+
+            DispatchQueue.global().async {
+                let netValues = Model.shared.getNetValueReport()
+                DispatchQueue.main.async {
+                    cell.data = netValues
+                }
+            }
 
             return cell
         } else if indexPath.row == 2 {
@@ -78,4 +82,5 @@ class ReportsViewController: UIViewController, UITableViewDelegate, UITableViewD
         return UITableViewCell()
     }
 
+    
 }

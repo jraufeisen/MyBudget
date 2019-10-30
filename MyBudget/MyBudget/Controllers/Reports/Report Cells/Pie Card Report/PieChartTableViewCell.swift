@@ -52,7 +52,6 @@ class PieChartTableViewCell: UITableViewCell {
     }
     
     private func updateContent() {
-        print("we update pie chart cell content")
         reset()
         for data in chartData {
             addChart(entries: data.entries, chartName: data.label)
