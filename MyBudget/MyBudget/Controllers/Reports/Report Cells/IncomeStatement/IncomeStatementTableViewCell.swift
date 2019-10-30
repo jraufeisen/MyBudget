@@ -29,15 +29,37 @@ class IncomeStatementTableViewCell: UITableViewCell {
     }
 
 
+    /// The real chart data. use this to update the cells content.
+    private var chartData = [IncomeStatementData]()
+    
+    /// Public setter which acts as a "gateway" to the eral chartdata.
+    var data = [IncomeStatementData]() {
+        didSet {
+            if data != chartData { // Only update cell if content changed
+                chartData = data
+                updateContent()
+            }
+        }
+    }
+
+    private func updateContent() {
+        reset()
+        for data in chartData {
+            addChart(income: data.income, expense: data.expense, label: data.name)
+        }
+        scrollView.setContentOffset(CGPoint.init(x: scrollView.contentSize.width - scrollView.frame.width, y: 0), animated: false) // We set the content offset
+
+    }
+    
     private var numberOfCharts = 0
-    func reset() {
+    private func reset() {
         numberOfCharts = 0
         for subview in scrollView.subviews {
             subview.removeFromSuperview()
         }
     }
     
-    func addChart(income: Money, expense: Money, label: String) {
+    private func addChart(income: Money, expense: Money, label: String) {
 
         let cardOffsetX: CGFloat = 25
         let cardOffsetY: CGFloat = 20

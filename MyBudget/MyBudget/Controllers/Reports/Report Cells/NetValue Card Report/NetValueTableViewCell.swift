@@ -58,7 +58,6 @@ class NetValueTableViewCell: UITableViewCell {
     private func updateContent() {
         reset()
         addChart(entries: chartData)
-//        scrollView.scrollRectToVisible(CGRect(x: scrollView.contentSize.width - 10, y: 0, width: 10, height: scrollView.contentSize.height), animated: true) // Scroll scrollview to the very right
         scrollView.setContentOffset(CGPoint.init(x: scrollView.contentSize.width - scrollView.frame.width, y: 0), animated: false) // We cant use scrollRectToVisible() yet, so we set the content offset
     }
     

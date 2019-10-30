@@ -72,10 +72,15 @@ class ReportsViewController: UIViewController, UITableViewDelegate, UITableViewD
             return cell
         } else if indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: IncomeStatementTableViewCell.Identifier, for: indexPath) as! IncomeStatementTableViewCell
-            cell.reset()
-            cell.addChart(income: 400, expense: 200, label: "October 2019")
-            cell.addChart(income: 100, expense: 200, label: "November 2019")
 
+            DispatchQueue.global().async {
+                let incomeStatements = Model.shared.getIncomeStatementReport()
+                DispatchQueue.main.async {
+                    cell.data = incomeStatements
+                }
+            }
+
+            
             return cell
         }
         

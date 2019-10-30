@@ -436,6 +436,45 @@ class Model: NSObject {
     }
     
     
+
+    func getIncomeStatementReport() -> [IncomeStatementData] {
+        var statements = [IncomeStatementData]()
+        
+        guard let beginDate = firstDate() else {return statements}
+        guard let endDate = lastDate() else {return statements}
+        
+        var currentDate = beginDate
+        while currentDate < endDate {
+            guard let nextDate = Calendar.current.date(byAdding: .month, value: 1, to: currentDate) else {
+                return statements
+            }
+            
+            // Calculate income statement between currentDate and nextDate in every budget category
+            let income = LedgerModel.shared().income(acc: Account.incomeAccount(), from: currentDate, to: nextDate)
+            let expense = LedgerModel.shared().expense(acc: Account.bankingAccount(named: ""), from: currentDate, to: nextDate)
+            
+            let incomeMoney = Money((abs(income) as NSDecimalNumber).floatValue)
+            let expenseMoney = Money((abs(expense) as NSDecimalNumber).floatValue)
+
+            let timeString = currentDate.monthAsString() + " " + currentDate.yearAsString()
+
+            let incomeStatement = IncomeStatementData.init(income: incomeMoney, expense: expenseMoney, name: timeString)
+            statements.append(incomeStatement)
+            
+            currentDate = nextDate
+        }
+        
+        return statements
+        
+    }
+    
+    
+}
+
+struct IncomeStatementData: Equatable {
+    let income: Money
+    let expense: Money
+    let name: String
 }
 
 struct PieChartSpendingsData: Equatable {
