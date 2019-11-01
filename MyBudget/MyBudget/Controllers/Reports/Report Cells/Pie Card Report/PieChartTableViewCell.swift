@@ -18,6 +18,10 @@ class PieChartTableViewCell: UITableViewCell {
     
     @IBOutlet weak var chartContainer: UIScrollView!
     
+    let cardOffsetX: CGFloat = 25
+    let cardOffsetY: CGFloat = 20
+
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
@@ -28,8 +32,44 @@ class PieChartTableViewCell: UITableViewCell {
 
         chartContainer.contentSize = CGSize(width: CGFloat(1)*self.frame.width, height: self.frame.height)
 
+        // Load up with placeholder card "Reports are loaded"
+        addPlaceholderCard()
     }
 
+    private func addPlaceholderCard() {
+        let newFrame = CGRect(x: 0, y:0, width: self.frame.width - 2*cardOffsetX, height: self.frame.height - 2*cardOffsetY)
+        let card = PieChartCard.init(frame: newFrame)
+        card.center = CGPoint(x: self.center.x, y: self.bounds.height / 2)
+        card.titleLabel.text = "Loading reports..."
+        card.label1.text = ""
+        card.label2.text = ""
+        card.label3.text = ""
+        card.label4.text = ""
+        card.label5.text = ""
+
+        let activityIndicator = UIActivityIndicatorView.init(frame: card.chartContainer.bounds)
+        activityIndicator.startAnimating()
+        card.chartContainer.addSubview(activityIndicator)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Center activity indicator in card
+        NSLayoutConstraint.activate([
+            NSLayoutConstraint.init(item: activityIndicator, attribute: .centerX, relatedBy: .equal, toItem: card, attribute: .centerX, multiplier: 1, constant: 0),
+            NSLayoutConstraint.init(item: activityIndicator, attribute: .centerY, relatedBy: .equal, toItem: card, attribute: .centerY, multiplier: 1, constant: 0),
+        ])
+        
+        chartContainer.addSubview(card)
+        card.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Programmatically set card's frame including all offsets from the sides
+        NSLayoutConstraint.activate([
+            NSLayoutConstraint.init(item: card, attribute: .height, relatedBy: .equal, toItem: chartContainer, attribute: .height, multiplier: 1, constant: -2*cardOffsetY),
+            NSLayoutConstraint.init(item: card, attribute: .width, relatedBy: .equal, toItem: chartContainer, attribute: .width, multiplier: 1, constant: -2*cardOffsetX),
+            NSLayoutConstraint.init(item: card, attribute: .centerX, relatedBy: .equal, toItem: chartContainer, attribute: .centerX, multiplier: 1, constant: 0),
+            NSLayoutConstraint.init(item: card, attribute: .centerY, relatedBy: .equal, toItem: chartContainer, attribute: .centerY, multiplier: 1, constant: 0),
+        ])
+    }
+    
     
     /// The real chart data. use this to update the cells content.
     private var chartData = [PieChartSpendingsData]()
@@ -61,9 +101,6 @@ class PieChartTableViewCell: UITableViewCell {
     }
     
     private func addChart(entries: [(money: Money, label: String)], chartName: String = "Expenses") {
-
-        let cardOffsetX: CGFloat = 25
-        let cardOffsetY: CGFloat = 20
         
         let colors = [NSUIColor.systemRed, NSUIColor.systemBlue, NSUIColor.systemGreen, NSUIColor.systemOrange, NSUIColor.systemYellow]
         
