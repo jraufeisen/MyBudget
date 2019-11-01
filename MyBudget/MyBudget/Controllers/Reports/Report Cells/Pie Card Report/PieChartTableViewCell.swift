@@ -25,6 +25,7 @@ class PieChartTableViewCell: UITableViewCell {
         backgroundColor = .clear // Cell is clear, the cards will provide a background
         
         chartContainer.isPagingEnabled = true
+
         chartContainer.contentSize = CGSize(width: CGFloat(1)*self.frame.width, height: self.frame.height)
 
     }

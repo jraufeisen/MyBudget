@@ -48,11 +48,11 @@ class PieChartCard: UIView {
         contentView.layer.cornerRadius = 10
        // layer.masksToBounds = true // The rounded corner a valid for the whole card. Nothing can reach over it.
         
-        
-        layer.shadowColor = UIColor.lightGray.cgColor
+
+        layer.shadowColor = UIColor.init(white: 0, alpha: 1.0).cgColor
         layer.shadowRadius = 5
         layer.shadowOffset = CGSize.init(width: 2, height: 5)
-        layer.shadowOpacity = 0.7
+        layer.shadowOpacity = 0.3
 
 
     }

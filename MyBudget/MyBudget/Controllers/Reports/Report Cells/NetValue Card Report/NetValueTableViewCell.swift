@@ -34,11 +34,10 @@ class NetValueTableViewCell: UITableViewCell {
         contentContainer.layer.cornerRadius = 10
          
          
-        contentContainer.layer.shadowColor = UIColor.lightGray.cgColor
+        contentContainer.layer.shadowColor = UIColor.init(white: 0, alpha: 1).cgColor
         contentContainer.layer.shadowRadius = 5
         contentContainer.layer.shadowOffset = CGSize.init(width: 2, height: 5)
-        contentContainer.layer.shadowOpacity = 0.7
-        
+        contentContainer.layer.shadowOpacity = 0.3
 
     }
 
@@ -122,7 +121,10 @@ class NetValueTableViewCell: UITableViewCell {
         lineChart.leftAxis.drawAxisLineEnabled = false
         lineChart.leftAxis.drawLabelsEnabled = false
 
-        
+        if #available(iOS 13.0, *) { // Adapt for dark mode
+            dataSet.valueColors = [UIColor.label]
+            lineChart.xAxis.labelTextColor = UIColor.label
+        }
 
         scrollView.contentSize = CGSize(width: oneMonthWidth*CGFloat(entries.count), height: scrollView.contentSize.height)
         scrollView.addSubview(lineChart)
