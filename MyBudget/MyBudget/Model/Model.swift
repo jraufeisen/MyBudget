@@ -397,9 +397,13 @@ class Model: NSObject {
             // Calculate spendings between currentDate and nextDate in every budget category
             let thisMonthsSpendings = expenses(from: currentDate, to: nextDate)
             spendings.append(thisMonthsSpendings)
-            
             currentDate = nextDate
         }
+        
+        // Dont forget the current month (at least partially)
+        let thisMonthsSpendings = expenses(from: Date().firstDayOfCurrentMonth(), to: Date())
+        spendings.append(thisMonthsSpendings)
+
         
         return spendings
     }
@@ -413,14 +417,15 @@ class Model: NSObject {
         guard var currentDate = Calendar.current.date(byAdding: .month, value: 1, to: beginDate) else {
             return netValues
         }
-        
+
+        let bankingAccount = Account.bankingAccount(named: "")
+
         while currentDate < endDate {
             guard let nextDate = Calendar.current.date(byAdding: .month, value: 1, to: currentDate) else {
                 return netValues
             }
             
             // Calculate spendings between currentDate and nextDate in every budget category
-            let bankingAccount = Account.bankingAccount(named: "")
             let netValue = LedgerModel.shared().balanceUpToDate(acc: bankingAccount, date: currentDate)
             let netValueMoney = Money((netValue as NSDecimalNumber).floatValue)
 
@@ -431,8 +436,12 @@ class Model: NSObject {
             currentDate = nextDate
         }
         
-        return netValues
+        // Append current net value
+        let netValue = LedgerModel.shared().balanceUpToDate(acc: bankingAccount, date: Date())
+        let netValueMoney = Money((netValue as NSDecimalNumber).floatValue)
+        netValues.append((netValueMoney, "Today"))
 
+        return netValues
     }
     
     
@@ -463,6 +472,16 @@ class Model: NSObject {
             
             currentDate = nextDate
         }
+        
+        // Dont forget this month
+        let income = LedgerModel.shared().income(acc: Account.incomeAccount(), from: Date().firstDayOfCurrentMonth(), to: Date())
+        let expense = LedgerModel.shared().expense(acc: Account.bankingAccount(named: ""), from: Date().firstDayOfCurrentMonth(), to: Date())
+        let incomeMoney = Money((abs(income) as NSDecimalNumber).floatValue)
+        let expenseMoney = Money((abs(expense) as NSDecimalNumber).floatValue)
+        let timeString = Date().monthAsString() + " " + Date().yearAsString()
+        let incomeStatement = IncomeStatementData.init(income: incomeMoney, expense: expenseMoney, name: timeString)
+        statements.append(incomeStatement)
+
         
         return statements
         

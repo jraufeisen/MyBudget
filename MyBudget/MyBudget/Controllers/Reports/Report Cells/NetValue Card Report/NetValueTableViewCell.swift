@@ -63,7 +63,13 @@ class NetValueTableViewCell: UITableViewCell {
         }
         
         addChart(entries: chartData)
-        scrollView.setContentOffset(CGPoint.init(x: scrollView.contentSize.width - scrollView.frame.width, y: 0), animated: false) // We cant use scrollRectToVisible() yet, so we set the content offset
+        
+        if scrollView.contentSize.width > scrollView.frame.width {
+            // We cant use scrollRectToVisible() yet, so we set the content offset.
+            // But also dont force a scrollview to scroll farther than it would naturally allow oyu to
+            scrollView.setContentOffset(CGPoint.init(x: scrollView.contentSize.width - scrollView.frame.width, y: 0), animated: false)
+        }
+        
     }
     
     private func addNoDataInfo() {
