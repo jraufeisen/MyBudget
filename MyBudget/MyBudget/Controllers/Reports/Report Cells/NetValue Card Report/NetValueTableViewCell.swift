@@ -42,12 +42,12 @@ class NetValueTableViewCell: UITableViewCell {
     }
 
     /// The real chart data. use this to update the cells content.
-   private var chartData = [(Money, String)]()
+   private var chartData = [NetValueData]()
    
    /// Public setter which acts as a "gateway" to the eral chartdata.
-    var data = [(Money, String)]() {
+    var data = [NetValueData]() {
         didSet {
-            if data.count != chartData.count || data.count == 0 { // Only update cell if content changed
+            if data != chartData || data.count == 0 { // Only update cell if content changed
                chartData = data
                updateContent()
            }
@@ -105,13 +105,13 @@ class NetValueTableViewCell: UITableViewCell {
         }
     }
     
-    private func addChart(entries: [(money: Money, label: String)]) {
+    private func addChart(entries: [NetValueData]) {
 
         let oneMonthWidth: CGFloat = 100
         
         var chartEntries = [ChartDataEntry]()
         for i in 0..<entries.count {
-            let money = entries[i].money
+            let money = entries[i].value
             let newEntry = ChartDataEntry.init(x: Double(i), y: money.floatValue)
             chartEntries.append(newEntry)
         }

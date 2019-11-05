@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Swift_Ledger
 
 class ReportsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -22,7 +23,9 @@ class ReportsViewController: UIViewController, UITableViewDelegate, UITableViewD
             tableView.automaticallyAdjustsScrollIndicatorInsets = true
         }
 
+        NotificationCenter.default.addObserver(self.tableView!, selector: #selector(self.tableView.reloadData), name: ModelChangedNotification, object: nil)
     }
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

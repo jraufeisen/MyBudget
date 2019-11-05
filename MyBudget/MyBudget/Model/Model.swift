@@ -408,8 +408,8 @@ class Model: NSObject {
         return spendings
     }
     
-    func getNetValueReport() -> [(Money, String)] {
-        var netValues = [(Money, String)]()
+    func getNetValueReport() -> [NetValueData] {
+        var netValues = [NetValueData]()
         
         guard let beginDate = firstDate() else {return netValues}
         guard let endDate = lastDate() else {return netValues}
@@ -431,7 +431,7 @@ class Model: NSObject {
 
             let timeString = currentDate.monthAsString() + " " + currentDate.yearAsString()
 
-            netValues.append((netValueMoney, timeString))
+            netValues.append(NetValueData.init(value: netValueMoney, label: timeString))
             
             currentDate = nextDate
         }
@@ -439,7 +439,7 @@ class Model: NSObject {
         // Append current net value
         let netValue = LedgerModel.shared().balanceUpToDate(acc: bankingAccount, date: Date())
         let netValueMoney = Money((netValue as NSDecimalNumber).floatValue)
-        netValues.append((netValueMoney, "Today"))
+        netValues.append(NetValueData.init(value: netValueMoney, label: "Today"))
 
         return netValues
     }
@@ -488,6 +488,11 @@ class Model: NSObject {
     }
     
     
+}
+
+struct NetValueData: Equatable {
+    let value: Money
+    let label: String
 }
 
 struct IncomeStatementData: Equatable {
