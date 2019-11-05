@@ -12,6 +12,9 @@ import Charts
 
 class IncomeStatementTableViewCell: UITableViewCell {
 
+    let cardOffsetX: CGFloat = 25
+    let cardOffsetY: CGFloat = 20
+
     static let Identifier = "IncomeStatementTableViewCellID"
     
     @IBOutlet weak var scrollView: UIScrollView!
@@ -35,7 +38,7 @@ class IncomeStatementTableViewCell: UITableViewCell {
     /// Public setter which acts as a "gateway" to the eral chartdata.
     var data = [IncomeStatementData]() {
         didSet {
-            if data != chartData { // Only update cell if content changed
+            if data != chartData || data.count == 0 { // Only update cell if content changed
                 chartData = data
                 updateContent()
             }
@@ -44,12 +47,62 @@ class IncomeStatementTableViewCell: UITableViewCell {
 
     private func updateContent() {
         reset()
+        
+        guard chartData.count > 0 else {
+            addNoDataCard()
+            return
+        }
+        
         for data in chartData {
             addChart(income: data.income, expense: data.expense, label: data.name)
         }
         scrollView.setContentOffset(CGPoint.init(x: scrollView.contentSize.width - scrollView.frame.width, y: 0), animated: false) // We set the content offset
 
     }
+    
+    
+    private func addNoDataCard() {
+        let newFrame = CGRect(x: 0, y:0, width: self.frame.width - 2*cardOffsetX, height: self.frame.height - 2*cardOffsetY)
+        let card = IncomeStatementCard.init(frame: newFrame)
+        card.center = CGPoint(x: self.center.x, y: self.bounds.height / 2)
+        card.titleLabel.text = "Income vs Expense"
+        card.incomeAmountLabel.text = ""
+        card.expenseAmountLabel.text = ""
+        card.incomeStationaryLabel.text = ""
+        card.expenseStationaryLabel.text = ""
+        
+        let explainLabel = UILabel(frame: card.chartContainer.bounds)
+        if #available(iOS 13.0, *) {
+            explainLabel.textColor = .secondaryLabel
+        }
+        explainLabel.textAlignment = .center
+        explainLabel.text = "Compare your income and expense for each month"
+        card.chartContainer.addSubview(explainLabel)
+        explainLabel.translatesAutoresizingMaskIntoConstraints = false
+        explainLabel.numberOfLines = 5
+        // Center label in card
+        NSLayoutConstraint.activate([
+            NSLayoutConstraint.init(item: explainLabel, attribute: .leading, relatedBy: .equal, toItem: card.titleLabel, attribute: .leading, multiplier: 1, constant: 0),
+            NSLayoutConstraint.init(item: explainLabel, attribute: .trailing, relatedBy: .equal, toItem: card, attribute: .trailing, multiplier: 1, constant: -15),
+            NSLayoutConstraint.init(item: explainLabel, attribute: .centerY, relatedBy: .equal, toItem: card, attribute: .centerY, multiplier: 1, constant: 0),
+        ])
+        
+        scrollView.addSubview(card)
+        card.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Programmatically set card's frame including all offsets from the sides
+        NSLayoutConstraint.activate([
+            NSLayoutConstraint.init(item: card, attribute: .height, relatedBy: .equal, toItem: scrollView, attribute: .height, multiplier: 1, constant: -2*cardOffsetY),
+            NSLayoutConstraint.init(item: card, attribute: .width, relatedBy: .equal, toItem: scrollView, attribute: .width, multiplier: 1, constant: -2*cardOffsetX),
+            NSLayoutConstraint.init(item: card, attribute: .centerX, relatedBy: .equal, toItem: scrollView, attribute: .centerX, multiplier: 1, constant: 0),
+            NSLayoutConstraint.init(item: card, attribute: .centerY, relatedBy: .equal, toItem: scrollView, attribute: .centerY, multiplier: 1, constant: 0),
+        ])
+        
+        // Update content size
+        scrollView.contentSize = CGSize(width: CGFloat(1)*self.frame.width, height: self.frame.height)
+    }
+
+    
     
     private var numberOfCharts = 0
     private func reset() {
@@ -60,9 +113,6 @@ class IncomeStatementTableViewCell: UITableViewCell {
     }
     
     private func addChart(income: Money, expense: Money, label: String) {
-
-        let cardOffsetX: CGFloat = 25
-        let cardOffsetY: CGFloat = 20
         
         let newFrame = CGRect(x: 0, y:0, width: self.frame.width - 2*cardOffsetX, height: self.frame.height - 2*cardOffsetY)
         let card = IncomeStatementCard.init(frame: newFrame)

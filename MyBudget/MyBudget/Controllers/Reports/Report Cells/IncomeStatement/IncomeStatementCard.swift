@@ -13,7 +13,10 @@ class IncomeStatementCard: UIView {
      @IBOutlet weak var titleLabel: UILabel!
      @IBOutlet weak var chartContainer: UIView!
      @IBOutlet weak var contentView: UIView!
-     
+
+    
+    @IBOutlet weak var incomeStationaryLabel: UILabel!
+    @IBOutlet weak var expenseStationaryLabel: UILabel!
     @IBOutlet weak var incomeAmountLabel: UILabel!
     @IBOutlet weak var expenseAmountLabel: UILabel!
 

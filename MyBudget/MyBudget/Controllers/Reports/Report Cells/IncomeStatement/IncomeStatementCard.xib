@@ -13,7 +13,9 @@
                 <outlet property="chartContainer" destination="0wb-y3-Xmr" id="sso-rD-xMo"/>
                 <outlet property="contentView" destination="Sot-C8-a6Q" id="1y5-mb-Q5e"/>
                 <outlet property="expenseAmountLabel" destination="GdT-lq-qBJ" id="wG4-dv-YKO"/>
+                <outlet property="expenseStationaryLabel" destination="Ft5-Nl-j14" id="pDm-Zf-Mfy"/>
                 <outlet property="incomeAmountLabel" destination="wGB-iN-HvF" id="s8Q-Rn-Byy"/>
+                <outlet property="incomeStationaryLabel" destination="Y6i-xU-9C5" id="I8U-RD-OWy"/>
                 <outlet property="titleLabel" destination="Hnt-v4-5bR" id="qNG-wP-tdV"/>
             </connections>
         </placeholder>

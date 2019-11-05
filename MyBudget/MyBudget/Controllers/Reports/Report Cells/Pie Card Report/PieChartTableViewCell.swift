@@ -40,7 +40,7 @@ class PieChartTableViewCell: UITableViewCell {
         let newFrame = CGRect(x: 0, y:0, width: self.frame.width - 2*cardOffsetX, height: self.frame.height - 2*cardOffsetY)
         let card = PieChartCard.init(frame: newFrame)
         card.center = CGPoint(x: self.center.x, y: self.bounds.height / 2)
-        card.titleLabel.text = "Loading reports..."
+        card.titleLabel.text = "Spendings"
         card.label1.text = ""
         card.label2.text = ""
         card.label3.text = ""
@@ -77,7 +77,7 @@ class PieChartTableViewCell: UITableViewCell {
     /// Public setter which acts as a "gateway" to the eral chartdata.
     var data = [PieChartSpendingsData]() {
         didSet {
-            if data != chartData { // Only update cell if content changed
+            if data != chartData || data.count == 0 { // Only update cell if content changed
                 chartData = data
                 updateContent()
             }
@@ -94,14 +94,62 @@ class PieChartTableViewCell: UITableViewCell {
     
     private func updateContent() {
         reset()
+        guard chartData.count > 0 else {
+            addNoDataCard()
+            return
+        }
+        
         for data in chartData {
             addChart(entries: data.entries, chartName: data.label)
         }
+        
         chartContainer.scrollRectToVisible(CGRect(x: chartContainer.contentSize.width - 10, y: 0, width: 10, height: chartContainer.frame.height), animated: false)
     }
     
-    private func addChart(entries: [(money: Money, label: String)], chartName: String = "Expenses") {
+    private func addNoDataCard() {
+        let newFrame = CGRect(x: 0, y:0, width: self.frame.width - 2*cardOffsetX, height: self.frame.height - 2*cardOffsetY)
+        let card = PieChartCard.init(frame: newFrame)
+        card.center = CGPoint(x: self.center.x, y: self.bounds.height / 2)
+        card.titleLabel.text = "Spendings"
+        card.label1.text = ""
+        card.label2.text = ""
+        card.label3.text = ""
+        card.label4.text = ""
+        card.label5.text = ""
+
+        let explainLabel = UILabel(frame: card.chartContainer.bounds)
+        if #available(iOS 13.0, *) {
+            explainLabel.textColor = .secondaryLabel
+        }
+        explainLabel.textAlignment = .center
+        explainLabel.text = "Track your expenses to see detailed statistics about your spending behavior"
+        card.chartContainer.addSubview(explainLabel)
+        explainLabel.translatesAutoresizingMaskIntoConstraints = false
+        explainLabel.numberOfLines = 5
+        // Center label in card
+        NSLayoutConstraint.activate([
+            NSLayoutConstraint.init(item: explainLabel, attribute: .leading, relatedBy: .equal, toItem: card.titleLabel, attribute: .leading, multiplier: 1, constant: 0),
+            NSLayoutConstraint.init(item: explainLabel, attribute: .trailing, relatedBy: .equal, toItem: card, attribute: .trailing, multiplier: 1, constant: -15),
+            NSLayoutConstraint.init(item: explainLabel, attribute: .centerY, relatedBy: .equal, toItem: card, attribute: .centerY, multiplier: 1, constant: 0),
+        ])
         
+        chartContainer.addSubview(card)
+        card.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Programmatically set card's frame including all offsets from the sides
+        NSLayoutConstraint.activate([
+            NSLayoutConstraint.init(item: card, attribute: .height, relatedBy: .equal, toItem: chartContainer, attribute: .height, multiplier: 1, constant: -2*cardOffsetY),
+            NSLayoutConstraint.init(item: card, attribute: .width, relatedBy: .equal, toItem: chartContainer, attribute: .width, multiplier: 1, constant: -2*cardOffsetX),
+            NSLayoutConstraint.init(item: card, attribute: .centerX, relatedBy: .equal, toItem: chartContainer, attribute: .centerX, multiplier: 1, constant: 0),
+            NSLayoutConstraint.init(item: card, attribute: .centerY, relatedBy: .equal, toItem: chartContainer, attribute: .centerY, multiplier: 1, constant: 0),
+        ])
+        
+        // Update content size
+        chartContainer.contentSize = CGSize(width: CGFloat(1)*self.frame.width, height: self.frame.height)
+    }
+    
+    private func addChart(entries: [(money: Money, label: String)], chartName: String = "Expenses") {
+                
         let colors = [NSUIColor.systemRed, NSUIColor.systemBlue, NSUIColor.systemGreen, NSUIColor.systemOrange, NSUIColor.systemYellow]
         
         let newFrame = CGRect(x: 0, y:0, width: self.frame.width - 2*cardOffsetX, height: self.frame.height - 2*cardOffsetY)

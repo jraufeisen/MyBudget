@@ -47,7 +47,7 @@ class NetValueTableViewCell: UITableViewCell {
    /// Public setter which acts as a "gateway" to the eral chartdata.
     var data = [(Money, String)]() {
         didSet {
-            if data.count != chartData.count { // Only update cell if content changed
+            if data.count != chartData.count || data.count == 0 { // Only update cell if content changed
                chartData = data
                updateContent()
            }
@@ -56,9 +56,41 @@ class NetValueTableViewCell: UITableViewCell {
     
     private func updateContent() {
         reset()
+        
+        guard chartData.count > 0 else {
+            addNoDataInfo()
+            return
+        }
+        
         addChart(entries: chartData)
         scrollView.setContentOffset(CGPoint.init(x: scrollView.contentSize.width - scrollView.frame.width, y: 0), animated: false) // We cant use scrollRectToVisible() yet, so we set the content offset
     }
+    
+    private func addNoDataInfo() {
+        let explainLabel = UILabel(frame: scrollView.bounds)
+        if #available(iOS 13.0, *) {
+            explainLabel.textColor = .secondaryLabel
+        }
+        explainLabel.textAlignment = .center
+        explainLabel.text = "Check back regularly to see how your net values developes over time"
+
+
+        explainLabel.translatesAutoresizingMaskIntoConstraints = false
+        contentContainer.addSubview(explainLabel)
+
+        explainLabel.numberOfLines = 5
+        contentContainer.addSubview(explainLabel)
+
+        // Center label in card
+        NSLayoutConstraint.activate([
+            NSLayoutConstraint.init(item: explainLabel, attribute: .leading, relatedBy: .equal, toItem: contentContainer, attribute: .leading, multiplier: 1, constant: 15),
+            NSLayoutConstraint.init(item: explainLabel, attribute: .trailing, relatedBy: .equal, toItem: contentContainer, attribute: .trailing, multiplier: 1, constant: -15),
+            NSLayoutConstraint.init(item: explainLabel, attribute: .centerY, relatedBy: .equal, toItem: contentContainer, attribute: .centerY, multiplier: 1, constant: 0),
+        ])
+        
+
+    }
+
     
     
     private func reset() {
