@@ -388,7 +388,7 @@ class Model: NSObject {
         guard let beginDate = firstDate() else {return spendings}
         guard let endDate = lastDate() else {return spendings}
         
-        var currentDate = beginDate
+        var currentDate = beginDate.firstDayOfCurrentMonth()
         while currentDate < endDate {
             guard let nextDate = Calendar.current.date(byAdding: .month, value: 1, to: currentDate) else {
                 return spendings
@@ -400,8 +400,8 @@ class Model: NSObject {
             currentDate = nextDate
         }
         
-        // Dont forget the current month (at least partially)
-        let thisMonthsSpendings = expenses(from: Date().firstDayOfCurrentMonth(), to: Date())
+        // Dont forget the last month (at least partially begun)
+        let thisMonthsSpendings = expenses(from: endDate.firstDayOfCurrentMonth(), to: endDate)
         spendings.append(thisMonthsSpendings)
 
         
@@ -411,7 +411,7 @@ class Model: NSObject {
     func getNetValueReport() -> [NetValueData] {
         var netValues = [NetValueData]()
         
-        guard let beginDate = firstDate() else {return netValues}
+        guard let beginDate = firstDate()?.firstDayOfCurrentMonth() else {return netValues}
         guard let endDate = lastDate() else {return netValues}
         
         guard var currentDate = Calendar.current.date(byAdding: .month, value: 1, to: beginDate) else {
@@ -429,15 +429,15 @@ class Model: NSObject {
             let netValue = LedgerModel.shared().balanceUpToDate(acc: bankingAccount, date: currentDate)
             let netValueMoney = Money((netValue as NSDecimalNumber).floatValue)
 
-            let timeString = currentDate.monthAsString() + " " + currentDate.yearAsString()
-
+//             let timeString = currentDate.monthAsString() + " " + currentDate.yearAsString()
+            let timeString = DateFormatter.localizedString(from: currentDate, dateStyle: .medium, timeStyle: .none)
             netValues.append(NetValueData.init(value: netValueMoney, label: timeString))
             
             currentDate = nextDate
         }
         
         // Append current net value
-        let netValue = LedgerModel.shared().balanceUpToDate(acc: bankingAccount, date: Date())
+        let netValue = LedgerModel.shared().balanceUpToDate(acc: bankingAccount, date: endDate)
         let netValueMoney = Money((netValue as NSDecimalNumber).floatValue)
         netValues.append(NetValueData.init(value: netValueMoney, label: "Today"))
 
@@ -452,12 +452,12 @@ class Model: NSObject {
         guard let beginDate = firstDate() else {return statements}
         guard let endDate = lastDate() else {return statements}
         
-        var currentDate = beginDate
+        var currentDate = beginDate.firstDayOfCurrentMonth()
         while currentDate < endDate {
             guard let nextDate = Calendar.current.date(byAdding: .month, value: 1, to: currentDate) else {
                 return statements
             }
-            
+
             // Calculate income statement between currentDate and nextDate in every budget category
             let income = LedgerModel.shared().income(acc: Account.incomeAccount(), from: currentDate, to: nextDate)
             let expense = LedgerModel.shared().expense(acc: Account.bankingAccount(named: ""), from: currentDate, to: nextDate)
@@ -473,15 +473,6 @@ class Model: NSObject {
             currentDate = nextDate
         }
         
-        // Dont forget this month
-        let income = LedgerModel.shared().income(acc: Account.incomeAccount(), from: Date().firstDayOfCurrentMonth(), to: Date())
-        let expense = LedgerModel.shared().expense(acc: Account.bankingAccount(named: ""), from: Date().firstDayOfCurrentMonth(), to: Date())
-        let incomeMoney = Money((abs(income) as NSDecimalNumber).floatValue)
-        let expenseMoney = Money((abs(expense) as NSDecimalNumber).floatValue)
-        let timeString = Date().monthAsString() + " " + Date().yearAsString()
-        let incomeStatement = IncomeStatementData.init(income: incomeMoney, expense: expenseMoney, name: timeString)
-        statements.append(incomeStatement)
-
         
         return statements
         
