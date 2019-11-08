@@ -12,6 +12,9 @@ import Charts
 
 class NetValueTableViewCell: UITableViewCell {
 
+    let oneMonthWidth: CGFloat = 100
+
+    
     static let Identifier = "NetValueChartTableViewCellID"
 
     @IBOutlet weak var contentContainer: UIView!
@@ -63,15 +66,10 @@ class NetValueTableViewCell: UITableViewCell {
         }
         
         addChart(entries: chartData)
-        
-        if scrollView.contentSize.width > scrollView.frame.width {
-            // We cant use scrollRectToVisible() yet, so we set the content offset.
-            // But also dont force a scrollview to scroll farther than it would naturally allow oyu to
-            scrollView.setContentOffset(CGPoint.init(x: scrollView.contentSize.width - scrollView.frame.width, y: 0), animated: false)
-        }
-        
+                
     }
     
+    private var explainLabel: UILabel?
     private func addNoDataInfo() {
         let explainLabel = UILabel(frame: scrollView.bounds)
         if #available(iOS 13.0, *) {
@@ -94,20 +92,124 @@ class NetValueTableViewCell: UITableViewCell {
             NSLayoutConstraint.init(item: explainLabel, attribute: .centerY, relatedBy: .equal, toItem: contentContainer, attribute: .centerY, multiplier: 1, constant: 0),
         ])
         
-
+        self.explainLabel = explainLabel
     }
 
     
     
     private func reset() {
+        
+        explainLabel?.removeFromSuperview()
+        
         for subview in scrollView.subviews {
             subview.removeFromSuperview()
         }
     }
     
-    private func addChart(entries: [NetValueData]) {
+    
+    private func addDashedLinesChart(entries: [NetValueData]) {
+        
+        let totalNumberOfEntries = Int(scrollView.frame.width / oneMonthWidth)
+        print(totalNumberOfEntries)
+        
+        var realChartEntries = [ChartDataEntry]()
+        var fakeChartEntries = [ChartDataEntry]()
+        for i in 0..<entries.count {
+            let money = entries[i].value
+            let newEntry = ChartDataEntry.init(x: Double(i), y: money.floatValue)
+            realChartEntries.append(newEntry)
+        }
 
-        let oneMonthWidth: CGFloat = 100
+        
+        let money = entries[entries.count-1].value
+        let newEntry = ChartDataEntry.init(x: Double(entries.count-1), y: money.floatValue)
+        let lastEntry = ChartDataEntry.init(x: Double(100), y: money.floatValue) // Somewhere over the rainbow
+
+        fakeChartEntries.append(newEntry)
+        fakeChartEntries.append(lastEntry)
+
+        
+        let realDataSet = LineChartDataSet.init(entries: realChartEntries, label: "Net Value")
+        let fakeDataSet = LineChartDataSet.init(entries: fakeChartEntries, label: "Predicted Net Value")
+
+        for dataSet in [realDataSet, fakeDataSet] {
+            dataSet.colors = [NSUIColor.incomeColor]
+            dataSet.circleColors = [.incomeColor]
+            dataSet.circleRadius = 4
+            dataSet.valueFont = UIFont.systemFont(ofSize: 15)
+            dataSet.circleHoleColor = .incomeColor
+        }
+
+        realDataSet.valueFormatter = NetValueChartMoneyFormatter()
+
+        fakeDataSet.drawValuesEnabled = false
+        fakeDataSet.lineDashLengths = [3,3]
+        fakeDataSet.drawCirclesEnabled = false
+
+        
+        let combinedChart = CombinedChartView.init(frame: CGRect.zero)
+        
+        if #available(iOS 13.0, *) { // Adapt for dark mode
+            realDataSet.valueColors = [UIColor.label]
+            combinedChart.xAxis.labelTextColor = UIColor.label
+        }
+
+        let combinedData = CombinedChartData.init(dataSets: [realDataSet, fakeDataSet])
+        combinedData.lineData = LineChartData.init(dataSets: [realDataSet, fakeDataSet])
+        
+        combinedChart.data = combinedData
+
+        // General settings
+        combinedChart.scaleXEnabled = false // No zooming
+        combinedChart.scaleYEnabled = false // No zooming
+
+        combinedChart.doubleTapToZoomEnabled = false
+        combinedChart.dragEnabled = false
+        combinedChart.legend.enabled = false
+        combinedChart.rightAxis.enabled = false
+        combinedChart.highlightPerTapEnabled = false
+        
+        combinedChart.xAxis.drawGridLinesEnabled = false
+        combinedChart.xAxis.drawAxisLineEnabled = false
+        combinedChart.xAxis.labelPosition = .bottomInside
+        
+        let labels = entries.map { (arg) -> String in
+            return arg.label
+        }
+        
+        combinedChart.xAxis.valueFormatter = NetValueChartXAxisFormatter(labels: labels)
+        combinedChart.xAxis.setLabelCount(entries.count, force: false) // Do not force label count => Labels only for integer values
+
+        combinedChart.xAxis.spaceMin = 0.5
+    //    combinedChart.xAxis.axisMinimum = -1 // Ensure label of first month is visible
+        combinedChart.xAxis.spaceMax = 1
+
+        combinedChart.leftAxis.drawGridLinesEnabled = false
+        combinedChart.leftAxis.drawAxisLineEnabled = false
+        combinedChart.leftAxis.drawLabelsEnabled = false
+
+
+        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: scrollView.contentSize.height) // No scrolling in this one!
+        scrollView.addSubview(combinedChart)
+        // Constraint linechart to scrollview
+        combinedChart.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            NSLayoutConstraint.init(item: combinedChart, attribute: .height, relatedBy: .equal, toItem: scrollView, attribute: .height, multiplier: 1, constant: 0),
+            NSLayoutConstraint.init(item: combinedChart, attribute: .left, relatedBy: .equal, toItem: scrollView, attribute: .left, multiplier: 1, constant: 0),
+            NSLayoutConstraint.init(item: combinedChart, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .top, multiplier: 1, constant: 0),
+            NSLayoutConstraint.init(item: combinedChart, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: oneMonthWidth*CGFloat(100)), // Some large constant
+        ])
+
+    }
+    
+    private func addChart(entries: [NetValueData]) {
+        
+        if CGFloat(entries.count) * oneMonthWidth < scrollView.frame.width {
+            // Use an alternative chart with dashed lines to fill the view
+            addDashedLinesChart(entries: entries)
+            return
+        }
+        
         
         var chartEntries = [ChartDataEntry]()
         for i in 0..<entries.count {
@@ -175,7 +277,15 @@ class NetValueTableViewCell: UITableViewCell {
             NSLayoutConstraint.init(item: lineChart, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: oneMonthWidth*CGFloat(entries.count)),
         ])
 
+        if scrollView.contentSize.width > scrollView.frame.width {
+            // We cant use scrollRectToVisible() yet, so we set the content offset.
+            // But also dont force a scrollview to scroll farther than it would naturally allow oyu to
+            scrollView.setContentOffset(CGPoint.init(x: scrollView.contentSize.width - scrollView.frame.width, y: 0), animated: false)
+        }
+
+    
     }
+    
     
 }
 
