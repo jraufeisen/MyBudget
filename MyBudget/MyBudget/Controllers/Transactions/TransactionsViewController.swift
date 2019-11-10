@@ -111,16 +111,18 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         searchFilter = "" // No filter at start
-        
         search.searchResultsUpdater = self
         search.obscuresBackgroundDuringPresentation = false
         search.searchBar.placeholder = "Search all transactions"
         search.searchBar.sizeToFit()
-
         navigationItem.searchController = search
         navigationItem.hidesSearchBarWhenScrolling = true
-
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateModel), name: ModelChangedNotification, object: nil)
+
+        // Update transaction data, when the view is loaded for the first time
+        // This is necessary, because in other view controllers, the user might change transaction data at runtime (e.g. add another transaction)
+        // And at this point of change, this VC has not been a registered observer of the ModelChangedNotification
+        updateModel()
     }
 }
 
