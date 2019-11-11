@@ -37,7 +37,7 @@ class IncomeStatementCard: UIView {
          contentView.frame = self.bounds
          contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
          if #available(iOS 13.0, *) {
-             contentView.backgroundColor = .secondarySystemBackground
+             contentView.backgroundColor = .secondarySystemGroupedBackground
          } else {
              contentView.backgroundColor = UIColor.lightGray
          }
