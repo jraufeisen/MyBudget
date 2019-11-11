@@ -914,13 +914,14 @@
         <!--Transactions-->
         <scene sceneID="29q-x8-IJ3">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jvp-B0-XrF" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="q9W-M4-2Gu" customClass="TransactionsViewController" customModule="Budget_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Qv-zp-w8W">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b8m-qa-qFV">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="transactionCell" rowHeight="70" id="YtA-Ud-31m" customClass="CategoryTransacitonCell" customModule="Budget_" customModuleProvider="target">
@@ -1013,10 +1014,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="b8m-qa-qFV" firstAttribute="centerY" secondItem="xLo-AP-qya" secondAttribute="centerY" id="IgK-99-nNY"/>
-                            <constraint firstItem="b8m-qa-qFV" firstAttribute="centerX" secondItem="xLo-AP-qya" secondAttribute="centerX" id="MdU-1u-yZR"/>
-                            <constraint firstItem="b8m-qa-qFV" firstAttribute="width" secondItem="6Qv-zp-w8W" secondAttribute="width" id="R5j-b8-GBI"/>
-                            <constraint firstItem="b8m-qa-qFV" firstAttribute="top" secondItem="xLo-AP-qya" secondAttribute="top" id="U5I-6U-g9M"/>
+                            <constraint firstAttribute="trailing" secondItem="b8m-qa-qFV" secondAttribute="trailing" id="8XG-cs-g7o"/>
+                            <constraint firstAttribute="top" secondItem="b8m-qa-qFV" secondAttribute="top" id="Hcp-lg-akx"/>
+                            <constraint firstItem="b8m-qa-qFV" firstAttribute="bottom" secondItem="6Qv-zp-w8W" secondAttribute="bottom" id="PDJ-b7-3nD"/>
+                            <constraint firstItem="b8m-qa-qFV" firstAttribute="leading" secondItem="6Qv-zp-w8W" secondAttribute="leading" id="fZQ-Ib-IWf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xLo-AP-qya"/>
                     </view>
@@ -1025,7 +1026,6 @@
                         <outlet property="tableView" destination="b8m-qa-qFV" id="jiy-Iq-0fl"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Jvp-B0-XrF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="586.95652173913049" y="2368.5267857142858"/>
         </scene>
