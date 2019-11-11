@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		663262797FA0440D3870E37D /* Pods_MyBudget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B8B8649E433172893306AF /* Pods_MyBudget.framework */; };
 		EB024C2522F35C5A00228855 /* MenuPresentingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB024C2422F35C5A00228855 /* MenuPresentingViewController.swift */; };
 		EB02A67222EB10E700987AFA /* APNumberPadDefaultStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02A66A22EB10E600987AFA /* APNumberPadDefaultStyle.m */; };
 		EB02A67322EB10E700987AFA /* APNumberButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02A66C22EB10E700987AFA /* APNumberButton.m */; };
@@ -21,6 +22,8 @@
 		EB09FC97231D5D830063FB90 /* SubscriptionFloaty.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB09FC96231D5D830063FB90 /* SubscriptionFloaty.swift */; };
 		EB1BCBBC2305AD2A0023E11F /* NewAccountDiaryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1BCBBB2305AD2A0023E11F /* NewAccountDiaryProvider.swift */; };
 		EB203BF4230716CA008C9EE5 /* FileManager+DocDir.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB203BF3230716CA008C9EE5 /* FileManager+DocDir.swift */; };
+		EB205AE423660E920050130E /* PieChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB205AE223660E920050130E /* PieChartTableViewCell.swift */; };
+		EB205AE723660F570050130E /* ReportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB205AE623660F570050130E /* ReportsViewController.swift */; };
 		EB2C771B22EDBCA3009FA2C8 /* UITextView+Center.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2C771A22EDBCA3009FA2C8 /* UITextView+Center.swift */; };
 		EB2C771D22EDBD59009FA2C8 /* BudgetDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2C771C22EDBD59009FA2C8 /* BudgetDetailViewController.swift */; };
 		EB2C772022EDC143009FA2C8 /* MoneyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2C771F22EDC143009FA2C8 /* MoneyTextField.swift */; };
@@ -75,6 +78,10 @@
 		EB6EFA012323B8AE00294846 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145A22E8AD7300291435 /* Transaction.swift */; };
 		EB6EFA022323B9CB00294846 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB399D742323075400CA0BD8 /* Interface.storyboard */; };
 		EB8472892306AA4400DCD330 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EB8472882306AA4400DCD330 /* Settings.bundle */; };
+		EB8EB60623687402002E305D /* IncomeStatementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8EB60423687402002E305D /* IncomeStatementTableViewCell.swift */; };
+		EB8EB60723687402002E305D /* IncomeStatementTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB8EB60523687402002E305D /* IncomeStatementTableViewCell.xib */; };
+		EB8EB60923687413002E305D /* IncomeStatementCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8EB60823687413002E305D /* IncomeStatementCard.swift */; };
+		EB8EB60B2368741D002E305D /* IncomeStatementCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB8EB60A2368741D002E305D /* IncomeStatementCard.xib */; };
 		EB985CA722EC699200C033E8 /* verify-sign.png in Resources */ = {isa = PBXBuildFile; fileRef = EB985CA622EC699200C033E8 /* verify-sign.png */; };
 		EB985CB522EC6B5400C033E8 /* FloatyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CB222EC6B2300C033E8 /* FloatyDelegate.swift */; };
 		EB985CB622EC6B5800C033E8 /* FloatyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CAC22EC6B2300C033E8 /* FloatyWindow.swift */; };
@@ -92,6 +99,8 @@
 		EBAE2EDE2364AB3600040980 /* BudgetTableHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAE2EDD2364AB3600040980 /* BudgetTableHeaderViewController.swift */; };
 		EBB21C8023054E70004E4E8F /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB21C7F23054E70004E4E8F /* TabbarViewController.swift */; };
 		EBB21C8323055530004E4E8F /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB21C8223055530004E4E8F /* TransactionsViewController.swift */; };
+		EBC0A90B23681B110031A411 /* NetValueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC0A90923681B110031A411 /* NetValueTableViewCell.swift */; };
+		EBC0A90C23681B110031A411 /* NetValueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBC0A90A23681B110031A411 /* NetValueTableViewCell.xib */; };
 		EBC59D3F22E7503900E626DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC59D3E22E7503900E626DC /* AppDelegate.swift */; };
 		EBC59D4422E7503900E626DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBC59D4222E7503900E626DC /* Main.storyboard */; };
 		EBC59D4622E7503A00E626DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBC59D4522E7503A00E626DC /* Assets.xcassets */; };
@@ -105,6 +114,9 @@
 		EBD012F322E9B39D00F8126D /* drawer.png in Resources */ = {isa = PBXBuildFile; fileRef = EBD012F222E9B39D00F8126D /* drawer.png */; };
 		EBD012F622E9B47F00F8126D /* NewCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD012F422E9B47F00F8126D /* NewCategoryCell.xib */; };
 		EBD012F722E9B47F00F8126D /* ExistingCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD012F522E9B47F00F8126D /* ExistingCategoryCell.xib */; };
+		EBD4649523671AA20004F900 /* PieChartCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD4649423671AA20004F900 /* PieChartCard.swift */; };
+		EBD4649B236721B00004F900 /* PieChartCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD4649A236721B00004F900 /* PieChartCard.xib */; };
+		EBD4649D236730C30004F900 /* PieChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD4649C236730BF0004F900 /* PieChartTableViewCell.xib */; };
 		EBDA26CD22F6FDCC0073DC50 /* IncomeStatementPercentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDA26CC22F6FDCC0073DC50 /* IncomeStatementPercentView.swift */; };
 		EBE7E2A82321058500BEC812 /* MyBudgetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7E2A72321058500BEC812 /* MyBudgetUITests.swift */; };
 		EBE7E2B923210ADB00BEC812 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7E2B823210ADB00BEC812 /* SnapshotHelper.swift */; };
@@ -127,8 +139,6 @@
 		EBEB145722E8A29800291435 /* UIColor+Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145622E8A29800291435 /* UIColor+Macro.swift */; };
 		EBEB145B22E8AD7300291435 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145A22E8AD7300291435 /* Transaction.swift */; };
 		EBEB8B1C23145D5C009F65B8 /* NewAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB8B1B23145D5C009F65B8 /* NewAccountViewController.swift */; };
-		EBEC52F923310AEA00E88BA3 /* Antlr4.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBEC52F623310A9E00E88BA3 /* Antlr4.framework */; };
-		EBEC52FA23310AEA00E88BA3 /* Antlr4.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EBEC52F623310A9E00E88BA3 /* Antlr4.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EBF2F67C22E8D91300C2772F /* AccountTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF2F67B22E8D91300C2772F /* AccountTableView.swift */; };
 		EBF3A88B233AB926003093B7 /* StandardNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF3A88A233AB926003093B7 /* StandardNavigationViewController.swift */; };
 		EBF560F82305EFD400E850E7 /* NewBudgetCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF560F72305EFD400E850E7 /* NewBudgetCategoryViewController.swift */; };
@@ -163,7 +173,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				EBEC52FA23310AEA00E88BA3 /* Antlr4.framework in Embed Frameworks */,
 				EBE7FE67233CF96F0088D156 /* Swift_Ledger.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -228,6 +237,8 @@
 		EB09FC96231D5D830063FB90 /* SubscriptionFloaty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionFloaty.swift; sourceTree = "<group>"; };
 		EB1BCBBB2305AD2A0023E11F /* NewAccountDiaryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountDiaryProvider.swift; sourceTree = "<group>"; };
 		EB203BF3230716CA008C9EE5 /* FileManager+DocDir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+DocDir.swift"; sourceTree = "<group>"; };
+		EB205AE223660E920050130E /* PieChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartTableViewCell.swift; sourceTree = "<group>"; };
+		EB205AE623660F570050130E /* ReportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsViewController.swift; sourceTree = "<group>"; };
 		EB2C771A22EDBCA3009FA2C8 /* UITextView+Center.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+Center.swift"; sourceTree = "<group>"; };
 		EB2C771C22EDBD59009FA2C8 /* BudgetDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetDetailViewController.swift; sourceTree = "<group>"; };
 		EB2C771F22EDC143009FA2C8 /* MoneyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTextField.swift; sourceTree = "<group>"; };
@@ -259,6 +270,7 @@
 		EB399D7C2323077D00CA0BD8 /* EnterNumberInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNumberInterfaceController.swift; sourceTree = "<group>"; };
 		EB399D7D2323077D00CA0BD8 /* ConfirmationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationController.swift; sourceTree = "<group>"; };
 		EB399D7E2323088100CA0BD8 /* WatchSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchSessionManager.swift; sourceTree = "<group>"; };
+		EB3D8CD62366139500B71C4E /* Antlr4.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Antlr4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB4F7894231968860045077E /* ServerReceiptValidatorReceiptValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerReceiptValidatorReceiptValidator.swift; sourceTree = "<group>"; };
 		EB4F789623196F220045077E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		EB4F78992319A2600045077E /* SubscriptionOnboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionOnboardController.swift; sourceTree = "<group>"; };
@@ -280,6 +292,10 @@
 		EB668B9D22EF2DDE0082D54B /* MaterialComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MaterialComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB6EF9FE2323B84A00294846 /* Model+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Model+iOS.swift"; sourceTree = "<group>"; };
 		EB8472882306AA4400DCD330 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = SOURCE_ROOT; };
+		EB8EB60423687402002E305D /* IncomeStatementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeStatementTableViewCell.swift; sourceTree = "<group>"; };
+		EB8EB60523687402002E305D /* IncomeStatementTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IncomeStatementTableViewCell.xib; sourceTree = "<group>"; };
+		EB8EB60823687413002E305D /* IncomeStatementCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeStatementCard.swift; sourceTree = "<group>"; };
+		EB8EB60A2368741D002E305D /* IncomeStatementCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IncomeStatementCard.xib; sourceTree = "<group>"; };
 		EB985CA622EC699200C033E8 /* verify-sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "verify-sign.png"; sourceTree = "<group>"; };
 		EB985CAC22EC6B2300C033E8 /* FloatyWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatyWindow.swift; sourceTree = "<group>"; };
 		EB985CAD22EC6B2300C033E8 /* FloatyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatyManager.swift; sourceTree = "<group>"; };
@@ -298,6 +314,8 @@
 		EBAE2EDD2364AB3600040980 /* BudgetTableHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTableHeaderViewController.swift; sourceTree = "<group>"; };
 		EBB21C7F23054E70004E4E8F /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		EBB21C8223055530004E4E8F /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
+		EBC0A90923681B110031A411 /* NetValueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetValueTableViewCell.swift; sourceTree = "<group>"; };
+		EBC0A90A23681B110031A411 /* NetValueTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NetValueTableViewCell.xib; sourceTree = "<group>"; };
 		EBC59D3B22E7503900E626DC /* Budget!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Budget!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBC59D3E22E7503900E626DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBC59D4322E7503900E626DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -315,6 +333,9 @@
 		EBD012F222E9B39D00F8126D /* drawer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = drawer.png; sourceTree = "<group>"; };
 		EBD012F422E9B47F00F8126D /* NewCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewCategoryCell.xib; sourceTree = "<group>"; };
 		EBD012F522E9B47F00F8126D /* ExistingCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExistingCategoryCell.xib; sourceTree = "<group>"; };
+		EBD4649423671AA20004F900 /* PieChartCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartCard.swift; sourceTree = "<group>"; };
+		EBD4649A236721B00004F900 /* PieChartCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PieChartCard.xib; sourceTree = "<group>"; };
+		EBD4649C236730BF0004F900 /* PieChartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PieChartTableViewCell.xib; sourceTree = "<group>"; };
 		EBDA26CC22F6FDCC0073DC50 /* IncomeStatementPercentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeStatementPercentView.swift; sourceTree = "<group>"; };
 		EBE7E2A52321058500BEC812 /* MyBudgetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyBudgetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBE7E2A72321058500BEC812 /* MyBudgetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBudgetUITests.swift; sourceTree = "<group>"; };
@@ -348,6 +369,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		D2F8D93A0BDFB0332E59440F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EB399D52232305DD00CA0BD8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -361,8 +389,8 @@
 			files = (
 				EB558EB722ECA3A200039651 /* CloudKit.framework in Frameworks */,
 				EBE7FE66233CF96F0088D156 /* Swift_Ledger.framework in Frameworks */,
-				EBEC52F923310AEA00E88BA3 /* Antlr4.framework in Frameworks */,
 				EB4F789723196F220045077E /* StoreKit.framework in Frameworks */,
+				663262797FA0440D3870E37D /* Pods_MyBudget.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +416,7 @@
 		1CF7C6954939ED9D3DD0375D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB3D8CD62366139500B71C4E /* Antlr4.framework */,
 				EBE7FE65233CF96F0088D156 /* Swift_Ledger.framework */,
 				EBEC52F623310A9E00E88BA3 /* Antlr4.framework */,
 				EB4F789623196F220045077E /* StoreKit.framework */,
@@ -451,6 +480,25 @@
 				EBEB8B1B23145D5C009F65B8 /* NewAccountViewController.swift */,
 			);
 			path = "New Account";
+			sourceTree = "<group>";
+		};
+		EB205AE023660E4F0050130E /* Reports */ = {
+			isa = PBXGroup;
+			children = (
+				EB205AE623660F570050130E /* ReportsViewController.swift */,
+				EB205AE123660E620050130E /* Report Cells */,
+			);
+			path = Reports;
+			sourceTree = "<group>";
+		};
+		EB205AE123660E620050130E /* Report Cells */ = {
+			isa = PBXGroup;
+			children = (
+				EB8EB603236873E7002E305D /* IncomeStatement */,
+				EBC0A90623681AA80031A411 /* Pie Card Report */,
+				EBC0A90D23681B1A0031A411 /* NetValue Card Report */,
+			);
+			path = "Report Cells";
 			sourceTree = "<group>";
 		};
 		EB2C771E22EDBD5E009FA2C8 /* Budget Detail VC */ = {
@@ -543,6 +591,7 @@
 		EB5C600A22F32946004F81CF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EB205AE023660E4F0050130E /* Reports */,
 				EB4F78982319A2450045077E /* Onboard_Subscription */,
 				EBF560F92305EFD800E850E7 /* New Budget Category */,
 				EB1BCBC02305ADBD0023E11F /* New Account */,
@@ -567,6 +616,17 @@
 				EB024C2422F35C5A00228855 /* MenuPresentingViewController.swift */,
 			);
 			path = Menu;
+			sourceTree = "<group>";
+		};
+		EB8EB603236873E7002E305D /* IncomeStatement */ = {
+			isa = PBXGroup;
+			children = (
+				EB8EB60423687402002E305D /* IncomeStatementTableViewCell.swift */,
+				EB8EB60523687402002E305D /* IncomeStatementTableViewCell.xib */,
+				EB8EB60823687413002E305D /* IncomeStatementCard.swift */,
+				EB8EB60A2368741D002E305D /* IncomeStatementCard.xib */,
+			);
+			path = IncomeStatement;
 			sourceTree = "<group>";
 		};
 		EB985CAA22EC6B2300C033E8 /* Floaty */ = {
@@ -609,6 +669,26 @@
 				EBE7FE35233CBC0A0088D156 /* Transaction Details */,
 			);
 			path = Transactions;
+			sourceTree = "<group>";
+		};
+		EBC0A90623681AA80031A411 /* Pie Card Report */ = {
+			isa = PBXGroup;
+			children = (
+				EB205AE223660E920050130E /* PieChartTableViewCell.swift */,
+				EBD4649C236730BF0004F900 /* PieChartTableViewCell.xib */,
+				EBD4649423671AA20004F900 /* PieChartCard.swift */,
+				EBD4649A236721B00004F900 /* PieChartCard.xib */,
+			);
+			path = "Pie Card Report";
+			sourceTree = "<group>";
+		};
+		EBC0A90D23681B1A0031A411 /* NetValue Card Report */ = {
+			isa = PBXGroup;
+			children = (
+				EBC0A90923681B110031A411 /* NetValueTableViewCell.swift */,
+				EBC0A90A23681B110031A411 /* NetValueTableViewCell.xib */,
+			);
+			path = "NetValue Card Report";
 			sourceTree = "<group>";
 		};
 		EBC59D3222E7503900E626DC = {
@@ -829,6 +909,7 @@
 			buildPhases = (
 				EB399D47232305D800CA0BD8 /* Resources */,
 				EB399D6E232305DE00CA0BD8 /* Embed App Extensions */,
+				D2F8D93A0BDFB0332E59440F /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -991,6 +1072,7 @@
 				EB02A68122EB1BAF00987AFA /* apnumberpad_backspace_icon.png in Resources */,
 				EB34D5E222F3362D000FACAC /* menu.png in Resources */,
 				EB2C772622EDCA56009FA2C8 /* edit-2.png in Resources */,
+				EBD4649D236730C30004F900 /* PieChartTableViewCell.xib in Resources */,
 				EB985CA722EC699200C033E8 /* verify-sign.png in Resources */,
 				EBC59D4922E7503A00E626DC /* LaunchScreen.storyboard in Resources */,
 				EB02A68322EB1BAF00987AFA /* apnumberpad_backspace_icon@3x.png in Resources */,
@@ -998,6 +1080,7 @@
 				EBD012F722E9B47F00F8126D /* ExistingCategoryCell.xib in Resources */,
 				EBD012F322E9B39D00F8126D /* drawer.png in Resources */,
 				EBE7FE42233CC3720088D156 /* EditMoneyTableViewCell.xib in Resources */,
+				EBD4649B236721B00004F900 /* PieChartCard.xib in Resources */,
 				EBD012E922E9AD5000F8126D /* euro.png in Resources */,
 				EBE7FE56233CC9890088D156 /* EditCategoryTableViewCell.xib in Resources */,
 				EBE7FE48233CC5350088D156 /* EditDateTableViewCell.xib in Resources */,
@@ -1006,10 +1089,13 @@
 				EB51875A23216C1A0052D6B7 /* finances_example.txt in Resources */,
 				EBE7FE4C233CC54E0088D156 /* EditNameTableViewCell.xib in Resources */,
 				EB02A68222EB1BAF00987AFA /* apnumberpad_backspace_icon@2x.png in Resources */,
+				EB8EB60B2368741D002E305D /* IncomeStatementCard.xib in Resources */,
 				EBFF078E22E9B4BC00CC7215 /* ExistingAccountCell.xib in Resources */,
 				EBC59D4622E7503A00E626DC /* Assets.xcassets in Resources */,
+				EB8EB60723687402002E305D /* IncomeStatementTableViewCell.xib in Resources */,
 				EBD012E722E9AD0600F8126D /* add.png in Resources */,
 				EBC59D4422E7503900E626DC /* Main.storyboard in Resources */,
+				EBC0A90C23681B110031A411 /* NetValueTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1118,6 +1204,7 @@
 				EB4F789A2319A2600045077E /* SubscriptionOnboardController.swift in Sources */,
 				EB09FC94231D57080063FB90 /* KeychainWrapper.swift in Sources */,
 				EB203BF4230716CA008C9EE5 /* FileManager+DocDir.swift in Sources */,
+				EB205AE723660F570050130E /* ReportsViewController.swift in Sources */,
 				EBE7FE37233CBC430088D156 /* ExpenseDetailTableViewController.swift in Sources */,
 				EB35EDE6233E050100C58683 /* RoundedCornerView.swift in Sources */,
 				EB985CBB22EC6B5800C033E8 /* Floaty.swift in Sources */,
@@ -1132,6 +1219,7 @@
 				EBEB8B1C23145D5C009F65B8 /* NewAccountViewController.swift in Sources */,
 				EB4F78A52319B3CA0045077E /* SubcriptionTypeBulletinItem.swift in Sources */,
 				EBD012EE22E9B22100F8126D /* CategoryTableView.swift in Sources */,
+				EBC0A90B23681B110031A411 /* NetValueTableViewCell.swift in Sources */,
 				EB9DEBD422E9E5C400A73FD1 /* UITextField+Placeholder.swift in Sources */,
 				EB02A67422EB10E700987AFA /* NSBundle+APNumberPad.m in Sources */,
 				EBF560F82305EFD400E850E7 /* NewBudgetCategoryViewController.swift in Sources */,
@@ -1139,6 +1227,7 @@
 				EB02A67522EB10E700987AFA /* APNumberPad.m in Sources */,
 				EB985CB622EC6B5800C033E8 /* FloatyWindow.swift in Sources */,
 				EB2C772022EDC143009FA2C8 /* MoneyTextField.swift in Sources */,
+				EB8EB60623687402002E305D /* IncomeStatementTableViewCell.swift in Sources */,
 				EBA192222304829E00DA9308 /* MonthlyAverageViewController.swift in Sources */,
 				EB9DEBD622E9F00600A73FD1 /* CategoryAccessoryView.swift in Sources */,
 				EBF560FD2305F47F00E850E7 /* UIImage+Macro.swift in Sources */,
@@ -1150,6 +1239,8 @@
 				EBC59D5322E750E900E626DC /* Model.swift in Sources */,
 				EB35EDE8233E0E6100C58683 /* TransactionDetailBaseTableViewController.swift in Sources */,
 				EB4F78A32319B3BA0045077E /* CollectionUtilities.swift in Sources */,
+				EBD4649523671AA20004F900 /* PieChartCard.swift in Sources */,
+				EB205AE423660E920050130E /* PieChartTableViewCell.swift in Sources */,
 				EBAE2ED92364A37100040980 /* BudgetTableHeaderView.swift in Sources */,
 				EB399D7F2323088100CA0BD8 /* WatchSessionManager.swift in Sources */,
 				EBDA26CD22F6FDCC0073DC50 /* IncomeStatementPercentView.swift in Sources */,
@@ -1167,6 +1258,7 @@
 				EB35EDEE233E12D300C58683 /* CellStyles.swift in Sources */,
 				EBE7FE47233CC52B0088D156 /* EditDateTableViewCell.swift in Sources */,
 				EBF3A88B233AB926003093B7 /* StandardNavigationViewController.swift in Sources */,
+				EB8EB60923687413002E305D /* IncomeStatementCard.swift in Sources */,
 				EB4F789D2319B31C0045077E /* SubscriptionSelectorBulletin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1424,7 +1516,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MyBudget/MyBudget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = YLJFWRHN2U;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1437,7 +1529,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jraufeisen.MyBudget;
 				PRODUCT_NAME = "Budget!";
 				SWIFT_OBJC_BRIDGING_HEADER = "MyBudget/Views/MyBudget-Bridging-Header.h";
@@ -1455,7 +1547,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MyBudget/MyBudget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = YLJFWRHN2U;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1468,7 +1560,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.4;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jraufeisen.MyBudget;
 				PRODUCT_NAME = "Budget!";
 				SWIFT_OBJC_BRIDGING_HEADER = "MyBudget/Views/MyBudget-Bridging-Header.h";

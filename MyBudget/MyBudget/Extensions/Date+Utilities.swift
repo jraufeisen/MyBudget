@@ -28,4 +28,12 @@ extension Date {
         let nameOfMonth = dateFormatter.string(from: self)
         return nameOfMonth
     }
+    
+    func yearAsString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy"
+        let nameOfMonth = dateFormatter.string(from: self)
+        return nameOfMonth
+
+    }
 }

@@ -357,4 +357,156 @@ class Model: NSObject {
         return LedgerModel.shared().transactions.first?.date
     }
     
+    
+    // MARK: Reports
+    
+    private func expenses(from: Date, to: Date) -> PieChartSpendingsData {
+        
+        let name = from.monthAsString() + " " + from.yearAsString()
+        let categories = LedgerModel.shared().categories()
+        
+        var entries = [(money: Money, category: String)]()
+        for cat in categories {
+            let expAccount = Account.expensesAccount(for: cat)
+            let spentInThisCategory = LedgerModel.shared().expense(acc: expAccount, from: from, to: to)
+            
+            if spentInThisCategory != 0 {
+                let spentMoney = Money((abs(spentInThisCategory) as NSDecimalNumber).floatValue) // Dont forget to take absolute value
+                let newEntry = (spentMoney, cat)
+                entries.append(newEntry)
+            }
+        }
+        
+        let data = PieChartSpendingsData.init(label: name, entries: entries)
+        return data
+    }
+    
+    /// Returns all monthly spendings since begin of records until the last completed month
+    func getMonthlySpendings() -> [PieChartSpendingsData] {
+        var spendings = [PieChartSpendingsData]()
+        
+        guard let beginDate = firstDate() else {return spendings}
+        guard let endDate = lastDate() else {return spendings}
+        
+        var currentDate = beginDate.firstDayOfCurrentMonth()
+        while currentDate < endDate {
+            guard let nextDate = Calendar.current.date(byAdding: .month, value: 1, to: currentDate) else {
+                return spendings
+            }
+            
+            // Calculate spendings between currentDate and nextDate in every budget category
+            let thisMonthsSpendings = expenses(from: currentDate, to: nextDate)
+            spendings.append(thisMonthsSpendings)
+            currentDate = nextDate
+        }
+        
+        return spendings
+    }
+    
+    func getNetValueReport() -> [NetValueData] {
+        var netValues = [NetValueData]()
+        
+        guard let beginDate = firstDate()?.firstDayOfCurrentMonth() else {return netValues}
+        guard let endDate = lastDate() else {return netValues}
+        
+        guard var currentDate = Calendar.current.date(byAdding: .month, value: 1, to: beginDate) else {
+            return netValues
+        }
+
+        let bankingAccount = Account.bankingAccount(named: "")
+
+        while currentDate < endDate {
+            guard let nextDate = Calendar.current.date(byAdding: .month, value: 1, to: currentDate) else {
+                return netValues
+            }
+            
+            // Calculate spendings between currentDate and nextDate in every budget category
+            let netValue = LedgerModel.shared().balanceUpToDate(acc: bankingAccount, date: currentDate)
+            let netValueMoney = Money((netValue as NSDecimalNumber).floatValue)
+
+            let timeString = DateFormatter.localizedString(from: currentDate, dateStyle: .medium, timeStyle: .none)
+            netValues.append(NetValueData.init(value: netValueMoney, label: timeString))
+            
+            currentDate = nextDate
+        }
+        
+        // Append current net value
+        let netValue = LedgerModel.shared().balanceUpToDate(acc: bankingAccount, date: endDate)
+        let netValueMoney = Money((netValue as NSDecimalNumber).floatValue)
+        netValues.append(NetValueData.init(value: netValueMoney, label: "Today"))
+
+        return netValues
+    }
+    
+    
+
+    func getIncomeStatementReport() -> [IncomeStatementData] {
+        var statements = [IncomeStatementData]()
+        
+        guard let beginDate = firstDate() else {return statements}
+        guard let endDate = lastDate() else {return statements}
+        
+        var currentDate = beginDate.firstDayOfCurrentMonth()
+        while currentDate < endDate {
+            guard let nextDate = Calendar.current.date(byAdding: .month, value: 1, to: currentDate) else {
+                return statements
+            }
+
+            // Calculate income statement between currentDate and nextDate in every budget category
+            let income = LedgerModel.shared().income(acc: Account.incomeAccount(), from: currentDate, to: nextDate)
+            let expense = LedgerModel.shared().expense(acc: Account.bankingAccount(named: ""), from: currentDate, to: nextDate)
+            
+            let incomeMoney = Money((abs(income) as NSDecimalNumber).floatValue)
+            let expenseMoney = Money((abs(expense) as NSDecimalNumber).floatValue)
+
+            let timeString = currentDate.monthAsString() + " " + currentDate.yearAsString()
+
+            let incomeStatement = IncomeStatementData.init(income: incomeMoney, expense: expenseMoney, name: timeString)
+            statements.append(incomeStatement)
+            
+            currentDate = nextDate
+        }
+        
+        
+        return statements
+        
+    }
+    
+    
+}
+
+struct NetValueData: Equatable {
+    let value: Money
+    let label: String
+}
+
+struct IncomeStatementData: Equatable {
+    let income: Money
+    let expense: Money
+    let name: String
+}
+
+struct PieChartSpendingsData: Equatable {
+    static func == (lhs: PieChartSpendingsData, rhs: PieChartSpendingsData) -> Bool {
+        if lhs.label != rhs.label {
+            return false
+        }
+        
+        if lhs.entries.count != rhs.entries.count {
+            return false
+        }
+        
+        for i in 0..<lhs.entries.count {
+            let lhEntry = lhs.entries[i]
+            let rhEntry = rhs.entries[i]
+            if lhEntry != rhEntry {
+                return false
+            }
+        }
+        
+        return true
+    }
+    
+    let label: String
+    let entries: [(Money, String)]
 }
