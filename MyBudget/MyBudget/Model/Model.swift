@@ -400,11 +400,6 @@ class Model: NSObject {
             currentDate = nextDate
         }
         
-        // Dont forget the last month (at least partially begun)
-        let thisMonthsSpendings = expenses(from: endDate.firstDayOfCurrentMonth(), to: endDate)
-        spendings.append(thisMonthsSpendings)
-
-        
         return spendings
     }
     
@@ -429,7 +424,6 @@ class Model: NSObject {
             let netValue = LedgerModel.shared().balanceUpToDate(acc: bankingAccount, date: currentDate)
             let netValueMoney = Money((netValue as NSDecimalNumber).floatValue)
 
-//             let timeString = currentDate.monthAsString() + " " + currentDate.yearAsString()
             let timeString = DateFormatter.localizedString(from: currentDate, dateStyle: .medium, timeStyle: .none)
             netValues.append(NetValueData.init(value: netValueMoney, label: timeString))
             
