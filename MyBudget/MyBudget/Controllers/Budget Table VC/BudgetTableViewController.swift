@@ -80,14 +80,9 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
         return vc
     }
     
-    
-    override func viewWillAppear(_ animated: Bool) {
-           updateUI()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-       // updateUI()
+        updateUI() // Dont forget initial load, because at this point the VC has not been subscribed to ModelChangedNotification yet
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateUI), name: ModelChangedNotification, object: nil)
     }
 
