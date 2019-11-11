@@ -76,7 +76,7 @@ class NetValueTableViewCell: UITableViewCell {
             explainLabel.textColor = .secondaryLabel
         }
         explainLabel.textAlignment = .center
-        explainLabel.text = "Check back regularly to see how your net values developes over time"
+        explainLabel.text = "Check back regularly to see how your net value developes over time"
 
 
         explainLabel.translatesAutoresizingMaskIntoConstraints = false
