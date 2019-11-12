@@ -50,6 +50,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Communication with watch app
         WatchSessionManager.sharedManager.startSession()
 
+        // Onboarding
+        let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "onboardMainVCID") as! OnboardingMainViewController
+        vc.delegate = self
+        window?.rootViewController = vc
+
         
         return true
     }
@@ -57,8 +62,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillEnterForeground(_ application: UIApplication) {
         ServerReceiptValidator().updateExpirationDate()
+        
     }
 
 
 }
 
+extension AppDelegate: OnboardingDelegate {
+    func didFinishOnboarding() {
+        let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController()
+        window?.rootViewController = vc
+    }
+}

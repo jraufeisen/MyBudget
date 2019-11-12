@@ -77,6 +77,7 @@
 		EB6EF9FF2323B84A00294846 /* Model+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EF9FE2323B84A00294846 /* Model+iOS.swift */; };
 		EB6EFA012323B8AE00294846 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145A22E8AD7300291435 /* Transaction.swift */; };
 		EB6EFA022323B9CB00294846 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB399D742323075400CA0BD8 /* Interface.storyboard */; };
+		EB722420237B4E6D001DA694 /* OnboardingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB72241F237B4E6D001DA694 /* OnboardingMainViewController.swift */; };
 		EB8472892306AA4400DCD330 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EB8472882306AA4400DCD330 /* Settings.bundle */; };
 		EB8EB60623687402002E305D /* IncomeStatementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8EB60423687402002E305D /* IncomeStatementTableViewCell.swift */; };
 		EB8EB60723687402002E305D /* IncomeStatementTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB8EB60523687402002E305D /* IncomeStatementTableViewCell.xib */; };
@@ -291,6 +292,7 @@
 		EB5CADB622F55DC600205AC8 /* AccountTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
 		EB668B9D22EF2DDE0082D54B /* MaterialComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MaterialComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB6EF9FE2323B84A00294846 /* Model+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Model+iOS.swift"; sourceTree = "<group>"; };
+		EB72241F237B4E6D001DA694 /* OnboardingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMainViewController.swift; sourceTree = "<group>"; };
 		EB8472882306AA4400DCD330 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = SOURCE_ROOT; };
 		EB8EB60423687402002E305D /* IncomeStatementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeStatementTableViewCell.swift; sourceTree = "<group>"; };
 		EB8EB60523687402002E305D /* IncomeStatementTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IncomeStatementTableViewCell.xib; sourceTree = "<group>"; };
@@ -591,6 +593,7 @@
 		EB5C600A22F32946004F81CF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EB72241E237B4E3A001DA694 /* Onboarding */,
 				EB205AE023660E4F0050130E /* Reports */,
 				EB4F78982319A2450045077E /* Onboard_Subscription */,
 				EBF560F92305EFD800E850E7 /* New Budget Category */,
@@ -616,6 +619,14 @@
 				EB024C2422F35C5A00228855 /* MenuPresentingViewController.swift */,
 			);
 			path = Menu;
+			sourceTree = "<group>";
+		};
+		EB72241E237B4E3A001DA694 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				EB72241F237B4E6D001DA694 /* OnboardingMainViewController.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		EB8EB603236873E7002E305D /* IncomeStatement */ = {
@@ -1198,6 +1209,7 @@
 				EB5CADB722F55DC600205AC8 /* AccountTableViewController.swift in Sources */,
 				EB582E7422F0ACC500422323 /* PercentFillView.swift in Sources */,
 				EBEB145722E8A29800291435 /* UIColor+Macro.swift in Sources */,
+				EB722420237B4E6D001DA694 /* OnboardingMainViewController.swift in Sources */,
 				EBEB145B22E8AD7300291435 /* Transaction.swift in Sources */,
 				EB2C771B22EDBCA3009FA2C8 /* UITextView+Center.swift in Sources */,
 				EBE7FE4B233CC54E0088D156 /* EditNameTableViewCell.swift in Sources */,
