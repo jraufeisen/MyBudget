@@ -97,15 +97,41 @@ class OnboardingMainViewController: UIViewController {
             }
         }
         
-        //Calculate initial fata
-        for _ in 0..<100 {
-            let categorySelectable = CategorySelectable()
-            categorySelectable.name = "Category"
-            categories.append(categorySelectable)
-        }
+        loadInitialData()
         // Don't forget initial reload, otherwise jumpy behavior occurs
         categoriesCollectionView.reloadData()
 
+    }
+    
+    
+    private func loadInitialData() {
+        let categorieNames = [
+            "Rent",
+            "Groceries",
+            "Sports",
+            "School",
+            "University",
+            "Home",
+            "Car",
+            "Vacation",
+            "Computer",
+            "Gas",
+            "Electricity",
+            "Internet",
+            "Phone",
+            "Eating out",
+            "Fun Money",
+            "Gaming",
+            "Gifts",
+            "Clothing",
+            "Mobility",
+        ]
+        //Calculate initial fata
+        for i in 0..<categorieNames.count {
+            let categorySelectable = CategorySelectable()
+            categorySelectable.name = categorieNames[i]
+            categories.append(categorySelectable)
+        }
     }
     
 }
