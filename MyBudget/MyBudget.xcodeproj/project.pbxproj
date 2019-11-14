@@ -20,6 +20,7 @@
 		EB09FC94231D57080063FB90 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB09FC91231D56F50063FB90 /* KeychainWrapper.swift */; };
 		EB09FC95231D57110063FB90 /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB09FC93231D56F50063FB90 /* KeychainItemAccessibility.swift */; };
 		EB09FC97231D5D830063FB90 /* SubscriptionFloaty.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB09FC96231D5D830063FB90 /* SubscriptionFloaty.swift */; };
+		EB0A1BB7237DEF33001678F3 /* OnboardingAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0A1BB6237DEF33001678F3 /* OnboardingAccountTableViewCell.swift */; };
 		EB1BCBBC2305AD2A0023E11F /* NewAccountDiaryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1BCBBB2305AD2A0023E11F /* NewAccountDiaryProvider.swift */; };
 		EB203BF4230716CA008C9EE5 /* FileManager+DocDir.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB203BF3230716CA008C9EE5 /* FileManager+DocDir.swift */; };
 		EB205AE423660E920050130E /* PieChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB205AE223660E920050130E /* PieChartTableViewCell.swift */; };
@@ -239,6 +240,7 @@
 		EB09FC91231D56F50063FB90 /* KeychainWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		EB09FC93231D56F50063FB90 /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
 		EB09FC96231D5D830063FB90 /* SubscriptionFloaty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionFloaty.swift; sourceTree = "<group>"; };
+		EB0A1BB6237DEF33001678F3 /* OnboardingAccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAccountTableViewCell.swift; sourceTree = "<group>"; };
 		EB1BCBBB2305AD2A0023E11F /* NewAccountDiaryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountDiaryProvider.swift; sourceTree = "<group>"; };
 		EB203BF3230716CA008C9EE5 /* FileManager+DocDir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+DocDir.swift"; sourceTree = "<group>"; };
 		EB205AE223660E920050130E /* PieChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartTableViewCell.swift; sourceTree = "<group>"; };
@@ -631,6 +633,7 @@
 			isa = PBXGroup;
 			children = (
 				EB72241F237B4E6D001DA694 /* OnboardingMainViewController.swift */,
+				EB0A1BB6237DEF33001678F3 /* OnboardingAccountTableViewCell.swift */,
 				EB58C3F1237DB5DB00C21A26 /* AddCategoryCollectionViewCell.swift */,
 				EB37466A237CA07B0055F63E /* CategoryCollectionViewCell.swift */,
 				EBF19B3D237DC7AA00A1190B /* AccountHeaderView.swift */,
@@ -1276,6 +1279,7 @@
 				EBB21C8323055530004E4E8F /* TransactionsViewController.swift in Sources */,
 				EB582E7122F0A10D00422323 /* AddAccountsViewController.swift in Sources */,
 				EB9DEBD222E9E02800A73FD1 /* AccountAccessoryView.swift in Sources */,
+				EB0A1BB7237DEF33001678F3 /* OnboardingAccountTableViewCell.swift in Sources */,
 				EBF595B72305852100BF9E40 /* LockScreenViewController.swift in Sources */,
 				EB1BCBBC2305AD2A0023E11F /* NewAccountDiaryProvider.swift in Sources */,
 				EB985CB822EC6B5800C033E8 /* FloatyItem.swift in Sources */,

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Swift_Ledger
 
 enum OnboardingState: Int {
 
@@ -150,7 +150,57 @@ class OnboardingMainViewController: UIViewController {
         }
     }
     
+    var accounts = [OnboardingAccountViewable]()
+    @IBAction func pressedAccountPlusButton() {
+        let newAccount = OnboardingAccountViewable()
+        newAccount.name = "Account"
+        newAccount.money = 42.42
+        newAccount.icon = #imageLiteral(resourceName: "Piggy Bank")
+        
+        accounts.insert(newAccount, at: 0)
+        accountTableView.insertRows(at: [IndexPath.init(row: 0, section: 0)], with: .automatic)
+    }
+    
 }
+
+class OnboardingAccountViewable {
+    var icon: UIImage? = nil
+    var name: String = ""
+    var money: Money = 0
+}
+
+extension OnboardingMainViewController: UITableViewDataSource, UITableViewDelegate {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return accounts.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: OnboardingAccountTableViewCell.Identifier) as! OnboardingAccountTableViewCell
+        
+        let accountViewable = accounts[indexPath.row]
+        
+        cell.iconImageView.image = accountViewable.icon
+        cell.leftLabel.text = accountViewable.name
+        cell.rightLabel.text = "\(accountViewable.money)"
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+
+        if editingStyle == .delete {
+            accounts.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        
+    }
+    
+}
+
 
 class CategorySelectable {
     var name: String = ""

@@ -405,6 +405,9 @@
                                             <constraint firstAttribute="width" secondItem="AW2-hP-hTJ" secondAttribute="height" multiplier="10:10" id="MUS-R1-Jr2"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="add.png"/>
+                                        <connections>
+                                            <action selector="pressedAccountPlusButton" destination="T0N-4A-zt4" eventType="touchUpInside" id="o9s-vw-RHc"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -422,7 +425,55 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4lF-v5-BTf">
                                 <rect key="frame" x="20" y="178" width="374" height="636"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OnboardingAccountTableViewCellID" id="OG6-ER-xkT" customClass="OnboardingAccountTableViewCell" customModule="Budget_" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OG6-ER-xkT" id="tgC-KY-xNY">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Big Credit Card" translatesAutoresizingMaskIntoConstraints="NO" id="ntS-mj-DvL">
+                                                    <rect key="frame" x="9" y="8.5" width="27" height="27"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="27" id="KtR-5T-H9A"/>
+                                                        <constraint firstAttribute="width" secondItem="ntS-mj-DvL" secondAttribute="height" multiplier="1:1" id="V7U-bD-DCc"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Banking Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cez-bL-53A">
+                                                    <rect key="frame" x="44" y="11.5" width="130" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="42.42 €" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fbg-qD-9bG">
+                                                    <rect key="frame" x="304" y="11.5" width="62" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Fbg-qD-9bG" firstAttribute="centerY" secondItem="tgC-KY-xNY" secondAttribute="centerY" id="7i2-ve-0Z2"/>
+                                                <constraint firstItem="ntS-mj-DvL" firstAttribute="centerY" secondItem="tgC-KY-xNY" secondAttribute="centerY" id="PNE-Y0-RHP"/>
+                                                <constraint firstItem="ntS-mj-DvL" firstAttribute="leading" secondItem="tgC-KY-xNY" secondAttribute="leading" constant="9" id="POo-rJ-Ajz"/>
+                                                <constraint firstAttribute="trailing" secondItem="Fbg-qD-9bG" secondAttribute="trailing" constant="8" id="lOB-vr-sbO"/>
+                                                <constraint firstItem="Fbg-qD-9bG" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Cez-bL-53A" secondAttribute="trailing" constant="10" id="mJc-Mj-avX"/>
+                                                <constraint firstItem="Cez-bL-53A" firstAttribute="centerY" secondItem="ntS-mj-DvL" secondAttribute="centerY" id="ri1-KC-3Kx"/>
+                                                <constraint firstItem="Cez-bL-53A" firstAttribute="leading" secondItem="ntS-mj-DvL" secondAttribute="trailing" constant="8" id="sdQ-sW-xH0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="iconImageView" destination="ntS-mj-DvL" id="0FH-ud-vxi"/>
+                                            <outlet property="leftLabel" destination="Cez-bL-53A" id="9k5-Sq-aEQ"/>
+                                            <outlet property="rightLabel" destination="Fbg-qD-9bG" id="Bdq-Vc-ljy"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="T0N-4A-zt4" id="xWn-Ns-B1o"/>
+                                    <outlet property="delegate" destination="T0N-4A-zt4" id="mtq-PS-tnx"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nu7-IC-Q4Z">
                                 <rect key="frame" x="149" y="786" width="116" height="56"/>
@@ -1244,6 +1295,7 @@
     <resources>
         <image name="App Artwork" width="512" height="512"/>
         <image name="Bag" width="24" height="24"/>
+        <image name="Big Credit Card" width="128" height="128"/>
         <image name="Credit Cards" width="24" height="24"/>
         <image name="List" width="24" height="24"/>
         <image name="Pie Chart" width="24" height="24"/>
