@@ -32,11 +32,13 @@ class OnboardingMainViewController: UIViewController {
     
     // Data
     private var categories = [CategorySelectable]()
-    
+    private var currentlyEditedIndexPath: IndexPath?
+
     override func viewWillAppear(_ animated: Bool) {
         continueButton.alpha = 0 // Prepare for fade-in
         categoriesCollectionView.alpha = 0
         categoriesCollectionView.allowsMultipleSelection = true
+
     }
     
     private func setupContinueButton() {
@@ -109,21 +111,29 @@ class OnboardingMainViewController: UIViewController {
 }
 
 class CategorySelectable {
-    var name: String = "test"
+    var name: String = ""
+    var editable: Bool = false
 }
 
 
 extension OnboardingMainViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categories.count
+        return 1+categories.count // Add element at the beginning. then the categories
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCategoryCellID", for: indexPath) as! CategoryCollectionViewCell
-        let item = categories[indexPath.row]
+        if indexPath.row == 0 {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddCategoryCollectionViewCellID", for: indexPath) as! AddCategoryCollectionViewCell
+            
+            return cell
+        }
 
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCategoryCellID", for: indexPath) as! CategoryCollectionViewCell
+        let item = categories[indexPath.row-1] // Shift index, cause we have add cell at beginnign
+        
+        cell.markEditable(editable: item.editable)
         cell.markSelected(selected: cell.isSelected)
         cell.label.text = item.name
         
@@ -139,7 +149,27 @@ extension OnboardingMainViewController: UICollectionViewDataSource, UICollection
         return 0
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        if let _ = collectionView.cellForItem(at: indexPath) as? AddCategoryCollectionViewCell {
+            let newItem = CategorySelectable()
+            newItem.editable = true
+            categories.insert(newItem, at: 0)
+            let newIndexPath = IndexPath(row: 1, section: 0)
+            collectionView.performBatchUpdates({
+                collectionView.insertItems(at: [newIndexPath])
+            }) { (flag) in
+                // Raise first responder
+                if let newCell = collectionView.cellForItem(at: newIndexPath) as? CategoryCollectionViewCell {
+                    newCell.label.becomeFirstResponder()
+                    newCell.label.delegate = self
+                    self.currentlyEditedIndexPath = newIndexPath
+                }
+            }
+            
+        }
+        
         if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell {
             cell.markSelected(selected: true)
         }
@@ -151,5 +181,36 @@ extension OnboardingMainViewController: UICollectionViewDataSource, UICollection
         }
     }
     
+
     
 }
+
+extension OnboardingMainViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        guard let editedIndexPath = self.currentlyEditedIndexPath else {
+            return true
+        }
+        
+        guard let text = textField.text else {
+            return true
+        }
+        
+        if text.isEmpty == true {
+            // If no text was entered, this cell shall be dismissed.
+            categories.remove(at: 0)
+            categoriesCollectionView.deleteItems(at: [editedIndexPath])
+        } else {
+            // Once editing is completed, you cannot change the cell's contents
+            categories.first?.editable = false
+            categories.first?.name = text
+            categoriesCollectionView.reloadItems(at: [editedIndexPath])
+        }
+        
+        currentlyEditedIndexPath = nil
+
+        return true
+    }
+}
+

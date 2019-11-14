@@ -10,25 +10,21 @@ import UIKit
 
 class CategoryCollectionViewCell: UICollectionViewCell {
  
-    @IBOutlet weak var label: UILabel!
-
+    @IBOutlet weak var label: UITextField!
     
     override func awakeFromNib() {
-
-
         layer.borderWidth = 1
-        
         layer.cornerRadius = 10
-        /*layer.shadowColor = UIColor.init(white: 0, alpha: 1).cgColor
-        layer.shadowRadius = 5
-        layer.shadowOffset = CGSize.init(width: 2, height: 5)
-        layer.shadowOpacity = 0.3*/
     }
     
-  
-    var marked: Bool = false
-    
-    
+    func markEditable(editable: Bool) {
+        if editable {
+            label.isUserInteractionEnabled = true
+        } else {
+            label.isUserInteractionEnabled = false
+        }
+    }
+      
     func markSelected(selected: Bool) {
         if selected {
             layer.borderColor = UIColor.blueActionColor.cgColor
@@ -43,3 +39,4 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         }
     }
 }
+
