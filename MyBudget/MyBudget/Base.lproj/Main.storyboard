@@ -389,6 +389,41 @@
                                     <outlet property="delegate" destination="T0N-4A-zt4" id="Hoe-uC-cVH"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OR5-wV-ayy" customClass="AccountHeaderView" customModule="Budget_" customModuleProvider="target">
+                                <rect key="frame" x="20" y="118" width="374" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accounts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBy-a3-cFC">
+                                        <rect key="frame" x="20" y="19.5" width="72" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AW2-hP-hTJ">
+                                        <rect key="frame" x="314" y="10" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="M7X-5j-SXf"/>
+                                            <constraint firstAttribute="width" secondItem="AW2-hP-hTJ" secondAttribute="height" multiplier="10:10" id="MUS-R1-Jr2"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="add.png"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="AW2-hP-hTJ" firstAttribute="centerY" secondItem="NBy-a3-cFC" secondAttribute="centerY" id="GHn-Ta-g47"/>
+                                    <constraint firstAttribute="height" constant="60" id="N3K-03-elB"/>
+                                    <constraint firstItem="NBy-a3-cFC" firstAttribute="leading" secondItem="OR5-wV-ayy" secondAttribute="leading" constant="20" id="b5W-2F-MoK"/>
+                                    <constraint firstAttribute="trailing" secondItem="AW2-hP-hTJ" secondAttribute="trailing" constant="20" id="bJn-B1-Ghs"/>
+                                    <constraint firstItem="NBy-a3-cFC" firstAttribute="centerY" secondItem="OR5-wV-ayy" secondAttribute="centerY" id="e67-84-w6H"/>
+                                    <constraint firstItem="AW2-hP-hTJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="NBy-a3-cFC" secondAttribute="trailing" constant="15" id="eRE-bh-d4I"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="plusButton" destination="AW2-hP-hTJ" id="6jC-IL-dFM"/>
+                                </connections>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4lF-v5-BTf">
+                                <rect key="frame" x="20" y="178" width="374" height="636"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nu7-IC-Q4Z">
                                 <rect key="frame" x="149" y="786" width="116" height="56"/>
                                 <constraints>
@@ -402,18 +437,27 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="rWT-RA-bs4" firstAttribute="leading" secondItem="Fsd-Ne-Bca" secondAttribute="leading" constant="20" id="2Eg-3I-sv3"/>
+                            <constraint firstItem="4lF-v5-BTf" firstAttribute="trailing" secondItem="OR5-wV-ayy" secondAttribute="trailing" id="74H-a7-ulY"/>
                             <constraint firstItem="nu7-IC-Q4Z" firstAttribute="top" secondItem="foI-Np-Qt0" secondAttribute="bottom" constant="-28" id="DEN-1T-5jU"/>
                             <constraint firstItem="nu7-IC-Q4Z" firstAttribute="centerX" secondItem="Fsd-Ne-Bca" secondAttribute="centerX" id="Fgw-br-Ruy"/>
                             <constraint firstItem="foI-Np-Qt0" firstAttribute="leading" secondItem="Fsd-Ne-Bca" secondAttribute="leading" constant="20" id="Icl-ID-RZs"/>
+                            <constraint firstItem="nu7-IC-Q4Z" firstAttribute="top" secondItem="4lF-v5-BTf" secondAttribute="bottom" constant="-28" id="Njj-BZ-17g"/>
+                            <constraint firstItem="4lF-v5-BTf" firstAttribute="leading" secondItem="OR5-wV-ayy" secondAttribute="leading" id="RVD-Uo-KO1"/>
                             <constraint firstItem="Fsd-Ne-Bca" firstAttribute="trailing" secondItem="foI-Np-Qt0" secondAttribute="trailing" constant="20" id="SXZ-Ly-zH3"/>
+                            <constraint firstItem="OR5-wV-ayy" firstAttribute="leading" secondItem="Fsd-Ne-Bca" secondAttribute="leading" constant="20" id="VLx-bb-jSe"/>
                             <constraint firstItem="Fsd-Ne-Bca" firstAttribute="bottom" secondItem="nu7-IC-Q4Z" secondAttribute="bottom" constant="20" id="nk4-Cy-i29"/>
+                            <constraint firstItem="Fsd-Ne-Bca" firstAttribute="trailing" secondItem="OR5-wV-ayy" secondAttribute="trailing" constant="20" id="ogx-Fp-qu9"/>
                             <constraint firstItem="rWT-RA-bs4" firstAttribute="top" secondItem="Fsd-Ne-Bca" secondAttribute="top" constant="30" id="rlF-Oz-CAw"/>
+                            <constraint firstItem="OR5-wV-ayy" firstAttribute="top" secondItem="rWT-RA-bs4" secondAttribute="bottom" constant="8" id="sQI-pp-2yi"/>
                             <constraint firstItem="Fsd-Ne-Bca" firstAttribute="trailing" secondItem="rWT-RA-bs4" secondAttribute="trailing" constant="20" id="uDX-QI-gho"/>
+                            <constraint firstItem="4lF-v5-BTf" firstAttribute="top" secondItem="OR5-wV-ayy" secondAttribute="bottom" id="xdE-uU-g7T"/>
                             <constraint firstItem="foI-Np-Qt0" firstAttribute="top" secondItem="rWT-RA-bs4" secondAttribute="bottom" constant="8" id="y9J-aH-16h"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fsd-Ne-Bca"/>
                     </view>
                     <connections>
+                        <outlet property="accountHeaderView" destination="OR5-wV-ayy" id="iRH-2s-QQy"/>
+                        <outlet property="accountTableView" destination="4lF-v5-BTf" id="zZy-u3-EBO"/>
                         <outlet property="categoriesCollectionView" destination="foI-Np-Qt0" id="wDn-o4-d3p"/>
                         <outlet property="continueButton" destination="nu7-IC-Q4Z" id="K0u-nZ-cCS"/>
                         <outlet property="textLabel" destination="rWT-RA-bs4" id="Ud1-cc-Ihr"/>

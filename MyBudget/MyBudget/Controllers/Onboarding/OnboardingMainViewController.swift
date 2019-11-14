@@ -26,8 +26,14 @@ class OnboardingMainViewController: UIViewController {
 
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet weak var textLabel: UILabel!
+
+    // Category selection
     @IBOutlet weak var categoriesCollectionView: UICollectionView!
 
+    // Account creation
+    @IBOutlet weak var accountHeaderView: AccountHeaderView!
+    @IBOutlet weak var accountTableView: UITableView!
+    
     var delegate: OnboardingDelegate?
     
     // Data
@@ -39,6 +45,8 @@ class OnboardingMainViewController: UIViewController {
         categoriesCollectionView.alpha = 0
         categoriesCollectionView.allowsMultipleSelection = true
 
+        accountHeaderView.alpha = 0
+        accountTableView.alpha = 0
     }
     
     private func setupContinueButton() {
@@ -62,17 +70,25 @@ class OnboardingMainViewController: UIViewController {
         case .principle:
             state = .categories
             textLabel.text = ""
-            textLabel.addTextAnimated(text: "First, decide what's important for you", timeBetweenCharacters: 0.07, completion: nil)
-            UIView.animate(withDuration: 0.7) {
-                self.categoriesCollectionView.alpha = 1
+            textLabel.addTextAnimated(text: "First, decide what's important for you", timeBetweenCharacters: 0.07) {
+                UIView.animate(withDuration: 0.7) {
+                    self.categoriesCollectionView.alpha = 1
+                }
             }
         case .categories:
             state = .accounts
             textLabel.text = ""
             textLabel.addTextAnimated(text: "Second, record your current account values", timeBetweenCharacters: 0.07, completion: nil)
-            UIView.animate(withDuration: 0.7) {
+        
+            UIView.animate(withDuration: 0.7, animations: {
                 self.categoriesCollectionView.alpha = 0
+            }) { (flag) in
+                UIView.animate(withDuration: 0.7) {
+                    self.accountHeaderView.alpha = 1
+                    self.accountTableView.alpha = 1
+                }
             }
+            
         case .accounts:
             state = .assignMoney
             textLabel.text = ""
