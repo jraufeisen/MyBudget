@@ -152,15 +152,23 @@ class OnboardingMainViewController: UIViewController {
     
     var accounts = [OnboardingAccountViewable]()
     @IBAction func pressedAccountPlusButton() {
+        let newAccountVC = OnboardingNewAccountViewController.instantiate()
+        newAccountVC.delegate = self
+        showDetailViewController(newAccountVC, sender: nil)
+    }
+    
+}
+
+extension OnboardingMainViewController: OnboardingNewAccountDelegate {
+    func addNewAccount(name: String, money: Money) {
         let newAccount = OnboardingAccountViewable()
-        newAccount.name = "Account"
-        newAccount.money = 42.42
+        newAccount.name = name
+        newAccount.money = money
         newAccount.icon = #imageLiteral(resourceName: "Piggy Bank")
         
         accounts.insert(newAccount, at: 0)
         accountTableView.insertRows(at: [IndexPath.init(row: 0, section: 0)], with: .automatic)
     }
-    
 }
 
 class OnboardingAccountViewable {

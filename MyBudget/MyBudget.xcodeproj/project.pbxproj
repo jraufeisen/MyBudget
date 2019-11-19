@@ -150,6 +150,7 @@
 		EBF560FB2305F06C00E850E7 /* NewBudgetCategoryDiaryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF560FA2305F06C00E850E7 /* NewBudgetCategoryDiaryProvider.swift */; };
 		EBF560FD2305F47F00E850E7 /* UIImage+Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF560FC2305F47F00E850E7 /* UIImage+Macro.swift */; };
 		EBF595B72305852100BF9E40 /* LockScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF595B62305852100BF9E40 /* LockScreenViewController.swift */; };
+		EBFA553F23840FCD00EE6F42 /* OnboardingNewAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFA553E23840FCD00EE6F42 /* OnboardingNewAccountViewController.swift */; };
 		EBFF078D22E9B4BA00CC7215 /* NewAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD012F122E9B2D400F8126D /* NewAccountCell.xib */; };
 		EBFF078E22E9B4BC00CC7215 /* ExistingAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD012F022E9B2D400F8126D /* ExistingAccountCell.xib */; };
 /* End PBXBuildFile section */
@@ -376,6 +377,7 @@
 		EBF560FA2305F06C00E850E7 /* NewBudgetCategoryDiaryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBudgetCategoryDiaryProvider.swift; sourceTree = "<group>"; };
 		EBF560FC2305F47F00E850E7 /* UIImage+Macro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Macro.swift"; sourceTree = "<group>"; };
 		EBF595B62305852100BF9E40 /* LockScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenViewController.swift; sourceTree = "<group>"; };
+		EBFA553E23840FCD00EE6F42 /* OnboardingNewAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNewAccountViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -633,6 +635,7 @@
 			isa = PBXGroup;
 			children = (
 				EB72241F237B4E6D001DA694 /* OnboardingMainViewController.swift */,
+				EBFA553E23840FCD00EE6F42 /* OnboardingNewAccountViewController.swift */,
 				EB0A1BB6237DEF33001678F3 /* OnboardingAccountTableViewCell.swift */,
 				EB58C3F1237DB5DB00C21A26 /* AddCategoryCollectionViewCell.swift */,
 				EB37466A237CA07B0055F63E /* CategoryCollectionViewCell.swift */,
@@ -1215,6 +1218,7 @@
 				EBE7FE41233CC3720088D156 /* EditMoneyTableViewCell.swift in Sources */,
 				EB09FC95231D57110063FB90 /* KeychainItemAccessibility.swift in Sources */,
 				EBF19B3E237DC7AA00A1190B /* AccountHeaderView.swift in Sources */,
+				EBFA553F23840FCD00EE6F42 /* OnboardingNewAccountViewController.swift in Sources */,
 				EB4F789F2319B34D0045077E /* FeedbackPageBulletinItem.swift in Sources */,
 				EB02A67322EB10E700987AFA /* APNumberButton.m in Sources */,
 				EB02A68722EB1BEF00987AFA /* MoneyKeyboard.swift in Sources */,
