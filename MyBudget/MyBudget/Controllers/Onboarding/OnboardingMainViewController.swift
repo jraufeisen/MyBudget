@@ -51,6 +51,12 @@ class OnboardingMainViewController: UIViewController {
     private var categories = [CategorySelectable]()
     private var currentlyEditedIndexPath: IndexPath?
 
+    private func selectedCategories() -> [CategorySelectable] {
+        return categories.filter { (category) -> Bool in
+            return category.selected
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         continueButton.alpha = 0 // Prepare for fade-in
         categoriesCollectionView.alpha = 0
@@ -94,6 +100,7 @@ class OnboardingMainViewController: UIViewController {
             }
         case .categories:
             state = .accounts
+            print("You selected \(selectedCategories())")
             textLabel.text = ""
             textLabel.addTextAnimated(text: "Second, record your current account values", timeBetweenCharacters: 0.07) {
                 UIView.animate(withDuration: 0.7, animations: {
@@ -111,6 +118,7 @@ class OnboardingMainViewController: UIViewController {
         case .accounts:
             state = .assignMoney
             textLabel.text = ""
+            budgetTableView.reloadData()
             textLabel.addTextAnimated(text: "Now, create your budget", timeBetweenCharacters: 0.07) {
                 UIView.animate(withDuration: 0.7, animations: {
                     // Make distribution table visible
@@ -220,7 +228,7 @@ extension OnboardingMainViewController: UITableViewDataSource, UITableViewDelega
         if tableView == accountTableView {
             return accounts.count
         } else if tableView == budgetTableView {
-            return 10
+            return selectedCategories().count
         }
 
         return 0
@@ -240,7 +248,8 @@ extension OnboardingMainViewController: UITableViewDataSource, UITableViewDelega
         } else if tableView == budgetTableView {
 
             let cell = tableView.dequeueReusableCell(withIdentifier: OnboardingBudgetTableViewCell.Identifier) as! OnboardingBudgetTableViewCell
-            
+            let selectedCategory = selectedCategories()[indexPath.row]
+            cell.accountLabel.text = selectedCategory.name
             
             return cell
         }
@@ -259,27 +268,13 @@ extension OnboardingMainViewController: UITableViewDataSource, UITableViewDelega
         
     }
     
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if tableView == budgetTableView {
-            guard let cell = tableView.cellForRow(at: indexPath) as? OnboardingBudgetTableViewCell else {
-                return
-            }
-           /* let keyboard = MoneyKeyboard.init(outputView: cell.moneyLabel, startingWith: 0)
-            cell.moneyLabel.inputView = keyboard
-            cell.moneyLabel.becomeFirstResponder()*/
-            
-            
-            
-        }
-    }
-    
 }
 
 
 class CategorySelectable {
     var name: String = ""
     var editable: Bool = false
+    var selected: Bool = false
 }
 
 
@@ -338,12 +333,14 @@ extension OnboardingMainViewController: UICollectionViewDataSource, UICollection
         }
         
         if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell {
+            categories[indexPath.row - 1].selected = true
             cell.markSelected(selected: true)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell {
+            categories[indexPath.row - 1].selected = false
             cell.markSelected(selected: false)
         }
     }
