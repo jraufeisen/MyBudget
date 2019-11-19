@@ -389,7 +389,7 @@
                                     <outlet property="delegate" destination="T0N-4A-zt4" id="Hoe-uC-cVH"/>
                                 </connections>
                             </collectionView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OR5-wV-ayy" customClass="AccountHeaderView" customModule="Budget_" customModuleProvider="target">
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OR5-wV-ayy" customClass="AccountHeaderView" customModule="Budget_" customModuleProvider="target">
                                 <rect key="frame" x="20" y="118" width="374" height="50"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accounts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBy-a3-cFC">
@@ -423,7 +423,7 @@
                                     <outlet property="plusButton" destination="AW2-hP-hTJ" id="6jC-IL-dFM"/>
                                 </connections>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4lF-v5-BTf">
+                            <tableView clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4lF-v5-BTf">
                                 <rect key="frame" x="20" y="168" width="374" height="646"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OnboardingAccountTableViewCellID" id="OG6-ER-xkT" customClass="OnboardingAccountTableViewCell" customModule="Budget_" customModuleProvider="target">
@@ -475,6 +475,20 @@
                                     <outlet property="delegate" destination="T0N-4A-zt4" id="mtq-PS-tnx"/>
                                 </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have 1000,42 € left to budget" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEB-bW-Z7P">
+                                <rect key="frame" x="20" y="118" width="374" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PlQ-D4-U9f">
+                                <rect key="frame" x="0.0" y="158.5" width="414" height="737.5"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="T0N-4A-zt4" id="ja1-6C-qxM"/>
+                                    <outlet property="delegate" destination="T0N-4A-zt4" id="gE9-Yq-MGv"/>
+                                </connections>
+                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nu7-IC-Q4Z">
                                 <rect key="frame" x="149" y="786" width="116" height="56"/>
                                 <constraints>
@@ -489,13 +503,20 @@
                         <constraints>
                             <constraint firstItem="rWT-RA-bs4" firstAttribute="leading" secondItem="Fsd-Ne-Bca" secondAttribute="leading" constant="20" id="2Eg-3I-sv3"/>
                             <constraint firstItem="4lF-v5-BTf" firstAttribute="trailing" secondItem="OR5-wV-ayy" secondAttribute="trailing" id="74H-a7-ulY"/>
+                            <constraint firstItem="PlQ-D4-U9f" firstAttribute="bottom" secondItem="PMy-xE-Tk4" secondAttribute="bottom" id="9gf-C6-7bL"/>
+                            <constraint firstItem="PlQ-D4-U9f" firstAttribute="leading" secondItem="PMy-xE-Tk4" secondAttribute="leading" id="C63-FM-m0A"/>
                             <constraint firstItem="nu7-IC-Q4Z" firstAttribute="top" secondItem="foI-Np-Qt0" secondAttribute="bottom" constant="-28" id="DEN-1T-5jU"/>
+                            <constraint firstItem="Fsd-Ne-Bca" firstAttribute="trailing" secondItem="PlQ-D4-U9f" secondAttribute="trailing" id="E1P-va-J31"/>
                             <constraint firstItem="nu7-IC-Q4Z" firstAttribute="centerX" secondItem="Fsd-Ne-Bca" secondAttribute="centerX" id="Fgw-br-Ruy"/>
                             <constraint firstItem="foI-Np-Qt0" firstAttribute="leading" secondItem="Fsd-Ne-Bca" secondAttribute="leading" constant="20" id="Icl-ID-RZs"/>
+                            <constraint firstItem="Fsd-Ne-Bca" firstAttribute="trailing" secondItem="XEB-bW-Z7P" secondAttribute="trailing" constant="20" id="JqU-Io-dgX"/>
                             <constraint firstItem="nu7-IC-Q4Z" firstAttribute="top" secondItem="4lF-v5-BTf" secondAttribute="bottom" constant="-28" id="Njj-BZ-17g"/>
                             <constraint firstItem="4lF-v5-BTf" firstAttribute="leading" secondItem="OR5-wV-ayy" secondAttribute="leading" id="RVD-Uo-KO1"/>
                             <constraint firstItem="Fsd-Ne-Bca" firstAttribute="trailing" secondItem="foI-Np-Qt0" secondAttribute="trailing" constant="20" id="SXZ-Ly-zH3"/>
                             <constraint firstItem="OR5-wV-ayy" firstAttribute="leading" secondItem="Fsd-Ne-Bca" secondAttribute="leading" constant="20" id="VLx-bb-jSe"/>
+                            <constraint firstItem="PlQ-D4-U9f" firstAttribute="top" secondItem="XEB-bW-Z7P" secondAttribute="bottom" constant="10.5" id="Xqk-Ux-CeI"/>
+                            <constraint firstItem="XEB-bW-Z7P" firstAttribute="top" secondItem="rWT-RA-bs4" secondAttribute="bottom" constant="8" id="bTn-hF-HvE"/>
+                            <constraint firstItem="XEB-bW-Z7P" firstAttribute="leading" secondItem="Fsd-Ne-Bca" secondAttribute="leading" constant="20" id="dBX-PF-mMs"/>
                             <constraint firstItem="Fsd-Ne-Bca" firstAttribute="bottom" secondItem="nu7-IC-Q4Z" secondAttribute="bottom" constant="20" id="nk4-Cy-i29"/>
                             <constraint firstItem="Fsd-Ne-Bca" firstAttribute="trailing" secondItem="OR5-wV-ayy" secondAttribute="trailing" constant="20" id="ogx-Fp-qu9"/>
                             <constraint firstItem="rWT-RA-bs4" firstAttribute="top" secondItem="Fsd-Ne-Bca" secondAttribute="top" constant="30" id="rlF-Oz-CAw"/>
@@ -509,6 +530,8 @@
                     <connections>
                         <outlet property="accountHeaderView" destination="OR5-wV-ayy" id="iRH-2s-QQy"/>
                         <outlet property="accountTableView" destination="4lF-v5-BTf" id="zZy-u3-EBO"/>
+                        <outlet property="budgetTableView" destination="PlQ-D4-U9f" id="77H-gF-Xns"/>
+                        <outlet property="budgetTitleLabel" destination="XEB-bW-Z7P" id="8VK-TR-YWl"/>
                         <outlet property="categoriesCollectionView" destination="foI-Np-Qt0" id="wDn-o4-d3p"/>
                         <outlet property="continueButton" destination="nu7-IC-Q4Z" id="K0u-nZ-cCS"/>
                         <outlet property="textLabel" destination="rWT-RA-bs4" id="Ud1-cc-Ihr"/>
@@ -620,7 +643,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pH1-Iv-Fbu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5049.275362318841" y="517.63392857142856"/>
+            <point key="canvasLocation" x="-5036" y="490"/>
         </scene>
         <!--Lock Screen View Controller-->
         <scene sceneID="Rzx-Qi-XYv">

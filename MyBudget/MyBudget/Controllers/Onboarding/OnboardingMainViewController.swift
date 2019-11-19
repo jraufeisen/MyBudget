@@ -34,6 +34,11 @@ class OnboardingMainViewController: UIViewController {
     @IBOutlet weak var accountHeaderView: AccountHeaderView!
     @IBOutlet weak var accountTableView: UITableView!
     
+    // Money distribution
+    @IBOutlet weak var budgetTitleLabel: UILabel!
+    @IBOutlet weak var budgetTableView: UITableView!
+
+    
     var delegate: OnboardingDelegate?
     
     // Data
@@ -47,6 +52,9 @@ class OnboardingMainViewController: UIViewController {
 
         accountHeaderView.alpha = 0
         accountTableView.alpha = 0
+        
+        budgetTitleLabel.alpha = 0
+        budgetTableView.alpha = 0
     }
     
     private func setupContinueButton() {
@@ -78,21 +86,34 @@ class OnboardingMainViewController: UIViewController {
         case .categories:
             state = .accounts
             textLabel.text = ""
-            textLabel.addTextAnimated(text: "Second, record your current account values", timeBetweenCharacters: 0.07, completion: nil)
-        
-            UIView.animate(withDuration: 0.7, animations: {
-                self.categoriesCollectionView.alpha = 0
-            }) { (flag) in
+            textLabel.addTextAnimated(text: "Second, record your current account values", timeBetweenCharacters: 0.07) {
                 UIView.animate(withDuration: 0.7) {
                     self.accountHeaderView.alpha = 1
                     self.accountTableView.alpha = 1
                 }
             }
+        
+            UIView.animate(withDuration: 0.7, animations: {
+                self.categoriesCollectionView.alpha = 0
+            })
             
         case .accounts:
             state = .assignMoney
             textLabel.text = ""
-            textLabel.addTextAnimated(text: "Now, prioritize your spending categories and assign money to them", timeBetweenCharacters: 0.07, completion: nil)
+            textLabel.addTextAnimated(text: "Now, create your budget", timeBetweenCharacters: 0.07) {
+                UIView.animate(withDuration: 0.7) {
+                    // Make distribution table visible
+                    self.budgetTitleLabel.alpha = 1
+                    self.budgetTableView.alpha = 1
+                }
+
+            }
+            
+            UIView.animate(withDuration: 0.7, animations: {
+                self.accountHeaderView.alpha = 0
+                self.accountTableView.alpha = 0
+            })
+            
         case .assignMoney: 
             delegate?.didFinishOnboarding()
         }
@@ -113,6 +134,7 @@ class OnboardingMainViewController: UIViewController {
             }
         }
         
+        budgetTableView.register(UINib.init(nibName: "OnboardingBudgetTableViewCell", bundle: .main), forCellReuseIdentifier: OnboardingBudgetTableViewCell.Identifier)
         loadInitialData()
         // Don't forget initial reload, otherwise jumpy behavior occurs
         categoriesCollectionView.reloadData()
@@ -183,28 +205,61 @@ extension OnboardingMainViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return accounts.count
+        if tableView == accountTableView {
+            return accounts.count
+        } else if tableView == budgetTableView {
+            return 10
+        }
+
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: OnboardingAccountTableViewCell.Identifier) as! OnboardingAccountTableViewCell
+        if tableView == accountTableView {
+            let cell = tableView.dequeueReusableCell(withIdentifier: OnboardingAccountTableViewCell.Identifier) as! OnboardingAccountTableViewCell
+            
+            let accountViewable = accounts[indexPath.row]
+            
+            cell.iconImageView.image = accountViewable.icon
+            cell.leftLabel.text = accountViewable.name
+            cell.rightLabel.text = "\(accountViewable.money)"
+            
+            return cell
+        } else if tableView == budgetTableView {
+
+            let cell = tableView.dequeueReusableCell(withIdentifier: OnboardingBudgetTableViewCell.Identifier) as! OnboardingBudgetTableViewCell
+            
+            
+            return cell
+        }
         
-        let accountViewable = accounts[indexPath.row]
-        
-        cell.iconImageView.image = accountViewable.icon
-        cell.leftLabel.text = accountViewable.name
-        cell.rightLabel.text = "\(accountViewable.money)"
-        
-        return cell
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 
-        if editingStyle == .delete {
-            accounts.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+        if tableView == accountTableView {
+            if editingStyle == .delete {
+                accounts.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
         }
         
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == budgetTableView {
+            guard let cell = tableView.cellForRow(at: indexPath) as? OnboardingBudgetTableViewCell else {
+                return
+            }
+           /* let keyboard = MoneyKeyboard.init(outputView: cell.moneyLabel, startingWith: 0)
+            cell.moneyLabel.inputView = keyboard
+            cell.moneyLabel.becomeFirstResponder()*/
+            
+            
+            
+        }
     }
     
 }
