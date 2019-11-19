@@ -38,6 +38,12 @@ class OnboardingMainViewController: UIViewController {
     @IBOutlet weak var budgetTitleLabel: UILabel!
     @IBOutlet weak var budgetTableView: UITableView!
 
+    // UI flag to prevent overlapping states
+    private var animationInProgress: Bool = false {
+        didSet {
+            self.continueButton.isEnabled = !animationInProgress
+        }
+    }
     
     var delegate: OnboardingDelegate?
     
@@ -69,27 +75,32 @@ class OnboardingMainViewController: UIViewController {
     }
     
     @objc private func pressedContinue() {
+        animationInProgress = true
         switch state {
         case .welcome:
             state = .principle
             textLabel.addTextAnimated(text: "\nOur principle is simple: Every penny has its job.", timeBetweenCharacters: 0.04) {
-                
+                self.animationInProgress = false
             }
         case .principle:
             state = .categories
             textLabel.text = ""
             textLabel.addTextAnimated(text: "First, decide what's important for you", timeBetweenCharacters: 0.07) {
-                UIView.animate(withDuration: 0.7) {
+                UIView.animate(withDuration: 0.7, animations: {
                     self.categoriesCollectionView.alpha = 1
+                }) { (flag) in
+                    self.animationInProgress = false
                 }
             }
         case .categories:
             state = .accounts
             textLabel.text = ""
             textLabel.addTextAnimated(text: "Second, record your current account values", timeBetweenCharacters: 0.07) {
-                UIView.animate(withDuration: 0.7) {
+                UIView.animate(withDuration: 0.7, animations: {
                     self.accountHeaderView.alpha = 1
                     self.accountTableView.alpha = 1
+                }) { (flag) in
+                    self.animationInProgress = false
                 }
             }
         
@@ -101,12 +112,13 @@ class OnboardingMainViewController: UIViewController {
             state = .assignMoney
             textLabel.text = ""
             textLabel.addTextAnimated(text: "Now, create your budget", timeBetweenCharacters: 0.07) {
-                UIView.animate(withDuration: 0.7) {
+                UIView.animate(withDuration: 0.7, animations: {
                     // Make distribution table visible
                     self.budgetTitleLabel.alpha = 1
                     self.budgetTableView.alpha = 1
+                }) { (flag) in
+                    self.animationInProgress = false
                 }
-
             }
             
             UIView.animate(withDuration: 0.7, animations: {
