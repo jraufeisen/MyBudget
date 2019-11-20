@@ -41,7 +41,7 @@ class OnboardingMainViewController: UIViewController {
     // UI flag to prevent overlapping states
     private var animationInProgress: Bool = false {
         didSet {
-            self.continueButton.isEnabled = !animationInProgress
+            updateContinueButtonState()
         }
     }
     
@@ -91,6 +91,8 @@ class OnboardingMainViewController: UIViewController {
         case .principle:
             state = .categories
             textLabel.text = ""
+
+            animateContinueButton(visible: false)
             textLabel.addTextAnimated(text: "First, decide what's important for you", timeBetweenCharacters: 0.07) {
                 UIView.animate(withDuration: 0.7, animations: {
                     self.categoriesCollectionView.alpha = 1
@@ -101,6 +103,7 @@ class OnboardingMainViewController: UIViewController {
         case .categories:
             state = .accounts
             textLabel.text = ""
+            animateContinueButton(visible: false)
             textLabel.addTextAnimated(text: "Second, record your current account values", timeBetweenCharacters: 0.07) {
                 UIView.animate(withDuration: 0.7, animations: {
                     self.accountHeaderView.alpha = 1
@@ -139,6 +142,8 @@ class OnboardingMainViewController: UIViewController {
         case .assignMoney: 
             delegate?.didFinishOnboarding()
         }
+
+        updateContinueButtonState()
     }
     
     private var state: OnboardingState = .welcome
@@ -212,6 +217,7 @@ extension OnboardingMainViewController: OnboardingNewAccountDelegate {
         
         accounts.insert(newAccount, at: 0)
         accountTableView.insertRows(at: [IndexPath.init(row: 0, section: 0)], with: .automatic)
+        updateContinueButtonState()
     }
 }
 
@@ -267,6 +273,7 @@ extension OnboardingMainViewController: UITableViewDataSource, UITableViewDelega
                 tableView.deleteRows(at: [indexPath], with: .automatic)
             }
         }
+        updateContinueButtonState()
         
     }
     
@@ -372,6 +379,7 @@ extension OnboardingMainViewController: UICollectionViewDataSource, UICollection
             categories[indexPath.row - 1].selected = true
             cell.markSelected(selected: true)
         }
+        updateContinueButtonState()
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
@@ -379,8 +387,39 @@ extension OnboardingMainViewController: UICollectionViewDataSource, UICollection
             categories[indexPath.row - 1].selected = false
             cell.markSelected(selected: false)
         }
+        updateContinueButtonState()
     }
     
+    func animateContinueButton(visible: Bool) {
+        if visible == false {
+            UIView.animate(withDuration: 0.2) {
+                self.continueButton.alpha = 0
+            }
+        } else {
+            UIView.animate(withDuration: 0.2) {
+                self.continueButton.alpha = 1
+            }
+        }
+    }
+    
+    func updateContinueButtonState() {
+        if animationInProgress {
+            self.continueButton.isEnabled = false
+            return
+        } else {
+            self.continueButton.isEnabled = true
+        }
+        
+        if self.state == .categories {
+            let selectedACategory = selectedCategories().count > 0
+            continueButton.isEnabled = selectedACategory
+            animateContinueButton(visible: selectedACategory)
+        } else if state == .accounts {
+            let addedAccount = accounts.count > 0
+            continueButton.isEnabled = addedAccount
+            animateContinueButton(visible: addedAccount)
+        }
+    }
 
     
 }
