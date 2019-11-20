@@ -100,7 +100,6 @@ class OnboardingMainViewController: UIViewController {
             }
         case .categories:
             state = .accounts
-            print("You selected \(selectedCategories())")
             textLabel.text = ""
             textLabel.addTextAnimated(text: "Second, record your current account values", timeBetweenCharacters: 0.07) {
                 UIView.animate(withDuration: 0.7, animations: {
@@ -117,6 +116,7 @@ class OnboardingMainViewController: UIViewController {
             
         case .accounts:
             state = .assignMoney
+            reloadHeader()
             textLabel.text = ""
             budgetTableView.reloadData()
             textLabel.addTextAnimated(text: "Now, create your budget", timeBetweenCharacters: 0.07) {
@@ -133,6 +133,8 @@ class OnboardingMainViewController: UIViewController {
                 self.accountHeaderView.alpha = 0
                 self.accountTableView.alpha = 0
             })
+            
+            // TODO: Save to ledger. But check that you dont overwrite anything
             
         case .assignMoney: 
             delegate?.didFinishOnboarding()
@@ -250,7 +252,7 @@ extension OnboardingMainViewController: UITableViewDataSource, UITableViewDelega
             let cell = tableView.dequeueReusableCell(withIdentifier: OnboardingBudgetTableViewCell.Identifier) as! OnboardingBudgetTableViewCell
             let selectedCategory = selectedCategories()[indexPath.row]
             cell.accountLabel.text = selectedCategory.name
-            
+            cell.delegate = self
             return cell
         }
         
@@ -275,9 +277,43 @@ class CategorySelectable {
     var name: String = ""
     var editable: Bool = false
     var selected: Bool = false
+    var assignedMoney: Money = 0
 }
 
 
+extension OnboardingMainViewController: OnboardingBudgetTableViewCellDelegate {
+    func didAssignMoney(money: Money, to category: String) {
+        for selectable in categories {
+            if selectable.name == category {
+                selectable.assignedMoney = money
+            }
+        }
+        reloadHeader()
+    }
+    
+    func reloadHeader() {
+        let availableMoney: Money = accounts.reduce(0) { (result, account) -> Money in
+            return result + account.money
+        }
+        let budgetedMoney = categories.reduce(0) { (result, selectable) -> Money in
+            return result + selectable.assignedMoney
+        }
+        let difference = availableMoney - budgetedMoney
+        
+        if difference < 0 {
+            budgetTitleLabel.textColor = .expenseColor
+            budgetTitleLabel.text = "You have overbudgeted by \(difference.negative)"
+        } else if difference == 0 {
+            budgetTitleLabel.textColor = .incomeColor
+            budgetTitleLabel.text = "You have a perfect budget"
+        } else {
+            budgetTitleLabel.textColor = .incomeColor
+            budgetTitleLabel.text = "You have \(difference) left to budget"
+        }
+
+    }
+    
+}
 extension OnboardingMainViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

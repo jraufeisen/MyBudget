@@ -7,15 +7,24 @@
 //
 
 import UIKit
+import Swift_Ledger
+
+protocol OnboardingBudgetTableViewCellDelegate {
+    func didAssignMoney(money: Money, to category: String)
+}
 
 class OnboardingBudgetTableViewCell: UITableViewCell {
 
+    var delegate: OnboardingBudgetTableViewCellDelegate?
+    
     static let Identifier: String = "OnboardingBudgetTableViewCell"
     
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var accountLabel: UILabel!
     @IBOutlet weak var moneyTextField: UITextField!
 
+    
+    
     override func awakeFromNib() {
         selectionStyle = .none
         
@@ -29,5 +38,10 @@ class OnboardingBudgetTableViewCell: UITableViewCell {
 extension OnboardingBudgetTableViewCell: MoneyKeyBoardDelegate {
     func moneyKeyboardPressedDone(keyboard: MoneyKeyboard) {
         moneyTextField.resignFirstResponder()
+
+        guard let category = accountLabel.text else {
+            return
+        }
+        delegate?.didAssignMoney(money: keyboard.moneyEntered(), to: category)
     }
 }
