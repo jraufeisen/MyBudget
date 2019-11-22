@@ -33,7 +33,8 @@ class OnboardingMainViewController: UIViewController {
 
     // Account creation
     @IBOutlet weak var accountHeaderView: AccountHeaderView!
-    @IBOutlet weak var accountTableView: UITableView!
+  //  @IBOutlet weak var accountTableView: UITableView!
+    @IBOutlet weak var accountContainerView: UIView!
     
     // Money distribution
     @IBOutlet weak var budgetTitleLabel: UILabel!
@@ -54,6 +55,15 @@ class OnboardingMainViewController: UIViewController {
     private var categories = [CategorySelectable]()
     private var currentlyEditedIndexPath: IndexPath?
 
+    // Embedded view controllers
+    private var accountTableViewController: OnboardingAccountTableViewController?
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueEmbedAccountTableViewController" {
+            accountTableViewController = (segue.destination as! OnboardingAccountTableViewController)
+            accountTableViewController?.delegate = self
+        }
+    }
     
     private func colorForProgress(progress: Float) -> UIColor? {
         return UIColor.blueActionColor.withAlphaComponent(1).interpolateRGBColorTo(.incomeColor, fraction: CGFloat(progress))
@@ -75,7 +85,7 @@ class OnboardingMainViewController: UIViewController {
         categoriesCollectionView.allowsMultipleSelection = true
 
         accountHeaderView.alpha = 0
-        accountTableView.alpha = 0
+        accountContainerView.alpha = 0
         
         budgetTitleLabel.alpha = 0
         budgetTableView.alpha = 0
@@ -131,7 +141,7 @@ class OnboardingMainViewController: UIViewController {
             textLabel.addTextAnimated(text: "Second, record your current account values", animationDuration: 2.0) {
                 UIView.animate(withDuration: 0.7, animations: {
                     self.accountHeaderView.alpha = 1
-                    self.accountTableView.alpha = 1
+                    self.accountContainerView.alpha = 1
                 }) { (flag) in
                     self.animationInProgress = false
                 }
@@ -161,14 +171,17 @@ class OnboardingMainViewController: UIViewController {
             
             UIView.animate(withDuration: 0.7, animations: {
                 self.accountHeaderView.alpha = 0
-                self.accountTableView.alpha = 0
+                self.accountContainerView.alpha = 0
             })
             
         case .assignMoney: 
             self.progressView.progressTintColor = colorForProgress(progress: 4/4)
             self.progressView.setProgress(4/4, animated: true) { (flag) in
                 // Save to ledger. But check that you dont overwrite anything
-                Model.shared.createInitialBudget(accounts: self.accounts, categories: self.selectedCategories())
+                guard let accounts = self.accountTableViewController?.accounts else {
+                    return
+                }
+                Model.shared.createInitialBudget(accounts: accounts, categories: self.selectedCategories())
                 self.delegate?.didFinishOnboarding()
             }
         }
@@ -233,26 +246,12 @@ class OnboardingMainViewController: UIViewController {
         }
     }
     
-    var accounts = [OnboardingAccountViewable]()
     @IBAction func pressedAccountPlusButton() {
         let newAccountVC = OnboardingNewAccountViewController.instantiate()
-        newAccountVC.delegate = self
+        newAccountVC.delegate = self.accountTableViewController
         showDetailViewController(newAccountVC, sender: nil)
     }
     
-}
-
-extension OnboardingMainViewController: OnboardingNewAccountDelegate {
-    func addNewAccount(name: String, money: Money) {
-        let newAccount = OnboardingAccountViewable()
-        newAccount.name = name
-        newAccount.money = money
-        newAccount.icon = #imageLiteral(resourceName: "Big Credit Card")
-        
-        accounts.insert(newAccount, at: 0)
-        accountTableView.insertRows(at: [IndexPath.init(row: 0, section: 0)], with: .automatic)
-        updateContinueButtonState()
-    }
 }
 
 class OnboardingAccountViewable {
@@ -267,9 +266,7 @@ extension OnboardingMainViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == accountTableView {
-            return accounts.count
-        } else if tableView == budgetTableView {
+        if tableView == budgetTableView {
             return selectedCategories().count
         }
 
@@ -277,17 +274,7 @@ extension OnboardingMainViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == accountTableView {
-            let cell = tableView.dequeueReusableCell(withIdentifier: OnboardingAccountTableViewCell.Identifier) as! OnboardingAccountTableViewCell
-            
-            let accountViewable = accounts[indexPath.row]
-            
-            cell.iconImageView.image = accountViewable.icon
-            cell.leftLabel.text = accountViewable.name
-            cell.rightLabel.text = "\(accountViewable.money)"
-            
-            return cell
-        } else if tableView == budgetTableView {
+        if tableView == budgetTableView {
 
             let cell = tableView.dequeueReusableCell(withIdentifier: OnboardingBudgetTableViewCell.Identifier) as! OnboardingBudgetTableViewCell
             let selectedCategory = selectedCategories()[indexPath.row]
@@ -299,18 +286,7 @@ extension OnboardingMainViewController: UITableViewDataSource, UITableViewDelega
         return UITableViewCell()
     }
     
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-
-        if tableView == accountTableView {
-            if editingStyle == .delete {
-                accounts.remove(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .automatic)
-            }
-        }
-        updateContinueButtonState()
-        
-    }
-    
+       
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Automatically begin editing the cell
         if tableView == budgetTableView {
@@ -343,6 +319,9 @@ extension OnboardingMainViewController: OnboardingBudgetTableViewCellDelegate {
     }
     
     func reloadHeader() {
+        guard let accounts = accountTableViewController?.accounts else {
+            return
+        }
         let availableMoney: Money = accounts.reduce(0) { (result, account) -> Money in
             return result + account.money
         }
@@ -448,6 +427,9 @@ extension OnboardingMainViewController: UICollectionViewDataSource, UICollection
     }
     
     func updateContinueButtonState() {
+        guard let accounts = accountTableViewController?.accounts else {
+            return
+        }
         if animationInProgress {
             self.continueButton.isEnabled = false
             return
@@ -498,3 +480,8 @@ extension OnboardingMainViewController: UITextFieldDelegate {
     }
 }
 
+extension OnboardingMainViewController: OnboardingAccountObserver {
+    func accountsChanged() {
+        updateContinueButtonState()
+    }
+}
