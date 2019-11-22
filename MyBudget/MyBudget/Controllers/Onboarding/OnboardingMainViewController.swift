@@ -136,10 +136,10 @@ class OnboardingMainViewController: UIViewController {
                 self.accountHeaderView.alpha = 0
                 self.accountTableView.alpha = 0
             })
-            
-            // TODO: Save to ledger. But check that you dont overwrite anything
-            
+                        
         case .assignMoney: 
+            // Save to ledger. But check that you dont overwrite anything
+            Model.shared.createInitialBudget(accounts: accounts, categories: selectedCategories())
             delegate?.didFinishOnboarding()
         }
 
