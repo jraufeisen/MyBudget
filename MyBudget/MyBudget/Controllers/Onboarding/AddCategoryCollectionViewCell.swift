@@ -16,6 +16,7 @@ class AddCategoryCollectionViewCell: UICollectionViewCell {
     var outlineColor: UIColor? = UIColor.blueActionColor {
         didSet {
             layer.borderColor = outlineColor?.cgColor
+            imageView.tintColor = outlineColor
         }
     }
     
@@ -24,6 +25,8 @@ class AddCategoryCollectionViewCell: UICollectionViewCell {
         layer.cornerRadius = 10
         layer.borderColor = outlineColor?.cgColor
         layer.borderWidth = 2.5
+        
+        imageView.image = imageView.image?.withRenderingMode(.alwaysTemplate)
     }
     
 }
