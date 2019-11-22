@@ -32,6 +32,11 @@ class OnboardingBudgetTableViewCell: UITableViewCell {
         keyboard.delegate = self
         moneyTextField.inputView = keyboard
         
+        if #available(iOS 13.0, *) {
+            backgroundColor = .systemGroupedBackground
+        }
+
+        
     }
 }
 

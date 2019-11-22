@@ -15,8 +15,14 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     var selectionColor: UIColor? = UIColor.blueActionColor
     
     override func awakeFromNib() {
-        layer.borderWidth = 1
+        backgroundColor = .white
+        layer.borderWidth = 0.5
         layer.cornerRadius = 10
+        layer.shadowColor = UIColor.lightGray.cgColor
+        layer.shadowRadius = 1
+        layer.shadowOpacity = 0.2
+        layer.shadowOffset = CGSize.init(width: 1, height: 1)
+        layer.masksToBounds = false
     }
     
     func markEditable(editable: Bool) {
@@ -37,7 +43,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
             } else {
                 layer.borderColor = UIColor.lightGray.cgColor
             }
-            layer.borderWidth = 1
+            layer.borderWidth = 0.5
         }
     }
 }

@@ -195,7 +195,11 @@ class OnboardingMainViewController: UIViewController {
         loadInitialData()
         // Don't forget initial reload, otherwise jumpy behavior occurs
         categoriesCollectionView.reloadData()
-
+        if #available(iOS 13.0, *) {
+            view.backgroundColor = .systemGroupedBackground
+            categoriesCollectionView.backgroundColor = .systemGroupedBackground
+            budgetTableView.backgroundColor = .systemGroupedBackground
+        }
     }
     
     
