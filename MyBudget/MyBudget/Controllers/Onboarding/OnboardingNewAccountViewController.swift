@@ -55,10 +55,6 @@ class OnboardingNewAccountViewController: UIViewController {
         // Adjust button
         createAccountButton.backgroundColor = .blueActionColor
         createAccountButton.layer.cornerRadius = 10
-        createAccountButton.layer.shadowColor = createAccountButton.backgroundColor?.cgColor
-        createAccountButton.layer.shadowRadius = 3
-        createAccountButton.layer.shadowOffset = CGSize.init(width: 2, height: -2)
-        createAccountButton.layer.shadowOpacity = 0.5
 
         // Adjust textfield backgrounds
         if #available(iOS 13.0, *) {

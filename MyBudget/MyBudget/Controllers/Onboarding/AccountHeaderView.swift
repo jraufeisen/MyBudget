@@ -14,9 +14,6 @@ class AccountHeaderView: UIView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        let plusImage = #imageLiteral(resourceName: "add.png").withRenderingMode(.alwaysTemplate)
-        plusButton.setImage(plusImage, for: .normal)
-        plusButton.tintColor = .white
         backgroundColor = .blueActionColor
     }
     

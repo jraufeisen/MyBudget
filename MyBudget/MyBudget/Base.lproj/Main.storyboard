@@ -389,22 +389,25 @@
                                     <outlet property="delegate" destination="T0N-4A-zt4" id="Hoe-uC-cVH"/>
                                 </connections>
                             </collectionView>
-                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OR5-wV-ayy" customClass="AccountHeaderView" customModule="Budget_" customModuleProvider="target">
-                                <rect key="frame" x="20" y="118" width="374" height="50"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OR5-wV-ayy" customClass="AccountHeaderView" customModule="Budget_" customModuleProvider="target">
+                                <rect key="frame" x="20" y="130" width="374" height="45"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accounts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBy-a3-cFC">
-                                        <rect key="frame" x="20" y="14.5" width="72" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <rect key="frame" x="20" y="12" width="74" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AW2-hP-hTJ">
-                                        <rect key="frame" x="319" y="7.5" width="35" height="35"/>
+                                        <rect key="frame" x="319" y="5" width="35" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="35" id="M7X-5j-SXf"/>
                                             <constraint firstAttribute="width" secondItem="AW2-hP-hTJ" secondAttribute="height" multiplier="10:10" id="MUS-R1-Jr2"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="add.png"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" image="plus" catalog="system">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
+                                        </state>
                                         <connections>
                                             <action selector="pressedAccountPlusButton" destination="T0N-4A-zt4" eventType="touchUpInside" id="o9s-vw-RHc"/>
                                         </connections>
@@ -413,7 +416,7 @@
                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="AW2-hP-hTJ" firstAttribute="centerY" secondItem="NBy-a3-cFC" secondAttribute="centerY" id="GHn-Ta-g47"/>
-                                    <constraint firstAttribute="height" constant="50" id="N3K-03-elB"/>
+                                    <constraint firstAttribute="height" constant="45" id="N3K-03-elB"/>
                                     <constraint firstItem="NBy-a3-cFC" firstAttribute="leading" secondItem="OR5-wV-ayy" secondAttribute="leading" constant="20" id="b5W-2F-MoK"/>
                                     <constraint firstAttribute="trailing" secondItem="AW2-hP-hTJ" secondAttribute="trailing" constant="20" id="bJn-B1-Ghs"/>
                                     <constraint firstItem="NBy-a3-cFC" firstAttribute="centerY" secondItem="OR5-wV-ayy" secondAttribute="centerY" id="e67-84-w6H"/>
@@ -423,8 +426,8 @@
                                     <outlet property="plusButton" destination="AW2-hP-hTJ" id="6jC-IL-dFM"/>
                                 </connections>
                             </view>
-                            <tableView clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4lF-v5-BTf">
-                                <rect key="frame" x="20" y="168" width="374" height="646"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4lF-v5-BTf">
+                                <rect key="frame" x="20" y="175" width="374" height="639"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OnboardingAccountTableViewCellID" id="OG6-ER-xkT" customClass="OnboardingAccountTableViewCell" customModule="Budget_" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
@@ -475,13 +478,13 @@
                                     <outlet property="delegate" destination="T0N-4A-zt4" id="mtq-PS-tnx"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have 1000,42 € left to budget" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEB-bW-Z7P">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have 1000,42 € left to budget" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEB-bW-Z7P">
                                 <rect key="frame" x="20" y="118" width="374" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PlQ-D4-U9f">
+                            <tableView clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PlQ-D4-U9f">
                                 <rect key="frame" x="0.0" y="158.5" width="414" height="737.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
@@ -490,9 +493,8 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nu7-IC-Q4Z">
-                                <rect key="frame" x="149" y="786" width="116" height="56"/>
+                                <rect key="frame" x="20" y="786" width="374" height="56"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="116" id="A0C-k4-KXz"/>
                                     <constraint firstAttribute="height" constant="56" id="WdX-Mi-xL4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
@@ -502,6 +504,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="rWT-RA-bs4" firstAttribute="leading" secondItem="Fsd-Ne-Bca" secondAttribute="leading" constant="20" id="2Eg-3I-sv3"/>
+                            <constraint firstItem="Fsd-Ne-Bca" firstAttribute="trailing" secondItem="nu7-IC-Q4Z" secondAttribute="trailing" constant="20" id="2oc-z4-cfG"/>
                             <constraint firstItem="4lF-v5-BTf" firstAttribute="trailing" secondItem="OR5-wV-ayy" secondAttribute="trailing" id="74H-a7-ulY"/>
                             <constraint firstItem="PlQ-D4-U9f" firstAttribute="bottom" secondItem="PMy-xE-Tk4" secondAttribute="bottom" id="9gf-C6-7bL"/>
                             <constraint firstItem="PlQ-D4-U9f" firstAttribute="leading" secondItem="PMy-xE-Tk4" secondAttribute="leading" id="C63-FM-m0A"/>
@@ -520,8 +523,9 @@
                             <constraint firstItem="Fsd-Ne-Bca" firstAttribute="bottom" secondItem="nu7-IC-Q4Z" secondAttribute="bottom" constant="20" id="nk4-Cy-i29"/>
                             <constraint firstItem="Fsd-Ne-Bca" firstAttribute="trailing" secondItem="OR5-wV-ayy" secondAttribute="trailing" constant="20" id="ogx-Fp-qu9"/>
                             <constraint firstItem="rWT-RA-bs4" firstAttribute="top" secondItem="Fsd-Ne-Bca" secondAttribute="top" constant="30" id="rlF-Oz-CAw"/>
-                            <constraint firstItem="OR5-wV-ayy" firstAttribute="top" secondItem="rWT-RA-bs4" secondAttribute="bottom" constant="8" id="sQI-pp-2yi"/>
+                            <constraint firstItem="OR5-wV-ayy" firstAttribute="top" secondItem="rWT-RA-bs4" secondAttribute="bottom" constant="20" id="sQI-pp-2yi"/>
                             <constraint firstItem="Fsd-Ne-Bca" firstAttribute="trailing" secondItem="rWT-RA-bs4" secondAttribute="trailing" constant="20" id="uDX-QI-gho"/>
+                            <constraint firstItem="nu7-IC-Q4Z" firstAttribute="leading" secondItem="Fsd-Ne-Bca" secondAttribute="leading" constant="20" id="wXu-OZ-iCb"/>
                             <constraint firstItem="4lF-v5-BTf" firstAttribute="top" secondItem="OR5-wV-ayy" secondAttribute="bottom" id="xdE-uU-g7T"/>
                             <constraint firstItem="foI-Np-Qt0" firstAttribute="top" secondItem="rWT-RA-bs4" secondAttribute="bottom" constant="8" id="y9J-aH-16h"/>
                         </constraints>
@@ -562,7 +566,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here goes a fancy explanatory label telling you what to do" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yO-zG-2MW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a new account below. Usually, you will want to add your banking accounts and an account for your cash" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yO-zG-2MW">
                                 <rect key="frame" x="20" y="198" width="374" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="PTu-qq-2aB"/>
@@ -643,7 +647,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pH1-Iv-Fbu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5036" y="490"/>
+            <point key="canvasLocation" x="-5036.231884057971" y="489.50892857142856"/>
         </scene>
         <!--Lock Screen View Controller-->
         <scene sceneID="Rzx-Qi-XYv">
@@ -1430,5 +1434,6 @@
         <image name="drawer.png" width="384" height="384"/>
         <image name="edit-2.png" width="51.200000762939453" height="51.200000762939453"/>
         <image name="euro.png" width="384" height="384"/>
+        <image name="plus" catalog="system" width="64" height="56"/>
     </resources>
 </document>

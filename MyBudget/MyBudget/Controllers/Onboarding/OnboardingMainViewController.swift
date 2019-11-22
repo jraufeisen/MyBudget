@@ -73,10 +73,6 @@ class OnboardingMainViewController: UIViewController {
         continueButton.backgroundColor = .blueActionColor
         continueButton.layer.cornerRadius = 20
         continueButton.setTitleColor(.white, for: .normal)
-        continueButton.layer.shadowColor = continueButton.backgroundColor?.cgColor
-        continueButton.layer.shadowRadius = 5
-        continueButton.layer.shadowOffset = CGSize.init(width: 2, height: -2)
-        continueButton.layer.shadowOpacity = 0.5
         continueButton.addTarget(self, action: #selector(self.pressedContinue), for: .touchUpInside)
     }
     
@@ -85,15 +81,17 @@ class OnboardingMainViewController: UIViewController {
         switch state {
         case .welcome:
             state = .principle
-            textLabel.addTextAnimated(text: "\nOur principle is simple: Every penny has its job.", timeBetweenCharacters: 0.04) {
+
+            textLabel.addTextAnimated(text: "\nOur principle is simple: Every penny has its job.", animationDuration: 2.1) {
                 self.animationInProgress = false
             }
+
         case .principle:
             state = .categories
             textLabel.text = ""
 
             animateContinueButton(visible: false)
-            textLabel.addTextAnimated(text: "First, decide what's important for you", timeBetweenCharacters: 0.07) {
+            textLabel.addTextAnimated(text: "First, decide what's important for you", animationDuration: 2.0) {
                 UIView.animate(withDuration: 0.7, animations: {
                     self.categoriesCollectionView.alpha = 1
                 }) { (flag) in
@@ -104,7 +102,7 @@ class OnboardingMainViewController: UIViewController {
             state = .accounts
             textLabel.text = ""
             animateContinueButton(visible: false)
-            textLabel.addTextAnimated(text: "Second, record your current account values", timeBetweenCharacters: 0.07) {
+            textLabel.addTextAnimated(text: "Second, record your current account values", animationDuration: 2.0) {
                 UIView.animate(withDuration: 0.7, animations: {
                     self.accountHeaderView.alpha = 1
                     self.accountTableView.alpha = 1
@@ -122,7 +120,7 @@ class OnboardingMainViewController: UIViewController {
             reloadHeader()
             textLabel.text = ""
             budgetTableView.reloadData()
-            textLabel.addTextAnimated(text: "Now, create your budget", timeBetweenCharacters: 0.07) {
+            textLabel.addTextAnimated(text: "Now, create your budget", animationDuration: 1.0) {
                 UIView.animate(withDuration: 0.7, animations: {
                     // Make distribution table visible
                     self.budgetTitleLabel.alpha = 1
@@ -155,7 +153,7 @@ class OnboardingMainViewController: UIViewController {
         
         textLabel.text = ""
         textLabel.isHidden = false
-        textLabel.addTextAnimated(text: "Welcome to Budget!", timeBetweenCharacters: 0.07) {
+        textLabel.addTextAnimated(text: "Welcome to Budget!", animationDuration: 1.0) {
             UIView.animate(withDuration: 0.2) {
                 self.continueButton.alpha = 1 // Fade-in
             }
@@ -213,7 +211,7 @@ extension OnboardingMainViewController: OnboardingNewAccountDelegate {
         let newAccount = OnboardingAccountViewable()
         newAccount.name = name
         newAccount.money = money
-        newAccount.icon = #imageLiteral(resourceName: "Piggy Bank")
+        newAccount.icon = #imageLiteral(resourceName: "Big Credit Card")
         
         accounts.insert(newAccount, at: 0)
         accountTableView.insertRows(at: [IndexPath.init(row: 0, section: 0)], with: .automatic)
@@ -274,6 +272,16 @@ extension OnboardingMainViewController: UITableViewDataSource, UITableViewDelega
             }
         }
         updateContinueButtonState()
+        
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Automatically begin editing the cell
+        if tableView == budgetTableView {
+            if let cell = budgetTableView.cellForRow(at: indexPath) as? OnboardingBudgetTableViewCell {
+                cell.moneyTextField.becomeFirstResponder()
+            }
+        }
         
     }
     

@@ -64,7 +64,7 @@ class DiaryTextView: UITextView {
         }
         
 
-        addTextAnimated(text: currentEntry.text) {
+        addTextAnimated(text: currentEntry.text, timeBetweenCharacters: 0.05) {
             self.keyboardInputBeginPosition = self.text.endIndex
             // Ask for new input depending on the entry type
             self.configureInput(type: currentEntry.entryType)
