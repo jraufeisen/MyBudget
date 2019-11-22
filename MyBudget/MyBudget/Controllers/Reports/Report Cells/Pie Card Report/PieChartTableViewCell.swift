@@ -106,11 +106,12 @@ class PieChartTableViewCell: UITableViewCell {
         chartContainer.scrollRectToVisible(CGRect(x: chartContainer.contentSize.width - 10, y: 0, width: 10, height: chartContainer.frame.height), animated: false)
     }
     
-    private func addNoDataCard() {
+    
+    private func addSpecialCard(title: String, body: String) {
         let newFrame = CGRect(x: 0, y:0, width: self.frame.width - 2*cardOffsetX, height: self.frame.height - 2*cardOffsetY)
         let card = PieChartCard.init(frame: newFrame)
         card.center = CGPoint(x: self.center.x, y: self.bounds.height / 2)
-        card.titleLabel.text = "Spendings"
+        card.titleLabel.text = title
         card.label1.text = ""
         card.label2.text = ""
         card.label3.text = ""
@@ -122,7 +123,7 @@ class PieChartTableViewCell: UITableViewCell {
             explainLabel.textColor = .secondaryLabel
         }
         explainLabel.textAlignment = .center
-        explainLabel.text = "Track your expenses to see detailed statistics about your spending behavior"
+        explainLabel.text = body
         card.chartContainer.addSubview(explainLabel)
         explainLabel.translatesAutoresizingMaskIntoConstraints = false
         explainLabel.numberOfLines = 5
@@ -148,16 +149,22 @@ class PieChartTableViewCell: UITableViewCell {
         chartContainer.contentSize = CGSize(width: CGFloat(1)*self.frame.width, height: self.frame.height)
     }
     
+    private func addNoDataCard() {
+        addSpecialCard(title: "Spendings", body: "Track your expenses to see detailed statistics about your spending behavior")
+    }
+    
     private func addChart(entries: [(money: Money, label: String)], chartName: String = "Expenses") {
-                
-        let colors = [NSUIColor.systemRed, NSUIColor.systemBlue, NSUIColor.systemGreen, NSUIColor.systemOrange, NSUIColor.systemYellow]
+
+        guard entries.count > 0 else {
+            addSpecialCard(title: chartName, body: "Track your expenses to see detailed statistics about your spending behavior")
+            return
+        }
         
+        let colors = [NSUIColor.systemRed, NSUIColor.systemBlue, NSUIColor.systemGreen, NSUIColor.systemOrange, NSUIColor.systemYellow]
         let newFrame = CGRect(x: 0, y:0, width: self.frame.width - 2*cardOffsetX, height: self.frame.height - 2*cardOffsetY)
         let card = PieChartCard.init(frame: newFrame)
         card.center = CGPoint(x: self.center.x + self.frame.width * CGFloat(numberOfCharts) , y: self.bounds.height / 2)
         card.titleLabel.text = chartName
-        
-        
         
         // Sort descending and name the biggest five categories
         let entries = entries.sorted(by: { (arg1, arg2) -> Bool in
@@ -166,7 +173,6 @@ class PieChartTableViewCell: UITableViewCell {
         let totalMoney: Double = entries.reduce(0) { (result, arg) -> Double in
             return result + arg.money.floatValue
         }
-        
 
         if entries.count > 0 {
             let percent = Int(round(entries[0].money.floatValue / totalMoney * 100))
@@ -204,34 +210,21 @@ class PieChartTableViewCell: UITableViewCell {
             card.label5.text = ""
         }
         
-        
         var pieEntries = [PieChartDataEntry]()
-        
         for entry in entries {
             pieEntries.append(PieChartDataEntry.init(value: entry.money.floatValue, label: entry.label))
         }
-        
         let pieChart = PieChartView.init(frame: card.chartContainer.frame)
         pieChart.frame.origin = CGPoint.zero
-        
         let dataSet = PieChartDataSet.init(entries: pieEntries, label: "")
         dataSet.drawValuesEnabled = false
-        
         dataSet.colors = colors
-        
-        //let data = ChartData.init(dataSet: dataSet)
         let data = PieChartData.init(dataSet: dataSet)
-        
         pieChart.data = data
-        
         pieChart.legend.enabled = false
-        
-        
         pieChart.rotationEnabled = false
         pieChart.highlightPerTapEnabled = false
         pieChart.drawEntryLabelsEnabled = false
-
-        
         pieChart.drawHoleEnabled = true
         pieChart.holeColor = .clear
         pieChart.drawSlicesUnderHoleEnabled = false
@@ -239,8 +232,6 @@ class PieChartTableViewCell: UITableViewCell {
         pieChart.transparentCircleColor = .clear
         
         chartContainer.addSubview(card)
-        
-        
         card.chartContainer.addSubview(pieChart)
         pieChart.translatesAutoresizingMaskIntoConstraints = false
         // Align pie chart to its container
@@ -250,10 +241,7 @@ class PieChartTableViewCell: UITableViewCell {
             NSLayoutConstraint.init(item: pieChart, attribute: .right, relatedBy: .equal, toItem: card.chartContainer, attribute: .right, multiplier: 1, constant: 0),
             NSLayoutConstraint.init(item: pieChart, attribute: .bottom, relatedBy: .equal, toItem: card.chartContainer, attribute: .bottom, multiplier: 1, constant: 0),
         ])
-
-
         numberOfCharts += 1
-
         chartContainer.contentSize = CGSize(width: CGFloat(numberOfCharts)*self.frame.width, height: self.frame.height)
 
     }

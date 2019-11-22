@@ -53,7 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Onboarding
         let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "onboardMainVCID") as! OnboardingMainViewController
         vc.delegate = self
-        window?.rootViewController = vc
+       // window?.rootViewController = vc
 
         
         return true
