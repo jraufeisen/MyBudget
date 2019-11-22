@@ -12,6 +12,8 @@ class CategoryCollectionViewCell: UICollectionViewCell {
  
     @IBOutlet weak var label: UITextField!
     
+    var selectionColor: UIColor? = UIColor.blueActionColor
+    
     override func awakeFromNib() {
         layer.borderWidth = 1
         layer.cornerRadius = 10
@@ -27,7 +29,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
       
     func markSelected(selected: Bool) {
         if selected {
-            layer.borderColor = UIColor.blueActionColor.cgColor
+            layer.borderColor = selectionColor?.cgColor
             layer.borderWidth = 2.5
         } else {
             if #available(iOS 13.0, *) {

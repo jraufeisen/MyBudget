@@ -8,6 +8,7 @@
 
 import UIKit
 import Swift_Ledger
+import MaterialComponents.MaterialProgressView
 
 enum OnboardingState: Int {
 
@@ -45,12 +46,23 @@ class OnboardingMainViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var progressView: MDCProgressView!
+    
     var delegate: OnboardingDelegate?
     
     // Data
     private var categories = [CategorySelectable]()
     private var currentlyEditedIndexPath: IndexPath?
 
+    
+    private func colorForProgress(progress: Float) -> UIColor? {
+        return UIColor.blueActionColor.withAlphaComponent(1).interpolateRGBColorTo(.incomeColor, fraction: CGFloat(progress))
+    }
+    
+    private func currentProgressColor() -> UIColor? {
+        return colorForProgress(progress: progressView.progress)
+    }
+    
     private func selectedCategories() -> [CategorySelectable] {
         return categories.filter { (category) -> Bool in
             return category.selected
@@ -67,6 +79,9 @@ class OnboardingMainViewController: UIViewController {
         
         budgetTitleLabel.alpha = 0
         budgetTableView.alpha = 0
+        progressView.progress = 0
+        progressView.trackTintColor = .groupTableViewBackground
+
     }
     
     private func setupContinueButton() {
@@ -89,7 +104,12 @@ class OnboardingMainViewController: UIViewController {
         case .principle:
             state = .categories
             textLabel.text = ""
-
+            self.progressView.setProgress(1/4, animated: true) { (flag) in
+                self.categoriesCollectionView.reloadData()
+                self.continueButton.backgroundColor = self.currentProgressColor()
+            }
+            self.progressView.progressTintColor = colorForProgress(progress: 1/4)
+            
             animateContinueButton(visible: false)
             textLabel.addTextAnimated(text: "First, decide what's important for you", animationDuration: 2.0) {
                 UIView.animate(withDuration: 0.7, animations: {
@@ -98,8 +118,14 @@ class OnboardingMainViewController: UIViewController {
                     self.animationInProgress = false
                 }
             }
+
         case .categories:
             state = .accounts
+            self.progressView.setProgress(2/4, animated: true) { (flag) in
+                self.accountHeaderView.backgroundColor = self.currentProgressColor()
+                self.continueButton.backgroundColor = self.currentProgressColor()
+            }
+            self.progressView.progressTintColor = colorForProgress(progress: 2/4)
             textLabel.text = ""
             animateContinueButton(visible: false)
             textLabel.addTextAnimated(text: "Second, record your current account values", animationDuration: 2.0) {
@@ -114,9 +140,12 @@ class OnboardingMainViewController: UIViewController {
             UIView.animate(withDuration: 0.7, animations: {
                 self.categoriesCollectionView.alpha = 0
             })
-            
         case .accounts:
             state = .assignMoney
+            self.progressView.setProgress(3/4, animated: true) { (flag) in
+                self.continueButton.backgroundColor = self.currentProgressColor()
+            }
+            self.progressView.progressTintColor = colorForProgress(progress: 3/4)
             reloadHeader()
             textLabel.text = ""
             budgetTableView.reloadData()
@@ -134,11 +163,14 @@ class OnboardingMainViewController: UIViewController {
                 self.accountHeaderView.alpha = 0
                 self.accountTableView.alpha = 0
             })
-                        
+            
         case .assignMoney: 
-            // Save to ledger. But check that you dont overwrite anything
-            Model.shared.createInitialBudget(accounts: accounts, categories: selectedCategories())
-            delegate?.didFinishOnboarding()
+            self.progressView.progressTintColor = colorForProgress(progress: 4/4)
+            self.progressView.setProgress(4/4, animated: true) { (flag) in
+                // Save to ledger. But check that you dont overwrite anything
+                Model.shared.createInitialBudget(accounts: self.accounts, categories: self.selectedCategories())
+                self.delegate?.didFinishOnboarding()
+            }
         }
 
         updateContinueButtonState()
@@ -319,10 +351,10 @@ extension OnboardingMainViewController: OnboardingBudgetTableViewCellDelegate {
             budgetTitleLabel.textColor = .expenseColor
             budgetTitleLabel.text = "You have overbudgeted by \(difference.negative)"
         } else if difference == 0 {
-            budgetTitleLabel.textColor = .incomeColor
+            budgetTitleLabel.textColor = currentProgressColor()
             budgetTitleLabel.text = "You have a perfect budget"
         } else {
-            budgetTitleLabel.textColor = .incomeColor
+            budgetTitleLabel.textColor = currentProgressColor()
             budgetTitleLabel.text = "You have \(difference) left to budget"
         }
 
@@ -339,13 +371,14 @@ extension OnboardingMainViewController: UICollectionViewDataSource, UICollection
         
         if indexPath.row == 0 {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AddCategoryCollectionViewCellID", for: indexPath) as! AddCategoryCollectionViewCell
-            
+            cell.outlineColor = currentProgressColor()
             return cell
         }
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectionCategoryCellID", for: indexPath) as! CategoryCollectionViewCell
         let item = categories[indexPath.row-1] // Shift index, cause we have add cell at beginnign
         
+        cell.selectionColor = currentProgressColor()
         cell.markEditable(editable: item.editable)
         cell.markSelected(selected: cell.isSelected)
         cell.label.text = item.name

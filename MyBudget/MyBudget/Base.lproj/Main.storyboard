@@ -29,11 +29,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oxL-ag-LSl" userLabel="Background">
-                                                    <rect key="frame" x="20" y="11" width="374" height="129"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oxL-ag-LSl" userLabel="Background">
+                                                    <rect key="frame" x="20" y="10.5" width="24" height="129"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" misplaced="YES" text="Budget category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5tO-d8-1Fs">
-                                                            <rect key="frame" x="8" y="9" width="358" height="32"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" text="Budget category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5tO-d8-1Fs">
+                                                            <rect key="frame" x="8" y="8" width="0.0" height="32"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -57,8 +57,8 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" misplaced="YES" text="You have spent 21€ more than last month at this day" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tdj-Kn-Yez">
-                                                            <rect key="frame" x="8" y="80" width="358" height="42"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="You have spent 21€ more than last month at this day" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tdj-Kn-Yez">
+                                                            <rect key="frame" x="8" y="80" width="8" height="42"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
@@ -320,13 +320,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Budget!" lineBreakMode="wordWrap" numberOfLines="20" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rWT-RA-bs4">
-                                <rect key="frame" x="20" y="74" width="374" height="36"/>
+                                <rect key="frame" x="20" y="74" width="371.5" height="36"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="foI-Np-Qt0">
-                                <rect key="frame" x="20" y="118" width="374" height="696"/>
+                                <rect key="frame" x="20" y="118" width="371.5" height="696"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eP6-bm-taZ">
                                     <size key="itemSize" width="77" height="77"/>
@@ -359,7 +359,7 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="AddCategoryCollectionViewCellID" id="qcZ-GX-xGQ" customClass="AddCategoryCollectionViewCell" customModule="Budget_" customModuleProvider="target">
-                                        <rect key="frame" x="99" y="0.0" width="77" height="77"/>
+                                        <rect key="frame" x="98" y="0.0" width="77" height="77"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ZNM-bD-Zso">
                                             <rect key="frame" x="0.0" y="0.0" width="77" height="77"/>
@@ -390,7 +390,7 @@
                                 </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OR5-wV-ayy" customClass="AccountHeaderView" customModule="Budget_" customModuleProvider="target">
-                                <rect key="frame" x="20" y="130" width="374" height="45"/>
+                                <rect key="frame" x="20" y="130" width="371.5" height="45"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Accounts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NBy-a3-cFC">
                                         <rect key="frame" x="20" y="12" width="74" height="21"/>
@@ -399,7 +399,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AW2-hP-hTJ">
-                                        <rect key="frame" x="319" y="5" width="35" height="35"/>
+                                        <rect key="frame" x="316.5" y="5" width="35" height="35"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="35" id="M7X-5j-SXf"/>
                                             <constraint firstAttribute="width" secondItem="AW2-hP-hTJ" secondAttribute="height" multiplier="10:10" id="MUS-R1-Jr2"/>
@@ -427,13 +427,13 @@
                                 </connections>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4lF-v5-BTf">
-                                <rect key="frame" x="20" y="175" width="374" height="639"/>
+                                <rect key="frame" x="20" y="175" width="371.5" height="639"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="OnboardingAccountTableViewCellID" id="OG6-ER-xkT" customClass="OnboardingAccountTableViewCell" customModule="Budget_" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="371.5" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="OG6-ER-xkT" id="tgC-KY-xNY">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="371.5" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Big Credit Card" translatesAutoresizingMaskIntoConstraints="NO" id="ntS-mj-DvL">
@@ -450,7 +450,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="42.42 €" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fbg-qD-9bG">
-                                                    <rect key="frame" x="304" y="11.5" width="62" height="21"/>
+                                                    <rect key="frame" x="301.5" y="11.5" width="62" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -479,13 +479,13 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have 1000,42 € left to budget" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEB-bW-Z7P">
-                                <rect key="frame" x="20" y="118" width="374" height="30"/>
+                                <rect key="frame" x="20" y="118" width="371.5" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <color key="textColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PlQ-D4-U9f">
-                                <rect key="frame" x="0.0" y="158.5" width="414" height="737.5"/>
+                                <rect key="frame" x="0.0" y="158.5" width="411.5" height="737.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="T0N-4A-zt4" id="ja1-6C-qxM"/>
@@ -493,13 +493,19 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nu7-IC-Q4Z">
-                                <rect key="frame" x="20" y="786" width="374" height="56"/>
+                                <rect key="frame" x="20" y="786" width="371.5" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="WdX-Mi-xL4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Continue"/>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jv2-f4-R1H" customClass="MDCProgressView">
+                                <rect key="frame" x="0.0" y="63" width="414" height="3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="3" id="9es-yn-bVL"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -511,6 +517,7 @@
                             <constraint firstItem="nu7-IC-Q4Z" firstAttribute="top" secondItem="foI-Np-Qt0" secondAttribute="bottom" constant="-28" id="DEN-1T-5jU"/>
                             <constraint firstItem="Fsd-Ne-Bca" firstAttribute="trailing" secondItem="PlQ-D4-U9f" secondAttribute="trailing" id="E1P-va-J31"/>
                             <constraint firstItem="nu7-IC-Q4Z" firstAttribute="centerX" secondItem="Fsd-Ne-Bca" secondAttribute="centerX" id="Fgw-br-Ruy"/>
+                            <constraint firstItem="rWT-RA-bs4" firstAttribute="top" secondItem="Jv2-f4-R1H" secondAttribute="bottom" constant="15" id="GMx-x3-BEI"/>
                             <constraint firstItem="foI-Np-Qt0" firstAttribute="leading" secondItem="Fsd-Ne-Bca" secondAttribute="leading" constant="20" id="Icl-ID-RZs"/>
                             <constraint firstItem="Fsd-Ne-Bca" firstAttribute="trailing" secondItem="XEB-bW-Z7P" secondAttribute="trailing" constant="20" id="JqU-Io-dgX"/>
                             <constraint firstItem="nu7-IC-Q4Z" firstAttribute="top" secondItem="4lF-v5-BTf" secondAttribute="bottom" constant="-28" id="Njj-BZ-17g"/>
@@ -518,16 +525,19 @@
                             <constraint firstItem="Fsd-Ne-Bca" firstAttribute="trailing" secondItem="foI-Np-Qt0" secondAttribute="trailing" constant="20" id="SXZ-Ly-zH3"/>
                             <constraint firstItem="OR5-wV-ayy" firstAttribute="leading" secondItem="Fsd-Ne-Bca" secondAttribute="leading" constant="20" id="VLx-bb-jSe"/>
                             <constraint firstItem="PlQ-D4-U9f" firstAttribute="top" secondItem="XEB-bW-Z7P" secondAttribute="bottom" constant="10.5" id="Xqk-Ux-CeI"/>
-                            <constraint firstItem="XEB-bW-Z7P" firstAttribute="top" secondItem="rWT-RA-bs4" secondAttribute="bottom" constant="8" id="bTn-hF-HvE"/>
+                            <constraint firstItem="XEB-bW-Z7P" firstAttribute="top" secondItem="rWT-RA-bs4" secondAttribute="bottom" constant="10" id="bTn-hF-HvE"/>
                             <constraint firstItem="XEB-bW-Z7P" firstAttribute="leading" secondItem="Fsd-Ne-Bca" secondAttribute="leading" constant="20" id="dBX-PF-mMs"/>
+                            <constraint firstItem="Jv2-f4-R1H" firstAttribute="trailing" secondItem="Fsd-Ne-Bca" secondAttribute="trailing" constant="2.5" id="grn-2s-h9g"/>
                             <constraint firstItem="Fsd-Ne-Bca" firstAttribute="bottom" secondItem="nu7-IC-Q4Z" secondAttribute="bottom" constant="20" id="nk4-Cy-i29"/>
                             <constraint firstItem="Fsd-Ne-Bca" firstAttribute="trailing" secondItem="OR5-wV-ayy" secondAttribute="trailing" constant="20" id="ogx-Fp-qu9"/>
-                            <constraint firstItem="rWT-RA-bs4" firstAttribute="top" secondItem="Fsd-Ne-Bca" secondAttribute="top" constant="30" id="rlF-Oz-CAw"/>
+                            <constraint firstItem="Jv2-f4-R1H" firstAttribute="leading" secondItem="Fsd-Ne-Bca" secondAttribute="leading" id="pOA-4j-ug8"/>
+                            <constraint firstItem="rWT-RA-bs4" firstAttribute="top" secondItem="Fsd-Ne-Bca" secondAttribute="top" constant="40" id="rlF-Oz-CAw"/>
                             <constraint firstItem="OR5-wV-ayy" firstAttribute="top" secondItem="rWT-RA-bs4" secondAttribute="bottom" constant="20" id="sQI-pp-2yi"/>
+                            <constraint firstAttribute="width" secondItem="rWT-RA-bs4" secondAttribute="width" multiplier="1.10695" id="tPZ-P8-oV5"/>
                             <constraint firstItem="Fsd-Ne-Bca" firstAttribute="trailing" secondItem="rWT-RA-bs4" secondAttribute="trailing" constant="20" id="uDX-QI-gho"/>
                             <constraint firstItem="nu7-IC-Q4Z" firstAttribute="leading" secondItem="Fsd-Ne-Bca" secondAttribute="leading" constant="20" id="wXu-OZ-iCb"/>
                             <constraint firstItem="4lF-v5-BTf" firstAttribute="top" secondItem="OR5-wV-ayy" secondAttribute="bottom" id="xdE-uU-g7T"/>
-                            <constraint firstItem="foI-Np-Qt0" firstAttribute="top" secondItem="rWT-RA-bs4" secondAttribute="bottom" constant="8" id="y9J-aH-16h"/>
+                            <constraint firstItem="foI-Np-Qt0" firstAttribute="top" secondItem="rWT-RA-bs4" secondAttribute="bottom" constant="15" id="y9J-aH-16h"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fsd-Ne-Bca"/>
                     </view>
@@ -538,6 +548,7 @@
                         <outlet property="budgetTitleLabel" destination="XEB-bW-Z7P" id="8VK-TR-YWl"/>
                         <outlet property="categoriesCollectionView" destination="foI-Np-Qt0" id="wDn-o4-d3p"/>
                         <outlet property="continueButton" destination="nu7-IC-Q4Z" id="K0u-nZ-cCS"/>
+                        <outlet property="progressView" destination="Jv2-f4-R1H" id="aGv-eY-Qsm"/>
                         <outlet property="textLabel" destination="rWT-RA-bs4" id="Ud1-cc-Ihr"/>
                     </connections>
                 </viewController>

@@ -13,10 +13,16 @@ class AddCategoryCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var imageView: UIImageView!
 
+    var outlineColor: UIColor? = UIColor.blueActionColor {
+        didSet {
+            layer.borderColor = outlineColor?.cgColor
+        }
+    }
+    
     override func awakeFromNib() {
         layer.borderWidth = 1
         layer.cornerRadius = 10
-        layer.borderColor = UIColor.blueActionColor.cgColor
+        layer.borderColor = outlineColor?.cgColor
         layer.borderWidth = 2.5
     }
     
