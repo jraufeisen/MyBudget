@@ -217,33 +217,25 @@ class OnboardingMainViewController: UIViewController {
     
     
     private func loadInitialData() {
-        let categorieNames = [
-            "Rent",
-            "Groceries",
-            "Sports",
-            "School",
-            "University",
-            "Home",
-            "Car",
-            "Vacation",
-            "Computer",
-            "Gas",
-            "Electricity",
-            "Internet",
-            "Phone",
-            "Eating out",
-            "Fun Money",
-            "Gaming",
-            "Gifts",
-            "Clothing",
-            "Mobility",
-        ]
-        //Calculate initial fata
-        for i in 0..<categorieNames.count {
-            let categorySelectable = CategorySelectable()
-            categorySelectable.name = categorieNames[i]
-            categories.append(categorySelectable)
-        }
+        categories.append(CategorySelectable.init(name: "Rent", icon: #imageLiteral(resourceName: "icons8-house-50")))
+        categories.append(CategorySelectable.init(name: "Groceries", icon: #imageLiteral(resourceName: "icons8-food-50")))
+        categories.append(CategorySelectable.init(name: "Sports", icon: #imageLiteral(resourceName: "icons8-soccer-player-50")))
+        categories.append(CategorySelectable.init(name: "School", icon: #imageLiteral(resourceName: "icons8-school-50")))
+        categories.append(CategorySelectable.init(name: "University", icon: #imageLiteral(resourceName: "icons8-school-50")))
+        categories.append(CategorySelectable.init(name: "Home", icon: #imageLiteral(resourceName: "icons8-house-50")))
+        categories.append(CategorySelectable.init(name: "Car", icon: #imageLiteral(resourceName: "icons8-police-car-50")))
+        categories.append(CategorySelectable.init(name: "Vacation", icon: #imageLiteral(resourceName: "icons8-beach-umbrella-50")))
+        categories.append(CategorySelectable.init(name: "Computer", icon: #imageLiteral(resourceName: "icons8-computer-50")))
+        categories.append(CategorySelectable.init(name: "Gas", icon: #imageLiteral(resourceName: "icons8-gas-50")))
+        categories.append(CategorySelectable.init(name: "Electricity", icon: #imageLiteral(resourceName: "icons8-conflict-50")))
+        categories.append(CategorySelectable.init(name: "Internet", icon: #imageLiteral(resourceName: "icons8-computer-50")))
+        categories.append(CategorySelectable.init(name: "Phone", icon: #imageLiteral(resourceName: "icons8-iphone-x-50")))
+        categories.append(CategorySelectable.init(name: "Eating out", icon: #imageLiteral(resourceName: "icons8-food-truck-50")))
+        categories.append(CategorySelectable.init(name: "Party", icon: #imageLiteral(resourceName: "Image-1")))
+        categories.append(CategorySelectable.init(name: "Gaming", icon: #imageLiteral(resourceName: "icons8-game-controller-50")))
+        categories.append(CategorySelectable.init(name: "Gifts", icon: #imageLiteral(resourceName: "icons8-christmas-gift-50")))
+        categories.append(CategorySelectable.init(name: "Clothing", icon: #imageLiteral(resourceName: "icons8-changing-room-50")))
+        categories.append(CategorySelectable.init(name: "Mobility", icon: #imageLiteral(resourceName: "Image")))
     }
     
     @IBAction func pressedAccountPlusButton() {
@@ -305,6 +297,13 @@ class CategorySelectable {
     var editable: Bool = false
     var selected: Bool = false
     var assignedMoney: Money = 0
+    var icon: UIImage = #imageLiteral(resourceName: "Bag")
+    
+    init(name: String = "", icon: UIImage = #imageLiteral(resourceName: "Bag")) {
+        self.name = name
+        self.icon = icon
+    }
+    
 }
 
 
@@ -365,6 +364,7 @@ extension OnboardingMainViewController: UICollectionViewDataSource, UICollection
         cell.markEditable(editable: item.editable)
         cell.markSelected(selected: cell.isSelected)
         cell.label.text = item.name
+        cell.imageView.image = item.icon
         
         return cell
     }

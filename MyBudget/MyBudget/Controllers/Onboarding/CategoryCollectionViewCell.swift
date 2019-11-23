@@ -11,6 +11,7 @@ import UIKit
 class CategoryCollectionViewCell: UICollectionViewCell {
  
     @IBOutlet weak var label: UITextField!
+    @IBOutlet weak var imageView: UIImageView!
     
     var selectionColor: UIColor? = UIColor.blueActionColor
     
