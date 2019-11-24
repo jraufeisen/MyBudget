@@ -22,47 +22,54 @@
 			<key>File</key>
 			<string>Licenses/ValueCoding</string>
 		</dict>
-        <dict>
-            <key>Type</key>
-            <string>PSChildPaneSpecifier</string>
-            <key>Title</key>
-            <string>SideMenu</string>
-            <key>File</key>
-            <string>Licenses/SideMenu</string>
-        </dict>
-        <dict>
-            <key>Type</key>
-            <string>PSChildPaneSpecifier</string>
-            <key>Title</key>
-            <string>paper-onboarding</string>
-            <key>File</key>
-            <string>Licenses/paper-onboarding</string>
-        </dict>
-        <dict>
-            <key>Type</key>
-            <string>PSChildPaneSpecifier</string>
-            <key>Title</key>
-            <string>Icons</string>
-            <key>File</key>
-            <string>Licenses/Icons</string>
-        </dict>
-        <dict>
-            <key>Type</key>
-            <string>PSChildPaneSpecifier</string>
-            <key>Title</key>
-            <string>Floaty</string>
-            <key>File</key>
-            <string>Licenses/Floaty</string>
-        </dict>
-        <dict>
-            <key>Type</key>
-            <string>PSChildPaneSpecifier</string>
-            <key>Title</key>
-            <string>APNumberPad</string>
-            <key>File</key>
-            <string>Licenses/APNumberPad</string>
-        </dict>
-
+		<dict>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+			<key>Title</key>
+			<string>SideMenu</string>
+			<key>File</key>
+			<string>Licenses/SideMenu</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+			<key>Title</key>
+			<string>paper-onboarding</string>
+			<key>File</key>
+			<string>Licenses/paper-onboarding</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+			<key>Title</key>
+			<string>Icons</string>
+			<key>File</key>
+			<string>Licenses/Icons</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+			<key>Title</key>
+			<string>Floaty</string>
+			<key>File</key>
+			<string>Licenses/Floaty</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+			<key>Title</key>
+			<string>APNumberPad</string>
+			<key>File</key>
+			<string>Licenses/APNumberPad</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+			<key>Title</key>
+			<string>Material Design Components</string>
+			<key>File</key>
+			<string>Licenses/MaterialDesign</string>
+		</dict>
 	</array>
 </dict>
 </plist>
