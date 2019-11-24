@@ -270,6 +270,7 @@ extension OnboardingMainViewController: UITableViewDataSource, UITableViewDelega
 
             let cell = tableView.dequeueReusableCell(withIdentifier: OnboardingBudgetTableViewCell.Identifier) as! OnboardingBudgetTableViewCell
             let selectedCategory = selectedCategories()[indexPath.row]
+            cell.iconImageView.image = selectedCategory.icon.withRenderingMode(.alwaysTemplate)
             cell.accountLabel.text = selectedCategory.name
             cell.delegate = self
             return cell
@@ -364,7 +365,7 @@ extension OnboardingMainViewController: UICollectionViewDataSource, UICollection
         cell.markEditable(editable: item.editable)
         cell.markSelected(selected: cell.isSelected)
         cell.label.text = item.name
-        cell.imageView.image = item.icon
+        cell.imageView.image = item.icon.withRenderingMode(.alwaysTemplate)
         
         return cell
     }

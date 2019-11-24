@@ -34,6 +34,7 @@ class OnboardingBudgetTableViewCell: UITableViewCell {
         
         if #available(iOS 13.0, *) {
             backgroundColor = .systemGroupedBackground
+            iconImageView.tintColor = .label
         }
 
         

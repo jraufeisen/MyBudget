@@ -16,7 +16,11 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     var selectionColor: UIColor? = UIColor.blueActionColor
     
     override func awakeFromNib() {
-        backgroundColor = .white
+        if #available(iOS 13.0, *) {
+            backgroundColor = .secondarySystemGroupedBackground
+        } else {
+            backgroundColor = .white
+        }
         layer.borderWidth = 0.5
         layer.cornerRadius = 10
         layer.shadowColor = UIColor.lightGray.cgColor
@@ -24,6 +28,13 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         layer.shadowOpacity = 0.2
         layer.shadowOffset = CGSize.init(width: 1, height: 1)
         layer.masksToBounds = false
+        if #available(iOS 13.0, *) {
+            label.textColor = .label
+            imageView.tintColor = .label
+        } else {
+            // Fallback on earlier versions
+        }
+
     }
     
     func markEditable(editable: Bool) {
