@@ -19,6 +19,7 @@ target 'MyBudget' do
 	pod 'SwiftyStoreKit'
 	pod 'BulletinBoard'
 	pod 'Charts', '~> 3.3.0'
+	pod 'MaterialComponents/ProgressView'
 end
 
  

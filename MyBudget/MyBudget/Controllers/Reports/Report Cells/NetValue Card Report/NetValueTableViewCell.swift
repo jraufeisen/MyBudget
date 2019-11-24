@@ -28,7 +28,7 @@ class NetValueTableViewCell: UITableViewCell {
         selectionStyle = .none
         backgroundColor = .clear
         if #available(iOS 13.0, *) {
-            contentContainer.backgroundColor = .secondarySystemBackground
+            contentContainer.backgroundColor = .secondarySystemGroupedBackground
         } else {
             contentContainer.backgroundColor = UIColor.lightGray
         }

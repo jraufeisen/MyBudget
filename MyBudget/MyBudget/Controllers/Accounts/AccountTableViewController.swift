@@ -17,10 +17,6 @@ class IncomeStatementCell : UITableViewCell {
     @IBOutlet weak var expenseFillView: IncomeStatementPercentView!
     
     override func awakeFromNib() {
-        insetView.layer.borderWidth = 1
-        insetView.layer.borderColor = UIColor.lightGray.cgColor
-        insetView.layer.cornerRadius = 10
-        insetView.layer.masksToBounds = true
         selectionStyle = .none
         
         if #available(iOS 13.0, *) {
@@ -28,6 +24,11 @@ class IncomeStatementCell : UITableViewCell {
             headerLabel.textColor = UIColor.label
         }
 
+        insetView.layer.cornerRadius = 10
+        insetView.layer.shadowColor = UIColor.init(white: 0, alpha: 1.0).cgColor
+        insetView.layer.shadowRadius = 5
+        insetView.layer.shadowOffset = CGSize.init(width: 2, height: 2)
+        insetView.layer.shadowOpacity = 0.3
     }
 
     
@@ -43,10 +44,6 @@ class IncomeStatementAccountCell: UITableViewCell {
     @IBOutlet weak var expenseFillView: IncomeStatementPercentView!
     
     override func awakeFromNib() {
-        insetView.layer.borderWidth = 1
-        insetView.layer.borderColor = UIColor.lightGray.cgColor
-        insetView.layer.cornerRadius = 10
-        insetView.layer.masksToBounds = true
         selectionStyle = .none
         
         if #available(iOS 13.0, *) {
@@ -55,6 +52,11 @@ class IncomeStatementAccountCell: UITableViewCell {
             moneyLabel.textColor = UIColor.label
         }
 
+        insetView.layer.cornerRadius = 10
+        insetView.layer.shadowColor = UIColor.init(white: 0, alpha: 1.0).cgColor
+        insetView.layer.shadowRadius = 5
+        insetView.layer.shadowOffset = CGSize.init(width: 2, height: 2)
+        insetView.layer.shadowOpacity = 0.3
     }
     
 }

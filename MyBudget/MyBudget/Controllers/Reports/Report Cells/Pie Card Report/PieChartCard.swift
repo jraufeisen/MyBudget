@@ -39,22 +39,17 @@ class PieChartCard: UIView {
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         if #available(iOS 13.0, *) {
-            contentView.backgroundColor = .secondarySystemBackground
+            contentView.backgroundColor = .secondarySystemGroupedBackground
         } else {
             contentView.backgroundColor = UIColor.lightGray
         }
         
         layer.cornerRadius = 10
         contentView.layer.cornerRadius = 10
-       // layer.masksToBounds = true // The rounded corner a valid for the whole card. Nothing can reach over it.
-        
-
         layer.shadowColor = UIColor.init(white: 0, alpha: 1.0).cgColor
         layer.shadowRadius = 5
         layer.shadowOffset = CGSize.init(width: 2, height: 5)
         layer.shadowOpacity = 0.3
-
-
     }
     
 }

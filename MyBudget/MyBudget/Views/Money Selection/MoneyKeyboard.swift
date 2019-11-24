@@ -47,7 +47,7 @@ class MoneyKeyboard: APNumberPad {
     }
 
     private func insertInitialText() {
-        outputView?.addTextAnimated(text: currentMoneyText(), completion: {
+        outputView?.addTextAnimated(text: currentMoneyText(), timeBetweenCharacters: 0.05, completion: {
             self.currentlyDisplayed = self.currentMoneyText()
             self.readyToTakeInput = true
         })

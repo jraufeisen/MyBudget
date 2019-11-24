@@ -23,10 +23,7 @@ class BudgetTableViewCell: UITableViewCell {
     @IBOutlet weak var detailLabel: UILabel!
     
     override func awakeFromNib() {
-        insetView.layer.borderWidth = 1
-        insetView.layer.borderColor = UIColor.lightGray.cgColor
         insetView.layer.cornerRadius = 10
-        insetView.layer.masksToBounds = true
         
         if #available(iOS 13.0, *) {
             insetView.backgroundColor = UIColor.secondarySystemGroupedBackground
@@ -36,6 +33,12 @@ class BudgetTableViewCell: UITableViewCell {
         percentFillView.tintColor = .blueActionColor
         
         selectionStyle = .none
+
+        insetView.layer.cornerRadius = 10
+        insetView.layer.shadowColor = UIColor.init(white: 0, alpha: 1.0).cgColor
+        insetView.layer.shadowRadius = 5
+        insetView.layer.shadowOffset = CGSize.init(width: 2, height: 2)
+        insetView.layer.shadowOpacity = 0.3
     }
     
 }

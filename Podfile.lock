@@ -3,6 +3,17 @@ PODS:
   - Charts (3.3.0):
     - Charts/Core (= 3.3.0)
   - Charts/Core (3.3.0)
+  - MaterialComponents/Palettes (88.0.1)
+  - MaterialComponents/private/Math (88.0.1)
+  - MaterialComponents/ProgressView (88.0.1):
+    - MaterialComponents/Palettes
+    - MaterialComponents/private/Math
+    - MDFInternationalization
+    - MotionAnimator (~> 2.1)
+  - MDFInternationalization (2.0.0)
+  - MotionAnimator (2.8.1):
+    - MotionInterchange (~> 1.6)
+  - MotionInterchange (1.6.0)
   - paper-onboarding (6.1.3)
   - SideMenu (6.2.4)
   - SwiftyStoreKit (0.15.0)
@@ -11,6 +22,7 @@ PODS:
 DEPENDENCIES:
   - BulletinBoard
   - Charts (~> 3.3.0)
+  - MaterialComponents/ProgressView
   - paper-onboarding (~> 6.1.3)
   - SideMenu (~> 6.0)
   - SwiftyStoreKit
@@ -20,6 +32,10 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - BulletinBoard
     - Charts
+    - MaterialComponents
+    - MDFInternationalization
+    - MotionAnimator
+    - MotionInterchange
     - paper-onboarding
     - SideMenu
     - SwiftyStoreKit
@@ -28,11 +44,15 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   BulletinBoard: 2e312814ff70f3af364a6dda3857a801f6d2adb6
   Charts: e0dd4cd8f257bccf98407b58183ddca8e8d5b578
+  MaterialComponents: e98245f7a1a9802fe442fa4d1f3acbb727ece9ec
+  MDFInternationalization: 010097556d6b09d2c4ea38e0820ea6d37be6a314
+  MotionAnimator: ee16aa30567c5bae0fb2750c132915829cfaaf8a
+  MotionInterchange: ead0e3ae1f3a5fb539e289debbc7ae036160a10d
   paper-onboarding: 47ded9ede6ae9dd7ec135dddd8bd3e170b79d799
   SideMenu: 60c9be9452d0756c3e723f9e508abb028e138361
   SwiftyStoreKit: 033d06b6f87955405d3f844a18a7687c2438592a
   ValueCoding: b094fc6c260d6abad7ea0848344a6dd78a1269a4
 
-PODFILE CHECKSUM: bef3a1ed7b28523dc4b092198abc887be095d0e3
+PODFILE CHECKSUM: 28080fc0144df773956d52c72b4d6667148fff2b
 
 COCOAPODS: 1.7.4

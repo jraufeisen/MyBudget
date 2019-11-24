@@ -472,6 +472,44 @@ class Model: NSObject {
         
     }
     
+    //MARK: Initial budget
+    
+    
+    /// Checks, if there is any relevant data
+    func ledgerFileIsEssentialyEmpty() -> Bool {
+        guard transactions().isEmpty else {
+            return false
+        }
+        guard getAllAccountNames().isEmpty else {
+            return false
+        }
+        
+        return true
+    }
+    
+    /// Save initial budget distribution to ledger.
+    /// This method returns silently without any effect, if there are already saved transactions or accounts in the ledger file.
+    /// - Parameters:
+    ///   - accounts: The user's accounts added during onboarding process
+    ///   - categories: The user's budget categories added during onboarding process
+    func createInitialBudget(accounts: [OnboardingAccountViewable], categories: [CategorySelectable]) {
+        
+        // Dont overwrite anything that already exists!
+        guard ledgerFileIsEssentialyEmpty() else {
+            return
+        }
+        
+        for account in accounts {
+            addBankingAccount(name: account.name , balance: account.money)
+        }
+        
+        for category in categories {
+            addBudgetCategory(name: category.name, balance: category.assignedMoney)
+        }
+        
+        
+    }
+    
     
 }
 

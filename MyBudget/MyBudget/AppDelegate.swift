@@ -38,7 +38,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         ServerReceiptValidator().updateExpirationDate()
 
-        
         // Prepare for UI Test and copy example data
         if ProcessInfo.processInfo.arguments.contains("UITests") {
             UIApplication.shared.keyWindow?.layer.speed = 100
@@ -50,15 +49,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Communication with watch app
         WatchSessionManager.sharedManager.startSession()
 
+        // Onboarding
+        if Model.shared.ledgerFileIsEssentialyEmpty() {
+            let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "onboardMainVCID") as! OnboardingMainViewController
+            vc.delegate = self
+            window?.rootViewController = vc
+        }
+
         
         return true
     }
 
-    
     func applicationWillEnterForeground(_ application: UIApplication) {
         ServerReceiptValidator().updateExpirationDate()
     }
 
-
 }
 
+extension AppDelegate: OnboardingDelegate {
+    func didFinishOnboarding() {
+        let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController()
+        window?.rootViewController = vc
+    }
+}
