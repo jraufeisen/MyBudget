@@ -65,7 +65,7 @@ class IncomeTransaction: Transaction {
         postings.append(Posting.init(account: Account.bankingAccount(named: account), value: value.decimal.storage.decimalValue))
         postings.append(Posting.init(account: Account.incomeAccount(), value: -value.decimal.storage.decimalValue))
 
-        return LedgerTransaction.init(name: transactionDescription, date: date, postings: postings)
+        return LedgerTransaction.init(name: transactionDescription, date: date, postings: postings, tags: tags)
     }
     
     func ledgerString() -> String {
@@ -128,7 +128,7 @@ class ExpenseTransaction: Transaction {
         postings.append(Posting.init(account: Account.expensesAccount(for: category) , value: value.decimal.storage.decimalValue))
         postings.append(Posting.init(account: Account.antiBudgetAccount(for: category), value: value.decimal.storage.decimalValue))
 
-        return LedgerTransaction.init(name: transactionDescription, date: date, postings: postings)
+        return LedgerTransaction.init(name: transactionDescription, date: date, postings: postings, tags: tags)
     }
 
    
@@ -187,7 +187,7 @@ class TransferTransaction: Transaction {
         postings.append(Posting.init(account: Account.bankingAccount(named: fromAccount), value: -value.decimal.storage.decimalValue))
         postings.append(Posting.init(account: Account.bankingAccount(named: toAccount), value: value.decimal.storage.decimalValue))
 
-        return LedgerTransaction.init(name: transactionDescription, date: date, postings: postings)
+        return LedgerTransaction.init(name: transactionDescription, date: date, postings: postings, tags: tags)
     }
 
 }
