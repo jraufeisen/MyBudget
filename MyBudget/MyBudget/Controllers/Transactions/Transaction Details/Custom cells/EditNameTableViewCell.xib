@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -13,12 +13,12 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ryh-wB-sSe" id="dJo-0h-08P">
-                <rect key="frame" x="0.0" y="0.0" width="382.5" height="70"/>
+                <rect key="frame" x="0.0" y="0.0" width="383" height="70"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sKO-1n-pxF" customClass="RoundedCornerView" customModule="Budget_" customModuleProvider="target">
                         <rect key="frame" x="20" y="11" width="48" height="48"/>
-                        <color key="backgroundColor" systemColor="tertiarySystemFillColor" red="0.46274509803921571" green="0.46274509803921571" blue="0.50196078431372548" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="tertiarySystemFillColor" red="0.46274509800000002" green="0.46274509800000002" blue="0.50196078430000002" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="sKO-1n-pxF" secondAttribute="height" multiplier="1:1" id="CNu-ne-pV9"/>
                             <constraint firstAttribute="width" constant="48" id="Yn4-n8-mmr"/>
@@ -31,14 +31,14 @@
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Ko-5u-Vji">
                         <rect key="frame" x="28" y="19" width="32" height="32"/>
-                        <color key="tintColor" systemColor="systemGrayColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="32" id="FEP-aH-bcX"/>
                             <constraint firstAttribute="width" secondItem="8Ko-5u-Vji" secondAttribute="height" multiplier="1:1" id="nDv-95-JUO"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hr9-qf-WHL">
-                        <rect key="frame" x="88" y="11" width="274.5" height="21"/>
+                        <rect key="frame" x="88" y="11" width="275" height="21"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -51,8 +51,10 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="Hr9-qf-WHL" firstAttribute="top" secondItem="sKO-1n-pxF" secondAttribute="top" id="0IL-Nf-b2P"/>
+                    <constraint firstItem="sKO-1n-pxF" firstAttribute="top" relation="greaterThanOrEqual" secondItem="dJo-0h-08P" secondAttribute="top" constant="11" id="2vq-yx-XVe"/>
                     <constraint firstItem="8Ko-5u-Vji" firstAttribute="width" secondItem="8Ko-5u-Vji" secondAttribute="height" multiplier="1:1" id="7WT-9U-Ge9"/>
                     <constraint firstItem="8Ko-5u-Vji" firstAttribute="centerY" secondItem="sKO-1n-pxF" secondAttribute="centerY" id="JOa-FC-zo6"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="sKO-1n-pxF" secondAttribute="bottom" constant="11" id="Jqj-TZ-2Mv"/>
                     <constraint firstItem="Hr9-qf-WHL" firstAttribute="leading" secondItem="sKO-1n-pxF" secondAttribute="trailing" constant="20" id="NW9-c5-9tf"/>
                     <constraint firstItem="sKO-1n-pxF" firstAttribute="centerY" secondItem="dJo-0h-08P" secondAttribute="centerY" id="XS8-Rn-N3M"/>
                     <constraint firstAttribute="trailing" secondItem="Hr9-qf-WHL" secondAttribute="trailing" constant="20" id="eDT-Qz-83p"/>

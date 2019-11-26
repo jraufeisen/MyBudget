@@ -29,14 +29,22 @@ class ExpenseDetailTableViewController: TransactionDetailBaseTableViewController
     private var accountCell: EditAccountTableViewCell?
     private var categoryCell: EditCategoryTableViewCell?
     
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 6
     }
+    
+  /*  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 5 {
+            return EditTagsTableViewCell.PreferredHeight
+        }
+
+        return 66
+    }*/
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
@@ -67,6 +75,17 @@ class ExpenseDetailTableViewController: TransactionDetailBaseTableViewController
             categoryCell = cell
             categoryCell?.textfield.text = transaction.category
             cell.colorStyle = .expense
+            return cell
+        } else if indexPath.row == 5 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: EditTagsTableViewCell.Identifier, for: indexPath) as! EditTagsTableViewCell
+
+            cell.colorStyle = .expense
+            cell.tagField.onDidChangeHeightTo = { (field, height) in
+                self.tableView.beginUpdates()
+                self.tableView.endUpdates()
+
+            }
+            
             return cell
         }
 

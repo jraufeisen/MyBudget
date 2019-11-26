@@ -12,14 +12,15 @@ target 'MyBudget' do
 	pod 'ValueCoding', '~> 3.0.0'
 	
 	source 'https://github.com/CocoaPods/Specs.git'
-	pod 'SideMenu', '~> 6.0'
+	pod 'SideMenu', '6.4.7'
 	
-	pod 'paper-onboarding', '~> 6.1.3'
+	pod 'paper-onboarding', '6.1.3'
 	
-	pod 'SwiftyStoreKit'
-	pod 'BulletinBoard'
+	pod 'SwiftyStoreKit', '0.15.0'
+	pod 'BulletinBoard', '4.0.0'
 	pod 'Charts', '~> 3.3.0'
-	pod 'MaterialComponents/ProgressView'
+	pod 'MaterialComponents/ProgressView', '88.0.1'
+	pod "WSTagsField", '5.2.0'
 end
 
  

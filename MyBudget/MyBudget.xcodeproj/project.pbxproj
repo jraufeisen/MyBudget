@@ -21,6 +21,8 @@
 		EB09FC95231D57110063FB90 /* KeychainItemAccessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB09FC93231D56F50063FB90 /* KeychainItemAccessibility.swift */; };
 		EB09FC97231D5D830063FB90 /* SubscriptionFloaty.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB09FC96231D5D830063FB90 /* SubscriptionFloaty.swift */; };
 		EB0A1BB7237DEF33001678F3 /* OnboardingAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0A1BB6237DEF33001678F3 /* OnboardingAccountTableViewCell.swift */; };
+		EB0E2247238D8BC800536039 /* EditTagsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0E2245238D8BC800536039 /* EditTagsTableViewCell.swift */; };
+		EB0E2248238D8BC800536039 /* EditTagsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB0E2246238D8BC800536039 /* EditTagsTableViewCell.xib */; };
 		EB1BCBBC2305AD2A0023E11F /* NewAccountDiaryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1BCBBB2305AD2A0023E11F /* NewAccountDiaryProvider.swift */; };
 		EB203BF4230716CA008C9EE5 /* FileManager+DocDir.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB203BF3230716CA008C9EE5 /* FileManager+DocDir.swift */; };
 		EB205AE423660E920050130E /* PieChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB205AE223660E920050130E /* PieChartTableViewCell.swift */; };
@@ -247,6 +249,8 @@
 		EB09FC93231D56F50063FB90 /* KeychainItemAccessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainItemAccessibility.swift; sourceTree = "<group>"; };
 		EB09FC96231D5D830063FB90 /* SubscriptionFloaty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionFloaty.swift; sourceTree = "<group>"; };
 		EB0A1BB6237DEF33001678F3 /* OnboardingAccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingAccountTableViewCell.swift; sourceTree = "<group>"; };
+		EB0E2245238D8BC800536039 /* EditTagsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTagsTableViewCell.swift; sourceTree = "<group>"; };
+		EB0E2246238D8BC800536039 /* EditTagsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditTagsTableViewCell.xib; sourceTree = "<group>"; };
 		EB1BCBBB2305AD2A0023E11F /* NewAccountDiaryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccountDiaryProvider.swift; sourceTree = "<group>"; };
 		EB203BF3230716CA008C9EE5 /* FileManager+DocDir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+DocDir.swift"; sourceTree = "<group>"; };
 		EB205AE223660E920050130E /* PieChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartTableViewCell.swift; sourceTree = "<group>"; };
@@ -889,6 +893,8 @@
 				EBE7FE4E233CC55F0088D156 /* EditAccountTableViewCell.xib */,
 				EBE7FE54233CC5C40088D156 /* EditCategoryTableViewCell.swift */,
 				EBE7FE53233CC5C40088D156 /* EditCategoryTableViewCell.xib */,
+				EB0E2245238D8BC800536039 /* EditTagsTableViewCell.swift */,
+				EB0E2246238D8BC800536039 /* EditTagsTableViewCell.xib */,
 			);
 			path = "Custom cells";
 			sourceTree = "<group>";
@@ -1126,6 +1132,7 @@
 				EBD012E922E9AD5000F8126D /* euro.png in Resources */,
 				EBE7FE56233CC9890088D156 /* EditCategoryTableViewCell.xib in Resources */,
 				EBE7FE48233CC5350088D156 /* EditDateTableViewCell.xib in Resources */,
+				EB0E2248238D8BC800536039 /* EditTagsTableViewCell.xib in Resources */,
 				EBFF078D22E9B4BA00CC7215 /* NewAccountCell.xib in Resources */,
 				EBE7FE50233CC55F0088D156 /* EditAccountTableViewCell.xib in Resources */,
 				EB51875A23216C1A0052D6B7 /* finances_example.txt in Resources */,
@@ -1293,6 +1300,7 @@
 				EBAE2ED92364A37100040980 /* BudgetTableHeaderView.swift in Sources */,
 				EB399D7F2323088100CA0BD8 /* WatchSessionManager.swift in Sources */,
 				EBDA26CD22F6FDCC0073DC50 /* IncomeStatementPercentView.swift in Sources */,
+				EB0E2247238D8BC800536039 /* EditTagsTableViewCell.swift in Sources */,
 				EBE7FE4F233CC55F0088D156 /* EditAccountTableViewCell.swift in Sources */,
 				EBD012E022E9974700F8126D /* DiaryTextView.swift in Sources */,
 				EBAE2EDE2364AB3600040980 /* BudgetTableHeaderViewController.swift in Sources */,
