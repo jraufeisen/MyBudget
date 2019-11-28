@@ -118,6 +118,7 @@ class ExpenseTransaction: Transaction {
     func ledgerTransaction() -> LedgerTransaction {
         var postings = [Posting]()
         /*
+         ; Tag1
          Assets:Banking:Savings      -3.33 EUR
          Assets:Budget:Groceries      -3.33 EUR
          Expenses:Groceries      3.33 EUR

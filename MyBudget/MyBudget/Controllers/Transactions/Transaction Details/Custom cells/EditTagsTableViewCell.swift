@@ -12,13 +12,18 @@ import WSTagsField
 class EditTagsTableViewCell: UITableViewCell {
 
     static let Identifier = "EditTagsTableViewCell"
-
     static let PreferredHeight: CGFloat = 66
     
     @IBOutlet weak var tagField: WSTagsField!
     @IBOutlet weak var symbolImageView: UIImageView!
     @IBOutlet weak var symbolBackgroundView: RoundedCornerView!
-
+    
+    var tags = [String]() {
+        didSet {
+            loadTagsInTagField()
+        }
+    }
+    
     var colorStyle: EditTransactionDetailsCellStyles = .gray {
         didSet {
             symbolImageView.tintColor = colorStyle.primaryColor()
@@ -45,6 +50,13 @@ class EditTagsTableViewCell: UITableViewCell {
         
     }
 
+    private func loadTagsInTagField() {
+        for tag in tags {
+            if !tagField.tags.contains(WSTag.init(tag)) { // Prevent duplicates in tagField.tags (although not reaally necesary)
+                tagField.addTags(tags) // Updating the UI here.
+            }
+        }
+    }
     
     private func setupTagField() {
         tagField.layoutMargins = UIEdgeInsets(top: 2, left: 6, bottom: 2, right: 6)
@@ -60,7 +72,6 @@ class EditTagsTableViewCell: UITableViewCell {
             tagField.textColor = .label
             tagField.fieldTextColor = .label
             tagField.placeholderColor = .placeholderText
-
         }
         tagField.selectedColor = colorStyle.secondaryColor()
         tagField.placeholder = "Add tags..."
@@ -68,6 +79,21 @@ class EditTagsTableViewCell: UITableViewCell {
         tagField.returnKeyType = .done
         tagField.textDelegate = self
         tagField.acceptTagOption = .return
+        
+        tagField.onDidAddTag = { (field, tag) in
+            print("I added tag \(tag.text)")
+            if self.tags.firstIndex(of: tag.text) == nil { // Prevent duplicates in sef.tags
+                self.tags.append(tag.text)
+            }
+        }
+        
+        tagField.onDidRemoveTag = { (field, tag) in
+            if let existingIndex = self.tags.firstIndex(of: tag.text) {
+                print("I removed \(tag.text)")
+                self.tags.remove(at: existingIndex)
+            }
+        }
+        
     }
 
     
