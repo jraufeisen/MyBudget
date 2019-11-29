@@ -94,6 +94,8 @@ class ExpenseDetailTableViewController: TransactionDetailBaseTableViewController
         }
     }
     
+   
+    
     override func pressedSave() {
         guard let accountName = accountCell?.selectedAccount() else {return}
         guard let categoryName = categoryCell?.selectedCategory() else {return}

@@ -12,7 +12,6 @@ import WSTagsField
 class EditTagsTableViewCell: UITableViewCell {
 
     static let Identifier = "EditTagsTableViewCell"
-    static let PreferredHeight: CGFloat = 66
     
     @IBOutlet weak var tagField: WSTagsField!
     @IBOutlet weak var symbolImageView: UIImageView!
@@ -48,6 +47,12 @@ class EditTagsTableViewCell: UITableViewCell {
         selectionStyle = .none
         setupTagField()
         
+        if #available(iOS 13.0, *) {
+            symbolImageView.image = UIImage.init(systemName: "tag") // SF symbols only available since iOS 13
+        } else {
+            symbolImageView.image = nil
+        }
+        
     }
 
     private func loadTagsInTagField() {
@@ -74,14 +79,13 @@ class EditTagsTableViewCell: UITableViewCell {
             tagField.placeholderColor = .placeholderText
         }
         tagField.selectedColor = colorStyle.secondaryColor()
-        tagField.placeholder = "Add tags..."
+        tagField.placeholder = "Add tags here..."
         tagField.placeholderAlwaysVisible = true
         tagField.returnKeyType = .done
         tagField.textDelegate = self
         tagField.acceptTagOption = .return
         
         tagField.onDidAddTag = { (field, tag) in
-            print("I added tag \(tag.text)")
             if self.tags.firstIndex(of: tag.text) == nil { // Prevent duplicates in sef.tags
                 self.tags.append(tag.text)
             }
@@ -89,17 +93,14 @@ class EditTagsTableViewCell: UITableViewCell {
         
         tagField.onDidRemoveTag = { (field, tag) in
             if let existingIndex = self.tags.firstIndex(of: tag.text) {
-                print("I removed \(tag.text)")
                 self.tags.remove(at: existingIndex)
             }
         }
         
     }
 
-    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
     
 }
