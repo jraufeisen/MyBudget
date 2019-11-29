@@ -98,6 +98,7 @@
 		EB985CBA22EC6B5800C033E8 /* FloatyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CB022EC6B2300C033E8 /* FloatyViewController.swift */; };
 		EB985CBB22EC6B5800C033E8 /* Floaty.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CB122EC6B2300C033E8 /* Floaty.swift */; };
 		EB985CBD22EC74F800C033E8 /* String+OnlyDigits.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CBC22EC74F800C033E8 /* String+OnlyDigits.swift */; };
+		EB99444D2391C9D80026457E /* TransactionSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99444C2391C9D80026457E /* TransactionSearchTableViewController.swift */; };
 		EB9DEBD222E9E02800A73FD1 /* AccountAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD122E9E02800A73FD1 /* AccountAccessoryView.swift */; };
 		EB9DEBD422E9E5C400A73FD1 /* UITextField+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */; };
 		EB9DEBD622E9F00600A73FD1 /* CategoryAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD522E9F00600A73FD1 /* CategoryAccessoryView.swift */; };
@@ -327,6 +328,7 @@
 		EB985CB222EC6B2300C033E8 /* FloatyDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatyDelegate.swift; sourceTree = "<group>"; };
 		EB985CB322EC6B2E00C033E8 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		EB985CBC22EC74F800C033E8 /* String+OnlyDigits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+OnlyDigits.swift"; sourceTree = "<group>"; };
+		EB99444C2391C9D80026457E /* TransactionSearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSearchTableViewController.swift; sourceTree = "<group>"; };
 		EB9DEBD122E9E02800A73FD1 /* AccountAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAccessoryView.swift; sourceTree = "<group>"; };
 		EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Placeholder.swift"; sourceTree = "<group>"; };
 		EB9DEBD522E9F00600A73FD1 /* CategoryAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAccessoryView.swift; sourceTree = "<group>"; };
@@ -713,6 +715,7 @@
 			isa = PBXGroup;
 			children = (
 				EBB21C8223055530004E4E8F /* TransactionsViewController.swift */,
+				EB99444C2391C9D80026457E /* TransactionSearchTableViewController.swift */,
 				EB5E67392391879200CACD82 /* TransactionSearchData.swift */,
 				EBE7FE35233CBC0A0088D156 /* Transaction Details */,
 			);
@@ -1294,6 +1297,7 @@
 				EBC59D5122E750DC00E626DC /* BudgetTableViewController.swift in Sources */,
 				EB5C600922F32417004F81CF /* TextAnimation.swift in Sources */,
 				EB4F78A12319B37D0045077E /* FeedbackGenerators.swift in Sources */,
+				EB99444D2391C9D80026457E /* TransactionSearchTableViewController.swift in Sources */,
 				EBC59D3F22E7503900E626DC /* AppDelegate.swift in Sources */,
 				EBC59D5322E750E900E626DC /* Model.swift in Sources */,
 				EB35EDE8233E0E6100C58683 /* TransactionDetailBaseTableViewController.swift in Sources */,

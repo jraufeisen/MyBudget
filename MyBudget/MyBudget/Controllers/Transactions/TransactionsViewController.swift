@@ -100,25 +100,44 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         return 70
     }
 
     @IBOutlet weak var tableView: UITableView!
     
-    let search = UISearchController.init(searchResultsController: nil)
-
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchFilter = "" // No filter at start
-        search.searchResultsUpdater = self
-        search.obscuresBackgroundDuringPresentation = false
-        search.searchBar.placeholder = "Search all transactions"
-        search.searchBar.sizeToFit()
-        search.delegate = self
-        navigationItem.searchController = search
+        
+        let resultsVC = TransactionSearchTableViewController.instantiate()
+        let searchController = UISearchController.init(searchResultsController: resultsVC)
+        searchController.searchResultsUpdater = resultsVC
+        searchController.searchBar.backgroundColor = .clear
+        extendedLayoutIncludesOpaqueBars = true
+        if #available(iOS 13.0, *) {
+            searchController.automaticallyShowsSearchResultsController = true
+            searchController.automaticallyShowsScopeBar = true
+            searchController.searchBar.scopeButtonTitles = ["A", "B"]
+        }
+       // searchController.hidesNavigationBarDuringPresentation = false
+        searchController.obscuresBackgroundDuringPresentation = true
+        searchController.delegate = self
+
+        definesPresentationContext = true
+
+        navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = true
+
+        
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateModel), name: ModelChangedNotification, object: nil)
 
         // Update transaction data, when the view is loaded for the first time
@@ -128,35 +147,11 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     }
 }
 
-extension TransactionsViewController: UISearchResultsUpdating, SearchOptionDelegate, UISearchControllerDelegate {
-    func updateSearchResults(for searchController: UISearchController) {
-        //guard let searchText = searchController.searchBar.text else {return}
-        //self.searchFilter = searchText
-        if searchController.searchBar.isFirstResponder {
-            TransactionSearchData.shared.delegate = self
-            tableView.dataSource = TransactionSearchData.shared
-            tableView.delegate = TransactionSearchData.shared
-            tableView.reloadData()
-        }
-    }
+extension TransactionsViewController: UISearchControllerDelegate {
     
-    func willDismissSearchController(_ searchController: UISearchController) {
-        DispatchQueue.main.async {
-            self.tableView.dataSource = self
-            self.tableView.delegate = self
-            self.tableView.reloadData()
-
-        }
-
+    func didPresentSearchController(_ searchController: UISearchController) {
+        searchController.view.sizeToFit()
+        searchController.searchResultsController?.view.isHidden = false
+        navigationController?.navigationBar.sizeToFit()
     }
-    
-    func didSelectSearchOption() {
-        DispatchQueue.main.async {
-            self.tableView.dataSource = self
-            self.tableView.delegate = self
-            self.tableView.reloadData()
-
-        }
-    }
-    
 }
