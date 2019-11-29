@@ -116,6 +116,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
         search.obscuresBackgroundDuringPresentation = false
         search.searchBar.placeholder = "Search all transactions"
         search.searchBar.sizeToFit()
+        search.delegate = self
         navigationItem.searchController = search
         navigationItem.hidesSearchBarWhenScrolling = true
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateModel), name: ModelChangedNotification, object: nil)
@@ -127,11 +128,35 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     }
 }
 
-extension TransactionsViewController: UISearchResultsUpdating {
+extension TransactionsViewController: UISearchResultsUpdating, SearchOptionDelegate, UISearchControllerDelegate {
     func updateSearchResults(for searchController: UISearchController) {
-        guard let searchText = searchController.searchBar.text else {return}
-        self.searchFilter = searchText
+        //guard let searchText = searchController.searchBar.text else {return}
+        //self.searchFilter = searchText
+        if searchController.searchBar.isFirstResponder {
+            TransactionSearchData.shared.delegate = self
+            tableView.dataSource = TransactionSearchData.shared
+            tableView.delegate = TransactionSearchData.shared
+            tableView.reloadData()
+        }
     }
     
+    func willDismissSearchController(_ searchController: UISearchController) {
+        DispatchQueue.main.async {
+            self.tableView.dataSource = self
+            self.tableView.delegate = self
+            self.tableView.reloadData()
+
+        }
+
+    }
+    
+    func didSelectSearchOption() {
+        DispatchQueue.main.async {
+            self.tableView.dataSource = self
+            self.tableView.delegate = self
+            self.tableView.reloadData()
+
+        }
+    }
     
 }
