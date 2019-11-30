@@ -102,6 +102,8 @@
 		EB9DEBD422E9E5C400A73FD1 /* UITextField+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */; };
 		EB9DEBD622E9F00600A73FD1 /* CategoryAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD522E9F00600A73FD1 /* CategoryAccessoryView.swift */; };
 		EBA192222304829E00DA9308 /* MonthlyAverageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA192212304829E00DA9308 /* MonthlyAverageViewController.swift */; };
+		EBA9749C2392AB2C00CA6EA4 /* TokenSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA9749B2392AB2C00CA6EA4 /* TokenSearchController.swift */; };
+		EBA9749E2392AB4200CA6EA4 /* TokenSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA9749D2392AB4200CA6EA4 /* TokenSearchBar.swift */; };
 		EBAE2ED92364A37100040980 /* BudgetTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAE2ED82364A37100040980 /* BudgetTableHeaderView.swift */; };
 		EBAE2EDE2364AB3600040980 /* BudgetTableHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAE2EDD2364AB3600040980 /* BudgetTableHeaderViewController.swift */; };
 		EBB21C8023054E70004E4E8F /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB21C7F23054E70004E4E8F /* TabbarViewController.swift */; };
@@ -331,6 +333,8 @@
 		EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Placeholder.swift"; sourceTree = "<group>"; };
 		EB9DEBD522E9F00600A73FD1 /* CategoryAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAccessoryView.swift; sourceTree = "<group>"; };
 		EBA192212304829E00DA9308 /* MonthlyAverageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyAverageViewController.swift; sourceTree = "<group>"; };
+		EBA9749B2392AB2C00CA6EA4 /* TokenSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenSearchController.swift; sourceTree = "<group>"; };
+		EBA9749D2392AB4200CA6EA4 /* TokenSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenSearchBar.swift; sourceTree = "<group>"; };
 		EBAE2ED82364A37100040980 /* BudgetTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTableHeaderView.swift; sourceTree = "<group>"; };
 		EBAE2EDD2364AB3600040980 /* BudgetTableHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTableHeaderViewController.swift; sourceTree = "<group>"; };
 		EBB21C7F23054E70004E4E8F /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
@@ -714,6 +718,8 @@
 			children = (
 				EBB21C8223055530004E4E8F /* TransactionsViewController.swift */,
 				EB99444C2391C9D80026457E /* TransactionSearchTableViewController.swift */,
+				EBA9749B2392AB2C00CA6EA4 /* TokenSearchController.swift */,
+				EBA9749D2392AB4200CA6EA4 /* TokenSearchBar.swift */,
 				EBE7FE35233CBC0A0088D156 /* Transaction Details */,
 			);
 			path = Transactions;
@@ -1272,6 +1278,7 @@
 				EB4F7895231968860045077E /* ServerReceiptValidatorReceiptValidator.swift in Sources */,
 				EBF560FB2305F06C00E850E7 /* NewBudgetCategoryDiaryProvider.swift in Sources */,
 				EBEB8B1C23145D5C009F65B8 /* NewAccountViewController.swift in Sources */,
+				EBA9749C2392AB2C00CA6EA4 /* TokenSearchController.swift in Sources */,
 				EB4F78A52319B3CA0045077E /* SubcriptionTypeBulletinItem.swift in Sources */,
 				EBF5700323843B1E00CF5600 /* OnboardingBudgetTableViewCell.swift in Sources */,
 				EBD012EE22E9B22100F8126D /* CategoryTableView.swift in Sources */,
@@ -1300,6 +1307,7 @@
 				EB35EDE8233E0E6100C58683 /* TransactionDetailBaseTableViewController.swift in Sources */,
 				EB4F78A32319B3BA0045077E /* CollectionUtilities.swift in Sources */,
 				EBD4649523671AA20004F900 /* PieChartCard.swift in Sources */,
+				EBA9749E2392AB4200CA6EA4 /* TokenSearchBar.swift in Sources */,
 				EB205AE423660E920050130E /* PieChartTableViewCell.swift in Sources */,
 				EBAE2ED92364A37100040980 /* BudgetTableHeaderView.swift in Sources */,
 				EB399D7F2323088100CA0BD8 /* WatchSessionManager.swift in Sources */,

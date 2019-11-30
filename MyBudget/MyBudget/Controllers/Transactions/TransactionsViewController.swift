@@ -23,8 +23,21 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var tableView: UITableView!
     var searchController: UISearchController?
 
-
+    private var searchPredicate: NSPredicate = NSPredicate.init(value: true) {
+        didSet {
+            updateSearchResults()
+            self.tableView.reloadData()
+        }
+    }
+    
     private func updateSearchResults() {
+        // In iOS 13 we use nspredicate from TransactionSearchSuggestions
+        if #available(iOS 13.0, *) {
+            filteredTransactions = transactions.filter { searchPredicate.evaluate(with: $0) }
+            
+            return
+        }
+        
         if searchFilter == "" {
             filteredTransactions = transactions
         } else {
@@ -121,13 +134,17 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         searchFilter = "" // No filter at start
         
-        let resultsVC = TransactionSearchTableViewController.instantiate()
-        resultsVC.delegate = self
-        searchController = UISearchController.init(searchResultsController: resultsVC)
-        searchController?.searchResultsUpdater = resultsVC
-        searchController?.delegate = self
-        searchController?.obscuresBackgroundDuringPresentation = false
-        navigationItem.searchController = searchController
+        if #available(iOS 13.0, *) {
+            let resultsVC = TransactionSearchTableViewController.instantiate()
+            resultsVC.delegate = self
+            searchController = TokenSearchController.init(searchResultsController: resultsVC)
+            searchController?.searchResultsUpdater = resultsVC
+            searchController?.delegate = self
+            searchController?.obscuresBackgroundDuringPresentation = false
+            navigationItem.searchController = searchController
+        } else {
+            // TODO: Add old search functionalty for iOS 12
+        }
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateModel), name: ModelChangedNotification, object: nil)
 
@@ -203,19 +220,38 @@ extension TransactionsViewController: UISearchControllerDelegate {
     }
 }
 
+
 extension TransactionsViewController: SearchOptionDelegate {
+  
     func didResumeSearch() {
         if #available(iOS 13.0, *) {
             searchController?.showsSearchResultsController = true
         }
     }
-        
-    func didSelectSearchOption() {
-        // Make result vc transparent and show partial search results
-        if #available(iOS 13.0, *) {
-            searchController?.showsSearchResultsController = false
+            
+    @available(iOS 13.0, *)
+    func didSelectSearchOption(option: TransactionSearchSuggestion) {
+        guard let searchController = searchController as? TokenSearchController else {
+            return
         }
+        // First, add token to sarchfield
+        searchController.searchBar.addToken(token: option.searchToken, for: option.predicate)
+        
+        // Then, Update search results
+        searchPredicate = searchController.searchBar.completePredicate()
+        
+        // Last, Make result vc transparent and show partial search results
+        searchController.showsSearchResultsController = false
+
     }
     
-
+    @available(iOS 13.0, *)
+    func textChanged() {
+        guard let searchController = searchController as? TokenSearchController else {
+            return
+        }
+        // Update search results
+        searchPredicate = searchController.searchBar.completePredicate()
+    }
+    
 }
