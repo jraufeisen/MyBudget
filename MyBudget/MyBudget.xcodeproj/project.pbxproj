@@ -84,6 +84,9 @@
 		EB6EF9FF2323B84A00294846 /* Model+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EF9FE2323B84A00294846 /* Model+iOS.swift */; };
 		EB6EFA012323B8AE00294846 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145A22E8AD7300291435 /* Transaction.swift */; };
 		EB6EFA022323B9CB00294846 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB399D742323075400CA0BD8 /* Interface.storyboard */; };
+		EB712A8C239305B400A7ABBD /* TotalStatementCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB712A862393045000A7ABBD /* TotalStatementCard.xib */; };
+		EB712A8E2393061D00A7ABBD /* TransactionSearchResultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB712A842392FFF800A7ABBD /* TransactionSearchResultHeaderView.swift */; };
+		EB712A8F2393068300A7ABBD /* TotalStatementCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB712A872393045000A7ABBD /* TotalStatementCard.swift */; };
 		EB722420237B4E6D001DA694 /* OnboardingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB72241F237B4E6D001DA694 /* OnboardingMainViewController.swift */; };
 		EB8472892306AA4400DCD330 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EB8472882306AA4400DCD330 /* Settings.bundle */; };
 		EB8EB60623687402002E305D /* IncomeStatementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8EB60423687402002E305D /* IncomeStatementTableViewCell.swift */; };
@@ -316,6 +319,9 @@
 		EB5CADB622F55DC600205AC8 /* AccountTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
 		EB668B9D22EF2DDE0082D54B /* MaterialComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MaterialComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB6EF9FE2323B84A00294846 /* Model+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Model+iOS.swift"; sourceTree = "<group>"; };
+		EB712A842392FFF800A7ABBD /* TransactionSearchResultHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSearchResultHeaderView.swift; sourceTree = "<group>"; };
+		EB712A862393045000A7ABBD /* TotalStatementCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TotalStatementCard.xib; sourceTree = "<group>"; };
+		EB712A872393045000A7ABBD /* TotalStatementCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalStatementCard.swift; sourceTree = "<group>"; };
 		EB72241F237B4E6D001DA694 /* OnboardingMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingMainViewController.swift; sourceTree = "<group>"; };
 		EB8472882306AA4400DCD330 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = SOURCE_ROOT; };
 		EB8EB60423687402002E305D /* IncomeStatementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeStatementTableViewCell.swift; sourceTree = "<group>"; };
@@ -655,6 +661,35 @@
 			path = Menu;
 			sourceTree = "<group>";
 		};
+		EB712A892393046200A7ABBD /* Search Results Header */ = {
+			isa = PBXGroup;
+			children = (
+				EB712A842392FFF800A7ABBD /* TransactionSearchResultHeaderView.swift */,
+				EB712A872393045000A7ABBD /* TotalStatementCard.swift */,
+				EB712A862393045000A7ABBD /* TotalStatementCard.xib */,
+			);
+			path = "Search Results Header";
+			sourceTree = "<group>";
+		};
+		EB712A8A2393047500A7ABBD /* Custom UISearchController */ = {
+			isa = PBXGroup;
+			children = (
+				EBA9749B2392AB2C00CA6EA4 /* TokenSearchController.swift */,
+				EBA9749D2392AB4200CA6EA4 /* TokenSearchBar.swift */,
+			);
+			path = "Custom UISearchController";
+			sourceTree = "<group>";
+		};
+		EB712A8B2393049000A7ABBD /* Search Suggestions */ = {
+			isa = PBXGroup;
+			children = (
+				EB99444C2391C9D80026457E /* TransactionSearchTableViewController.swift */,
+				EB57E8222392C9DD00A9A01D /* SearchSuggestionTableViewCell.swift */,
+				EB57E8232392C9DD00A9A01D /* SearchSuggestionTableViewCell.xib */,
+			);
+			path = "Search Suggestions";
+			sourceTree = "<group>";
+		};
 		EB72241E237B4E3A001DA694 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -721,11 +756,9 @@
 			isa = PBXGroup;
 			children = (
 				EBB21C8223055530004E4E8F /* TransactionsViewController.swift */,
-				EB99444C2391C9D80026457E /* TransactionSearchTableViewController.swift */,
-				EBA9749B2392AB2C00CA6EA4 /* TokenSearchController.swift */,
-				EBA9749D2392AB4200CA6EA4 /* TokenSearchBar.swift */,
-				EB57E8222392C9DD00A9A01D /* SearchSuggestionTableViewCell.swift */,
-				EB57E8232392C9DD00A9A01D /* SearchSuggestionTableViewCell.xib */,
+				EB712A892393046200A7ABBD /* Search Results Header */,
+				EB712A8A2393047500A7ABBD /* Custom UISearchController */,
+				EB712A8B2393049000A7ABBD /* Search Suggestions */,
 				EBE7FE35233CBC0A0088D156 /* Transaction Details */,
 			);
 			path = Transactions;
@@ -1148,6 +1181,7 @@
 				EBE7FE56233CC9890088D156 /* EditCategoryTableViewCell.xib in Resources */,
 				EBE7FE48233CC5350088D156 /* EditDateTableViewCell.xib in Resources */,
 				EB0E2248238D8BC800536039 /* EditTagsTableViewCell.xib in Resources */,
+				EB712A8C239305B400A7ABBD /* TotalStatementCard.xib in Resources */,
 				EBFF078D22E9B4BA00CC7215 /* NewAccountCell.xib in Resources */,
 				EBE7FE50233CC55F0088D156 /* EditAccountTableViewCell.xib in Resources */,
 				EB51875A23216C1A0052D6B7 /* finances_example.txt in Resources */,
@@ -1251,6 +1285,7 @@
 				EB35EDEC233E100100C58683 /* TransferDetailTableViewController.swift in Sources */,
 				EB5C600C22F32960004F81CF /* MenuTableViewController.swift in Sources */,
 				EB09FC97231D5D830063FB90 /* SubscriptionFloaty.swift in Sources */,
+				EB712A8E2393061D00A7ABBD /* TransactionSearchResultHeaderView.swift in Sources */,
 				EBE7E2BC2321233500BEC812 /* Constants.swift in Sources */,
 				EB024C2522F35C5A00228855 /* MenuPresentingViewController.swift in Sources */,
 				EBE7FE55233CC5C40088D156 /* EditCategoryTableViewCell.swift in Sources */,
@@ -1313,6 +1348,7 @@
 				EBC59D5322E750E900E626DC /* Model.swift in Sources */,
 				EB35EDE8233E0E6100C58683 /* TransactionDetailBaseTableViewController.swift in Sources */,
 				EB4F78A32319B3BA0045077E /* CollectionUtilities.swift in Sources */,
+				EB712A8F2393068300A7ABBD /* TotalStatementCard.swift in Sources */,
 				EBD4649523671AA20004F900 /* PieChartCard.swift in Sources */,
 				EBA9749E2392AB4200CA6EA4 /* TokenSearchBar.swift in Sources */,
 				EB205AE423660E920050130E /* PieChartTableViewCell.swift in Sources */,

@@ -30,6 +30,34 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
+    private func reloadHeader() {
+        if searchController?.isActive == true {
+            let header = TransactionSearchResultHeaderView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 200))
+            
+            let totalIncome = filteredTransactions.reduce(0) { (result, tx) -> Money in
+                if let tx = tx as? IncomeTransaction {
+                    return result + tx.value
+                } else {
+                    return result
+                }
+            }
+            
+            let totalExpense = filteredTransactions.reduce(0) { (result, tx) -> Money in
+                if let tx = tx as? ExpenseTransaction {
+                    return result + tx.value
+                } else {
+                    return result
+                }
+            }
+            
+            header.addTotalCard(income: totalIncome, expense: totalExpense)
+            
+            tableView.tableHeaderView = header
+        } else {
+            tableView.tableHeaderView = nil
+        }
+    }
+    
     private func updateSearchResults() {
         // In iOS 13 we use nspredicate from TransactionSearchSuggestions
         if #available(iOS 13.0, *) {
@@ -209,7 +237,6 @@ extension TransactionsViewController: UISearchControllerDelegate {
         DispatchQueue.main.async {
             self.navigationController?.navigationBar.sizeToFit()
         }
-
         // Animate result tableview controller to become visible
         animateResultsVC()
 
@@ -217,7 +244,15 @@ extension TransactionsViewController: UISearchControllerDelegate {
     
     func didPresentSearchController(_ searchController: UISearchController) {
         self.navigationController?.navigationBar.sizeToFit()
+        reloadHeader()
     }
+    
+    func willDismissSearchController(_ searchController: UISearchController) {
+        DispatchQueue.main.async {
+            self.reloadHeader()
+        }
+    }
+    
 }
 
 
@@ -239,10 +274,12 @@ extension TransactionsViewController: SearchOptionDelegate {
         
         // Then, Update search results
         searchPredicate = searchController.searchBar.completePredicate()
+
+        // Manually update header view
+        reloadHeader()
         
         // Last, Make result vc transparent and show partial search results
         searchController.showsSearchResultsController = false
-
     }
     
     @available(iOS 13.0, *)
@@ -250,8 +287,12 @@ extension TransactionsViewController: SearchOptionDelegate {
         guard let searchController = searchController as? TokenSearchController else {
             return
         }
+
         // Update search results
         searchPredicate = searchController.searchBar.completePredicate()
+        
+        // Manually update header view
+        reloadHeader()
     }
     
 }

@@ -23,7 +23,6 @@ class TokenSearchBar: UISearchBar {
         var predicate: NSPredicate = NSPredicate.init(value: true)
         for token in searchTextField.tokens {
             if let newPredicate = predicateForToken[token] {
-                print(newPredicate)
                 predicate = NSCompoundPredicate.init(andPredicateWithSubpredicates: [predicate, newPredicate])
             }
         }
