@@ -124,8 +124,8 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
         extendedLayoutIncludesOpaqueBars = true
         if #available(iOS 13.0, *) {
             searchController.automaticallyShowsSearchResultsController = true
-            searchController.automaticallyShowsScopeBar = true
-            searchController.searchBar.scopeButtonTitles = ["A", "B"]
+           // searchController.automaticallyShowsScopeBar = true
+           // searchController.searchBar.scopeButtonTitles = ["A"]
         }
        // searchController.hidesNavigationBarDuringPresentation = false
         searchController.obscuresBackgroundDuringPresentation = true
@@ -149,9 +149,20 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
 
 extension TransactionsViewController: UISearchControllerDelegate {
     
+    func willPresentSearchController(_ searchController: UISearchController) {
+//        searchController.view.sizeToFit()
+  //      searchController.searchResultsController?.view.isHidden = false
+    //    navigationController?.navigationBar.sizeToFit()
+
+    }
+    
+    func presentSearchController(_ searchController: UISearchController) {
+        self.navigationController?.navigationBar.sizeToFit()
+    }
     func didPresentSearchController(_ searchController: UISearchController) {
-        searchController.view.sizeToFit()
+       // searchController.view.sizeToFit()
         searchController.searchResultsController?.view.isHidden = false
-        navigationController?.navigationBar.sizeToFit()
+        self.navigationController?.navigationBar.sizeToFit()
+      //  navigationController?.navigationBar.layer.removeAllAnimations()
     }
 }
