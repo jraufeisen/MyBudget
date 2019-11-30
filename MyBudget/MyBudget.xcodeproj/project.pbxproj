@@ -72,6 +72,8 @@
 		EB51875A23216C1A0052D6B7 /* finances_example.txt in Resources */ = {isa = PBXBuildFile; fileRef = EB51875923216C1A0052D6B7 /* finances_example.txt */; };
 		EB51875B232181C10052D6B7 /* finances_example.txt in Resources */ = {isa = PBXBuildFile; fileRef = EB51875923216C1A0052D6B7 /* finances_example.txt */; };
 		EB558EB722ECA3A200039651 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB558EB622ECA3A200039651 /* CloudKit.framework */; };
+		EB57E8242392C9DD00A9A01D /* SearchSuggestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB57E8222392C9DD00A9A01D /* SearchSuggestionTableViewCell.swift */; };
+		EB57E8252392C9DD00A9A01D /* SearchSuggestionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB57E8232392C9DD00A9A01D /* SearchSuggestionTableViewCell.xib */; };
 		EB582E7122F0A10D00422323 /* AddAccountsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB582E7022F0A10D00422323 /* AddAccountsViewController.swift */; };
 		EB582E7422F0ACC500422323 /* PercentFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB582E7322F0ACC500422323 /* PercentFillView.swift */; };
 		EB582E7622F0AE1800422323 /* Date+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB582E7522F0AE1800422323 /* Date+Utilities.swift */; };
@@ -303,6 +305,8 @@
 		EB51875923216C1A0052D6B7 /* finances_example.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = finances_example.txt; sourceTree = "<group>"; };
 		EB558EB522ECA39D00039651 /* MyBudget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyBudget.entitlements; sourceTree = "<group>"; };
 		EB558EB622ECA3A200039651 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		EB57E8222392C9DD00A9A01D /* SearchSuggestionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSuggestionTableViewCell.swift; sourceTree = "<group>"; };
+		EB57E8232392C9DD00A9A01D /* SearchSuggestionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchSuggestionTableViewCell.xib; sourceTree = "<group>"; };
 		EB582E7022F0A10D00422323 /* AddAccountsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountsViewController.swift; sourceTree = "<group>"; };
 		EB582E7322F0ACC500422323 /* PercentFillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentFillView.swift; sourceTree = "<group>"; };
 		EB582E7522F0AE1800422323 /* Date+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Utilities.swift"; sourceTree = "<group>"; };
@@ -720,6 +724,8 @@
 				EB99444C2391C9D80026457E /* TransactionSearchTableViewController.swift */,
 				EBA9749B2392AB2C00CA6EA4 /* TokenSearchController.swift */,
 				EBA9749D2392AB4200CA6EA4 /* TokenSearchBar.swift */,
+				EB57E8222392C9DD00A9A01D /* SearchSuggestionTableViewCell.swift */,
+				EB57E8232392C9DD00A9A01D /* SearchSuggestionTableViewCell.xib */,
 				EBE7FE35233CBC0A0088D156 /* Transaction Details */,
 			);
 			path = Transactions;
@@ -1148,6 +1154,7 @@
 				EBE7FE4C233CC54E0088D156 /* EditNameTableViewCell.xib in Resources */,
 				EB02A68222EB1BAF00987AFA /* apnumberpad_backspace_icon@2x.png in Resources */,
 				EB8EB60B2368741D002E305D /* IncomeStatementCard.xib in Resources */,
+				EB57E8252392C9DD00A9A01D /* SearchSuggestionTableViewCell.xib in Resources */,
 				EBFF078E22E9B4BC00CC7215 /* ExistingAccountCell.xib in Resources */,
 				EBC59D4622E7503A00E626DC /* Assets.xcassets in Resources */,
 				EB8EB60723687402002E305D /* IncomeStatementTableViewCell.xib in Resources */,
@@ -1332,6 +1339,7 @@
 				EBF3A88B233AB926003093B7 /* StandardNavigationViewController.swift in Sources */,
 				EB8EB60923687413002E305D /* IncomeStatementCard.swift in Sources */,
 				EB4F789D2319B31C0045077E /* SubscriptionSelectorBulletin.swift in Sources */,
+				EB57E8242392C9DD00A9A01D /* SearchSuggestionTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

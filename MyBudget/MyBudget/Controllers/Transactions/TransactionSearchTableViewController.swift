@@ -20,7 +20,6 @@ protocol SearchOptionDelegate {
 class TransactionSearchSuggestion {
     var icon: UIImage?
     var text: String
-    
     /// Predicate to evaluate with an object of type Transaction
     var predicate: NSPredicate
     var searchToken: UISearchToken
@@ -33,72 +32,97 @@ class TransactionSearchSuggestion {
     }
     
     static func income() -> TransactionSearchSuggestion {
-        return TransactionSearchSuggestion.init(icon: nil, text: "Income", predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
+        let icon = #imageLiteral(resourceName: "euro.png").withTintColor(.incomeColor)
+        let suggestion = TransactionSearchSuggestion.init(icon: icon, text: "Income", predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
             if let _ = evaluatedObject as? IncomeTransaction {
                 return true
             }
             return false
         }), searchToken: UISearchToken.init(icon: nil, text: "Income"))
+        
+
+        return suggestion
     }
     
     static func expense() -> TransactionSearchSuggestion {
-        return TransactionSearchSuggestion.init(icon: nil, text: "Expense", predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
+        let icon = #imageLiteral(resourceName: "euro.png").withTintColor(.expenseColor)
+        let suggestion = TransactionSearchSuggestion.init(icon: icon, text: "Expense", predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
             if let _ = evaluatedObject as? ExpenseTransaction {
                 return true
             }
             return false
         }), searchToken: UISearchToken.init(icon: nil, text: "Expense"))
+        return suggestion
     }
 
     static func transfer() -> TransactionSearchSuggestion {
-        return TransactionSearchSuggestion.init(icon: nil, text: "Transfer", predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
+        let icon = #imageLiteral(resourceName: "euro.png").withTintColor(.transferColor)
+        let suggestion = TransactionSearchSuggestion.init(icon: icon, text: "Transfer", predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
             if let _ = evaluatedObject as? TransferTransaction {
                 return true
             }
             return false
         }), searchToken: UISearchToken.init(icon: nil, text: "Transfer"))
+        return suggestion
     }
     
     static func thisMonth() -> TransactionSearchSuggestion {
-        return TransactionSearchSuggestion.init(icon: nil, text: "This Month", predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
+        let suggestion = TransactionSearchSuggestion.init(icon: nil, text: "This Month", predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
             if let tx = evaluatedObject as? Transaction {
                 return tx.date.firstDayOfCurrentMonth() == Date().firstDayOfCurrentMonth()
             }
             return false
         }), searchToken: UISearchToken.init(icon: nil, text: "This Month"))
+
+        let icon = UIImage.init(systemName: "calendar")
+        suggestion.icon = icon
+
+        return suggestion
     }
 
     static func nameContaining(part: String) -> TransactionSearchSuggestion {
-        return TransactionSearchSuggestion.init(icon: nil, text: "Name contains \(part)", predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
+        let suggestion = TransactionSearchSuggestion.init(icon: nil, text: "Name contains \(part)", predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
             if let tx = evaluatedObject as? Transaction {
                 return tx.description.contains(part)
             }
             return false
         }), searchToken: UISearchToken.init(icon: nil, text: "Name contains \(part)"))
+        
+        let icon = UIImage.init(systemName: "magnifyingglass")
+        suggestion.icon = icon
+
+        return suggestion
     }
     
     static func dateBefore(date: Date) -> TransactionSearchSuggestion {
         let localizedDate = DateFormatter.localizedString(from: date, dateStyle: .short, timeStyle: .none)
-        return TransactionSearchSuggestion.init(icon: nil, text: "Date before \(localizedDate)", predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
+        let suggestion = TransactionSearchSuggestion.init(icon: nil, text: "Date before \(localizedDate)", predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
             if let tx = evaluatedObject as? Transaction {
                 return tx.date <= date
             }
             return false
         }), searchToken: UISearchToken.init(icon: nil, text: "Date before \(localizedDate)"))
+        let icon = UIImage.init(systemName: "calendar")
+        suggestion.icon = icon
+        
+        return suggestion
     }
 
     static func dateAfter(date: Date) -> TransactionSearchSuggestion {
         let localizedDate = DateFormatter.localizedString(from: date, dateStyle: .short, timeStyle: .none)
-        return TransactionSearchSuggestion.init(icon: nil, text: "Date after \(localizedDate)", predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
+        let suggestion = TransactionSearchSuggestion.init(icon: nil, text: "Date after \(localizedDate)", predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
             if let tx = evaluatedObject as? Transaction {
                 return tx.date >= date
             }
             return false
         }), searchToken: UISearchToken.init(icon: nil, text: "Date after \(localizedDate)"))
+        let icon = UIImage.init(systemName: "calendar")
+        suggestion.icon = icon
+        return suggestion
     }
 
     static func accountContains(part: String) -> TransactionSearchSuggestion {
-        return TransactionSearchSuggestion.init(icon: nil, text: "Account contains \(part)", predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
+        let suggestion = TransactionSearchSuggestion.init(icon: nil, text: "Account contains \(part)", predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
             if let tx = evaluatedObject as? IncomeTransaction {
                 return tx.account.contains(part)
             } else if let tx = evaluatedObject as? ExpenseTransaction {
@@ -108,7 +132,26 @@ class TransactionSearchSuggestion {
             }
             return false
         }), searchToken: UISearchToken.init(icon: nil, text: "Account contains \(part)"))
+        let icon = UIImage.init(systemName: "magnifyingglass")
+        suggestion.icon = icon
+        return suggestion
     }
+    
+    static func tagContains(part: String) -> TransactionSearchSuggestion {
+        let suggestion = TransactionSearchSuggestion.init(icon: nil, text: "Tag named \(part)", predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
+            if let tx = evaluatedObject as? Transaction {
+                return tx.tags.contains { (tag) -> Bool in
+                    return tag.contains(part)
+                }
+            }
+            return false
+        }), searchToken: UISearchToken.init(icon: nil, text: "Tag named \(part)"))
+        let icon = UIImage.init(systemName: "tag")
+        suggestion.icon = icon
+        return suggestion
+    }
+    
+    
     
 }
 
@@ -149,6 +192,8 @@ class TransactionSearchTableViewController: UIViewController, UITableViewDelegat
         
         let accountContains = TransactionSearchSuggestion.accountContains(part: partialString)
         detailedSearchSuggestions.append(accountContains)
+        let tagContains = TransactionSearchSuggestion.tagContains(part: partialString)
+        detailedSearchSuggestions.append(tagContains)
 
     }
     
@@ -156,6 +201,8 @@ class TransactionSearchTableViewController: UIViewController, UITableViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         extendedLayoutIncludesOpaqueBars = true
+        
+        tableView.register(UINib(nibName: "SearchSuggestionTableViewCell", bundle: nil), forCellReuseIdentifier: SearchSuggestionTableViewCell.Identifier)
     }
 
     // MARK: - Table view data source
@@ -180,8 +227,6 @@ class TransactionSearchTableViewController: UIViewController, UITableViewDelegat
             return "Search suggestions"
         } else {
             return "Detailed Search"
-           // let searchModes = ["", "Date", "Accounts"]
-        //return searchModes[section]
         }
     }
     
@@ -189,28 +234,27 @@ class TransactionSearchTableViewController: UIViewController, UITableViewDelegat
         if searchText.isEmpty {
             return simpleSearchSuggestions.count
         } else {
-            //let searchModeSizes = [1, 2, 1]
             return detailedSearchSuggestions.count
         }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: SearchSuggestionTableViewCell.Identifier) as! SearchSuggestionTableViewCell
         
         if searchText.isEmpty {
-            let searchSugestions = simpleSearchSuggestions[indexPath.row]
-            cell.textLabel?.text = searchSugestions.text
+            let searchSugestion = simpleSearchSuggestions[indexPath.row]
+            cell.label.text = searchSugestion.text
+            cell.iconImageView.image = searchSugestion.icon
         } else {
-            let searchSugestions = detailedSearchSuggestions[indexPath.row]
-            cell.textLabel?.text = searchSugestions.text
+            let searchSugestion = detailedSearchSuggestions[indexPath.row]
+            cell.label.text = searchSugestion.text
+            cell.iconImageView.image = searchSugestion.icon
         }
         
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("I selected a special search option")
-        
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        
         // Remove "real text" from sarchbar
         // Add "search tag" into the searchbar
         // Communcate to delegate: We selected a search option, Some predicate will be added
