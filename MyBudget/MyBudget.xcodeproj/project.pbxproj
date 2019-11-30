@@ -87,6 +87,7 @@
 		EB712A8C239305B400A7ABBD /* TotalStatementCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB712A862393045000A7ABBD /* TotalStatementCard.xib */; };
 		EB712A8E2393061D00A7ABBD /* TransactionSearchResultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB712A842392FFF800A7ABBD /* TransactionSearchResultHeaderView.swift */; };
 		EB712A8F2393068300A7ABBD /* TotalStatementCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB712A872393045000A7ABBD /* TotalStatementCard.swift */; };
+		EB712A9023932B9A00A7ABBD /* TransactionSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99444C2391C9D80026457E /* TransactionSearchTableViewController.swift */; };
 		EB722420237B4E6D001DA694 /* OnboardingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB72241F237B4E6D001DA694 /* OnboardingMainViewController.swift */; };
 		EB8472892306AA4400DCD330 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EB8472882306AA4400DCD330 /* Settings.bundle */; };
 		EB8EB60623687402002E305D /* IncomeStatementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8EB60423687402002E305D /* IncomeStatementTableViewCell.swift */; };
@@ -102,7 +103,6 @@
 		EB985CBA22EC6B5800C033E8 /* FloatyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CB022EC6B2300C033E8 /* FloatyViewController.swift */; };
 		EB985CBB22EC6B5800C033E8 /* Floaty.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CB122EC6B2300C033E8 /* Floaty.swift */; };
 		EB985CBD22EC74F800C033E8 /* String+OnlyDigits.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CBC22EC74F800C033E8 /* String+OnlyDigits.swift */; };
-		EB99444D2391C9D80026457E /* TransactionSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99444C2391C9D80026457E /* TransactionSearchTableViewController.swift */; };
 		EB9DEBD222E9E02800A73FD1 /* AccountAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD122E9E02800A73FD1 /* AccountAccessoryView.swift */; };
 		EB9DEBD422E9E5C400A73FD1 /* UITextField+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */; };
 		EB9DEBD622E9F00600A73FD1 /* CategoryAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD522E9F00600A73FD1 /* CategoryAccessoryView.swift */; };
@@ -1343,12 +1343,12 @@
 				EBC59D5122E750DC00E626DC /* BudgetTableViewController.swift in Sources */,
 				EB5C600922F32417004F81CF /* TextAnimation.swift in Sources */,
 				EB4F78A12319B37D0045077E /* FeedbackGenerators.swift in Sources */,
-				EB99444D2391C9D80026457E /* TransactionSearchTableViewController.swift in Sources */,
 				EBC59D3F22E7503900E626DC /* AppDelegate.swift in Sources */,
 				EBC59D5322E750E900E626DC /* Model.swift in Sources */,
 				EB35EDE8233E0E6100C58683 /* TransactionDetailBaseTableViewController.swift in Sources */,
 				EB4F78A32319B3BA0045077E /* CollectionUtilities.swift in Sources */,
 				EB712A8F2393068300A7ABBD /* TotalStatementCard.swift in Sources */,
+				EB712A9023932B9A00A7ABBD /* TransactionSearchTableViewController.swift in Sources */,
 				EBD4649523671AA20004F900 /* PieChartCard.swift in Sources */,
 				EBA9749E2392AB4200CA6EA4 /* TokenSearchBar.swift in Sources */,
 				EB205AE423660E920050130E /* PieChartTableViewCell.swift in Sources */,

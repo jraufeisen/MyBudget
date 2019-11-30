@@ -151,7 +151,18 @@ class TransactionSearchSuggestion {
         return suggestion
     }
     
-    
+    static func budgetCategoryContains(part: String) -> TransactionSearchSuggestion {
+        let suggestion = TransactionSearchSuggestion.init(icon: nil, text: "Budget category named \(part)", predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
+            if let tx = evaluatedObject as? ExpenseTransaction {
+                return tx.category.contains(part)
+            }
+            return false
+        }), searchToken: UISearchToken.init(icon: nil, text: "Budget category named \(part)"))
+        let icon = UIImage.init(systemName: "bag")
+        suggestion.icon = icon
+        return suggestion
+    }
+
     
 }
 
@@ -189,7 +200,9 @@ class TransactionSearchTableViewController: UIViewController, UITableViewDelegat
             let dateAfter = TransactionSearchSuggestion.dateAfter(date: date)
             detailedSearchSuggestions.append(dateAfter)
         }
-        
+
+        let categoryContains = TransactionSearchSuggestion.budgetCategoryContains(part: partialString)
+        detailedSearchSuggestions.append(categoryContains)
         let accountContains = TransactionSearchSuggestion.accountContains(part: partialString)
         detailedSearchSuggestions.append(accountContains)
         let tagContains = TransactionSearchSuggestion.tagContains(part: partialString)
