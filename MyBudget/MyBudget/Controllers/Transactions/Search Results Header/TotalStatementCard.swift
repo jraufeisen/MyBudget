@@ -84,7 +84,6 @@ class TotalStatementCard: UIView {
         pieChart.holeRadiusPercent = 0.65
         pieChart.transparentCircleColor = .clear
         
-        
         chartContainer.addSubview(pieChart)
         pieChart.translatesAutoresizingMaskIntoConstraints = false
         // Align pie chart to its container

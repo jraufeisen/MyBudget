@@ -33,7 +33,6 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
     private func reloadHeader() {
         if searchController?.isActive == true {
             let header = TransactionSearchResultHeaderView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 200))
-            
             let totalIncome = filteredTransactions.reduce(0) { (result, tx) -> Money in
                 if let tx = tx as? IncomeTransaction {
                     return result + tx.value
@@ -41,7 +40,6 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
                     return result
                 }
             }
-            
             let totalExpense = filteredTransactions.reduce(0) { (result, tx) -> Money in
                 if let tx = tx as? ExpenseTransaction {
                     return result + tx.value
@@ -49,8 +47,9 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
                     return result
                 }
             }
-            
             header.addTotalCard(income: totalIncome, expense: totalExpense)
+            
+            header.addPerMonthSpending()
             
             tableView.tableHeaderView = header
         } else {
