@@ -19,6 +19,11 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
             self.tableView.reloadData()
         }
     }
+    
+    @IBOutlet weak var tableView: UITableView!
+    var searchController: UISearchController?
+
+
     private func updateSearchResults() {
         if searchFilter == "" {
             filteredTransactions = transactions
@@ -103,8 +108,6 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
         return 70
     }
 
-    @IBOutlet weak var tableView: UITableView!
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -113,30 +116,18 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidAppear(animated)
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         searchFilter = "" // No filter at start
         
         let resultsVC = TransactionSearchTableViewController.instantiate()
-        let searchController = UISearchController.init(searchResultsController: resultsVC)
-        searchController.searchResultsUpdater = resultsVC
-        searchController.searchBar.backgroundColor = .clear
-        extendedLayoutIncludesOpaqueBars = true
-        if #available(iOS 13.0, *) {
-            searchController.automaticallyShowsSearchResultsController = true
-           // searchController.automaticallyShowsScopeBar = true
-           // searchController.searchBar.scopeButtonTitles = ["A"]
-        }
-       // searchController.hidesNavigationBarDuringPresentation = false
-        searchController.obscuresBackgroundDuringPresentation = true
-        searchController.delegate = self
-
-        definesPresentationContext = true
-
+        resultsVC.delegate = self
+        searchController = UISearchController.init(searchResultsController: resultsVC)
+        searchController?.searchResultsUpdater = resultsVC
+        searchController?.delegate = self
+        searchController?.obscuresBackgroundDuringPresentation = false
         navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = true
-
-        
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateModel), name: ModelChangedNotification, object: nil)
 
@@ -145,24 +136,86 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
         // And at this point of change, this VC has not been a registered observer of the ModelChangedNotification
         updateModel()
     }
+    
+    private func animateResultsVC() {
+        guard let resultsVC = searchController?.searchResultsController else {
+            return
+        }
+        guard let searchView = searchController?.view else {
+            return
+        }
+        
+        let offset: CGFloat = 300
+        let topConstr = NSLayoutConstraint.init(item: resultsVC.view!, attribute: .top, relatedBy: .equal, toItem: searchView, attribute: .top, multiplier: 1, constant: offset)
+
+        DispatchQueue.main.async {
+
+            self.navigationController?.navigationBar.sizeToFit()
+            resultsVC.view.translatesAutoresizingMaskIntoConstraints = false
+
+            // Move view farther down that the correct position
+            NSLayoutConstraint.activate([
+                topConstr,
+                NSLayoutConstraint.init(item: resultsVC.view!, attribute: .left, relatedBy: .equal, toItem: searchView, attribute: .left, multiplier: 1, constant: 0),
+                NSLayoutConstraint.init(item: resultsVC.view!, attribute: .bottom, relatedBy: .equal, toItem: searchView, attribute: .bottom, multiplier: 1, constant: 0),
+                NSLayoutConstraint.init(item: resultsVC.view!, attribute: .right, relatedBy: .equal, toItem: searchView, attribute: .right, multiplier: 1, constant: 0),
+            ])
+
+            UIView.animate(withDuration: 0.001, animations: {
+                // Initially, place the view farther down. Not hidden , but with alpha 0
+                resultsVC.view.layoutIfNeeded()
+                self.view.layoutIfNeeded()
+                resultsVC.view.alpha = 0.0
+                resultsVC.view.isHidden = false
+            }) { (flag) in
+                // When initial placement has been completed, place the view back in its correct position and fade in to alpha 1
+                // This is a good facsimile to Mail on iOS
+                let correctTopConstr = NSLayoutConstraint.init(item: resultsVC.view!, attribute: .top, relatedBy: .equal, toItem: self.view!, attribute: .top, multiplier: 1, constant: 0)
+                resultsVC.view.removeConstraint(topConstr)
+                topConstr.isActive = false
+                correctTopConstr.isActive = true
+                UIView.animate(withDuration: 0.3) {
+                    resultsVC.view.layoutIfNeeded()
+                    self.view.layoutIfNeeded()
+                    resultsVC.view.alpha = 1.0
+                }
+            }
+        }
+    }
+    
+    
 }
 
 extension TransactionsViewController: UISearchControllerDelegate {
     
     func willPresentSearchController(_ searchController: UISearchController) {
-//        searchController.view.sizeToFit()
-  //      searchController.searchResultsController?.view.isHidden = false
-    //    navigationController?.navigationBar.sizeToFit()
+        DispatchQueue.main.async {
+            self.navigationController?.navigationBar.sizeToFit()
+        }
+
+        // Animate result tableview controller to become visible
+        animateResultsVC()
 
     }
     
-    func presentSearchController(_ searchController: UISearchController) {
-        self.navigationController?.navigationBar.sizeToFit()
-    }
     func didPresentSearchController(_ searchController: UISearchController) {
-       // searchController.view.sizeToFit()
-        searchController.searchResultsController?.view.isHidden = false
         self.navigationController?.navigationBar.sizeToFit()
-      //  navigationController?.navigationBar.layer.removeAllAnimations()
     }
+}
+
+extension TransactionsViewController: SearchOptionDelegate {
+    func didResumeSearch() {
+        if #available(iOS 13.0, *) {
+            searchController?.showsSearchResultsController = true
+        }
+    }
+        
+    func didSelectSearchOption() {
+        // Make result vc transparent and show partial search results
+        if #available(iOS 13.0, *) {
+            searchController?.showsSearchResultsController = false
+        }
+    }
+    
+
 }

@@ -1397,6 +1397,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ifJ-lq-8YI"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="sRO-MM-VXN" id="QjY-kb-uHl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QbO-ug-bjM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
