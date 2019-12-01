@@ -88,7 +88,6 @@
 		EB712A8E2393061D00A7ABBD /* TransactionSearchResultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB712A842392FFF800A7ABBD /* TransactionSearchResultHeaderView.swift */; };
 		EB712A8F2393068300A7ABBD /* TotalStatementCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB712A872393045000A7ABBD /* TotalStatementCard.swift */; };
 		EB712A9023932B9A00A7ABBD /* TransactionSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99444C2391C9D80026457E /* TransactionSearchTableViewController.swift */; };
-		EB712A9223932C6C00A7ABBD /* PerMonthSpendingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB712A9123932C6C00A7ABBD /* PerMonthSpendingCard.swift */; };
 		EB712A9423932C8000A7ABBD /* PerMonthSpendingCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB712A9323932C7F00A7ABBD /* PerMonthSpendingCard.xib */; };
 		EB722420237B4E6D001DA694 /* OnboardingMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB72241F237B4E6D001DA694 /* OnboardingMainViewController.swift */; };
 		EB8472892306AA4400DCD330 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EB8472882306AA4400DCD330 /* Settings.bundle */; };
@@ -113,6 +112,7 @@
 		EBA8A8A92393CEAA00217D4D /* PerMonthIncomeCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBA8A8A82393CEAA00217D4D /* PerMonthIncomeCard.xib */; };
 		EBA8A8AB2393D3EA00217D4D /* PerCategorySpending.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA8A8AA2393D3EA00217D4D /* PerCategorySpending.swift */; };
 		EBA8A8AD2393D40300217D4D /* PerCategorySpending.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBA8A8AC2393D40300217D4D /* PerCategorySpending.xib */; };
+		EBA8A8AE2393DF2600217D4D /* PerMonthSpendingCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB712A9123932C6C00A7ABBD /* PerMonthSpendingCard.swift */; };
 		EBA9749C2392AB2C00CA6EA4 /* TokenSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA9749B2392AB2C00CA6EA4 /* TokenSearchController.swift */; };
 		EBA9749E2392AB4200CA6EA4 /* TokenSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA9749D2392AB4200CA6EA4 /* TokenSearchBar.swift */; };
 		EBAE2ED92364A37100040980 /* BudgetTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAE2ED82364A37100040980 /* BudgetTableHeaderView.swift */; };
@@ -1324,11 +1324,11 @@
 				EB722420237B4E6D001DA694 /* OnboardingMainViewController.swift in Sources */,
 				EBEB145B22E8AD7300291435 /* Transaction.swift in Sources */,
 				EB2C771B22EDBCA3009FA2C8 /* UITextView+Center.swift in Sources */,
+				EBA8A8AE2393DF2600217D4D /* PerMonthSpendingCard.swift in Sources */,
 				EBE7FE4B233CC54E0088D156 /* EditNameTableViewCell.swift in Sources */,
 				EB4F789A2319A2600045077E /* SubscriptionOnboardController.swift in Sources */,
 				EB09FC94231D57080063FB90 /* KeychainWrapper.swift in Sources */,
 				EB203BF4230716CA008C9EE5 /* FileManager+DocDir.swift in Sources */,
-				EB712A9223932C6C00A7ABBD /* PerMonthSpendingCard.swift in Sources */,
 				EB205AE723660F570050130E /* ReportsViewController.swift in Sources */,
 				EBE7FE37233CBC430088D156 /* ExpenseDetailTableViewController.swift in Sources */,
 				EB35EDE6233E050100C58683 /* RoundedCornerView.swift in Sources */,

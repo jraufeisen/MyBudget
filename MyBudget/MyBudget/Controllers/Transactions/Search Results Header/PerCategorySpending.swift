@@ -10,6 +10,8 @@ import UIKit
 import Charts
 import Swift_Ledger
 
+
+
 class PerCategorySpending: UIView {
 
    @IBOutlet weak var chartContainer: UIView!
@@ -52,8 +54,17 @@ class PerCategorySpending: UIView {
        layer.shadowOpacity = 0.3
    }
 
+    func addChart(spendingsForCategory: [String: Money]) {
+        var entries = [(money: Money, label: String)]()
+        
+        for (category, money) in spendingsForCategory {
+            entries.append((money: money, label: category))
+        }
+        
+        addChart(entries: entries)
+    }
     
-    func addChart(entries: [(money: Money, label: String)], chartName: String = "Expenses") {
+    private func addChart(entries: [(money: Money, label: String)], chartName: String = "Expenses") {
 
        /* guard entries.count > 0 else {
             addSpecialCard(title: chartName, body: "Track your expenses to see detailed statistics about your spending behavior")

@@ -10,6 +10,17 @@ import UIKit
 import Charts
 import Swift_Ledger
 
+
+class BarChartMoneyEntry {
+    var label: String
+    var money: Money
+    
+    init(label: String, money: Money) {
+        self.label = label
+        self.money = money
+    }
+}
+
 class PerMonthSpendingCard: UIView {
     let oneMonthWidth: CGFloat = 75
 
@@ -53,13 +64,35 @@ class PerMonthSpendingCard: UIView {
             let entry = BarChartDataEntry.init(x: Double(i), y:Double(i))
             entries.append(entry)
         }
-        addGraph(entries: entries, avgValue: 10)
+
     }
 
     
-    func addGraph(entries: [BarChartDataEntry], avgValue: Double) {
-        subtitleLabel.text = "Average spending: \(Money(avgValue))"
+    func addChart(expenses: [BarChartMoneyEntry]) {
+        guard expenses.count > 0 else { return }
+
+        let sum: Money = expenses.reduce(0) { (res, entry) -> Money in
+            return res + entry.money
+        }
+        let avg = sum.floatValue / Double(expenses.count)
         
+        var entries = [BarChartDataEntry]()
+        for i in 0..<expenses.count {
+            let expense = expenses[i]
+            let entry = BarChartDataEntry.init(x: Double(i), y: expense.money.floatValue)
+            entries.append(entry)
+        }
+        
+        let labels: [String] = expenses.map { (expense) -> String in
+            return expense.label
+        }
+        
+        addGraph(entries: entries, avgValue: avg, labels: labels)
+        
+    }
+    
+    private func addGraph(entries: [BarChartDataEntry], avgValue: Double, labels: [String]) {
+        subtitleLabel.text = "Average spending: \(Money(avgValue))"
         // Calculate data and dataset
         let chart = CombinedChartView.init(frame: CGRect.init(x: 0, y: 0, width: chartContainer.frame.width, height: chartContainer.frame.height))
         let dataSet = BarChartDataSet.init(entries: entries, label: "Expenses")
@@ -69,28 +102,15 @@ class PerMonthSpendingCard: UIView {
         }
         let containsNonZeroExpense = nonZeroEntries.count > 0
         
-        var lineEntries = [ChartDataEntry]()
-        for entry in entries {
-            lineEntries.append(ChartDataEntry.init(x: entry.x, y: avgValue))
-        }
-        lineEntries.append(ChartDataEntry.init(x: Double(entries.count), y: avgValue)) // Append last value, here we can place the average value label without interfering with the bars
-        let lineDataSet = LineChartDataSet.init(entries: lineEntries, label: "Average Expense")
-        lineDataSet.colors = [.black]
-        lineDataSet.circleRadius = 0.0
-        lineDataSet.lineDashLengths = [2,3]
-        let data = CombinedChartData.init(dataSets: [dataSet, lineDataSet])
+        let data = CombinedChartData.init(dataSets: [dataSet])
         if containsNonZeroExpense {
             data.barData = BarChartData.init(dataSet: dataSet)
         }
-        if avgValue > 0 {   // Only display average that is not 0
-           // data.lineData = LineChartData.init(dataSet: lineDataSet)
-        }
+        
         data.setValueFormatter(BudgetChartMoneyFormatter())
        // data.setValueFont(NSFont.systemFont(ofSize: 12))
-       // data.lineData?.setValueFormatter(AverageLineMoneyFormatter.init(numberOfEntries: entries.count+1))
         chart.data = data
         // Graph Colors
-       // chart.lineData?.setValueTextColor(.black)
         chart.barData?.setValueTextColor(.gray)
         
         // General settings
@@ -109,7 +129,7 @@ class PerMonthSpendingCard: UIView {
         chart.xAxis.labelCount = entries.count
         chart.xAxis.labelTextColor = .gray
         chart.xAxis.labelFont = UIFont.systemFont(ofSize: 8)
-        chart.xAxis.valueFormatter = BudgetChartDateFormatter()
+        chart.xAxis.valueFormatter = LabelsFormatter(labels: labels)
         chart.xAxis.drawAxisLineEnabled = false
         chart.xAxis.drawGridLinesEnabled = false
         
@@ -123,7 +143,7 @@ class PerMonthSpendingCard: UIView {
         // Hack to "draw lines in the background while still having enough offset to the real data"
         // Average label must not interfere with labels of the bar chart.
         chart.xAxis.axisMinimum = -0.5
-        chart.xAxis.axisMaximum = Double(entries.count) + 1.5
+        chart.xAxis.axisMaximum = Double(entries.count-1) + 0.5 // Maximum x value occuring + 0.5
 
 
         chartContainer.contentSize = CGSize(width: oneMonthWidth*CGFloat(entries.count), height: chartContainer.contentSize.height)
@@ -188,4 +208,22 @@ class BudgetChartDateFormatter: NSObject, IAxisValueFormatter {
         
         return label
     }
+}
+
+class LabelsFormatter: NSObject, IAxisValueFormatter {
+    let labels: [String]
+    init(labels: [String]) {
+        self.labels = labels
+        super.init()
+    }
+
+    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        let i = Int(value)
+        if i >= 0 && i < labels.count {
+            return labels[i]
+        }
+        return ""
+    }
+    
+    
 }

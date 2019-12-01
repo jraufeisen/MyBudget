@@ -42,34 +42,33 @@ class TransactionSearchResultHeaderView: UIScrollView {
         addSubview(totalCard)
     }
     
-    func addPerMonthSpending() {
+    func addPerMonthSpending(expenses: [BarChartMoneyEntry]) {
         let card = PerMonthSpendingCard.init(frame: CGRect.init(x: 0, y: 0, width: frame.width - offset, height: frame.height - offset))
         let centerX = frame.width/2 + (frame.width)*CGFloat(cards.count)
         card.center = CGPoint.init(x: centerX, y: frame.height/2)
+        card.addChart(expenses: expenses)
         cards.append(card)
         addSubview(card)
     }
     
-    func addPerMonthIncome() {
+    func addPerMonthIncome(incomes: [BarChartMoneyEntry]) {
         let card = PerMonthIncomeCard.init(frame: CGRect.init(x: 0, y: 0, width: frame.width - offset, height: frame.height - offset))
         let centerX = frame.width/2 + (frame.width)*CGFloat(cards.count)
         card.center = CGPoint.init(x: centerX, y: frame.height/2)
+        card.addChart(incomes: incomes)
         cards.append(card)
         addSubview(card)
     }
     
-    func addPerCategorySpending() {
+    func addPerCategorySpending(spendingsPerCategory: [String: Money]) {
         let card = PerCategorySpending.init(frame: CGRect.init(x: 0, y: 0, width: frame.width - offset, height: frame.height - offset))
         let centerX = frame.width/2 + (frame.width)*CGFloat(cards.count)
         card.center = CGPoint.init(x: centerX, y: frame.height/2)
-
-        var entries = [(money: Money, label: String)]()
-        for i in 1..<20 {
-            entries.append((money: Money(i), label: "Category \(i)"))
-        }
-        card.addChart(entries: entries)
+        card.addChart(spendingsForCategory: spendingsPerCategory)
         cards.append(card)
         addSubview(card)
     }
+    
+    
     
 }

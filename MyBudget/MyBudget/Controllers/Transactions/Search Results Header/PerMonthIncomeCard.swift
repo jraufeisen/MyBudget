@@ -53,11 +53,34 @@ class PerMonthIncomeCard: UIView {
             let entry = BarChartDataEntry.init(x: Double(i), y:Double(i))
             entries.append(entry)
         }
-        addGraph(entries: entries, avgValue: 10)
+    }
+
+    func addChart(incomes: [BarChartMoneyEntry]) {
+        guard incomes.count > 0 else { return }
+
+        let sum: Money = incomes.reduce(0) { (res, entry) -> Money in
+            return res + entry.money
+        }
+        let avg = sum.floatValue / Double(incomes.count)
+        
+        var entries = [BarChartDataEntry]()
+        for i in 0..<incomes.count {
+            let income = incomes[i]
+            let entry = BarChartDataEntry.init(x: Double(i), y: income.money.floatValue)
+            entries.append(entry)
+        }
+        
+        let labels: [String] = incomes.map { (income) -> String in
+            return income.label
+        }
+        
+        addGraph(entries: entries, avgValue: avg, labels: labels)
+        
     }
 
     
-    func addGraph(entries: [BarChartDataEntry], avgValue: Double) {
+    
+    private func addGraph(entries: [BarChartDataEntry], avgValue: Double, labels: [String]) {
         subtitleLabel.text = "Average income: \(Money(avgValue))"
         
         // Calculate data and dataset
@@ -69,28 +92,17 @@ class PerMonthIncomeCard: UIView {
         }
         let containsNonZeroExpense = nonZeroEntries.count > 0
         
-        var lineEntries = [ChartDataEntry]()
-        for entry in entries {
-            lineEntries.append(ChartDataEntry.init(x: entry.x, y: avgValue))
-        }
-        lineEntries.append(ChartDataEntry.init(x: Double(entries.count), y: avgValue)) // Append last value, here we can place the average value label without interfering with the bars
-        let lineDataSet = LineChartDataSet.init(entries: lineEntries, label: "Average Income")
-        lineDataSet.colors = [.black]
-        lineDataSet.circleRadius = 0.0
-        lineDataSet.lineDashLengths = [2,3]
-        let data = CombinedChartData.init(dataSets: [dataSet, lineDataSet])
+
+        let data = CombinedChartData.init(dataSets: [dataSet])
         if containsNonZeroExpense {
             data.barData = BarChartData.init(dataSet: dataSet)
         }
-        if avgValue > 0 {   // Only display average that is not 0
-           // data.lineData = LineChartData.init(dataSet: lineDataSet)
-        }
+       
+        
         data.setValueFormatter(BudgetChartMoneyFormatter())
        // data.setValueFont(NSFont.systemFont(ofSize: 12))
-       // data.lineData?.setValueFormatter(AverageLineMoneyFormatter.init(numberOfEntries: entries.count+1))
         chart.data = data
         // Graph Colors
-       // chart.lineData?.setValueTextColor(.black)
         chart.barData?.setValueTextColor(.gray)
         
         // General settings
@@ -109,7 +121,7 @@ class PerMonthIncomeCard: UIView {
         chart.xAxis.labelCount = entries.count
         chart.xAxis.labelTextColor = .gray
         chart.xAxis.labelFont = UIFont.systemFont(ofSize: 8)
-        chart.xAxis.valueFormatter = BudgetChartDateFormatter()
+        chart.xAxis.valueFormatter = LabelsFormatter(labels: labels)
         chart.xAxis.drawAxisLineEnabled = false
         chart.xAxis.drawGridLinesEnabled = false
         

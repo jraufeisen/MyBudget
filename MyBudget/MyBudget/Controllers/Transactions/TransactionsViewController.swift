@@ -49,9 +49,9 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
             }
             header.addTotalCard(income: totalIncome, expense: totalExpense)
             
-            header.addPerMonthSpending()
-            header.addPerMonthIncome()
-            header.addPerCategorySpending()
+            header.addPerMonthSpending(expenses: filteredTransactions.monthlyExpenses())
+            header.addPerMonthIncome(incomes: filteredTransactions.monthlyIncomes())
+            header.addPerCategorySpending(spendingsPerCategory: filteredTransactions.spendingsPerCategory())
             
             tableView.tableHeaderView = header
         } else {
