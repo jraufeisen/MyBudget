@@ -126,6 +126,7 @@ class PerMonthSpendingCard: UIView {
 
         // Bottom Axis
         chart.xAxis.labelPosition = .bottom
+        chart.xAxis.axisMinLabels = 1   // Default minimum is 2. But if we only wanna display one label, we gotta make this change
         chart.xAxis.labelCount = entries.count
         chart.xAxis.labelTextColor = .gray
         chart.xAxis.labelFont = UIFont.systemFont(ofSize: 8)

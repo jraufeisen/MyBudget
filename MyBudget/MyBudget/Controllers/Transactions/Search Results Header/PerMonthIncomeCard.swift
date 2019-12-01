@@ -118,6 +118,7 @@ class PerMonthIncomeCard: UIView {
 
         // Bottom Axis
         chart.xAxis.labelPosition = .bottom
+        chart.xAxis.axisMinLabels = 1   // Default minimum is 2. But if we only wanna display one label, we gotta make this change
         chart.xAxis.labelCount = entries.count
         chart.xAxis.labelTextColor = .gray
         chart.xAxis.labelFont = UIFont.systemFont(ofSize: 8)
@@ -135,7 +136,7 @@ class PerMonthIncomeCard: UIView {
         // Hack to "draw lines in the background while still having enough offset to the real data"
         // Average label must not interfere with labels of the bar chart.
         chart.xAxis.axisMinimum = -0.5
-        chart.xAxis.axisMaximum = Double(entries.count) + 1.5
+        chart.xAxis.axisMaximum = Double(entries.count-1) + 0.5
 
 
         chartContainer.contentSize = CGSize(width: oneMonthWidth*CGFloat(entries.count), height: chartContainer.contentSize.height)
