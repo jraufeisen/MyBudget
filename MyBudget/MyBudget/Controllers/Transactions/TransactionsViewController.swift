@@ -165,6 +165,7 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
         searchFilter = "" // No filter at start
         
         if #available(iOS 13.0, *) {
+            // Advanced search functionality for iOS 13 and up
             let resultsVC = TransactionSearchTableViewController.instantiate()
             resultsVC.delegate = self
             searchController = TokenSearchController.init(searchResultsController: resultsVC)
@@ -173,8 +174,15 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
             searchController?.obscuresBackgroundDuringPresentation = false
             navigationItem.searchController = searchController
         } else {
-            // TODO: Add old search functionalty for iOS 12
+            // Basic search functionalty for iOS 12 (only filter name)
+            searchController = UISearchController.init(searchResultsController: nil)
+            searchController?.searchResultsUpdater = self
+            searchController?.obscuresBackgroundDuringPresentation = false
+            navigationItem.searchController = searchController
         }
+
+        searchController?.searchBar.placeholder = "Search all transactions"
+
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateModel), name: ModelChangedNotification, object: nil)
 
@@ -299,5 +307,15 @@ extension TransactionsViewController: SearchOptionDelegate {
         // Manually update header view
         reloadHeader()
     }
+    
+}
+
+extension TransactionsViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if let sarchText = searchController.searchBar.text {
+            searchFilter = sarchText
+        }
+    }
+    
     
 }
