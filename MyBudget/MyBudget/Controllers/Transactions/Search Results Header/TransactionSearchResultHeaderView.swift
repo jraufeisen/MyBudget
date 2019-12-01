@@ -44,13 +44,32 @@ class TransactionSearchResultHeaderView: UIScrollView {
     
     func addPerMonthSpending() {
         let card = PerMonthSpendingCard.init(frame: CGRect.init(x: 0, y: 0, width: frame.width - offset, height: frame.height - offset))
-
         let centerX = frame.width/2 + (frame.width)*CGFloat(cards.count)
         card.center = CGPoint.init(x: centerX, y: frame.height/2)
         cards.append(card)
         addSubview(card)
-
     }
     
+    func addPerMonthIncome() {
+        let card = PerMonthIncomeCard.init(frame: CGRect.init(x: 0, y: 0, width: frame.width - offset, height: frame.height - offset))
+        let centerX = frame.width/2 + (frame.width)*CGFloat(cards.count)
+        card.center = CGPoint.init(x: centerX, y: frame.height/2)
+        cards.append(card)
+        addSubview(card)
+    }
+    
+    func addPerCategorySpending() {
+        let card = PerCategorySpending.init(frame: CGRect.init(x: 0, y: 0, width: frame.width - offset, height: frame.height - offset))
+        let centerX = frame.width/2 + (frame.width)*CGFloat(cards.count)
+        card.center = CGPoint.init(x: centerX, y: frame.height/2)
+
+        var entries = [(money: Money, label: String)]()
+        for i in 1..<20 {
+            entries.append((money: Money(i), label: "Category \(i)"))
+        }
+        card.addChart(entries: entries)
+        cards.append(card)
+        addSubview(card)
+    }
     
 }

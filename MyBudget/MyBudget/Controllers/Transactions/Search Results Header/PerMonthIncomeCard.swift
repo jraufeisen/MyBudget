@@ -10,7 +10,7 @@ import UIKit
 import Charts
 import Swift_Ledger
 
-class PerMonthSpendingCard: UIView {
+class PerMonthIncomeCard: UIView {
     let oneMonthWidth: CGFloat = 75
 
     @IBOutlet weak var titleLabel: UILabel!
@@ -30,7 +30,7 @@ class PerMonthSpendingCard: UIView {
     }
     
     private func commonInit() {
-        Bundle.main.loadNibNamed("PerMonthSpendingCard", owner: self, options: nil)
+        Bundle.main.loadNibNamed("PerMonthIncomeCard", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
@@ -58,12 +58,12 @@ class PerMonthSpendingCard: UIView {
 
     
     func addGraph(entries: [BarChartDataEntry], avgValue: Double) {
-        subtitleLabel.text = "Average spending: \(Money(avgValue))"
+        subtitleLabel.text = "Average income: \(Money(avgValue))"
         
         // Calculate data and dataset
         let chart = CombinedChartView.init(frame: CGRect.init(x: 0, y: 0, width: chartContainer.frame.width, height: chartContainer.frame.height))
-        let dataSet = BarChartDataSet.init(entries: entries, label: "Expenses")
-        dataSet.colors = [NSUIColor.expenseColor]
+        let dataSet = BarChartDataSet.init(entries: entries, label: "Income")
+        dataSet.colors = [NSUIColor.incomeColor]
         let nonZeroEntries = dataSet.filter { (entry) -> Bool in
             entry.y != 0
         }
@@ -74,7 +74,7 @@ class PerMonthSpendingCard: UIView {
             lineEntries.append(ChartDataEntry.init(x: entry.x, y: avgValue))
         }
         lineEntries.append(ChartDataEntry.init(x: Double(entries.count), y: avgValue)) // Append last value, here we can place the average value label without interfering with the bars
-        let lineDataSet = LineChartDataSet.init(entries: lineEntries, label: "Average Expense")
+        let lineDataSet = LineChartDataSet.init(entries: lineEntries, label: "Average Income")
         lineDataSet.colors = [.black]
         lineDataSet.circleRadius = 0.0
         lineDataSet.lineDashLengths = [2,3]
@@ -142,50 +142,3 @@ class PerMonthSpendingCard: UIView {
     
 }
 
-/// Returns empty string when value is zero.
-class BudgetChartMoneyFormatter: NSObject, IValueFormatter {
-    func stringForValue(_ value: Double, entry: ChartDataEntry, dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {
-        if value == 0 {
-            return ""
-        } else {
-            return "\(Money(value))"
-        }
-    }
-}
-
-/// Returns empty string for every data point except for the last one
-class AverageLineMoneyFormatter: NSObject, IValueFormatter {
-    let numberOfEntries: Int
-    init(numberOfEntries: Int) {
-        self.numberOfEntries = numberOfEntries
-        super.init()
-    }
-    
-    func stringForValue(_ value: Double, entry: ChartDataEntry, dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {
-        if Int(entry.x) == numberOfEntries {
-            return "Average: \(Money(value))" // Place label at the end
-        }
-        return ""
-    }
-}
-
-/// Returns empty string when data is later than the date of ledger's last transaction
-class BudgetChartDateFormatter: NSObject, IAxisValueFormatter {
-    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
-        guard let firstDate = Model.shared.firstDate() else {return ""}
-        guard let displayedDate = Calendar.current.date(byAdding: .month, value: Int(value), to: firstDate)?.firstDayOfCurrentMonth() else {return ""}
-        
-        if let lastDate = Model.shared.lastDate() {
-            if displayedDate > lastDate {
-                return ""
-            }
-        }
-        
-        let formater = DateFormatter()
-        formater.timeStyle = .none
-        formater.dateStyle = .medium
-        let label = formater.string(from: displayedDate)
-        
-        return label
-    }
-}
