@@ -30,8 +30,10 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
+    /// Pivate boolean flag to prevent uI updates when UI is not ready yet.
+    private var resultsAreShown = false
     private func reloadHeader() {
-        if searchController?.isActive == true {
+        if searchController?.isActive == true && resultsAreShown == true {
             let header = TransactionSearchResultHeaderView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 250))
             let totalIncome = filteredTransactions.reduce(0) { (result, tx) -> Money in
                 if let tx = tx as? IncomeTransaction {
@@ -52,7 +54,6 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
             header.addPerMonthSpending(expenses: filteredTransactions.monthlyExpenses())
             header.addPerMonthIncome(incomes: filteredTransactions.monthlyIncomes())
             header.addPerCategorySpending(spendingsPerCategory: filteredTransactions.spendingsPerCategory())
-            
             tableView.tableHeaderView = header
         } else {
             tableView.tableHeaderView = nil
@@ -195,7 +196,6 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
         let topConstr = NSLayoutConstraint.init(item: resultsVC.view!, attribute: .top, relatedBy: .equal, toItem: searchView, attribute: .top, multiplier: 1, constant: offset)
 
         DispatchQueue.main.async {
-
             self.navigationController?.navigationBar.sizeToFit()
             resultsVC.view.translatesAutoresizingMaskIntoConstraints = false
 
@@ -220,10 +220,13 @@ class TransactionsViewController: UIViewController, UITableViewDelegate, UITable
                 resultsVC.view.removeConstraint(topConstr)
                 topConstr.isActive = false
                 correctTopConstr.isActive = true
-                UIView.animate(withDuration: 0.3) {
+               
+                UIView.animate(withDuration: 0.3, animations: {
                     resultsVC.view.layoutIfNeeded()
                     self.view.layoutIfNeeded()
                     resultsVC.view.alpha = 1.0
+                }) { (flag) in
+                    self.resultsAreShown = true
                 }
             }
         }
@@ -249,6 +252,7 @@ extension TransactionsViewController: UISearchControllerDelegate {
     }
     
     func willDismissSearchController(_ searchController: UISearchController) {
+        resultsAreShown = false
         DispatchQueue.main.async {
             self.reloadHeader()
         }
