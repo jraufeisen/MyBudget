@@ -21,8 +21,10 @@ class TransactionDetailBaseTableViewController: UITableViewController {
         tableView.register(UINib(nibName: "EditNameTableViewCell", bundle: nil), forCellReuseIdentifier: "EditNameTableViewCell")
         tableView.register(UINib(nibName: "EditAccountTableViewCell", bundle: nil), forCellReuseIdentifier: "EditAccountTableViewCell")
         tableView.register(UINib(nibName: "EditCategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "EditCategoryTableViewCell")
+        tableView.register(UINib(nibName: "EditTagsTableViewCell", bundle: nil), forCellReuseIdentifier: "EditTagsTableViewCell")
 
-        
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.keyboardDismissMode = .onDrag
     }
 
     // MARK: - Table view data source
@@ -35,10 +37,6 @@ class TransactionDetailBaseTableViewController: UITableViewController {
         return 0
     }
 
-      override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-          return 66
-      }
-    
     @objc func pressedSave() {
         // Needs to be implemented by subclasses
     }

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="landscape" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PerMonthSpendingCard" customModule="Budget_" customModuleProvider="target">
+            <connections>
+                <outlet property="chartContainer" destination="MEz-Md-tNy" id="EIx-J0-qPf"/>
+                <outlet property="contentView" destination="KJc-6e-Fn1" id="ycR-EW-qSb"/>
+                <outlet property="subtitleLabel" destination="O0b-FR-YDW" id="bKu-Df-72e"/>
+                <outlet property="titleLabel" destination="Fdd-jp-6S8" id="s25-K8-mpM"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="KJc-6e-Fn1">
+            <rect key="frame" x="0.0" y="0.0" width="896" height="414"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Per Month Spending" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fdd-jp-6S8">
+                    <rect key="frame" x="60" y="20" width="814" height="29"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEz-Md-tNy">
+                    <rect key="frame" x="60" y="86" width="776" height="307"/>
+                    <viewLayoutGuide key="contentLayoutGuide" id="8bE-Hx-BDg"/>
+                    <viewLayoutGuide key="frameLayoutGuide" id="PTN-84-lIL"/>
+                </scrollView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average: 42.42 €" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0b-FR-YDW">
+                    <rect key="frame" x="60" y="57" width="105.5" height="16"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="PdF-Xf-q3E" firstAttribute="bottom" secondItem="MEz-Md-tNy" secondAttribute="bottom" id="1Q4-ih-e2Y"/>
+                <constraint firstItem="Fdd-jp-6S8" firstAttribute="top" secondItem="PdF-Xf-q3E" secondAttribute="top" constant="20" id="926-Db-mtP"/>
+                <constraint firstItem="Fdd-jp-6S8" firstAttribute="leading" secondItem="PdF-Xf-q3E" secondAttribute="leading" constant="16" id="CtN-2p-6TN"/>
+                <constraint firstItem="MEz-Md-tNy" firstAttribute="leading" secondItem="PdF-Xf-q3E" secondAttribute="leading" constant="16" id="HZA-sE-dTh"/>
+                <constraint firstItem="MEz-Md-tNy" firstAttribute="top" secondItem="O0b-FR-YDW" secondAttribute="bottom" constant="8" id="So0-h2-dsm"/>
+                <constraint firstItem="Fdd-jp-6S8" firstAttribute="trailing" secondItem="PdF-Xf-q3E" secondAttribute="trailing" constant="22" id="TzD-tz-t2C"/>
+                <constraint firstItem="PdF-Xf-q3E" firstAttribute="trailing" secondItem="MEz-Md-tNy" secondAttribute="trailing" constant="16" id="axG-hf-F3g"/>
+                <constraint firstItem="O0b-FR-YDW" firstAttribute="leading" secondItem="Fdd-jp-6S8" secondAttribute="leading" id="daT-Pb-SL3"/>
+                <constraint firstItem="O0b-FR-YDW" firstAttribute="top" secondItem="Fdd-jp-6S8" secondAttribute="bottom" constant="8" id="gj3-hJ-hg9"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="PdF-Xf-q3E"/>
+            <point key="canvasLocation" x="-592.63392857142856" y="-1336.2318840579712"/>
+        </view>
+    </objects>
+</document>

@@ -39,7 +39,7 @@ class IncomeStatementCard: UIView {
          if #available(iOS 13.0, *) {
              contentView.backgroundColor = .secondarySystemGroupedBackground
          } else {
-             contentView.backgroundColor = UIColor.lightGray
+             contentView.backgroundColor = UIColor.white
          }
 
         

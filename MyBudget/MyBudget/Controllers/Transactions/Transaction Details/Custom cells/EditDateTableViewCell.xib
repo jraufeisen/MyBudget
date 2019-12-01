@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -13,12 +13,12 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="75q-y0-s0O" id="8j0-gm-1xf">
-                <rect key="frame" x="0.0" y="0.0" width="382.5" height="70"/>
+                <rect key="frame" x="0.0" y="0.0" width="383" height="70"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FJz-ki-ADk" customClass="RoundedCornerView" customModule="Budget_" customModuleProvider="target">
                         <rect key="frame" x="20" y="11" width="48" height="48"/>
-                        <color key="backgroundColor" systemColor="tertiarySystemFillColor" red="0.46274509803921571" green="0.46274509803921571" blue="0.50196078431372548" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="tertiarySystemFillColor" red="0.46274509800000002" green="0.46274509800000002" blue="0.50196078430000002" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="48" id="UUy-0W-DGf"/>
                             <constraint firstAttribute="width" secondItem="FJz-ki-ADk" secondAttribute="height" multiplier="1:1" id="wSx-R2-BkO"/>
@@ -31,20 +31,20 @@
                     </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JHK-67-Ag9">
                         <rect key="frame" x="28" y="19" width="32" height="32"/>
-                        <color key="tintColor" systemColor="systemGrayColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="32" id="LHO-X9-dEy"/>
                             <constraint firstAttribute="width" secondItem="JHK-67-Ag9" secondAttribute="height" multiplier="1:1" id="eBK-S2-SQ5"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJg-2J-1co">
-                        <rect key="frame" x="88" y="11" width="274.5" height="21"/>
+                        <rect key="frame" x="88" y="11" width="275" height="21"/>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="25.09.2019" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5bb-H5-kU0">
-                        <rect key="frame" x="88" y="38" width="274.5" height="21"/>
+                        <rect key="frame" x="88" y="38" width="275" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
@@ -59,8 +59,10 @@
                     <constraint firstAttribute="trailing" secondItem="RJg-2J-1co" secondAttribute="trailing" constant="20" id="Z6K-gM-ONK"/>
                     <constraint firstItem="JHK-67-Ag9" firstAttribute="width" secondItem="JHK-67-Ag9" secondAttribute="height" multiplier="1:1" id="cpF-8N-Xtz"/>
                     <constraint firstItem="RJg-2J-1co" firstAttribute="leading" secondItem="FJz-ki-ADk" secondAttribute="trailing" constant="20" id="gd0-7K-mCD"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="FJz-ki-ADk" secondAttribute="bottom" constant="11" id="hVU-gc-w2c"/>
                     <constraint firstItem="FJz-ki-ADk" firstAttribute="width" secondItem="FJz-ki-ADk" secondAttribute="height" multiplier="1:1" id="ncm-cC-Ujs"/>
                     <constraint firstItem="JHK-67-Ag9" firstAttribute="centerY" secondItem="FJz-ki-ADk" secondAttribute="centerY" id="rIX-Rb-9Tf"/>
+                    <constraint firstItem="FJz-ki-ADk" firstAttribute="top" relation="greaterThanOrEqual" secondItem="8j0-gm-1xf" secondAttribute="top" constant="11" id="w40-EQ-cAG"/>
                     <constraint firstAttribute="trailing" secondItem="5bb-H5-kU0" secondAttribute="trailing" constant="20" id="ylm-j3-kGx"/>
                 </constraints>
             </tableViewCellContentView>

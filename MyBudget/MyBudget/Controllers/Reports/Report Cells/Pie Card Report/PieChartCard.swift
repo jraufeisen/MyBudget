@@ -41,7 +41,7 @@ class PieChartCard: UIView {
         if #available(iOS 13.0, *) {
             contentView.backgroundColor = .secondarySystemGroupedBackground
         } else {
-            contentView.backgroundColor = UIColor.lightGray
+            contentView.backgroundColor = UIColor.white
         }
         
         layer.cornerRadius = 10

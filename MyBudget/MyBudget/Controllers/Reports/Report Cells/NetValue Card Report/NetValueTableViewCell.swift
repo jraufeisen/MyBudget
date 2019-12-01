@@ -14,13 +14,11 @@ class NetValueTableViewCell: UITableViewCell {
 
     let oneMonthWidth: CGFloat = 100
 
-    
     static let Identifier = "NetValueChartTableViewCellID"
 
     @IBOutlet weak var contentContainer: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
 
-    
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -30,7 +28,7 @@ class NetValueTableViewCell: UITableViewCell {
         if #available(iOS 13.0, *) {
             contentContainer.backgroundColor = .secondarySystemGroupedBackground
         } else {
-            contentContainer.backgroundColor = UIColor.lightGray
+            contentContainer.backgroundColor = UIColor.white
         }
 
         contentContainer.layer.cornerRadius = 10

@@ -27,7 +27,8 @@ class IncomeDetailTableViewController: TransactionDetailBaseTableViewController 
     private var dateCell: EditDateTableViewCell?
     private var nameCell: EditNameTableViewCell?
     private var accountCell: EditAccountTableViewCell?
-    
+    private var tagCell: EditTagsTableViewCell?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,7 @@ class IncomeDetailTableViewController: TransactionDetailBaseTableViewController 
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 5
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -65,6 +66,16 @@ class IncomeDetailTableViewController: TransactionDetailBaseTableViewController 
             accountCell?.textfield.text = transaction.account
             cell.colorStyle = .income
             return cell
+        } else if indexPath.row == 4 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: EditTagsTableViewCell.Identifier, for: indexPath) as! EditTagsTableViewCell
+            tagCell = cell
+            cell.tags = transaction.tags
+            cell.colorStyle = .income
+            cell.tagField.onDidChangeHeightTo = { (field, height) in
+                self.tableView.beginUpdates()
+                self.tableView.endUpdates()
+            }
+            return cell
         }
 
         
@@ -85,12 +96,14 @@ class IncomeDetailTableViewController: TransactionDetailBaseTableViewController 
         guard let description = nameCell?.selectedName() else {return}
         guard let money = moneyCell?.selectedMoney() else {return}
         guard let date = dateCell?.selectedDate() else {return}
-        
+        guard let tags = tagCell?.tags else {return}
+
         let newTx = IncomeTransaction()
         newTx.account = accountName
         newTx.transactionDescription = description
         newTx.value = money
         newTx.date = date
+        newTx.tags = tags
         
         LedgerModel.shared().replaceTransaction(oldTx: transaction.ledgerTransaction(), with: newTx.ledgerTransaction())
         navigationController?.popViewController(animated: true)

@@ -222,6 +222,7 @@ class Model: NSObject {
             if tx.isExpense() {
                 let relevantTx = ExpenseTransaction()
                 relevantTx.transactionDescription = tx.name
+                relevantTx.tags = tx.tags
                 for post in tx.postings {
                     let dec = NSDecimalNumber.init(decimal: post.value)
                     relevantTx.value = Money(dec.floatValue)
@@ -247,6 +248,7 @@ class Model: NSObject {
             } else if tx.isIncome() {
                 let relevantTx = IncomeTransaction()
                 relevantTx.transactionDescription = tx.name
+                relevantTx.tags = tx.tags
                 for post in tx.postings {
                     let dec = NSDecimalNumber.init(decimal: post.value)
                     relevantTx.value = Money(-dec.floatValue)
@@ -265,6 +267,7 @@ class Model: NSObject {
             } else if tx.isTransfer() {
                 let relevantTx = TransferTransaction()
                 relevantTx.transactionDescription = tx.name
+                relevantTx.tags = tx.tags
                 relevantTx.date = tx.date
                 for post in tx.postings {
                     let dec = NSDecimalNumber.init(decimal: post.value)

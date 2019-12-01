@@ -1256,7 +1256,7 @@
         <!--Transactions-->
         <scene sceneID="29q-x8-IJ3">
             <objects>
-                <viewController id="q9W-M4-2Gu" customClass="TransactionsViewController" customModule="Budget_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="q9W-M4-2Gu" customClass="TransactionsViewController" customModule="Budget_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6Qv-zp-w8W">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1371,13 +1371,47 @@
             </objects>
             <point key="canvasLocation" x="586.95652173913049" y="2368.5267857142858"/>
         </scene>
+        <!--Transaction Search Table View Controller-->
+        <scene sceneID="YsA-Va-y0z">
+            <objects>
+                <viewController storyboardIdentifier="TransactionSearchTableViewController" id="Go1-h4-8Fb" customClass="TransactionSearchTableViewController" customModule="Budget_" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JA1-Jc-oJE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sRO-MM-VXN">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Go1-h4-8Fb" id="uNT-V5-nz0"/>
+                                    <outlet property="delegate" destination="Go1-h4-8Fb" id="LxZ-bq-mtQ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="sRO-MM-VXN" firstAttribute="bottom" secondItem="JA1-Jc-oJE" secondAttribute="bottom" id="H67-gK-83D"/>
+                            <constraint firstItem="sRO-MM-VXN" firstAttribute="leading" secondItem="JA1-Jc-oJE" secondAttribute="leading" id="gnC-4Z-Lay"/>
+                            <constraint firstAttribute="trailing" secondItem="sRO-MM-VXN" secondAttribute="trailing" id="gzB-KI-Lzy"/>
+                            <constraint firstAttribute="top" secondItem="sRO-MM-VXN" secondAttribute="top" id="tiA-80-OFw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ifJ-lq-8YI"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="sRO-MM-VXN" id="QjY-kb-uHl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QbO-ug-bjM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1336.2318840579712" y="2389.9553571428569"/>
+        </scene>
         <!--Transactions-->
         <scene sceneID="qCx-o7-TAG">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="w5V-fb-VLB" customClass="StandardNavigationViewController" customModule="Budget_" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Transactions" image="List" id="MAm-Kk-vgC"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="id7-OB-tQi">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="id7-OB-tQi">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
