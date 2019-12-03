@@ -81,6 +81,7 @@
 		EB5C600922F32417004F81CF /* TextAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C600822F32417004F81CF /* TextAnimation.swift */; };
 		EB5C600C22F32960004F81CF /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C600B22F32960004F81CF /* MenuTableViewController.swift */; };
 		EB5CADB722F55DC600205AC8 /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5CADB622F55DC600205AC8 /* AccountTableViewController.swift */; };
+		EB61943C2396709F00D55F6C /* AboutPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB61943923966F1200D55F6C /* AboutPageViewController.swift */; };
 		EB6EF9FF2323B84A00294846 /* Model+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EF9FE2323B84A00294846 /* Model+iOS.swift */; };
 		EB6EFA012323B8AE00294846 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145A22E8AD7300291435 /* Transaction.swift */; };
 		EB6EFA022323B9CB00294846 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB399D742323075400CA0BD8 /* Interface.storyboard */; };
@@ -323,6 +324,7 @@
 		EB5C600822F32417004F81CF /* TextAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnimation.swift; sourceTree = "<group>"; };
 		EB5C600B22F32960004F81CF /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		EB5CADB622F55DC600205AC8 /* AccountTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
+		EB61943923966F1200D55F6C /* AboutPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPageViewController.swift; sourceTree = "<group>"; };
 		EB668B9D22EF2DDE0082D54B /* MaterialComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MaterialComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB6EF9FE2323B84A00294846 /* Model+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Model+iOS.swift"; sourceTree = "<group>"; };
 		EB712A842392FFF800A7ABBD /* TransactionSearchResultHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionSearchResultHeaderView.swift; sourceTree = "<group>"; };
@@ -660,6 +662,7 @@
 				EBA19223230482A200DA9308 /* Monthly Average */,
 				EBB21C8423055536004E4E8F /* Transactions */,
 				EBF3A887233AB874003093B7 /* Standard UINavigationBar */,
+				EB61943B23966F1700D55F6C /* About */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -671,6 +674,14 @@
 				EB024C2422F35C5A00228855 /* MenuPresentingViewController.swift */,
 			);
 			path = Menu;
+			sourceTree = "<group>";
+		};
+		EB61943B23966F1700D55F6C /* About */ = {
+			isa = PBXGroup;
+			children = (
+				EB61943923966F1200D55F6C /* AboutPageViewController.swift */,
+			);
+			path = About;
 			sourceTree = "<group>";
 		};
 		EB712A892393046200A7ABBD /* Search Results Header */ = {
@@ -1376,6 +1387,7 @@
 				EB205AE423660E920050130E /* PieChartTableViewCell.swift in Sources */,
 				EBAE2ED92364A37100040980 /* BudgetTableHeaderView.swift in Sources */,
 				EB399D7F2323088100CA0BD8 /* WatchSessionManager.swift in Sources */,
+				EB61943C2396709F00D55F6C /* AboutPageViewController.swift in Sources */,
 				EBA8A8A72393CE6600217D4D /* PerMonthIncomeCard.swift in Sources */,
 				EBDA26CD22F6FDCC0073DC50 /* IncomeStatementPercentView.swift in Sources */,
 				EB0E2247238D8BC800536039 /* EditTagsTableViewCell.swift in Sources */,
@@ -1656,7 +1668,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MyBudget/MyBudget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YLJFWRHN2U;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1669,7 +1681,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jraufeisen.MyBudget;
 				PRODUCT_NAME = "Budget!";
 				SWIFT_OBJC_BRIDGING_HEADER = "MyBudget/Views/MyBudget-Bridging-Header.h";
@@ -1687,7 +1699,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MyBudget/MyBudget.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = YLJFWRHN2U;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -1700,7 +1712,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jraufeisen.MyBudget;
 				PRODUCT_NAME = "Budget!";
 				SWIFT_OBJC_BRIDGING_HEADER = "MyBudget/Views/MyBudget-Bridging-Header.h";

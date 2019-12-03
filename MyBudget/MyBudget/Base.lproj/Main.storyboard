@@ -1580,10 +1580,10 @@
             </objects>
             <point key="canvasLocation" x="4095.652173913044" y="1166.5178571428571"/>
         </scene>
-        <!--View Controller-->
+        <!--About Page View Controller-->
         <scene sceneID="lIH-pX-4R4">
             <objects>
-                <viewController id="8nH-TV-cWX" sceneMemberID="viewController">
+                <viewController id="8nH-TV-cWX" customClass="AboutPageViewController" customModule="Budget_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mxj-3j-IDQ" userLabel="RootView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="850"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1605,7 +1605,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nSW-p6-u2T">
-                                                        <rect key="frame" x="20" y="731" width="374" height="58"/>
+                                                        <rect key="frame" x="20" y="721.5" width="374" height="58"/>
                                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="58" id="tQB-ww-Rx9"/>
@@ -1613,6 +1613,9 @@
                                                         <state key="normal" title="Rate on the App Store">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="pressedRateOnAppStore" destination="8nH-TV-cWX" eventType="touchUpInside" id="zRA-KA-zJU"/>
+                                                        </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="stX-EK-4od">
                                                         <rect key="frame" x="0.0" y="250" width="414" height="80"/>
@@ -1630,9 +1633,16 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fma-o5-CiE">
-                                                                <rect key="frame" x="321" y="25.5" width="68" height="29"/>
+                                                                <rect key="frame" x="299" y="25.5" width="90" height="29"/>
+                                                                <color key="backgroundColor" systemColor="systemFillColor" red="0.47058823529999999" green="0.47058823529999999" blue="0.50196078430000002" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="90" id="3VC-FA-CTK"/>
+                                                                </constraints>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
                                                                 <state key="normal" title="Subscribe"/>
+                                                                <connections>
+                                                                    <action selector="pressedSubscribe" destination="8nH-TV-cWX" eventType="touchUpInside" id="Zwy-CV-AYu"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="quaternarySystemFillColor" red="0.4549019608" green="0.4549019608" blue="0.50196078430000002" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1650,25 +1660,25 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCloud Identifier" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MnA-gb-1zD">
-                                                        <rect key="frame" x="20" y="644.5" width="132" height="21.5"/>
+                                                        <rect key="frame" x="20" y="624.5" width="132" height="21.5"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="46456uihkjhkjl2357686" translatesAutoresizingMaskIntoConstraints="NO" id="I54-PU-5E8">
-                                                        <rect key="frame" x="20" y="673.5" width="195" height="37.5"/>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="iCloud disabled" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I54-PU-5E8">
+                                                        <rect key="frame" x="20" y="654" width="135.5" height="37.5"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                         <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0.7" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlO-hX-vLG">
-                                                        <rect key="frame" x="20" y="603.5" width="374" height="21"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unknown version" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlO-hX-vLG">
+                                                        <rect key="frame" x="20" y="583.5" width="139.5" height="21"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                                         <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAP-C8-oBe">
-                                                        <rect key="frame" x="20" y="574" width="61.5" height="21.5"/>
+                                                        <rect key="frame" x="20" y="554" width="61.5" height="21.5"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -1818,9 +1828,8 @@
                                                             </fragment>
                                                             <fragment content="access">
                                                                 <attributes>
-                                                                    <color key="NSColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                    <font key="NSFont" size="18" name=".AppleSystemUIFont"/>
-                                                                    <font key="NSOriginalFont" size="19" name="HelveticaNeue"/>
+                                                                    <color key="NSColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <font key="NSFont" size="18" name="HelveticaNeue"/>
                                                                     <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="10" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
                                                                         <tabStops>
                                                                             <textTab alignment="left" location="28">
@@ -1920,16 +1929,17 @@
                                                     <constraint firstItem="I54-PU-5E8" firstAttribute="leading" secondItem="MnA-gb-1zD" secondAttribute="leading" id="0Gi-Yj-tOk"/>
                                                     <constraint firstItem="DlO-hX-vLG" firstAttribute="leading" secondItem="OAP-C8-oBe" secondAttribute="leading" id="40X-wv-BkE"/>
                                                     <constraint firstItem="P8A-Pj-6gF" firstAttribute="leading" secondItem="GUq-7Q-NHu" secondAttribute="leading" id="5zg-o4-PYf"/>
-                                                    <constraint firstItem="I54-PU-5E8" firstAttribute="top" secondItem="MnA-gb-1zD" secondAttribute="bottom" constant="7.5" id="8Lb-cf-bgF"/>
+                                                    <constraint firstItem="I54-PU-5E8" firstAttribute="top" secondItem="MnA-gb-1zD" secondAttribute="bottom" constant="8" id="8Lb-cf-bgF"/>
                                                     <constraint firstItem="9Ja-Or-eZ5" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="MnA-gb-1zD" secondAttribute="trailing" constant="20" id="Akz-Kd-ouX"/>
                                                     <constraint firstItem="stX-EK-4od" firstAttribute="top" secondItem="TM6-no-6yW" secondAttribute="bottom" id="GsI-FY-CXQ"/>
                                                     <constraint firstItem="9Ja-Or-eZ5" firstAttribute="trailing" secondItem="TM6-no-6yW" secondAttribute="trailing" id="K16-hN-bsE"/>
                                                     <constraint firstItem="9Ja-Or-eZ5" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OAP-C8-oBe" secondAttribute="trailing" constant="20" id="KDn-04-WsE"/>
                                                     <constraint firstItem="9Ja-Or-eZ5" firstAttribute="trailing" secondItem="P8A-Pj-6gF" secondAttribute="trailing" constant="20" id="NWm-dw-bLj"/>
                                                     <constraint firstItem="nSW-p6-u2T" firstAttribute="leading" secondItem="9Ja-Or-eZ5" secondAttribute="leading" constant="20" id="PMR-eK-64m"/>
-                                                    <constraint firstItem="9Ja-Or-eZ5" firstAttribute="trailing" secondItem="DlO-hX-vLG" secondAttribute="trailing" constant="20" id="Puc-yh-q4P"/>
+                                                    <constraint firstItem="9Ja-Or-eZ5" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="DlO-hX-vLG" secondAttribute="trailing" constant="20" id="Puc-yh-q4P"/>
                                                     <constraint firstItem="9Ja-Or-eZ5" firstAttribute="trailing" secondItem="stX-EK-4od" secondAttribute="trailing" id="QDA-4Q-LEr"/>
                                                     <constraint firstItem="stX-EK-4od" firstAttribute="leading" secondItem="9Ja-Or-eZ5" secondAttribute="leading" id="T1B-dc-onO"/>
+                                                    <constraint firstItem="9Ja-Or-eZ5" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="I54-PU-5E8" secondAttribute="trailing" constant="20" id="UDb-dW-HpD"/>
                                                     <constraint firstItem="9Ja-Or-eZ5" firstAttribute="leading" secondItem="TM6-no-6yW" secondAttribute="leading" constant="1" id="X9m-hW-oTg"/>
                                                     <constraint firstItem="MnA-gb-1zD" firstAttribute="top" secondItem="DlO-hX-vLG" secondAttribute="bottom" constant="20" id="XZo-U9-cvo"/>
                                                     <constraint firstItem="MnA-gb-1zD" firstAttribute="leading" secondItem="9Ja-Or-eZ5" secondAttribute="leading" constant="20" id="bbW-1n-Yx6"/>
@@ -1938,8 +1948,8 @@
                                                     <constraint firstItem="DlO-hX-vLG" firstAttribute="top" secondItem="OAP-C8-oBe" secondAttribute="bottom" constant="8" id="gMA-E7-VD9"/>
                                                     <constraint firstAttribute="top" secondItem="TM6-no-6yW" secondAttribute="top" id="iDy-SY-vts"/>
                                                     <constraint firstItem="P8A-Pj-6gF" firstAttribute="top" secondItem="stX-EK-4od" secondAttribute="bottom" constant="20" id="nev-87-0B2"/>
-                                                    <constraint firstItem="nSW-p6-u2T" firstAttribute="top" secondItem="I54-PU-5E8" secondAttribute="bottom" constant="20" id="oOS-C3-BkD"/>
-                                                    <constraint firstItem="OAP-C8-oBe" firstAttribute="top" secondItem="P8A-Pj-6gF" secondAttribute="bottom" constant="40" id="vuh-Le-3rM"/>
+                                                    <constraint firstItem="nSW-p6-u2T" firstAttribute="top" secondItem="I54-PU-5E8" secondAttribute="bottom" constant="30" id="oOS-C3-BkD"/>
+                                                    <constraint firstItem="OAP-C8-oBe" firstAttribute="top" secondItem="P8A-Pj-6gF" secondAttribute="bottom" constant="20" id="vuh-Le-3rM"/>
                                                 </constraints>
                                                 <viewLayoutGuide key="safeArea" id="9Ja-Or-eZ5"/>
                                             </view>
@@ -1971,6 +1981,14 @@
                     </view>
                     <navigationItem key="navigationItem" id="dBt-25-Te0"/>
                     <size key="freeformSize" width="414" height="850"/>
+                    <connections>
+                        <outlet property="iCloudIdentifierTextView" destination="I54-PU-5E8" id="1VW-v9-haj"/>
+                        <outlet property="largeSubscriptionLabel" destination="P8A-Pj-6gF" id="hIW-Jc-UIv"/>
+                        <outlet property="rateOnAppStoreButton" destination="nSW-p6-u2T" id="URx-e4-TgF"/>
+                        <outlet property="scubscribeButton" destination="Fma-o5-CiE" id="DUc-4e-71I"/>
+                        <outlet property="subscriptionDetailLabel" destination="GUq-7Q-NHu" id="xym-xt-Ba4"/>
+                        <outlet property="versionLabel" destination="DlO-hX-vLG" id="O5R-Fm-j7b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nhX-Yd-dVl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
