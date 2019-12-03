@@ -113,7 +113,7 @@
                     <navigationItem key="navigationItem" title="Budget" id="3kp-Gt-pSs">
                         <barButtonItem key="leftBarButtonItem" title="Info" image="info.circle" catalog="system" id="i2w-fc-Hhy">
                             <connections>
-                                <segue destination="Trs-Bx-kCf" kind="showDetail" id="0ZK-Vv-uBo"/>
+                                <segue destination="Trs-Bx-kCf" kind="showDetail" id="HkQ-zH-atS"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Dve-AP-YOK">
@@ -1446,160 +1446,6 @@
             </objects>
             <point key="canvasLocation" x="-323.1884057971015" y="2368.5267857142858"/>
         </scene>
-        <!--About your budget-->
-        <scene sceneID="Uac-wL-J91">
-            <objects>
-                <viewController title="About your budget" id="gyt-oH-Gck" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="xlq-jQ-eOE">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="frm-bo-kWx">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="SbO-Yq-eLO">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo_Only" translatesAutoresizingMaskIntoConstraints="NO" id="eRX-qS-gdB">
-                                            <rect key="frame" x="175" y="20" width="64" height="64"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 1.0.7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCS-p4-4KY">
-                                            <rect key="frame" x="169" y="91.5" width="76.5" height="16"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Stock_Accounting" translatesAutoresizingMaskIntoConstraints="NO" id="kJG-aj-L4B">
-                                            <rect key="frame" x="-1" y="0.0" width="415" height="200"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="200" id="mir-wI-bwi"/>
-                                            </constraints>
-                                        </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LlD-t3-Aba">
-                                            <rect key="frame" x="20" y="818" width="374" height="58"/>
-                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="58" id="vat-hv-Y2u"/>
-                                            </constraints>
-                                            <state key="normal" title="Rate on the App Store">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </state>
-                                        </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCloud Identifier" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Mg-JB-WOA">
-                                            <rect key="frame" x="20" y="389.5" width="97" height="16"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                            <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="46456uihkjhkjl2357686" translatesAutoresizingMaskIntoConstraints="NO" id="W5n-bD-Whi">
-                                            <rect key="frame" x="20" y="413" width="195" height="38"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                            <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        </textView>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aja-TZ-2W7">
-                                            <rect key="frame" x="0.0" y="199" width="414" height="80"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscription status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USv-XJ-ceY">
-                                                    <rect key="frame" x="20" y="15" width="156" height="21"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscribed until 42th November 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zj3-wL-fcV">
-                                                    <rect key="frame" x="20" y="44" width="230" height="16"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                                    <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8pb-WS-qgU">
-                                                    <rect key="frame" x="321" y="25.5" width="68" height="29"/>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
-                                                    <state key="normal" title="Subscribe"/>
-                                                </button>
-                                            </subviews>
-                                            <color key="backgroundColor" systemColor="quaternarySystemFillColor" red="0.4549019608" green="0.4549019608" blue="0.50196078430000002" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstItem="8pb-WS-qgU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Zj3-wL-fcV" secondAttribute="trailing" constant="10" id="Bg2-4G-TaL"/>
-                                                <constraint firstItem="8pb-WS-qgU" firstAttribute="centerY" secondItem="Aja-TZ-2W7" secondAttribute="centerY" id="DNP-Xk-onj"/>
-                                                <constraint firstAttribute="trailing" secondItem="8pb-WS-qgU" secondAttribute="trailing" constant="25" id="EGq-Xd-jIz"/>
-                                                <constraint firstItem="Zj3-wL-fcV" firstAttribute="leading" secondItem="USv-XJ-ceY" secondAttribute="leading" id="Elh-iR-bKu"/>
-                                                <constraint firstItem="Zj3-wL-fcV" firstAttribute="top" secondItem="USv-XJ-ceY" secondAttribute="bottom" constant="8" id="JKF-ej-O5Y"/>
-                                                <constraint firstItem="8pb-WS-qgU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="USv-XJ-ceY" secondAttribute="trailing" constant="10" id="M4p-dJ-Rsp"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="USv-XJ-ceY" secondAttribute="trailing" constant="10" id="RZm-mr-WBK"/>
-                                                <constraint firstItem="USv-XJ-ceY" firstAttribute="top" secondItem="Aja-TZ-2W7" secondAttribute="top" constant="15" id="SLb-hb-G67"/>
-                                                <constraint firstAttribute="height" constant="80" id="bj3-Li-Kfx"/>
-                                                <constraint firstItem="USv-XJ-ceY" firstAttribute="leading" secondItem="Aja-TZ-2W7" secondAttribute="leading" constant="20" id="y4l-RX-dCF"/>
-                                            </constraints>
-                                        </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0.7" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Da-y8-sMC">
-                                            <rect key="frame" x="20" y="320" width="374" height="21"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VbB-cW-ChP">
-                                            <rect key="frame" x="20" y="296" width="46" height="16"/>
-                                            <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
-                                            <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                    <constraints>
-                                        <constraint firstItem="eRX-qS-gdB" firstAttribute="centerX" secondItem="0b8-1R-3Or" secondAttribute="centerX" id="1xk-QB-eaJ"/>
-                                        <constraint firstItem="VbB-cW-ChP" firstAttribute="top" secondItem="Aja-TZ-2W7" secondAttribute="bottom" constant="17" id="2rF-Ad-cDO"/>
-                                        <constraint firstItem="0Mg-JB-WOA" firstAttribute="top" secondItem="5Da-y8-sMC" secondAttribute="bottom" constant="48.5" id="3GX-tL-Sei"/>
-                                        <constraint firstItem="uCS-p4-4KY" firstAttribute="centerX" secondItem="eRX-qS-gdB" secondAttribute="centerX" id="8MF-cg-KXP"/>
-                                        <constraint firstItem="5Da-y8-sMC" firstAttribute="top" secondItem="VbB-cW-ChP" secondAttribute="bottom" constant="8" id="BrZ-re-ZvQ"/>
-                                        <constraint firstItem="uCS-p4-4KY" firstAttribute="top" secondItem="eRX-qS-gdB" secondAttribute="bottom" constant="7.5" id="M8u-xM-SQq"/>
-                                        <constraint firstItem="Aja-TZ-2W7" firstAttribute="top" secondItem="kJG-aj-L4B" secondAttribute="bottom" constant="-1" id="UZI-ar-Kbw"/>
-                                        <constraint firstItem="LlD-t3-Aba" firstAttribute="leading" secondItem="0b8-1R-3Or" secondAttribute="leading" constant="20" id="aBu-Dx-Ol4"/>
-                                        <constraint firstItem="5Da-y8-sMC" firstAttribute="leading" secondItem="VbB-cW-ChP" secondAttribute="leading" id="avH-0Y-mcj"/>
-                                        <constraint firstItem="VbB-cW-ChP" firstAttribute="leading" secondItem="0b8-1R-3Or" secondAttribute="leading" constant="20" id="bId-tD-LeT"/>
-                                        <constraint firstItem="0b8-1R-3Or" firstAttribute="trailing" secondItem="5Da-y8-sMC" secondAttribute="trailing" constant="20" id="bVc-en-cBS"/>
-                                        <constraint firstItem="0b8-1R-3Or" firstAttribute="trailing" secondItem="Aja-TZ-2W7" secondAttribute="trailing" id="fEh-4a-6WQ"/>
-                                        <constraint firstItem="W5n-bD-Whi" firstAttribute="leading" secondItem="0Mg-JB-WOA" secondAttribute="leading" id="frc-9E-QtR"/>
-                                        <constraint firstItem="0b8-1R-3Or" firstAttribute="bottom" secondItem="LlD-t3-Aba" secondAttribute="bottom" constant="20" id="gQ0-so-Nav"/>
-                                        <constraint firstItem="0b8-1R-3Or" firstAttribute="leading" secondItem="kJG-aj-L4B" secondAttribute="leading" constant="1" id="iSJ-SE-H0F"/>
-                                        <constraint firstItem="eRX-qS-gdB" firstAttribute="top" secondItem="0b8-1R-3Or" secondAttribute="top" constant="20" id="imJ-bP-VPT"/>
-                                        <constraint firstItem="0b8-1R-3Or" firstAttribute="top" secondItem="kJG-aj-L4B" secondAttribute="top" id="lmM-ex-kzy"/>
-                                        <constraint firstItem="kJG-aj-L4B" firstAttribute="trailing" secondItem="0b8-1R-3Or" secondAttribute="trailing" id="nsO-CT-L4N"/>
-                                        <constraint firstItem="Aja-TZ-2W7" firstAttribute="leading" secondItem="0b8-1R-3Or" secondAttribute="leading" id="o7q-rF-soi"/>
-                                        <constraint firstItem="W5n-bD-Whi" firstAttribute="top" secondItem="0Mg-JB-WOA" secondAttribute="bottom" constant="7.5" id="qCF-9C-APV"/>
-                                        <constraint firstItem="0b8-1R-3Or" firstAttribute="trailing" secondItem="LlD-t3-Aba" secondAttribute="trailing" constant="20" id="ugl-VK-jWl"/>
-                                        <constraint firstItem="0Mg-JB-WOA" firstAttribute="leading" secondItem="0b8-1R-3Or" secondAttribute="leading" constant="20" id="yJI-m3-4Om"/>
-                                    </constraints>
-                                    <viewLayoutGuide key="safeArea" id="0b8-1R-3Or"/>
-                                </view>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="frm-bo-kWx" firstAttribute="bottom" secondItem="xlq-jQ-eOE" secondAttribute="bottom" id="AeO-Cd-S3M"/>
-                            <constraint firstAttribute="trailing" secondItem="frm-bo-kWx" secondAttribute="trailing" id="Fp6-ce-v4C"/>
-                            <constraint firstAttribute="top" secondItem="frm-bo-kWx" secondAttribute="top" id="JiF-Yo-0Jg"/>
-                            <constraint firstItem="frm-bo-kWx" firstAttribute="leading" secondItem="xlq-jQ-eOE" secondAttribute="leading" id="zhX-As-adQ"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="fvm-5G-7Dl"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="About Budget!" id="XU5-vg-Nsa"/>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fUn-hz-bU1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5005.7971014492759" y="1166.5178571428571"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="gka-1s-Lhd">
-            <objects>
-                <viewController id="l1s-QE-LUq" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bSX-Nq-vBV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5773.913043478261" y="1166.1830357142856"/>
-        </scene>
         <!--Budget Table Header View Controller-->
         <scene sceneID="gN4-0g-Coy">
             <objects>
@@ -1718,7 +1564,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Trs-Bx-kCf" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="pqF-DE-rjg">
+                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="pqF-DE-rjg">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1727,23 +1573,418 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </toolbar>
                     <connections>
-                        <segue destination="gyt-oH-Gck" kind="relationship" relationship="rootViewController" id="cQ7-jY-Kbe"/>
+                        <segue destination="8nH-TV-cWX" kind="relationship" relationship="rootViewController" id="KLN-zg-dlY"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SKd-av-4iE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4095.652173913044" y="1166.5178571428571"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="lIH-pX-4R4">
+            <objects>
+                <viewController id="8nH-TV-cWX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mxj-3j-IDQ" userLabel="RootView">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="850"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccO-6y-dhE">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="850"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bCe-35-kvv" userLabel="ContentView">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="850"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" id="ntX-Jf-xxE">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="850"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AppArtwork_iOS" translatesAutoresizingMaskIntoConstraints="NO" id="TM6-no-6yW">
+                                                        <rect key="frame" x="-1" y="0.0" width="415" height="250"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="250" id="omU-Us-Vey"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nSW-p6-u2T">
+                                                        <rect key="frame" x="20" y="731" width="374" height="58"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="58" id="tQB-ww-Rx9"/>
+                                                        </constraints>
+                                                        <state key="normal" title="Rate on the App Store">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                    </button>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="stX-EK-4od">
+                                                        <rect key="frame" x="0.0" y="250" width="414" height="80"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscription status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c94-oZ-EtG">
+                                                                <rect key="frame" x="20" y="15" width="156" height="20.5"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscribed until 42th November 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUq-7Q-NHu">
+                                                                <rect key="frame" x="20" y="43.5" width="230" height="16"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                                <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fma-o5-CiE">
+                                                                <rect key="frame" x="321" y="25.5" width="68" height="29"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
+                                                                <state key="normal" title="Subscribe"/>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="quaternarySystemFillColor" red="0.4549019608" green="0.4549019608" blue="0.50196078430000002" alpha="0.080000000000000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstItem="Fma-o5-CiE" firstAttribute="centerY" secondItem="stX-EK-4od" secondAttribute="centerY" id="FqB-fK-dI6"/>
+                                                            <constraint firstItem="c94-oZ-EtG" firstAttribute="leading" secondItem="stX-EK-4od" secondAttribute="leading" constant="20" id="Fqh-br-aEA"/>
+                                                            <constraint firstAttribute="trailing" secondItem="Fma-o5-CiE" secondAttribute="trailing" constant="25" id="HiZ-hD-pEb"/>
+                                                            <constraint firstItem="GUq-7Q-NHu" firstAttribute="top" secondItem="c94-oZ-EtG" secondAttribute="bottom" constant="8" id="Iid-sj-rpl"/>
+                                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="c94-oZ-EtG" secondAttribute="trailing" constant="10" id="N7M-M4-xEq"/>
+                                                            <constraint firstItem="c94-oZ-EtG" firstAttribute="top" secondItem="stX-EK-4od" secondAttribute="top" constant="15" id="j9X-gf-ZYL"/>
+                                                            <constraint firstAttribute="height" constant="80" id="mUP-9G-k7h"/>
+                                                            <constraint firstItem="Fma-o5-CiE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GUq-7Q-NHu" secondAttribute="trailing" constant="10" id="p06-Wk-zws"/>
+                                                            <constraint firstItem="GUq-7Q-NHu" firstAttribute="leading" secondItem="c94-oZ-EtG" secondAttribute="leading" id="qzz-KI-LXo"/>
+                                                            <constraint firstItem="Fma-o5-CiE" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="c94-oZ-EtG" secondAttribute="trailing" constant="10" id="xlC-S0-4o0"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="iCloud Identifier" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MnA-gb-1zD">
+                                                        <rect key="frame" x="20" y="644.5" width="132" height="21.5"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="46456uihkjhkjl2357686" translatesAutoresizingMaskIntoConstraints="NO" id="I54-PU-5E8">
+                                                        <rect key="frame" x="20" y="673.5" width="195" height="37.5"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                        <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.0.7" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DlO-hX-vLG">
+                                                        <rect key="frame" x="20" y="603.5" width="374" height="21"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                        <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OAP-C8-oBe">
+                                                        <rect key="frame" x="20" y="574" width="61.5" height="21.5"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="30" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8A-Pj-6gF">
+                                                        <rect key="frame" x="20" y="350" width="374" height="184"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content="Subscribing to Budget">
+                                                                <attributes>
+                                                                    <color key="NSColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <font key="NSFont" size="18" name="HelveticaNeue-Medium"/>
+                                                                    <font key="NSOriginalFont" size="24" name="HelveticaNeue-Medium"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="10" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                                        <tabStops>
+                                                                            <textTab alignment="left" location="28">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="56">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="84">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="112">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="140">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="168">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="196">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="224">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="252">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="280">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="308">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="336">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                        </tabStops>
+                                                                    </paragraphStyle>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content=" ">
+                                                                <attributes>
+                                                                    <color key="NSColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <font key="NSFont" size="22" name="HelveticaNeue-Medium"/>
+                                                                    <font key="NSOriginalFont" size="24" name="HelveticaNeue"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="10" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                                        <tabStops>
+                                                                            <textTab alignment="left" location="28">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="56">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="84">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="112">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="140">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="168">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="196">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="224">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="252">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="280">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="308">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="336">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                        </tabStops>
+                                                                    </paragraphStyle>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content="unlocks full ">
+                                                                <attributes>
+                                                                    <color key="NSColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <font key="NSFont" size="18" name=".AppleSystemUIFont"/>
+                                                                    <font key="NSOriginalFont" size="19" name="HelveticaNeue"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="10" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                                        <tabStops>
+                                                                            <textTab alignment="left" location="28">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="56">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="84">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="112">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="140">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="168">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="196">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="224">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="252">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="280">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="308">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="336">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                        </tabStops>
+                                                                    </paragraphStyle>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment content="access">
+                                                                <attributes>
+                                                                    <color key="NSColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <font key="NSFont" size="18" name=".AppleSystemUIFont"/>
+                                                                    <font key="NSOriginalFont" size="19" name="HelveticaNeue"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="10" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                                        <tabStops>
+                                                                            <textTab alignment="left" location="28">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="56">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="84">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="112">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="140">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="168">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="196">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="224">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="252">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="280">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="308">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="336">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                        </tabStops>
+                                                                    </paragraphStyle>
+                                                                </attributes>
+                                                            </fragment>
+                                                            <fragment>
+                                                                <string key="content"> to this app. By downloading Budget!, you have received a contingent of 100 transactions for free. Afterwards, you can still track up to one transaction per day. Subscribing to Budget! removes this limitation and grants full access.</string>
+                                                                <attributes>
+                                                                    <color key="NSColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <font key="NSFont" size="18" name=".AppleSystemUIFont"/>
+                                                                    <font key="NSOriginalFont" size="19" name="HelveticaNeue"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="10" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                                        <tabStops>
+                                                                            <textTab alignment="left" location="28">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="56">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="84">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="112">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="140">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="168">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="196">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="224">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="252">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="280">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="308">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                            <textTab alignment="left" location="336">
+                                                                                <options/>
+                                                                            </textTab>
+                                                                        </tabStops>
+                                                                    </paragraphStyle>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="I54-PU-5E8" firstAttribute="leading" secondItem="MnA-gb-1zD" secondAttribute="leading" id="0Gi-Yj-tOk"/>
+                                                    <constraint firstItem="DlO-hX-vLG" firstAttribute="leading" secondItem="OAP-C8-oBe" secondAttribute="leading" id="40X-wv-BkE"/>
+                                                    <constraint firstItem="P8A-Pj-6gF" firstAttribute="leading" secondItem="GUq-7Q-NHu" secondAttribute="leading" id="5zg-o4-PYf"/>
+                                                    <constraint firstItem="I54-PU-5E8" firstAttribute="top" secondItem="MnA-gb-1zD" secondAttribute="bottom" constant="7.5" id="8Lb-cf-bgF"/>
+                                                    <constraint firstItem="9Ja-Or-eZ5" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="MnA-gb-1zD" secondAttribute="trailing" constant="20" id="Akz-Kd-ouX"/>
+                                                    <constraint firstItem="stX-EK-4od" firstAttribute="top" secondItem="TM6-no-6yW" secondAttribute="bottom" id="GsI-FY-CXQ"/>
+                                                    <constraint firstItem="9Ja-Or-eZ5" firstAttribute="trailing" secondItem="TM6-no-6yW" secondAttribute="trailing" id="K16-hN-bsE"/>
+                                                    <constraint firstItem="9Ja-Or-eZ5" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OAP-C8-oBe" secondAttribute="trailing" constant="20" id="KDn-04-WsE"/>
+                                                    <constraint firstItem="9Ja-Or-eZ5" firstAttribute="trailing" secondItem="P8A-Pj-6gF" secondAttribute="trailing" constant="20" id="NWm-dw-bLj"/>
+                                                    <constraint firstItem="nSW-p6-u2T" firstAttribute="leading" secondItem="9Ja-Or-eZ5" secondAttribute="leading" constant="20" id="PMR-eK-64m"/>
+                                                    <constraint firstItem="9Ja-Or-eZ5" firstAttribute="trailing" secondItem="DlO-hX-vLG" secondAttribute="trailing" constant="20" id="Puc-yh-q4P"/>
+                                                    <constraint firstItem="9Ja-Or-eZ5" firstAttribute="trailing" secondItem="stX-EK-4od" secondAttribute="trailing" id="QDA-4Q-LEr"/>
+                                                    <constraint firstItem="stX-EK-4od" firstAttribute="leading" secondItem="9Ja-Or-eZ5" secondAttribute="leading" id="T1B-dc-onO"/>
+                                                    <constraint firstItem="9Ja-Or-eZ5" firstAttribute="leading" secondItem="TM6-no-6yW" secondAttribute="leading" constant="1" id="X9m-hW-oTg"/>
+                                                    <constraint firstItem="MnA-gb-1zD" firstAttribute="top" secondItem="DlO-hX-vLG" secondAttribute="bottom" constant="20" id="XZo-U9-cvo"/>
+                                                    <constraint firstItem="MnA-gb-1zD" firstAttribute="leading" secondItem="9Ja-Or-eZ5" secondAttribute="leading" constant="20" id="bbW-1n-Yx6"/>
+                                                    <constraint firstItem="9Ja-Or-eZ5" firstAttribute="trailing" secondItem="nSW-p6-u2T" secondAttribute="trailing" constant="20" id="bn5-1r-aVP"/>
+                                                    <constraint firstItem="OAP-C8-oBe" firstAttribute="leading" secondItem="9Ja-Or-eZ5" secondAttribute="leading" constant="20" id="byr-ps-pAu"/>
+                                                    <constraint firstItem="DlO-hX-vLG" firstAttribute="top" secondItem="OAP-C8-oBe" secondAttribute="bottom" constant="8" id="gMA-E7-VD9"/>
+                                                    <constraint firstAttribute="top" secondItem="TM6-no-6yW" secondAttribute="top" id="iDy-SY-vts"/>
+                                                    <constraint firstItem="P8A-Pj-6gF" firstAttribute="top" secondItem="stX-EK-4od" secondAttribute="bottom" constant="20" id="nev-87-0B2"/>
+                                                    <constraint firstItem="nSW-p6-u2T" firstAttribute="top" secondItem="I54-PU-5E8" secondAttribute="bottom" constant="20" id="oOS-C3-BkD"/>
+                                                    <constraint firstItem="OAP-C8-oBe" firstAttribute="top" secondItem="P8A-Pj-6gF" secondAttribute="bottom" constant="40" id="vuh-Le-3rM"/>
+                                                </constraints>
+                                                <viewLayoutGuide key="safeArea" id="9Ja-Or-eZ5"/>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="850" id="mCX-Wu-iO7"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="bCe-35-kvv" secondAttribute="bottom" id="GrC-z4-90z"/>
+                                    <constraint firstAttribute="trailing" secondItem="bCe-35-kvv" secondAttribute="trailing" id="KSK-Z4-caf"/>
+                                    <constraint firstItem="bCe-35-kvv" firstAttribute="top" secondItem="ccO-6y-dhE" secondAttribute="top" id="hii-nI-rEn"/>
+                                    <constraint firstItem="bCe-35-kvv" firstAttribute="leading" secondItem="ccO-6y-dhE" secondAttribute="leading" id="jdh-ce-RQa"/>
+                                    <constraint firstItem="bCe-35-kvv" firstAttribute="width" secondItem="ccO-6y-dhE" secondAttribute="width" id="v8r-TY-Tog"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="9Qk-Bl-8JQ"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="g5d-df-1tb"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ccO-6y-dhE" firstAttribute="trailing" secondItem="mxj-3j-IDQ" secondAttribute="trailing" id="N0I-jN-r4f"/>
+                            <constraint firstItem="ccO-6y-dhE" firstAttribute="bottom" secondItem="mxj-3j-IDQ" secondAttribute="bottom" id="Qwo-Wf-9sN"/>
+                            <constraint firstItem="ccO-6y-dhE" firstAttribute="top" secondItem="mxj-3j-IDQ" secondAttribute="top" id="Rek-p8-lrz"/>
+                            <constraint firstItem="ccO-6y-dhE" firstAttribute="leading" secondItem="mxj-3j-IDQ" secondAttribute="leading" id="wKj-Lj-LPA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="q8I-i9-pqY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dBt-25-Te0"/>
+                    <size key="freeformSize" width="414" height="850"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nhX-Yd-dVl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4853.6231884057979" y="1171.875"/>
+        </scene>
     </scenes>
     <resources>
         <image name="App Artwork" width="512" height="512"/>
+        <image name="AppArtwork_iOS" width="341.33334350585938" height="341.33334350585938"/>
         <image name="Bag" width="24" height="24"/>
         <image name="Big Credit Card" width="128" height="128"/>
         <image name="Credit Cards" width="24" height="24"/>
         <image name="List" width="24" height="24"/>
-        <image name="Logo_Only" width="64" height="64"/>
         <image name="Pie Chart" width="24" height="24"/>
-        <image name="Stock_Accounting" width="1280" height="977"/>
         <image name="add.png" width="384" height="384"/>
         <image name="drawer.png" width="384" height="384"/>
         <image name="edit-2.png" width="51.200000762939453" height="51.200000762939453"/>
@@ -1752,6 +1993,6 @@
         <image name="plus" catalog="system" width="64" height="56"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="VnF-P5-DWH"/>
+        <segue reference="HkQ-zH-atS"/>
     </inferredMetricsTieBreakers>
 </document>
