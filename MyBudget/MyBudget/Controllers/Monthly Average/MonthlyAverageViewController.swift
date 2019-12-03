@@ -93,13 +93,5 @@ class MonthlyAverageViewController: UIViewController, UITableViewDelegate, UITab
         
     }
     
-    @IBAction func pressedMenu(_ sender: Any) {
-        guard let menuPresentingController = navigationController as? MenuPresentingViewController else {
-            fatalError("The presenting navigationcontroller is not a menu presenting view controller")
-        }
-        
-        menuPresentingController.showMenu()
-    }
-
 
 }

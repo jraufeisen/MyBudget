@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		663262797FA0440D3870E37D /* Pods_MyBudget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54B8B8649E433172893306AF /* Pods_MyBudget.framework */; };
-		EB024C2522F35C5A00228855 /* MenuPresentingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB024C2422F35C5A00228855 /* MenuPresentingViewController.swift */; };
 		EB02A67222EB10E700987AFA /* APNumberPadDefaultStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02A66A22EB10E600987AFA /* APNumberPadDefaultStyle.m */; };
 		EB02A67322EB10E700987AFA /* APNumberButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02A66C22EB10E700987AFA /* APNumberButton.m */; };
 		EB02A67422EB10E700987AFA /* NSBundle+APNumberPad.m in Sources */ = {isa = PBXBuildFile; fileRef = EB02A66D22EB10E700987AFA /* NSBundle+APNumberPad.m */; };
@@ -79,7 +78,6 @@
 		EB582E7622F0AE1800422323 /* Date+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB582E7522F0AE1800422323 /* Date+Utilities.swift */; };
 		EB58C3F2237DB5DB00C21A26 /* AddCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB58C3F1237DB5DB00C21A26 /* AddCategoryCollectionViewCell.swift */; };
 		EB5C600922F32417004F81CF /* TextAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C600822F32417004F81CF /* TextAnimation.swift */; };
-		EB5C600C22F32960004F81CF /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C600B22F32960004F81CF /* MenuTableViewController.swift */; };
 		EB5CADB722F55DC600205AC8 /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5CADB622F55DC600205AC8 /* AccountTableViewController.swift */; };
 		EB61943C2396709F00D55F6C /* AboutPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB61943923966F1200D55F6C /* AboutPageViewController.swift */; };
 		EB6EF9FF2323B84A00294846 /* Model+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EF9FE2323B84A00294846 /* Model+iOS.swift */; };
@@ -171,7 +169,6 @@
 		EBF560FD2305F47F00E850E7 /* UIImage+Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF560FC2305F47F00E850E7 /* UIImage+Macro.swift */; };
 		EBF5700323843B1E00CF5600 /* OnboardingBudgetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF5700123843B1E00CF5600 /* OnboardingBudgetTableViewCell.swift */; };
 		EBF5700423843B1E00CF5600 /* OnboardingBudgetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBF5700223843B1E00CF5600 /* OnboardingBudgetTableViewCell.xib */; };
-		EBF595B72305852100BF9E40 /* LockScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF595B62305852100BF9E40 /* LockScreenViewController.swift */; };
 		EBFA553F23840FCD00EE6F42 /* OnboardingNewAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFA553E23840FCD00EE6F42 /* OnboardingNewAccountViewController.swift */; };
 		EBFF078D22E9B4BA00CC7215 /* NewAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD012F122E9B2D400F8126D /* NewAccountCell.xib */; };
 		EBFF078E22E9B4BC00CC7215 /* ExistingAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD012F022E9B2D400F8126D /* ExistingAccountCell.xib */; };
@@ -243,7 +240,6 @@
 		54B8B8649E433172893306AF /* Pods_MyBudget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyBudget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57A002984EE218581882BECE /* Pods-MyBudget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBudget.release.xcconfig"; path = "../../Pods/Target Support Files/Pods-MyBudget/Pods-MyBudget.release.xcconfig"; sourceTree = "<group>"; };
 		D417B19FFE3836948A97CB22 /* Pods-MyBudget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBudget.debug.xcconfig"; path = "../../Pods/Target Support Files/Pods-MyBudget/Pods-MyBudget.debug.xcconfig"; sourceTree = "<group>"; };
-		EB024C2422F35C5A00228855 /* MenuPresentingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPresentingViewController.swift; sourceTree = "<group>"; };
 		EB02A66822EB10E600987AFA /* MyBudget-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyBudget-Bridging-Header.h"; sourceTree = "<group>"; };
 		EB02A66922EB10E600987AFA /* APNumberPadDefaultStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APNumberPadDefaultStyle.h; sourceTree = "<group>"; };
 		EB02A66A22EB10E600987AFA /* APNumberPadDefaultStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APNumberPadDefaultStyle.m; sourceTree = "<group>"; };
@@ -322,7 +318,6 @@
 		EB582E7522F0AE1800422323 /* Date+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Utilities.swift"; sourceTree = "<group>"; };
 		EB58C3F1237DB5DB00C21A26 /* AddCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		EB5C600822F32417004F81CF /* TextAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnimation.swift; sourceTree = "<group>"; };
-		EB5C600B22F32960004F81CF /* MenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		EB5CADB622F55DC600205AC8 /* AccountTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
 		EB61943923966F1200D55F6C /* AboutPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPageViewController.swift; sourceTree = "<group>"; };
 		EB668B9D22EF2DDE0082D54B /* MaterialComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MaterialComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -420,7 +415,6 @@
 		EBF560FC2305F47F00E850E7 /* UIImage+Macro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Macro.swift"; sourceTree = "<group>"; };
 		EBF5700123843B1E00CF5600 /* OnboardingBudgetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingBudgetTableViewCell.swift; sourceTree = "<group>"; };
 		EBF5700223843B1E00CF5600 /* OnboardingBudgetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OnboardingBudgetTableViewCell.xib; sourceTree = "<group>"; };
-		EBF595B62305852100BF9E40 /* LockScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockScreenViewController.swift; sourceTree = "<group>"; };
 		EBFA553E23840FCD00EE6F42 /* OnboardingNewAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingNewAccountViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -652,8 +646,6 @@
 				EB4F78982319A2450045077E /* Onboard_Subscription */,
 				EBF560F92305EFD800E850E7 /* New Budget Category */,
 				EB1BCBC02305ADBD0023E11F /* New Account */,
-				EBF595B82305852700BF9E40 /* Lock Screen */,
-				EB5C600D22F3296B004F81CF /* Menu */,
 				EBDA26CE22F708340073DC50 /* Accounts */,
 				EBD012E322E99A1200F8126D /* Budget Table VC */,
 				EBEB145122E8A1B500291435 /* New Transaction VC */,
@@ -665,15 +657,6 @@
 				EB61943B23966F1700D55F6C /* About */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		EB5C600D22F3296B004F81CF /* Menu */ = {
-			isa = PBXGroup;
-			children = (
-				EB5C600B22F32960004F81CF /* MenuTableViewController.swift */,
-				EB024C2422F35C5A00228855 /* MenuPresentingViewController.swift */,
-			);
-			path = Menu;
 			sourceTree = "<group>";
 		};
 		EB61943B23966F1700D55F6C /* About */ = {
@@ -1016,14 +999,6 @@
 			path = "New Budget Category";
 			sourceTree = "<group>";
 		};
-		EBF595B82305852700BF9E40 /* Lock Screen */ = {
-			isa = PBXGroup;
-			children = (
-				EBF595B62305852100BF9E40 /* LockScreenViewController.swift */,
-			);
-			path = "Lock Screen";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1315,11 +1290,9 @@
 				EB985CBD22EC74F800C033E8 /* String+OnlyDigits.swift in Sources */,
 				EBEB145022E8A1B100291435 /* EnterNumberViewController.swift in Sources */,
 				EB35EDEC233E100100C58683 /* TransferDetailTableViewController.swift in Sources */,
-				EB5C600C22F32960004F81CF /* MenuTableViewController.swift in Sources */,
 				EB09FC97231D5D830063FB90 /* SubscriptionFloaty.swift in Sources */,
 				EB712A8E2393061D00A7ABBD /* TransactionSearchResultHeaderView.swift in Sources */,
 				EBE7E2BC2321233500BEC812 /* Constants.swift in Sources */,
-				EB024C2522F35C5A00228855 /* MenuPresentingViewController.swift in Sources */,
 				EBE7FE55233CC5C40088D156 /* EditCategoryTableViewCell.swift in Sources */,
 				EBE7FE41233CC3720088D156 /* EditMoneyTableViewCell.swift in Sources */,
 				EB09FC95231D57110063FB90 /* KeychainItemAccessibility.swift in Sources */,
@@ -1402,7 +1375,6 @@
 				EB582E7122F0A10D00422323 /* AddAccountsViewController.swift in Sources */,
 				EB9DEBD222E9E02800A73FD1 /* AccountAccessoryView.swift in Sources */,
 				EB0A1BB7237DEF33001678F3 /* OnboardingAccountTableViewCell.swift in Sources */,
-				EBF595B72305852100BF9E40 /* LockScreenViewController.swift in Sources */,
 				EB1BCBBC2305AD2A0023E11F /* NewAccountDiaryProvider.swift in Sources */,
 				EB985CB822EC6B5800C033E8 /* FloatyItem.swift in Sources */,
 				EB35EDEE233E12D300C58683 /* CellStyles.swift in Sources */,

@@ -208,18 +208,6 @@ class AccountTableViewController: UIViewController, UITableViewDelegate, UITable
     }
 
     
-    
-    
-    
-    @IBAction func pressedMenu(_ sender: Any) {
-        guard let menuPresentingController = navigationController as? MenuPresentingViewController else {
-            fatalError("The presenting navigationcontroller is not a menu presenting view controller")
-        }
-        
-        menuPresentingController.showMenu()
-    }
-    
-    
     @IBAction func pressedPlus(_ sender: Any) {
         let newAccountVC = NewAccountViewController()
         let wrapperVC = UINavigationController.init(rootViewController: newAccountVC)

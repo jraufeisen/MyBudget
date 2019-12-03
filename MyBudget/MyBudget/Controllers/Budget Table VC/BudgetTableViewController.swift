@@ -201,15 +201,7 @@ class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableV
     
     // MARK: IB Actions
     
-    
-    @IBAction func pressedMenuButton(_ sender: Any) {
-        guard let menuPresentingController = navigationController as? MenuPresentingViewController else {
-            fatalError("The presenting navigationcontroller is not a menu presenting view controller")
-        }
 
-        menuPresentingController.showMenu()
-        
-    }
     
     @IBAction func pressedPlusButton(_ sender: Any) {
         let newCategoryVC = NewBudgetCategoryViewController()
