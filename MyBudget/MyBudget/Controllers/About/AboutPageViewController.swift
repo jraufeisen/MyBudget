@@ -9,6 +9,7 @@
 import UIKit
 import StoreKit
 import CloudKit
+import BLTNBoard
 
 class AboutPageViewController: UIViewController {
 
@@ -18,6 +19,18 @@ class AboutPageViewController: UIViewController {
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var iCloudIdentifierTextView: UITextView!
     @IBOutlet weak var rateOnAppStoreButton: UIButton!
+    
+    lazy private var bulletinManager: BLTNItemManager = {
+       
+        let subscriptionPage = BulletinDataSource.makeSubscriptionPage()
+        subscriptionPage.next = BulletinDataSource.makeChoicePage()
+        let manager = BLTNItemManager(rootItem: subscriptionPage)
+        if #available(iOS 13.0, *) {
+            manager.backgroundColor = UIColor.secondarySystemBackground
+        }
+        return manager
+    }()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,7 +107,7 @@ class AboutPageViewController: UIViewController {
     }
     
     @IBAction func pressedSubscribe() {
-        
+        bulletinManager.showBulletin(above: self)
     }
 
 }
