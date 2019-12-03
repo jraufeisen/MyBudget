@@ -298,7 +298,6 @@
 		EB399D7C2323077D00CA0BD8 /* EnterNumberInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterNumberInterfaceController.swift; sourceTree = "<group>"; };
 		EB399D7D2323077D00CA0BD8 /* ConfirmationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmationController.swift; sourceTree = "<group>"; };
 		EB399D7E2323088100CA0BD8 /* WatchSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchSessionManager.swift; sourceTree = "<group>"; };
-		EB3D8CD62366139500B71C4E /* Antlr4.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Antlr4.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB4F7894231968860045077E /* ServerReceiptValidatorReceiptValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerReceiptValidatorReceiptValidator.swift; sourceTree = "<group>"; };
 		EB4F789623196F220045077E /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		EB4F78992319A2600045077E /* SubscriptionOnboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionOnboardController.swift; sourceTree = "<group>"; };
@@ -406,7 +405,6 @@
 		EBEB145A22E8AD7300291435 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		EBEB8B1923145CAB009F65B8 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		EBEB8B1B23145D5C009F65B8 /* NewAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAccountViewController.swift; sourceTree = "<group>"; };
-		EBEC52F623310A9E00E88BA3 /* Antlr4.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Antlr4.framework; sourceTree = "<group>"; };
 		EBF19B3D237DC7AA00A1190B /* AccountHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountHeaderView.swift; sourceTree = "<group>"; };
 		EBF2F67B22E8D91300C2772F /* AccountTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableView.swift; sourceTree = "<group>"; };
 		EBF3A88A233AB926003093B7 /* StandardNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardNavigationViewController.swift; sourceTree = "<group>"; };
@@ -466,9 +464,7 @@
 		1CF7C6954939ED9D3DD0375D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				EB3D8CD62366139500B71C4E /* Antlr4.framework */,
 				EBE7FE65233CF96F0088D156 /* Swift_Ledger.framework */,
-				EBEC52F623310A9E00E88BA3 /* Antlr4.framework */,
 				EB4F789623196F220045077E /* StoreKit.framework */,
 				EB668B9D22EF2DDE0082D54B /* MaterialComponents.framework */,
 				EB558EB622ECA3A200039651 /* CloudKit.framework */,
