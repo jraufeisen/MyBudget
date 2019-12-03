@@ -17,7 +17,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        // It is recommended to add an observer here. See https://github.com/bizz84/SwiftyStoreKit#purchase-a-product-given-a-skproduct
+        completeStoreTransactions()
+        
+        ServerReceiptValidator().updateExpirationDate()
 
+        // Prepare for UI Test and copy example data
+        if ProcessInfo.processInfo.arguments.contains("UITests") {
+            UIApplication.shared.keyWindow?.layer.speed = 100 // Make animations semi-instant so that UI tests can rely on fast UI changes
+            loadUITestData()
+        }
+        
+        // Communication with watch app
+        // WatchSessionManager.sharedManager.startSession()
+
+        // Onboarding
+        if Model.shared.ledgerFileIsEssentialyEmpty() {
+            showOnboarding()
+        }
+
+        return true
+    }
+
+    private func completeStoreTransactions() {
         // It is recommended to add an observer here. See https://github.com/bizz84/SwiftyStoreKit#purchase-a-product-given-a-skproduct
         SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
             for purchase in purchases {
@@ -35,36 +57,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
-
-        ServerReceiptValidator().updateExpirationDate()
-
-        // Prepare for UI Test and copy example data
-        if ProcessInfo.processInfo.arguments.contains("UITests") {
-            UIApplication.shared.keyWindow?.layer.speed = 100
-            let url = Bundle.main.url(forResource: "finances_example", withExtension: "txt")!
-            let dataString = try! String.init(contentsOf: url)
-            try! dataString.write(to: LedgerModel.defaultURL, atomically: true, encoding: .utf8)
-        }
-        
-        //Communication with watch app
-        WatchSessionManager.sharedManager.startSession()
-
-        // Onboarding
-        if Model.shared.ledgerFileIsEssentialyEmpty() {
-            let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "onboardMainVCID") as! OnboardingMainViewController
-            vc.delegate = self
-            window?.rootViewController = vc
-        }
-
-        
-        return true
     }
-
+    
+    private func loadUITestData() {
+        let url = Bundle.main.url(forResource: "finances_example", withExtension: "txt")!
+        let dataString = try! String.init(contentsOf: url)
+        try! dataString.write(to: LedgerModel.defaultURL, atomically: true, encoding: .utf8)
+    }
+    
+    private func showOnboarding() {
+        let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "onboardMainVCID") as! OnboardingMainViewController
+        vc.delegate = self
+        window?.rootViewController = vc
+    }
+    
+    
     func applicationWillEnterForeground(_ application: UIApplication) {
         ServerReceiptValidator().updateExpirationDate()
     }
 
 }
+
+// MARK: OnboardingDelegate
 
 extension AppDelegate: OnboardingDelegate {
     func didFinishOnboarding() {
