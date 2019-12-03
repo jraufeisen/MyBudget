@@ -106,7 +106,6 @@
 		EB9DEBD222E9E02800A73FD1 /* AccountAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD122E9E02800A73FD1 /* AccountAccessoryView.swift */; };
 		EB9DEBD422E9E5C400A73FD1 /* UITextField+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */; };
 		EB9DEBD622E9F00600A73FD1 /* CategoryAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD522E9F00600A73FD1 /* CategoryAccessoryView.swift */; };
-		EBA192222304829E00DA9308 /* MonthlyAverageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA192212304829E00DA9308 /* MonthlyAverageViewController.swift */; };
 		EBA8A8A72393CE6600217D4D /* PerMonthIncomeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA8A8A62393CE6600217D4D /* PerMonthIncomeCard.swift */; };
 		EBA8A8A92393CEAA00217D4D /* PerMonthIncomeCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBA8A8A82393CEAA00217D4D /* PerMonthIncomeCard.xib */; };
 		EBA8A8AB2393D3EA00217D4D /* PerCategorySpending.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA8A8AA2393D3EA00217D4D /* PerCategorySpending.swift */; };
@@ -118,6 +117,7 @@
 		EBAE2EDE2364AB3600040980 /* BudgetTableHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAE2EDD2364AB3600040980 /* BudgetTableHeaderViewController.swift */; };
 		EBB21C8023054E70004E4E8F /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB21C7F23054E70004E4E8F /* TabbarViewController.swift */; };
 		EBB21C8323055530004E4E8F /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB21C8223055530004E4E8F /* TransactionsViewController.swift */; };
+		EBB709DA239706BC00A2E7DF /* NavbarFillingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB709D82397058F00A2E7DF /* NavbarFillingViewController.swift */; };
 		EBC0A90B23681B110031A411 /* NetValueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC0A90923681B110031A411 /* NetValueTableViewCell.swift */; };
 		EBC0A90C23681B110031A411 /* NetValueTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBC0A90A23681B110031A411 /* NetValueTableViewCell.xib */; };
 		EBC59D3F22E7503900E626DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC59D3E22E7503900E626DC /* AppDelegate.swift */; };
@@ -347,7 +347,6 @@
 		EB9DEBD122E9E02800A73FD1 /* AccountAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAccessoryView.swift; sourceTree = "<group>"; };
 		EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Placeholder.swift"; sourceTree = "<group>"; };
 		EB9DEBD522E9F00600A73FD1 /* CategoryAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAccessoryView.swift; sourceTree = "<group>"; };
-		EBA192212304829E00DA9308 /* MonthlyAverageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyAverageViewController.swift; sourceTree = "<group>"; };
 		EBA8A8A62393CE6600217D4D /* PerMonthIncomeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerMonthIncomeCard.swift; sourceTree = "<group>"; };
 		EBA8A8A82393CEAA00217D4D /* PerMonthIncomeCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PerMonthIncomeCard.xib; sourceTree = "<group>"; };
 		EBA8A8AA2393D3EA00217D4D /* PerCategorySpending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerCategorySpending.swift; sourceTree = "<group>"; };
@@ -358,6 +357,7 @@
 		EBAE2EDD2364AB3600040980 /* BudgetTableHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTableHeaderViewController.swift; sourceTree = "<group>"; };
 		EBB21C7F23054E70004E4E8F /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		EBB21C8223055530004E4E8F /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
+		EBB709D82397058F00A2E7DF /* NavbarFillingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavbarFillingViewController.swift; sourceTree = "<group>"; };
 		EBC0A90923681B110031A411 /* NetValueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetValueTableViewCell.swift; sourceTree = "<group>"; };
 		EBC0A90A23681B110031A411 /* NetValueTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NetValueTableViewCell.xib; sourceTree = "<group>"; };
 		EBC59D3B22E7503900E626DC /* Budget!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Budget!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -641,6 +641,7 @@
 		EB5C600A22F32946004F81CF /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EBB709D82397058F00A2E7DF /* NavbarFillingViewController.swift */,
 				EB72241E237B4E3A001DA694 /* Onboarding */,
 				EB205AE023660E4F0050130E /* Reports */,
 				EB4F78982319A2450045077E /* Onboard_Subscription */,
@@ -651,7 +652,6 @@
 				EBEB145122E8A1B500291435 /* New Transaction VC */,
 				EB2C771E22EDBD5E009FA2C8 /* Budget Detail VC */,
 				EBB21C8123054E77004E4E8F /* Custom UITabbar */,
-				EBA19223230482A200DA9308 /* Monthly Average */,
 				EBB21C8423055536004E4E8F /* Transactions */,
 				EBF3A887233AB874003093B7 /* Standard UINavigationBar */,
 				EB61943B23966F1700D55F6C /* About */,
@@ -744,14 +744,6 @@
 				EB985CB222EC6B2300C033E8 /* FloatyDelegate.swift */,
 			);
 			path = Floaty;
-			sourceTree = "<group>";
-		};
-		EBA19223230482A200DA9308 /* Monthly Average */ = {
-			isa = PBXGroup;
-			children = (
-				EBA192212304829E00DA9308 /* MonthlyAverageViewController.swift */,
-			);
-			path = "Monthly Average";
 			sourceTree = "<group>";
 		};
 		EBB21C8123054E77004E4E8F /* Custom UITabbar */ = {
@@ -1342,7 +1334,6 @@
 				EB2C772022EDC143009FA2C8 /* MoneyTextField.swift in Sources */,
 				EBCDC3F92388570700AC49FB /* OnboardingAccountContainerView.swift in Sources */,
 				EB8EB60623687402002E305D /* IncomeStatementTableViewCell.swift in Sources */,
-				EBA192222304829E00DA9308 /* MonthlyAverageViewController.swift in Sources */,
 				EB9DEBD622E9F00600A73FD1 /* CategoryAccessoryView.swift in Sources */,
 				EBF560FD2305F47F00E850E7 /* UIImage+Macro.swift in Sources */,
 				EBF2F67C22E8D91300C2772F /* AccountTableView.swift in Sources */,
@@ -1371,6 +1362,7 @@
 				EB58C3F2237DB5DB00C21A26 /* AddCategoryCollectionViewCell.swift in Sources */,
 				EB02A67222EB10E700987AFA /* APNumberPadDefaultStyle.m in Sources */,
 				EBA8A8AB2393D3EA00217D4D /* PerCategorySpending.swift in Sources */,
+				EBB709DA239706BC00A2E7DF /* NavbarFillingViewController.swift in Sources */,
 				EBB21C8323055530004E4E8F /* TransactionsViewController.swift in Sources */,
 				EB582E7122F0A10D00422323 /* AddAccountsViewController.swift in Sources */,
 				EB9DEBD222E9E02800A73FD1 /* AccountAccessoryView.swift in Sources */,

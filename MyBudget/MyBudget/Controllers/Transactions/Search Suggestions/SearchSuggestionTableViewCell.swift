@@ -18,6 +18,10 @@ class SearchSuggestionTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        if #available(iOS 13.0, *) {
+            iconImageView.image = UIImage.init(systemName: "magnifyingglass")
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

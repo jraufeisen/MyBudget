@@ -9,7 +9,7 @@
 import UIKit
 import Swift_Ledger
 
-class ReportsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ReportsViewController: NavbarFillingViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     

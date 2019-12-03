@@ -199,8 +199,7 @@ class SubscriptionSelectorBulletin: FeedbackPageBLTNItem {
                             self.next = BulletinDataSource.makeCompletionPage()
                             self.manager?.displayNextItem()
                         case .error(let error):
-                            break
-                        @unknown default:
+                            print("There was an error processing this purchase: \(error)")
                             break
                         }
                         

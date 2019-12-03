@@ -9,7 +9,7 @@
 import UIKit
 import Swift_Ledger
 
-class TransactionsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TransactionsViewController: NavbarFillingViewController, UITableViewDelegate, UITableViewDataSource {
     
     var transactions = Model.shared.transactions()
     var filteredTransactions = [Transaction]()

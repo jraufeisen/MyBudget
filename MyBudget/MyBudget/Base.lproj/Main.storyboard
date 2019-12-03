@@ -111,11 +111,6 @@
                         <viewLayoutGuide key="safeArea" id="Hf2-uc-nyz"/>
                     </view>
                     <navigationItem key="navigationItem" title="Budget" id="3kp-Gt-pSs">
-                        <barButtonItem key="leftBarButtonItem" title="Info" image="info.circle" catalog="system" id="i2w-fc-Hhy">
-                            <connections>
-                                <segue destination="Trs-Bx-kCf" kind="showDetail" id="HkQ-zH-atS"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Dve-AP-YOK">
                             <connections>
                                 <action selector="pressedPlusButton:" destination="K8T-vI-pGy" id="CXy-BQ-0Sc"/>
@@ -890,11 +885,6 @@
                         <viewLayoutGuide key="safeArea" id="6Jk-B1-dWf"/>
                     </view>
                     <navigationItem key="navigationItem" title="Accounts" id="Yhm-4q-x4q">
-                        <barButtonItem key="leftBarButtonItem" title="Info" image="info.circle" catalog="system" id="Z4L-Qp-22E">
-                            <connections>
-                                <segue destination="Trs-Bx-kCf" kind="showDetail" id="9Yq-CQ-d5n"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="pc4-uj-8dY">
                             <connections>
                                 <action selector="pressedPlus:" destination="8LR-fY-mkU" id="0nf-uv-RDM"/>
@@ -973,13 +963,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lMs-vL-GiW"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Reports" id="5Xx-k4-uls">
-                        <barButtonItem key="leftBarButtonItem" title="Info" image="info.circle" catalog="system" id="RCa-7p-X6u">
-                            <connections>
-                                <segue destination="Trs-Bx-kCf" kind="showDetail" id="C5Z-Lq-Qbg"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Reports" id="5Xx-k4-uls"/>
                     <connections>
                         <outlet property="tableView" destination="JUN-jC-p4U" id="hG7-CO-XEQ"/>
                     </connections>
@@ -1097,13 +1081,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xLo-AP-qya"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Transactions" id="6XQ-7K-xRJ">
-                        <barButtonItem key="leftBarButtonItem" title="Info" image="info.circle" catalog="system" id="phM-nk-Jpu">
-                            <connections>
-                                <segue destination="Trs-Bx-kCf" kind="showDetail" id="VnF-P5-DWH"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Transactions" id="6XQ-7K-xRJ"/>
                     <connections>
                         <outlet property="tableView" destination="b8m-qa-qFV" id="jiy-Iq-0fl"/>
                     </connections>
@@ -1278,31 +1256,10 @@
             </objects>
             <point key="canvasLocation" x="-5543.4782608695659" y="373.99553571428572"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="4Ry-Hu-3eG">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Trs-Bx-kCf" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="pqF-DE-rjg">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PQD-GL-O6U">
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="8nH-TV-cWX" kind="relationship" relationship="rootViewController" id="KLN-zg-dlY"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SKd-av-4iE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4095.652173913044" y="1166.5178571428571"/>
-        </scene>
         <!--About Page View Controller-->
         <scene sceneID="lIH-pX-4R4">
             <objects>
-                <viewController id="8nH-TV-cWX" customClass="AboutPageViewController" customModule="Budget_" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AboutPageViewController" id="8nH-TV-cWX" customClass="AboutPageViewController" customModule="Budget_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mxj-3j-IDQ" userLabel="RootView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="850"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1528,9 +1485,5 @@
         <image name="Pie Chart" width="24" height="24"/>
         <image name="add.png" width="384" height="384"/>
         <image name="edit-2.png" width="51.200000762939453" height="51.200000762939453"/>
-        <image name="info.circle" catalog="system" width="64" height="60"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="C5Z-Lq-Qbg"/>
-    </inferredMetricsTieBreakers>
 </document>

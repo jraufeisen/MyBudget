@@ -69,7 +69,7 @@ public struct EntryContext {
 
 
 /// Its easier to model this vc as a plain viewcontroller, not tableviewcontroller, because I wanna ad a floating button on top
-class BudgetTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class BudgetTableViewController: NavbarFillingViewController, UITableViewDelegate, UITableViewDataSource {
 
     private var budgetCategories = [BudgetCategoryViewable]()
     @IBOutlet var tableView: UITableView!

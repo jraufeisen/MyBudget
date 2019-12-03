@@ -20,8 +20,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZNn-kn-XIf">
                         <rect key="frame" x="20" y="33" width="40" height="40"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ZeC-2h-4CD">
-                                <rect key="frame" x="7.5" y="8.5" width="25" height="23"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Info" translatesAutoresizingMaskIntoConstraints="NO" id="ZeC-2h-4CD">
+                                <rect key="frame" x="7.5" y="7.5" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ZeC-2h-4CD" secondAttribute="height" multiplier="1:1" id="o2A-eP-Abp"/>
                                     <constraint firstAttribute="height" constant="25" id="zRP-rG-4DK"/>
@@ -63,6 +63,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="magnifyingglass" catalog="system" width="64" height="56"/>
+        <image name="Info" width="22" height="22"/>
     </resources>
 </document>

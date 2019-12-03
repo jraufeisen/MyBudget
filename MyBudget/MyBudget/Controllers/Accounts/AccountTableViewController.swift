@@ -66,7 +66,7 @@ class IncomeStatementAccountCell: UITableViewCell {
 
 
 /// Its easier to model this vc as a plain viewcontroller, not tableviewcontroller, because I wanna ad a floating button on top
-class AccountTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class AccountTableViewController: NavbarFillingViewController, UITableViewDelegate, UITableViewDataSource {
     
     private var incomestatement: IncomeStatementViewable = Model.shared.getIncomeStatementViewable()
     private var accounts: [AccountViewable] = Model.shared.getAllAccountViewables()

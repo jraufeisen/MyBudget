@@ -32,6 +32,11 @@ class AboutPageViewController: UIViewController {
     }()
 
     
+    internal static func instantiate() -> AboutPageViewController {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AboutPageViewController") as! AboutPageViewController
+        return vc
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
