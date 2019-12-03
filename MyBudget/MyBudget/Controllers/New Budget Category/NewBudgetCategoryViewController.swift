@@ -86,9 +86,7 @@ extension NewBudgetCategoryViewController: DiaryDelegate {
         item.size = floaty.itemSize
         item.handler = { (item) in
             if let accountName = self.categoryName, let balance = self.initialBalance {
-                print("I will now add new category \(self.categoryName) with balance \(self.initialBalance)")
                 Model.shared.addBudgetCategory(name: accountName, balance: balance)
-
             }
             self.dismiss(animated: true, completion: nil)
         }

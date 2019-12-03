@@ -191,7 +191,7 @@
                                                         <constraint firstAttribute="width" constant="30" id="UQr-VD-l2u"/>
                                                     </constraints>
                                                 </imageView>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Category" textAlignment="center" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="dQz-6D-0qs">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Category" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="dQz-6D-0qs">
                                                     <rect key="frame" x="19.5" y="65" width="61" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -263,7 +263,7 @@
                                             <constraint firstAttribute="width" secondItem="AW2-hP-hTJ" secondAttribute="height" multiplier="10:10" id="MUS-R1-Jr2"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" image="plus" catalog="system">
+                                        <state key="normal" image="add.png">
                                             <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
                                         </state>
                                         <connections>
@@ -909,68 +909,6 @@
             </objects>
             <point key="canvasLocation" x="590" y="928"/>
         </scene>
-        <!--Reports-->
-        <scene sceneID="uII-JL-GFF">
-            <objects>
-                <viewController storyboardIdentifier="monthlyAverageVC" title="Reports" id="evH-lk-FTK" customClass="MonthlyAverageViewController" customModule="Budget_" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="MDv-TH-XYa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="lVi-dh-ACz">
-                                <rect key="frame" x="0.0" y="5" width="414" height="896"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="monthlyAverageCell" textLabel="dgk-2b-YU9" detailTextLabel="BkD-au-MTK" style="IBUITableViewCellStyleValue1" id="JrM-Eq-D6N">
-                                        <rect key="frame" x="0.0" y="55.5" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JrM-Eq-D6N" id="T1j-gv-His">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="dgk-2b-YU9">
-                                                    <rect key="frame" x="20" y="12" width="33.5" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BkD-au-MTK">
-                                                    <rect key="frame" x="350" y="12" width="44" height="20.5"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.81960784310000001" green="0.23137254900000001" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <connections>
-                                    <outlet property="dataSource" destination="evH-lk-FTK" id="9cP-ay-0zh"/>
-                                    <outlet property="delegate" destination="evH-lk-FTK" id="CtP-Hv-qAq"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="lVi-dh-ACz" firstAttribute="height" secondItem="MDv-TH-XYa" secondAttribute="height" id="Bu8-gM-n0b"/>
-                            <constraint firstItem="lVi-dh-ACz" firstAttribute="centerY" secondItem="34u-8b-4ND" secondAttribute="centerY" id="Dwb-Ad-csq"/>
-                            <constraint firstItem="lVi-dh-ACz" firstAttribute="centerX" secondItem="34u-8b-4ND" secondAttribute="centerX" id="n2b-ez-Rma"/>
-                            <constraint firstItem="lVi-dh-ACz" firstAttribute="width" secondItem="MDv-TH-XYa" secondAttribute="width" id="uhH-BJ-fae"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="34u-8b-4ND"/>
-                    </view>
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Spent last month" id="fxA-DK-tJg"/>
-                    <connections>
-                        <outlet property="tableView" destination="lVi-dh-ACz" id="862-Z1-sdl"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="y9a-xn-1Bx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1667" y="1641"/>
-        </scene>
         <!--Accounts-->
         <scene sceneID="PxE-rD-mbU">
             <objects>
@@ -1020,16 +958,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="JUN-jC-p4U">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="iX7-UJ-qAT">
-                                        <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iX7-UJ-qAT" id="9Rp-Gp-9sH">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="26k-Wj-BG1" id="dBt-e2-ltB"/>
                                     <outlet property="delegate" destination="26k-Wj-BG1" id="ufy-p7-waJ"/>
@@ -1601,9 +1529,8 @@
         <image name="add.png" width="384" height="384"/>
         <image name="edit-2.png" width="51.200000762939453" height="51.200000762939453"/>
         <image name="info.circle" catalog="system" width="64" height="60"/>
-        <image name="plus" catalog="system" width="64" height="56"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9Yq-CQ-d5n"/>
+        <segue reference="C5Z-Lq-Qbg"/>
     </inferredMetricsTieBreakers>
 </document>

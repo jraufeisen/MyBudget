@@ -15,6 +15,14 @@ class AccountHeaderView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         backgroundColor = .blueActionColor
+        
+        if #available(iOS 13.0, *) {
+            plusButton.setImage(UIImage.init(systemName: "plus")?.withRenderingMode(.alwaysTemplate), for: .normal)
+        } else {
+            plusButton.setImage(#imageLiteral(resourceName: "add.png").withRenderingMode(.alwaysTemplate), for: .normal)
+        }
+        plusButton.setImage(#imageLiteral(resourceName: "add.png").withRenderingMode(.alwaysTemplate), for: .normal)
+
     }
     
     override func layoutSubviews() {
