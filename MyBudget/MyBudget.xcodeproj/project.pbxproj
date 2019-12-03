@@ -32,7 +32,6 @@
 		EB2C772222EDC8CA009FA2C8 /* pencil.png in Resources */ = {isa = PBXBuildFile; fileRef = EB2C772122EDC8CA009FA2C8 /* pencil.png */; };
 		EB2C772622EDCA56009FA2C8 /* edit-2.png in Resources */ = {isa = PBXBuildFile; fileRef = EB2C772522EDCA56009FA2C8 /* edit-2.png */; };
 		EB2EBEF82323FC9B00030606 /* UIColor+Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145622E8A29800291435 /* UIColor+Macro.swift */; };
-		EB34D5E222F3362D000FACAC /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = EB34D5E122F3362C000FACAC /* menu.png */; };
 		EB35EDE6233E050100C58683 /* RoundedCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB35EDE5233E050100C58683 /* RoundedCornerView.swift */; };
 		EB35EDE8233E0E6100C58683 /* TransactionDetailBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB35EDE7233E0E6100C58683 /* TransactionDetailBaseTableViewController.swift */; };
 		EB35EDEA233E0F9100C58683 /* IncomeDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB35EDE9233E0F9100C58683 /* IncomeDetailTableViewController.swift */; };
@@ -271,7 +270,6 @@
 		EB2C771F22EDC143009FA2C8 /* MoneyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTextField.swift; sourceTree = "<group>"; };
 		EB2C772122EDC8CA009FA2C8 /* pencil.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pencil.png; sourceTree = "<group>"; };
 		EB2C772522EDCA56009FA2C8 /* edit-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "edit-2.png"; sourceTree = "<group>"; };
-		EB34D5E122F3362C000FACAC /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
 		EB35EDE5233E050100C58683 /* RoundedCornerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerView.swift; sourceTree = "<group>"; };
 		EB35EDE7233E0E6100C58683 /* TransactionDetailBaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDetailBaseTableViewController.swift; sourceTree = "<group>"; };
 		EB35EDE9233E0F9100C58683 /* IncomeDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeDetailTableViewController.swift; sourceTree = "<group>"; };
@@ -817,17 +815,17 @@
 				EB558EB522ECA39D00039651 /* MyBudget.entitlements */,
 				EB399D7E2323088100CA0BD8 /* WatchSessionManager.swift */,
 				EBC59D3E22E7503900E626DC /* AppDelegate.swift */,
+				EBC59D4722E7503A00E626DC /* LaunchScreen.storyboard */,
 				EBC59D4222E7503900E626DC /* Main.storyboard */,
-				EB34D5E122F3362C000FACAC /* menu.png */,
+				EB02A66822EB10E600987AFA /* MyBudget-Bridging-Header.h */,
+				EBC59D4A22E7503A00E626DC /* Info.plist */,
 				EB09FC8F231D56F50063FB90 /* Keychain Wrapper */,
 				EB582E7222F0A11500422323 /* Onboarding */,
 				EBC59D4522E7503A00E626DC /* Assets.xcassets */,
-				EBC59D4722E7503A00E626DC /* LaunchScreen.storyboard */,
 				EBD012E222E99A0700F8126D /* Views */,
 				EBD012E122E999FB00F8126D /* Model */,
 				EBEB145922E8A2A200291435 /* Extensions */,
 				EB5C600A22F32946004F81CF /* Controllers */,
-				EBC59D4A22E7503A00E626DC /* Info.plist */,
 			);
 			path = MyBudget;
 			sourceTree = "<group>";
@@ -850,7 +848,6 @@
 			children = (
 				EB985CAA22EC6B2300C033E8 /* Floaty */,
 				EBD012DF22E9974700F8126D /* DiaryTextView.swift */,
-				EB02A66822EB10E600987AFA /* MyBudget-Bridging-Header.h */,
 				EB02A67622EB10EB00987AFA /* Money Selection */,
 				EBD012EF22E9B2C800F8126D /* Category Selection */,
 				EBD012EC22E9B20400F8126D /* Account Selection */,
@@ -1157,7 +1154,6 @@
 				EB2C772222EDC8CA009FA2C8 /* pencil.png in Resources */,
 				EB8472892306AA4400DCD330 /* Settings.bundle in Resources */,
 				EB02A68122EB1BAF00987AFA /* apnumberpad_backspace_icon.png in Resources */,
-				EB34D5E222F3362D000FACAC /* menu.png in Resources */,
 				EB2C772622EDCA56009FA2C8 /* edit-2.png in Resources */,
 				EBD4649D236730C30004F900 /* PieChartTableViewCell.xib in Resources */,
 				EBA8A8A92393CEAA00217D4D /* PerMonthIncomeCard.xib in Resources */,
@@ -1644,7 +1640,7 @@
 				MARKETING_VERSION = 1.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jraufeisen.MyBudget;
 				PRODUCT_NAME = "Budget!";
-				SWIFT_OBJC_BRIDGING_HEADER = "MyBudget/Views/MyBudget-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyBudget/MyBudget-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1675,7 +1671,7 @@
 				MARKETING_VERSION = 1.0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jraufeisen.MyBudget;
 				PRODUCT_NAME = "Budget!";
-				SWIFT_OBJC_BRIDGING_HEADER = "MyBudget/Views/MyBudget-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyBudget/MyBudget-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

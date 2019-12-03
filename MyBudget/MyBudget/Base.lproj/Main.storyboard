@@ -128,7 +128,7 @@
         <!--Budget-->
         <scene sceneID="fvN-0f-UDq">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Whq-2e-P1F" customClass="MenuPresentingViewController" customModule="Budget_" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Whq-2e-P1F" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Budget" image="Bag" id="aYr-Bw-ZEY"/>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -1127,7 +1127,7 @@
         <!--Transactions-->
         <scene sceneID="qCx-o7-TAG">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="w5V-fb-VLB" customClass="StandardNavigationViewController" customModule="Budget_" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="w5V-fb-VLB" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Transactions" image="List" id="MAm-Kk-vgC"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" largeTitles="YES" id="id7-OB-tQi">
