@@ -287,7 +287,6 @@ open class KeychainWrapper {
     /// - returns: True if the save was successful, false otherwise.
     @discardableResult open func set(_ value: NSCoding, forKey key: String, withAccessibility accessibility: KeychainItemAccessibility? = nil) -> Bool {
         let data = NSKeyedArchiver.archivedData(withRootObject: value)
-        
         return set(data, forKey: key, withAccessibility: accessibility)
     }
 

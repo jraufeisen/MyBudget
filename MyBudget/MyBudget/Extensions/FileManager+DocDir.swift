@@ -10,7 +10,7 @@ import Foundation
 
 extension FileManager {
     class func documentsURL() -> URL {
-        var paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as [String]
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true) as [String]
         return URL.init(fileURLWithPath: paths[0])
     }
     
