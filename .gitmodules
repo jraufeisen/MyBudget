@@ -2,6 +2,3 @@
 	url = https://github.com/jraufeisen/MyBudget-macOS.git
 [submodule "Swift-Ledger"]
 	url = https://github.com/jraufeisen/Swift-Ledger.git
-[submodule "ANTRL4"]
-	path = ANTRL4
-	url = https://github.com/jraufeisen/ANTRL4.git
