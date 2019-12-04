@@ -90,8 +90,10 @@ class AboutPageViewController: UIViewController {
         // Update iCloud identifier text
         CKContainer.init(identifier: "iCloud.com.jraufeisen.MyBudget").fetchUserRecordID { (recordID, error) in
             if let identifier = recordID?.recordName {
-                self.iCloudIdentifierTextView.text = identifier
-            } 
+                DispatchQueue.main.async {
+                    self.iCloudIdentifierTextView.text = identifier
+                }
+            }
         }
         
         
