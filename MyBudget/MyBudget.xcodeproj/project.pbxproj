@@ -104,6 +104,7 @@
 		EB9DEBD222E9E02800A73FD1 /* AccountAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD122E9E02800A73FD1 /* AccountAccessoryView.swift */; };
 		EB9DEBD422E9E5C400A73FD1 /* UITextField+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */; };
 		EB9DEBD622E9F00600A73FD1 /* CategoryAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD522E9F00600A73FD1 /* CategoryAccessoryView.swift */; };
+		EBA1A611239825FE009C090D /* NSAttributedString+Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1A610239825FE009C090D /* NSAttributedString+Builder.swift */; };
 		EBA8A8A72393CE6600217D4D /* PerMonthIncomeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA8A8A62393CE6600217D4D /* PerMonthIncomeCard.swift */; };
 		EBA8A8A92393CEAA00217D4D /* PerMonthIncomeCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBA8A8A82393CEAA00217D4D /* PerMonthIncomeCard.xib */; };
 		EBA8A8AB2393D3EA00217D4D /* PerCategorySpending.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA8A8AA2393D3EA00217D4D /* PerCategorySpending.swift */; };
@@ -341,6 +342,7 @@
 		EB9DEBD122E9E02800A73FD1 /* AccountAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAccessoryView.swift; sourceTree = "<group>"; };
 		EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Placeholder.swift"; sourceTree = "<group>"; };
 		EB9DEBD522E9F00600A73FD1 /* CategoryAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAccessoryView.swift; sourceTree = "<group>"; };
+		EBA1A610239825FE009C090D /* NSAttributedString+Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Builder.swift"; sourceTree = "<group>"; };
 		EBA8A8A62393CE6600217D4D /* PerMonthIncomeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerMonthIncomeCard.swift; sourceTree = "<group>"; };
 		EBA8A8A82393CEAA00217D4D /* PerMonthIncomeCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PerMonthIncomeCard.xib; sourceTree = "<group>"; };
 		EBA8A8AA2393D3EA00217D4D /* PerCategorySpending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerCategorySpending.swift; sourceTree = "<group>"; };
@@ -946,6 +948,7 @@
 				EBEB145622E8A29800291435 /* UIColor+Macro.swift */,
 				EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */,
 				EB985CBC22EC74F800C033E8 /* String+OnlyDigits.swift */,
+				EBA1A610239825FE009C090D /* NSAttributedString+Builder.swift */,
 				EB2C771A22EDBCA3009FA2C8 /* UITextView+Center.swift */,
 				EB5C600822F32417004F81CF /* TextAnimation.swift */,
 			);
@@ -1255,6 +1258,7 @@
 				EBE7E2BC2321233500BEC812 /* Constants.swift in Sources */,
 				EBE7FE55233CC5C40088D156 /* EditCategoryTableViewCell.swift in Sources */,
 				EBE7FE41233CC3720088D156 /* EditMoneyTableViewCell.swift in Sources */,
+				EBA1A611239825FE009C090D /* NSAttributedString+Builder.swift in Sources */,
 				EB09FC95231D57110063FB90 /* KeychainItemAccessibility.swift in Sources */,
 				EBF19B3E237DC7AA00A1190B /* AccountHeaderView.swift in Sources */,
 				EBFA553F23840FCD00EE6F42 /* OnboardingNewAccountViewController.swift in Sources */,

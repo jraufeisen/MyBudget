@@ -41,22 +41,9 @@ class AboutPageViewController: UIViewController {
         super.viewDidLoad()
         
         // Set subscription description text manually cause storyboard does not adapt colors for dark mode...
-        if #available(iOS 13.0, *) {
-            let subscriptionDescription = NSMutableAttributedString()
-            
-            let boldStart = NSAttributedString.init(string: "Subscribing to Budget ", attributes: [NSAttributedString.Key.foregroundColor : UIColor.label])
-            subscriptionDescription.append(boldStart)
-            
-            let normalBody = NSAttributedString.init(string: "unlocks full access to this app. By downloading Budget!, you have received a contingent of 100 transactions for free. Afterwards, you can still track up to one transaction per day. Subscribing to Budget! removes this limitation and grants full access.", attributes: [ NSAttributedString.Key.foregroundColor : UIColor.secondaryLabel])
-            subscriptionDescription.append(normalBody)
-            
+        let subscriptionDescription = NSAttributedString.appStoreLikeDescription(title: "Subscribing to Budget ", body: "unlocks full access to this app. By downloading Budget!, you have received a contingent of 100 transactions for free. Afterwards, you can still track up to one transaction per day. Subscribing to Budget! removes this limitation and grants full access.")
+        largeSubscriptionLabel.attributedText = subscriptionDescription
 
-
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.lineSpacing = 10
-            subscriptionDescription.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: NSRange.init(location: 0, length: subscriptionDescription.length))
-            largeSubscriptionLabel.attributedText = subscriptionDescription
-        }
         
         // Appearance of rating button
         rateOnAppStoreButton.layer.cornerRadius = 10
