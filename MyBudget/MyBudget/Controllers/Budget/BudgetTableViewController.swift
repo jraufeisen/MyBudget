@@ -29,7 +29,7 @@ class BudgetTableViewCell: UITableViewCell {
             detailLabel.textColor = UIColor.label
         }
         
-        percentFillView.tintColor = .blueActionColor
+        percentFillView.progressColor = .blueActionColor
         
         selectionStyle = .none
 

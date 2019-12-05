@@ -12,14 +12,18 @@ import UIKit
 @IBDesignable class PercentFillView: UIView {
 
 
-    
+    @IBInspectable var progressColor: UIColor = UIColor.systemBlue {
+        didSet {
+            setUpView()
+            setNeedsDisplay()
+        }
+    }
     
     ///Between 0 and 1
     @IBInspectable var fillProportion: CGFloat = 0.5 {
         didSet {
             setUpView()
             setNeedsDisplay()
-            
         }
     }
     
@@ -29,15 +33,16 @@ import UIKit
     
     private func setUpView() {
         backgroundColor = .clear
-        layer.borderColor = tintColor?.cgColor
+        layer.borderColor = progressColor.cgColor
         layer.borderWidth = 1
         layer.cornerRadius = 5
     }
     
     override func draw(_ rect: CGRect) {
         let rect = CGRect.init(x: 0, y: 0, width: self.frame.width * fillProportion, height: self.frame.height)
-        tintColor?.set()
-
+        //tintColor?.set()
+        progressColor.set()
+        
         let path:UIBezierPath = UIBezierPath(roundedRect: rect, cornerRadius: 5)
         path.addClip()
         
