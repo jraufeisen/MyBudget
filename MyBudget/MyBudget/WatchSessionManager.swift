@@ -25,9 +25,6 @@ class WatchSessionManager: NSObject {
     static let resultNotificationName = "ReceivedResultForPosting"
     static let budgetNotificationName = "ReceivedBudget"
 
-    //MARK: Singleton
-    
-    // Instantiate the Singleton
     static let sharedManager = WatchSessionManager()
     private override init() {
         super.init()
@@ -45,8 +42,7 @@ class WatchSessionManager: NSObject {
             dataDelegate?.newBudgetDataAvailable(newBudget: budget)
         }
     }
-    
-    
+
     //MARK: Session
     
     // Keep a reference for the session,
@@ -59,10 +55,9 @@ class WatchSessionManager: NSObject {
         session?.activate()
     }
    
-    
-    
 }
 
+// MARK: - WCSessionDelegate
 extension WatchSessionManager: WCSessionDelegate {
     
     #if os(iOS)
@@ -84,10 +79,11 @@ extension WatchSessionManager: WCSessionDelegate {
         
     }
     #endif
+    
 }
 
 
-//MARK: Sender
+// MARK: - WatchSessionManager
 extension WatchSessionManager {
     
     ///Use this method on the Apple Wach to send a message to the phone. This message tells the iPhone to add an income statement to the ledger file.
@@ -107,7 +103,6 @@ extension WatchSessionManager {
             NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: WatchSessionManager.resultNotificationName), object: false)
             print("Communication-Error: Income \(err)")
         })
-        
     }
     
     func sendTransferMessage(fromAcc: String, toAcc: String, value: String) {
@@ -120,8 +115,6 @@ extension WatchSessionManager {
             NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: WatchSessionManager.resultNotificationName), object: false)
             print("Communication-Error: Expense \(err)")
         })
-        
-
     }
     
     /**
@@ -138,9 +131,7 @@ extension WatchSessionManager {
             NotificationCenter.default.post(name: NSNotification.Name.init(rawValue: WatchSessionManager.resultNotificationName), object: false)
             print("Communication-Error: Expense \(err)")
         })
-        
     }
-    
     
     /**
      Use this method to retrieve the budgeting categories from the iOS parent app.
@@ -154,14 +145,11 @@ extension WatchSessionManager {
         }, errorHandler: { (err: Error) in
             print("Communication-Error: Budget categories \(err)")
         })
-        
-        
     }
-    
 }
 
 
-//MARK: Receiver
+// MARK: - WatchSessionManager
 extension WatchSessionManager {
     
     func session(_ session: WCSession, didReceiveMessage message: [String : Any], replyHandler: @escaping ([String : Any]) -> Void) {
@@ -196,9 +184,6 @@ extension WatchSessionManager {
             let success = LedgerModel.shared().postTransfer(from: fromAcc, to: toAcc, value: transferArray[2])
             replyHandler(["Success":success])
         }
-        
-
     }
+    
 }
-
-

@@ -9,16 +9,13 @@
 import UIKit
 import Swift_Ledger
 
+//MARK: - BudgetTableViewCell
 class BudgetTableViewCell: UITableViewCell {
     
-    
     @IBOutlet weak var insetView: UIView!
-    
-
     @IBOutlet weak var moneyLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var percentFillView: PercentFillView!
-    
     @IBOutlet weak var detailLabel: UILabel!
     
     override func awakeFromNib() {
@@ -43,9 +40,10 @@ class BudgetTableViewCell: UITableViewCell {
 }
 
 
-
+// MARK: - EntryContext
 ///This struct will be used to pass relevant context information to upfollowing interface controllers
 public struct EntryContext {
+    
     var type: TransactionType?
     var money: String?
     var account: String?
@@ -59,24 +57,24 @@ public struct EntryContext {
         self.budgetCategory = budgetCategory
         self.description = description
     }
-
     
 }
 
 
-
-
-
+// MARK: - BudgetTableViewController
 /// Its easier to model this vc as a plain viewcontroller, not tableviewcontroller, because I wanna ad a floating button on top
-class BudgetTableViewController: NavbarFillingViewController, UITableViewDelegate, UITableViewDataSource {
+class BudgetTableViewController: NavbarFillingViewController {
 
-    private var budgetCategories = [BudgetCategoryViewable]()
     @IBOutlet var tableView: UITableView!
 
-
+    private var budgetCategories = [BudgetCategoryViewable]()
     private var headerController = BudgetTableHeaderViewController.instantiate()
     private var shouldHideHeader = false
     
+    let titleHelpingLabel = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: 40, height: 50))
+    let descriptionHelpingLabel = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: 40, height: 50))
+
+    /// Load from Storyboard
     static func instantiate() -> BudgetTableViewController {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "budgetTableViewController") as! BudgetTableViewController
         return vc
@@ -91,13 +89,12 @@ class BudgetTableViewController: NavbarFillingViewController, UITableViewDelegat
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return headerController.view
     }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return shouldHideHeader == true ? 0 : 100
     }
 
-    
     @objc private func updateUI() {
-
         budgetCategories = Model.shared.getAllBudgetCategories()
         if tableView.numberOfSections > 0 {
             tableView.reloadSections([0], with: .automatic)
@@ -116,11 +113,8 @@ class BudgetTableViewController: NavbarFillingViewController, UITableViewDelegat
         } else {
             removeHelpingLabels()
         }
-        
     }
     
-    let titleHelpingLabel = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: 40, height: 50))
-    let descriptionHelpingLabel = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: 40, height: 50))
     private func addHelpingLabels() {
         titleHelpingLabel.frame = CGRect.init(x: 0, y: 0, width: view.bounds.width - 60, height: 50)
         titleHelpingLabel.textAlignment = .center
@@ -151,22 +145,23 @@ class BudgetTableViewController: NavbarFillingViewController, UITableViewDelegat
         view.addConstraints([width, height, centerX, centerY])
     }
     
-    
     private func removeHelpingLabels() {
         titleHelpingLabel.removeFromSuperview()
         descriptionHelpingLabel.removeFromSuperview()
     }
     
-    
-    
-
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+    // MARK: IB Actions
+    @IBAction func pressedPlusButton(_ sender: Any) {
+        let newCategoryVC = NewBudgetCategoryViewController()
+        let wrapperVC = UINavigationController.init(rootViewController: newCategoryVC)
+        present(wrapperVC, animated: true, completion: nil)
     }
-    
-    
-    // MARK: - Table view data source
+        
+}
 
+// MARK: - UITableViewDataSource
+extension BudgetTableViewController: UITableViewDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -190,7 +185,14 @@ class BudgetTableViewController: NavbarFillingViewController, UITableViewDelegat
         return cell
     }
     
+}
 
+// MARK: - UITableViewDelegate
+extension BudgetTableViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cat = budgetCategories[indexPath.row]
@@ -198,14 +200,4 @@ class BudgetTableViewController: NavbarFillingViewController, UITableViewDelegat
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    // MARK: IB Actions
-    
-
-    
-    @IBAction func pressedPlusButton(_ sender: Any) {
-        let newCategoryVC = NewBudgetCategoryViewController()
-        let wrapperVC = UINavigationController.init(rootViewController: newCategoryVC)
-        present(wrapperVC, animated: true, completion: nil)
-    }
-        
 }

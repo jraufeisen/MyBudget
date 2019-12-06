@@ -23,6 +23,15 @@ protocol OnboardingDelegate {
     func didFinishOnboarding()
 }
 
+class OnboardingAccountViewable {
+    
+    var icon: UIImage? = nil
+    var name: String = ""
+    var money: Money = 0
+    
+}
+
+// MARK: - OnboardingMainViewController
 class OnboardingMainViewController: UIViewController {
 
     @IBOutlet weak var continueButton: UIButton!
@@ -33,7 +42,6 @@ class OnboardingMainViewController: UIViewController {
 
     // Account creation
     @IBOutlet weak var accountHeaderView: AccountHeaderView!
-  //  @IBOutlet weak var accountTableView: UITableView!
     @IBOutlet weak var accountContainerView: UIView!
     
     // Money distribution
@@ -57,6 +65,9 @@ class OnboardingMainViewController: UIViewController {
 
     // Embedded view controllers
     private var accountTableViewController: OnboardingAccountTableViewController?
+    
+    // Current UI status
+    private var state: OnboardingState = .welcome
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueEmbedAccountTableViewController" {
@@ -91,7 +102,6 @@ class OnboardingMainViewController: UIViewController {
         budgetTableView.alpha = 0
         progressView.progress = 0
         progressView.trackTintColor = .groupTableViewBackground
-
     }
     
     private func setupContinueButton() {
@@ -188,14 +198,10 @@ class OnboardingMainViewController: UIViewController {
 
         updateContinueButtonState()
     }
-    
-    private var state: OnboardingState = .welcome
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setupContinueButton()
-        
         textLabel.text = ""
         textLabel.isHidden = false
         textLabel.addTextAnimated(text: "Welcome to Budget!", animationDuration: 1.0) {
@@ -203,7 +209,6 @@ class OnboardingMainViewController: UIViewController {
                 self.continueButton.alpha = 1 // Fade-in
             }
         }
-        
         budgetTableView.register(UINib.init(nibName: "OnboardingBudgetTableViewCell", bundle: .main), forCellReuseIdentifier: OnboardingBudgetTableViewCell.Identifier)
         loadInitialData()
         // Don't forget initial reload, otherwise jumpy behavior occurs
@@ -214,7 +219,6 @@ class OnboardingMainViewController: UIViewController {
             budgetTableView.backgroundColor = .systemGroupedBackground
         }
     }
-    
     
     private func loadInitialData() {
         categories.append(CategorySelectable.init(name: "Rent", icon: #imageLiteral(resourceName: "icons8-house-50")))
@@ -244,12 +248,6 @@ class OnboardingMainViewController: UIViewController {
         showDetailViewController(newAccountVC, sender: nil)
     }
     
-}
-
-class OnboardingAccountViewable {
-    var icon: UIImage? = nil
-    var name: String = ""
-    var money: Money = 0
 }
 
 extension OnboardingMainViewController: UITableViewDataSource, UITableViewDelegate {
@@ -294,6 +292,7 @@ extension OnboardingMainViewController: UITableViewDataSource, UITableViewDelega
 
 
 class CategorySelectable {
+    
     var name: String = ""
     var editable: Bool = false
     var selected: Bool = false
@@ -309,6 +308,7 @@ class CategorySelectable {
 
 
 extension OnboardingMainViewController: OnboardingBudgetTableViewCellDelegate {
+    
     func didAssignMoney(money: Money, to category: String) {
         for selectable in categories {
             if selectable.name == category {
@@ -340,10 +340,11 @@ extension OnboardingMainViewController: OnboardingBudgetTableViewCellDelegate {
             budgetTitleLabel.textColor = currentProgressColor()
             budgetTitleLabel.text = "You have \(difference) left to budget"
         }
-
     }
     
 }
+
+// MARK: - Manage UICollectionView
 extension OnboardingMainViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -397,9 +398,7 @@ extension OnboardingMainViewController: UICollectionViewDataSource, UICollection
                     self.currentlyEditedIndexPath = newIndexPath
                 }
             }
-            
         }
-        
         if let cell = collectionView.cellForItem(at: indexPath) as? CategoryCollectionViewCell {
             categories[indexPath.row - 1].selected = true
             cell.markSelected(selected: true)
@@ -449,21 +448,19 @@ extension OnboardingMainViewController: UICollectionViewDataSource, UICollection
         }
     }
 
-    
 }
 
+// MARK: - UITextFieldDelegate
 extension OnboardingMainViewController: UITextFieldDelegate {
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        
         guard let editedIndexPath = self.currentlyEditedIndexPath else {
             return true
         }
-        
         guard let text = textField.text else {
             return true
         }
-        
         if text.isEmpty == true {
             // If no text was entered, this cell shall be dismissed.
             categories.remove(at: 0)
@@ -474,15 +471,17 @@ extension OnboardingMainViewController: UITextFieldDelegate {
             categories.first?.name = text
             categoriesCollectionView.reloadItems(at: [editedIndexPath])
         }
-        
         currentlyEditedIndexPath = nil
-
         return true
     }
+    
 }
 
+// MARK: - OnboardingAccountObserver
 extension OnboardingMainViewController: OnboardingAccountObserver {
+    
     func accountsChanged() {
         updateContinueButtonState()
     }
+    
 }

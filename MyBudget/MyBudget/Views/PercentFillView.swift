@@ -11,7 +11,6 @@ import UIKit
 /// Draws a certain percentage of its bounds using its tintColor.
 @IBDesignable class PercentFillView: UIView {
 
-
     @IBInspectable var progressColor: UIColor = UIColor.systemBlue {
         didSet {
             setUpView()
@@ -40,12 +39,9 @@ import UIKit
     
     override func draw(_ rect: CGRect) {
         let rect = CGRect.init(x: 0, y: 0, width: self.frame.width * fillProportion, height: self.frame.height)
-        //tintColor?.set()
         progressColor.set()
-        
         let path:UIBezierPath = UIBezierPath(roundedRect: rect, cornerRadius: 5)
         path.addClip()
-        
         let pathBounds = path.bounds
         path.removeAllPoints()
         let p1 = CGPoint(x:pathBounds.maxX, y:0)
@@ -53,9 +49,7 @@ import UIKit
         path.move(to: p1)
         path.addLine(to: p2)
         path.lineWidth = bounds.width * 2
-        
         path.stroke()
-
     }
 
 }

@@ -29,5 +29,4 @@ extension Model {
         return max(100 - txCount,0)
     }
     
-    
 }

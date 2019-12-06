@@ -10,17 +10,18 @@ import Foundation
 
 extension UIImage {
     
-
-    
     class func bagImage() -> UIImage {
         return UIImage.init(named: "Bag")!
     }
+    
     class func bigBagImage() -> UIImage {
         return UIImage.init(named: "Big Bag")!
     }
+    
     class func creditcardsImage() -> UIImage {
         return UIImage.init(named: "Credit Cards")!
     }
+    
     class func bigCreditCardImage() -> UIImage {
         return UIImage.init(named: "Big Credit Card")!
     }

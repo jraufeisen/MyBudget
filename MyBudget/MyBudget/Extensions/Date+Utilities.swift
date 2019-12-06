@@ -21,7 +21,6 @@ extension Date {
         return Calendar.current.date(byAdding: .month, value: -1, to: self)
     }
     
-    
     func monthAsString() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "LLLL"

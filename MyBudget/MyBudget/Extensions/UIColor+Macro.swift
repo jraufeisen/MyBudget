@@ -13,9 +13,7 @@ extension UIColor {
     static var incomeColor = UIColor.systemGreen
     static var expenseColor = UIColor.systemRed
     static var transferColor = UIColor.systemYellow
-
     static var blueActionColor = UIColor(red: 73/255.0, green: 151/255.0, blue: 241/255.0, alpha: 1)
-
     
     static func colorForTransaction(type: TransactionType) -> UIColor {
         if type == .Income {
@@ -28,11 +26,10 @@ extension UIColor {
         return UIColor.systemPurple
     }
     
-    
-    
 }
 
 extension UIColor {
+    
     func interpolateRGBColorTo(_ end: UIColor, fraction: CGFloat) -> UIColor? {
         let f = min(max(0, fraction), 1)
 
@@ -45,5 +42,6 @@ extension UIColor {
 
         return UIColor(red: r, green: g, blue: b, alpha: a)
     }
+    
 }
 

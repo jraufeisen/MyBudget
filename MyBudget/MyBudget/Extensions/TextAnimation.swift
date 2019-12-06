@@ -10,6 +10,7 @@ import Foundation
 
 
 extension UIKeyInput {
+    
     /// Animates single letters in as if they were written one by one
     func addTextAnimated(text: String, timeBetweenCharacters: TimeInterval = 0.05, completion: @escaping () -> Void) {
         var remainingText = text
@@ -32,6 +33,7 @@ extension UIKeyInput {
 }
 
 extension UILabel {
+    
     func addTextAnimated(text: String, timeBetweenCharacters: TimeInterval = 0.05, completion: (() -> Void)? = nil) {
         
         let completeText = self.text! + text
@@ -57,7 +59,6 @@ extension UILabel {
         addTextAnimated(text: text, timeBetweenCharacters: timeInBetween, completion: completion)
     }
 
-    
     /// Calculate a detailed string adding whitespaces at the right places where the label would add them anyway due to linebreaking.
     /// This method can be used to make character by character animation smoother
     /// - Parameter string: The **complete** string that should be set as the .text of the label.
@@ -115,5 +116,4 @@ extension UILabel {
         
     }
 
-    
 }

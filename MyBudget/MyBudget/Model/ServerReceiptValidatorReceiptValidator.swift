@@ -11,6 +11,7 @@ import SwiftyStoreKit
 import CloudKit
 
 extension Dictionary {
+    
     func percentEscaped() -> String {
         return map { (key, value) in
             let escapedKey = "\(key)".addingPercentEncoding(withAllowedCharacters: .urlQueryValueAllowed) ?? ""
@@ -19,9 +20,11 @@ extension Dictionary {
             }
             .joined(separator: "&")
     }
+    
 }
 
 extension CharacterSet {
+    
     static let urlQueryValueAllowed: CharacterSet = {
         let generalDelimitersToEncode = ":#[]@" // does not include "?" or "/" due to RFC 3986 - Section 3.4
         let subDelimitersToEncode = "!$&'()*+,;="
@@ -30,6 +33,7 @@ extension CharacterSet {
         allowed.remove(charactersIn: "\(generalDelimitersToEncode)\(subDelimitersToEncode)")
         return allowed
     }()
+    
 }
 
 class ServerReceiptValidator: ReceiptValidator {
@@ -56,7 +60,6 @@ class ServerReceiptValidator: ReceiptValidator {
             completion?()
         }
     }
-
     
     private let expKey = "expDate"
     func updateExpirationDate() {
@@ -89,8 +92,6 @@ class ServerReceiptValidator: ReceiptValidator {
         
         return expirationDate > Date()
     }
-    
-    
     
     func validate(receiptData: Data, completion: @escaping (VerifyReceiptResult) -> Void) {
         
@@ -150,8 +151,6 @@ class ServerReceiptValidator: ReceiptValidator {
             task.resume()
         }
     }
-    
-    
     
 }
 

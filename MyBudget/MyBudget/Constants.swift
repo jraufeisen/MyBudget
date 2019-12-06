@@ -13,6 +13,7 @@ import Foundation
  Communication is done by setting launch arguments and quiring them through ProcessInfo.processInfo.arguments
  */
 class Constants {
+    
     static var shouldAlwaysShowOnboarding: Bool {
         get {
             if ProcessInfo.processInfo.arguments.contains("shouldAlwaysShowOnboarding") {
@@ -32,4 +33,5 @@ class Constants {
             }
         }
     }
+    
 }

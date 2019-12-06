@@ -10,24 +10,29 @@ import UIKit
 
 
 
-
+// MARK: - NewCategoryCell
 class NewCategoryCell: UITableViewCell {
     
     @IBOutlet weak var categoryImageView: UIImageView!
     @IBOutlet weak var categoryTextField: UITextField!
+    
 }
 
+// MARK: - CategorySelectDelegate
 protocol CategorySelectDelegate {
     func didSelectCategory(category: String)
 }
 
+// MARK: - NewCategoryCell
 protocol CategoryCreationDelegate {
     func createCategory(name: String)
 }
 
+// MARK: - CategoryAccessoryView
 class CategoryAccessoryView: UITableView {
     
     var categoryCreationDelegate: CategoryCreationDelegate?
+    
     private var outputView: UIKeyInput?
     
     init(outputView: UIKeyInput?, delegate: CategoryCreationDelegate?, color: UIColor?) {
@@ -42,24 +47,18 @@ class CategoryAccessoryView: UITableView {
         register(UINib.init(nibName: "NewCategoryCell", bundle: Bundle.main), forCellReuseIdentifier: "newCategoryCell")
     }
     
-    
-  
-    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
-    
+
 }
 
-
+// MARK: - CategoryAccessoryView
 extension CategoryAccessoryView: UITableViewDataSource {
-    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
-
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "newCategoryCell") as? NewCategoryCell else {
@@ -79,8 +78,9 @@ extension CategoryAccessoryView: UITableViewDataSource {
 }
 
 
-
+// MARK: - CategoryAccessoryView
 extension CategoryAccessoryView: UITextFieldDelegate {
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         
@@ -94,4 +94,5 @@ extension CategoryAccessoryView: UITextFieldDelegate {
         textField.text = ""
         return true
     }
+    
 }

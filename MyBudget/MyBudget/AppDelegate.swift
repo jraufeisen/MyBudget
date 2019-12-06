@@ -71,7 +71,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = vc
     }
     
-    
     func applicationWillEnterForeground(_ application: UIApplication) {
         ServerReceiptValidator().updateExpirationDate()
     }
@@ -79,7 +78,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 // MARK: OnboardingDelegate
-
 extension AppDelegate: OnboardingDelegate {
     func didFinishOnboarding() {
         let vc = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateInitialViewController()

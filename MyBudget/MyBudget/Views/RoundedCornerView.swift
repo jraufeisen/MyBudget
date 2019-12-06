@@ -8,8 +8,8 @@
 
 import UIKit
 
-@IBDesignable
-class RoundedCornerView: UIView {
+// MARK: - RoundedCornerView
+@IBDesignable class RoundedCornerView: UIView {
 
     @IBInspectable var cornerRadius: CGFloat = 15 {
         didSet {

@@ -9,12 +9,14 @@
 import UIKit
 import Swift_Ledger
 
+// MARK: - TransactionType
 enum TransactionType {
     case Income
     case Expense
     case Transfer
 }
 
+// MARK: - Transaction
 protocol Transaction: DiaryProvider, CustomStringConvertible {
     var tags: [String] {get set}
     var value: Money { get set } //TODO: money
@@ -25,20 +27,15 @@ protocol Transaction: DiaryProvider, CustomStringConvertible {
     func ledgerTransaction() -> LedgerTransaction
 }
 
+// MARK: - IncomeTransaction
 class IncomeTransaction: Transaction {
+    
     var date: Date = Date()
-    
-   
-    
     var type: TransactionType = .Income
-
-    
     var value: Money = 0
     var account: String = ""
     var transactionDescription: String = ""
     var tags = [String]()
-
-    
     var description: String {
         get {
             return """
@@ -50,7 +47,7 @@ class IncomeTransaction: Transaction {
             """
         }
     }
-
+    
     func diaryEntry() -> DiaryEntry {
         return [
             ("", .date),
@@ -75,11 +72,19 @@ class IncomeTransaction: Transaction {
         \t Income
         """
     }
+    
 }
 
+// MARK: - ExpenseTransaction
 class ExpenseTransaction: Transaction {
+    
     var date: Date = Date()
-
+    var type: TransactionType = .Expense
+    var value: Money = 0
+    var account: String = ""
+    var transactionDescription: String = ""
+    var category: String = ""
+    var tags = [String]()
     var description: String {
         get {
             return """
@@ -93,7 +98,6 @@ class ExpenseTransaction: Transaction {
         }
     }
     
-    
     func diaryEntry() -> DiaryEntry {
         return [
             ("", .date),
@@ -103,18 +107,11 @@ class ExpenseTransaction: Transaction {
             (".\nName: ", .description),
         ]
     }
-    
-    var type: TransactionType = .Expense
-    
-    var value: Money = 0
-    var account: String = ""
-    var transactionDescription: String = ""
-    var category: String = ""
-    var tags = [String]()
-    
+        
     func ledgerString() -> String {
         return "TODO"
     }
+    
     func ledgerTransaction() -> LedgerTransaction {
         var postings = [Posting]()
         /*
@@ -131,15 +128,19 @@ class ExpenseTransaction: Transaction {
 
         return LedgerTransaction.init(name: transactionDescription, date: date, postings: postings, tags: tags)
     }
-
-   
-
   
 }
 
+// MARK: - TransferTransaction
 class TransferTransaction: Transaction {
+    
+    var type: TransactionType = .Transfer
+    var value: Money = 0
+    var fromAccount: String = ""
+    var toAccount: String = ""
+    var transactionDescription: String = ""
+    var tags = [String]()
     var date: Date = Date()
-
     var description: String {
         get {
             return """
@@ -163,17 +164,6 @@ class TransferTransaction: Transaction {
         ]
     }
     
- 
-    
-    var type: TransactionType = .Transfer
-    
-    var value: Money = 0
-    var fromAccount: String = ""
-    var toAccount: String = ""
-    var transactionDescription: String = ""
-    var tags = [String]()
-
-  
     func ledgerString() -> String {
         return """
         \(LedgerModel.dateString(date: date)) \(transactionDescription)
@@ -184,16 +174,16 @@ class TransferTransaction: Transaction {
     
     func ledgerTransaction() -> LedgerTransaction {
         var postings = [Posting]()
-        
         postings.append(Posting.init(account: Account.bankingAccount(named: fromAccount), value: -value.decimal.storage.decimalValue))
         postings.append(Posting.init(account: Account.bankingAccount(named: toAccount), value: value.decimal.storage.decimalValue))
-
         return LedgerTransaction.init(name: transactionDescription, date: date, postings: postings, tags: tags)
     }
 
 }
 
+// MARK: - Array of Transactions
 extension Array where Element == Transaction {
+    
     func expenses(from: Date, to: Date) -> Money {
         var sum = Money.init(0)
         for tx in self {
@@ -206,7 +196,6 @@ extension Array where Element == Transaction {
         return sum
     }
     
-    
     func income(from: Date, to: Date) -> Money {
         var sum = Money.init(0)
         for tx in self {
@@ -218,7 +207,6 @@ extension Array where Element == Transaction {
         }
         return sum
     }
-    
     
     func monthlyExpenses() -> [BarChartMoneyEntry] {
         var expenses = [BarChartMoneyEntry]()
@@ -281,7 +269,7 @@ extension Array where Element == Transaction {
                 }
             }
         }
-        
+
         return spendingsPerCategory
     }
     

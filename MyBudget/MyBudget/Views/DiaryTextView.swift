@@ -8,10 +8,8 @@
 
 import UIKit
 
-
-
+// MARK: - DiaryTextView
 class DiaryTextView: UITextView {
-
     
     /// Initliazie with empty diary
     private var diaryEntry = DiaryEntry()
@@ -24,21 +22,17 @@ class DiaryTextView: UITextView {
     
     var diaryDelegate: DiaryDelegate?
     
-
-    
     /// Configure diary entry for given provider.
     public func configure(diaryProvider: DiaryProvider) {
         self.delegate = self
         diaryEntry = diaryProvider.diaryEntry()
         entryIndex = -1
         nextDiaryEntry()
-        
         tintColor = .white
     }
    
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         return false //Disable magnifier, but keep cursor.
-        //Todo: allow taps on keywords to bring up keyboards again
     }
     
     /// - Returns: True, if there is another entry type that can be entered. False otherwise.
@@ -63,14 +57,11 @@ class DiaryTextView: UITextView {
             return
         }
         
-
         addTextAnimated(text: currentEntry.text, timeBetweenCharacters: 0.05) {
             self.keyboardInputBeginPosition = self.text.endIndex
             // Ask for new input depending on the entry type
             self.configureInput(type: currentEntry.entryType)
         }
-
-        
     }
 
     private func transitionToInputView(view: UIView, accessoryView: UIView?) {
@@ -92,7 +83,6 @@ class DiaryTextView: UITextView {
     }
     
     private func configureInput(type: EntryType) {
-
         switch type {
         case .account:
             let accountView = AccountTableView.init(outputView: self, delegate: self, color: superview?.backgroundColor)
@@ -123,12 +113,9 @@ class DiaryTextView: UITextView {
         }
     }
     
- 
-    
     override func resignFirstResponder() -> Bool {
         return super.resignFirstResponder()
     }
-    
     
     /// No copy, paste, select on this textview
     override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
@@ -142,11 +129,10 @@ class DiaryTextView: UITextView {
     
 }
 
-
+// MARK: - UITextViewDelegate
 extension DiaryTextView: UITextViewDelegate {
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        
         // Do not print a new line when entered by the keyboard, instead finish data entry
         if text == "\n", let startIndex = keyboardInputBeginPosition {
             let currentlyEnteredByKeyboard = String(self.text[startIndex...])
@@ -170,9 +156,6 @@ extension DiaryTextView: UITextViewDelegate {
         return true
     }
     
-   
-    
-    
     @objc private func finishDataEntry() {
         _ = resignFirstResponder()
         nextDiaryEntry()
@@ -180,23 +163,32 @@ extension DiaryTextView: UITextViewDelegate {
     
 }
 
+// MARK: - AccountSelectDelegate
 extension DiaryTextView: AccountSelectDelegate {
+    
     func didSelectAccount(account: String) {
         diaryDelegate?.didEnterDiaryPair(index: entryIndex, value: account)
         finishDataEntry()
     }
+    
 }
 
+// MARK: - CategorySelectDelegate
 extension DiaryTextView: CategorySelectDelegate {
+    
     func didSelectCategory(category: String) {
         diaryDelegate?.didEnterDiaryPair(index: entryIndex, value: category)
         finishDataEntry()
     }
+    
 }
 
+// MARK: - MoneyKeyBoardDelegate
 extension DiaryTextView: MoneyKeyBoardDelegate {
+    
     func moneyKeyboardPressedDone(keyboard: MoneyKeyboard) {
         diaryDelegate?.didEnterDiaryPair(index: entryIndex, value: keyboard.moneyEntered())
         finishDataEntry()
     }
+    
 }

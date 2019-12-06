@@ -15,14 +15,11 @@ class NavbarFillingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
         let infoBarButton = UIBarButtonItem.init(image: #imageLiteral(resourceName: "Info"), style: .plain, target: self, action: #selector(self.showAboutPage))
         if #available(iOS 13.0, *) {
             infoBarButton.image = UIImage.init(systemName: "info.circle")
         }
         navigationItem.leftBarButtonItem = infoBarButton
-        
     }
     
     @objc private func showAboutPage() {

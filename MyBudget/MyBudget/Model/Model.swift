@@ -11,7 +11,6 @@ import Swift_Ledger
 
 typealias DiaryEntry = [(text: String, entryType: EntryType)]
 
-
 enum EntryType {
     case date
     case money
@@ -25,12 +24,12 @@ protocol DiaryProvider {
     func diaryEntry() -> DiaryEntry
 }
 
-
 protocol DiaryDelegate {
     func didFinishDiaryEntry()
     func didEnterDiaryPair(index: Int, value: Any)
 }
 
+// MARK: - Viewable data types
 
 struct BudgetCategoryViewable: Equatable {
     let name: String
@@ -68,13 +67,50 @@ struct MonthlySpendingCategoryViewable {
     let averageSpent: Money
 }
 
+// MARK: - Report data
+
+struct NetValueData: Equatable {
+    let value: Money
+    let label: String
+}
+
+struct IncomeStatementData: Equatable {
+    let income: Money
+    let expense: Money
+    let name: String
+}
+
+struct PieChartSpendingsData: Equatable {
+    static func == (lhs: PieChartSpendingsData, rhs: PieChartSpendingsData) -> Bool {
+        if lhs.label != rhs.label {
+            return false
+        }
+        
+        if lhs.entries.count != rhs.entries.count {
+            return false
+        }
+        
+        for i in 0..<lhs.entries.count {
+            let lhEntry = lhs.entries[i]
+            let rhEntry = rhs.entries[i]
+            if lhEntry != rhEntry {
+                return false
+            }
+        }
+        
+        return true
+    }
+    
+    let label: String
+    let entries: [(Money, String)]
+}
+
+
+// MARK: - Model
 class Model: NSObject {
     
     static let shared = Model()
-    private override init() {
-        
-    }
-    
+    private override init() {}
    
     /// Retrieve all necessary information to display average monthly spendings in each category.
     /// Only include spending > 0
@@ -100,15 +136,11 @@ class Model: NSObject {
     /// Income statement for whole month and all accounts
     func getIncomeStatementViewable() -> IncomeStatementViewable {
         let bankingAccount = Account.init(name: "Assets:Banking")
-        
         let spentThisMonth = LedgerModel.shared().expenseSinceDate(acc: bankingAccount, date: Date().firstDayOfCurrentMonth())
         let earnedThisMonth = LedgerModel.shared().incomeSinceDate(acc: bankingAccount, date: Date().firstDayOfCurrentMonth())
-        
         let viewable = IncomeStatementViewable.init(spentThisMonth: Money((spentThisMonth as NSNumber).floatValue), earnedThisMonth: Money((earnedThisMonth as NSNumber).floatValue))
-        
         return viewable
     }
-    
     
     func getTotalAccountViewable() -> AccountViewable {
         let bankingAccount = Account.init(name: "Assets:Banking")
@@ -178,7 +210,6 @@ class Model: NSObject {
         })
     }
     
-    
     func addBankingAccount(name: String, balance: Money) {
         _ = LedgerModel.shared().createBankingAccount(name: name, balance: "\(balance.amount)")
     }
@@ -186,7 +217,6 @@ class Model: NSObject {
     func addBudgetCategory(name: String, balance: Money) {
         _ = LedgerModel.shared().createBudgetCategory(name: name, balance: "\(balance.amount)")
     }
-    
     
     func addTransaction(transaction: Transaction) {
         switch transaction.type {
@@ -197,24 +227,24 @@ class Model: NSObject {
         case .Transfer:
             addTransaction(transaction: transaction as! TransferTransaction)
         }
-        
     }
     
     private func addTransaction(transaction: IncomeTransaction) {
         _ = LedgerModel.shared().postIncome(acc: Account.init(name: "Assets:Banking:\(transaction.account)"), value: "\(transaction.value.amount)", description: transaction.transactionDescription)
     }
+    
     private func addTransaction(transaction: ExpenseTransaction) {
         _ = LedgerModel.shared().postExpense(acc: Account.init(name: "Assets:Banking:\(transaction.account)"), value: "\(transaction.value.amount)", category: transaction.category, description: transaction.transactionDescription)
     }
+    
     private func addTransaction(transaction: TransferTransaction) {
         let from = Account.init(name: "Assets:Banking:\(transaction.fromAccount)")
         let to = Account.init(name: "Assets:Banking:\(transaction.toAccount)")
         _ = LedgerModel.shared().postTransfer(from: from, to: to, value: "\(transaction.value.amount)", description: transaction.transactionDescription)
     }
     
-    
-    
     /// All transactions
+    /// TODO: Make this a lazy instance variable and update appropriately
     func transactions() -> [Transaction] {
         var transactions = [Transaction]()
         
@@ -287,10 +317,7 @@ class Model: NSObject {
                 if relevantTx.value != 0 {
                     transactions.append(relevantTx)
                 }
-                
             }
-            
-            
         }
         
         return transactions
@@ -331,7 +358,6 @@ class Model: NSObject {
     }
     
     func unbudgetedMoney() -> Money {
-        
         let budgetAccount = Account.init(name: "Assets:Budget")
         let moneyAccount = Account.init(name:"Assets:Banking")
         let budgeted = LedgerModel.shared().balanceForAccount(acc: budgetAccount)
@@ -351,7 +377,6 @@ class Model: NSObject {
         _ = LedgerModel.shared().addBudget(category: category, value: "\(updateValue)")
     }
     
-    
     func firstDate() -> Date? {
         return LedgerModel.shared().transactions.last?.date
     }
@@ -360,11 +385,9 @@ class Model: NSObject {
         return LedgerModel.shared().transactions.first?.date
     }
     
-    
     // MARK: Reports
     
     private func expenses(from: Date, to: Date) -> PieChartSpendingsData {
-        
         let name = from.monthAsString() + " " + from.yearAsString()
         let categories = LedgerModel.shared().categories()
         
@@ -440,8 +463,6 @@ class Model: NSObject {
 
         return netValues
     }
-    
-    
 
     func getIncomeStatementReport() -> [IncomeStatementData] {
         var statements = [IncomeStatementData]()
@@ -476,8 +497,6 @@ class Model: NSObject {
     }
     
     //MARK: Initial budget
-    
-    
     /// Checks, if there is any relevant data
     func ledgerFileIsEssentialyEmpty() -> Bool {
         guard transactions().isEmpty else {
@@ -509,45 +528,6 @@ class Model: NSObject {
         for category in categories {
             addBudgetCategory(name: category.name, balance: category.assignedMoney)
         }
-        
-        
     }
     
-    
-}
-
-struct NetValueData: Equatable {
-    let value: Money
-    let label: String
-}
-
-struct IncomeStatementData: Equatable {
-    let income: Money
-    let expense: Money
-    let name: String
-}
-
-struct PieChartSpendingsData: Equatable {
-    static func == (lhs: PieChartSpendingsData, rhs: PieChartSpendingsData) -> Bool {
-        if lhs.label != rhs.label {
-            return false
-        }
-        
-        if lhs.entries.count != rhs.entries.count {
-            return false
-        }
-        
-        for i in 0..<lhs.entries.count {
-            let lhEntry = lhs.entries[i]
-            let rhEntry = rhs.entries[i]
-            if lhEntry != rhEntry {
-                return false
-            }
-        }
-        
-        return true
-    }
-    
-    let label: String
-    let entries: [(Money, String)]
 }
