@@ -12,16 +12,16 @@ import Charts
 
 class NetValueTableViewCell: UITableViewCell {
 
-    let oneMonthWidth: CGFloat = 100
-
     static let Identifier = "NetValueChartTableViewCellID"
 
     @IBOutlet weak var contentContainer: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
 
+    private var explainLabel: UILabel?
+    let oneMonthWidth: CGFloat = 100
+
     override func awakeFromNib() {
         super.awakeFromNib()
-
 
         selectionStyle = .none
         backgroundColor = .clear
@@ -34,18 +34,16 @@ class NetValueTableViewCell: UITableViewCell {
         contentContainer.layer.cornerRadius = 10
         contentContainer.layer.cornerRadius = 10
          
-         
         contentContainer.layer.shadowColor = UIColor.init(white: 0, alpha: 1).cgColor
         contentContainer.layer.shadowRadius = 5
         contentContainer.layer.shadowOffset = CGSize.init(width: 2, height: 5)
         contentContainer.layer.shadowOpacity = 0.3
-
     }
 
     /// The real chart data. use this to update the cells content.
-   private var chartData = [NetValueData]()
+    private var chartData = [NetValueData]()
    
-   /// Public setter which acts as a "gateway" to the eral chartdata.
+    /// Public setter which acts as a "gateway" to the eral chartdata.
     var data = [NetValueData]() {
         didSet {
             if data != chartData || data.count == 0 { // Only update cell if content changed
@@ -67,7 +65,6 @@ class NetValueTableViewCell: UITableViewCell {
                 
     }
     
-    private var explainLabel: UILabel?
     private func addNoDataInfo() {
         let explainLabel = UILabel(frame: scrollView.bounds)
         if #available(iOS 13.0, *) {
@@ -93,10 +90,7 @@ class NetValueTableViewCell: UITableViewCell {
         self.explainLabel = explainLabel
     }
 
-    
-    
     private func reset() {
-        
         explainLabel?.removeFromSuperview()
         
         for subview in scrollView.subviews {
@@ -104,9 +98,7 @@ class NetValueTableViewCell: UITableViewCell {
         }
     }
     
-    
     private func addDashedLinesChart(entries: [NetValueData]) {
-        
         let totalNumberOfEntries = Int(scrollView.frame.width / oneMonthWidth)
         print(totalNumberOfEntries)
         
@@ -179,13 +171,11 @@ class NetValueTableViewCell: UITableViewCell {
         combinedChart.xAxis.setLabelCount(entries.count, force: false) // Do not force label count => Labels only for integer values
 
         combinedChart.xAxis.spaceMin = 0.5
-    //    combinedChart.xAxis.axisMinimum = -1 // Ensure label of first month is visible
         combinedChart.xAxis.spaceMax = 1
 
         combinedChart.leftAxis.drawGridLinesEnabled = false
         combinedChart.leftAxis.drawAxisLineEnabled = false
         combinedChart.leftAxis.drawLabelsEnabled = false
-
 
         scrollView.contentSize = CGSize(width: scrollView.frame.width, height: scrollView.contentSize.height) // No scrolling in this one!
         scrollView.addSubview(combinedChart)
@@ -197,17 +187,14 @@ class NetValueTableViewCell: UITableViewCell {
             NSLayoutConstraint.init(item: combinedChart, attribute: .top, relatedBy: .equal, toItem: scrollView, attribute: .top, multiplier: 1, constant: 0),
             NSLayoutConstraint.init(item: combinedChart, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: oneMonthWidth*CGFloat(100)), // Some large constant
         ])
-
     }
     
     private func addChart(entries: [NetValueData]) {
-        
         if CGFloat(entries.count) * oneMonthWidth < scrollView.frame.width {
             // Use an alternative chart with dashed lines to fill the view
             addDashedLinesChart(entries: entries)
             return
         }
-        
         
         var chartEntries = [ChartDataEntry]()
         for i in 0..<entries.count {
@@ -249,12 +236,9 @@ class NetValueTableViewCell: UITableViewCell {
         
         lineChart.xAxis.valueFormatter = NetValueChartXAxisFormatter(labels: labels)
         lineChart.xAxis.setLabelCount(entries.count, force: false) // Do not force label count => Labels only for integer values
-
-        
         lineChart.xAxis.spaceMin = 1
         lineChart.xAxis.spaceMax = 1
     
-
         lineChart.leftAxis.drawGridLinesEnabled = false
         lineChart.leftAxis.drawAxisLineEnabled = false
         lineChart.leftAxis.drawLabelsEnabled = false
@@ -280,20 +264,20 @@ class NetValueTableViewCell: UITableViewCell {
             // But also dont force a scrollview to scroll farther than it would naturally allow oyu to
             scrollView.setContentOffset(CGPoint.init(x: scrollView.contentSize.width - scrollView.frame.width, y: 0), animated: false)
         }
-
-    
     }
-    
     
 }
 
 /// Returns empty string when value is zero.
 class NetValueChartMoneyFormatter: NSObject, IValueFormatter {
+    
     func stringForValue(_ value: Double, entry: ChartDataEntry, dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {
         return "\(Money(value))"
     }
+    
 }
 
+/// Returns the ith element of initialized array of labels
 class NetValueChartXAxisFormatter: NSObject, IAxisValueFormatter {
     
     private let labels: [String]

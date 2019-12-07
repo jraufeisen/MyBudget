@@ -13,9 +13,9 @@ protocol OnboardingNewAccountDelegate {
     func addNewAccount(name: String, money: Money)
 }
 
+// MARK: - OnboardingNewAccountViewController
 class OnboardingNewAccountViewController: UIViewController {
 
-    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var explainLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
@@ -51,7 +51,6 @@ class OnboardingNewAccountViewController: UIViewController {
             self.delegate?.addNewAccount(name: accountName, money: money)
         }
     }
-    
 
     override func viewDidLoad() {
         
@@ -81,15 +80,13 @@ class OnboardingNewAccountViewController: UIViewController {
         keyboard.delegate = self
         moneyTextField.inputView = keyboard
 
-        
         accountNameTextField.becomeFirstResponder()
     }
     
-
-    
 }
 
-extension OnboardingNewAccountViewController: UITextFieldDelegate, MoneyKeyBoardDelegate {
+// MARK: - UITextFieldDelegate
+extension OnboardingNewAccountViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         
@@ -100,38 +97,13 @@ extension OnboardingNewAccountViewController: UITextFieldDelegate, MoneyKeyBoard
         return true
     }
     
+}
+
+// MARK: - MoneyKeyBoardDelegate
+extension OnboardingNewAccountViewController: MoneyKeyBoardDelegate {
+
     func moneyKeyboardPressedDone(keyboard: MoneyKeyboard) {
         moneyTextField.resignFirstResponder()
     }
     
-}
-
-extension UIView {
-    func addTopBorderWithColor(color: UIColor, width: CGFloat) {
-        let border = CALayer()
-        border.backgroundColor = color.cgColor
-        border.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: width)
-        self.layer.addSublayer(border)
-    }
-
-    func addRightBorderWithColor(color: UIColor, width: CGFloat) {
-        let border = CALayer()
-        border.backgroundColor = color.cgColor
-        border.frame = CGRect(x: self.frame.size.width - width, y: 0, width: width, height: self.frame.size.height)
-        self.layer.addSublayer(border)
-    }
-
-    func addBottomBorderWithColor(color: UIColor, width: CGFloat) {
-        let border = CALayer()
-        border.backgroundColor = color.cgColor
-        border.frame = CGRect(x: 0, y: self.frame.size.height - width, width: self.frame.size.width, height: width)
-        self.layer.addSublayer(border)
-    }
-
-    func addLeftBorderWithColor(color: UIColor, width: CGFloat) {
-        let border = CALayer()
-        border.backgroundColor = color.cgColor
-        border.frame = CGRect(x: 0, y: 0, width: width, height: self.frame.size.height)
-        self.layer.addSublayer(border)
-    }
 }

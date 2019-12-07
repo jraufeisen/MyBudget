@@ -12,6 +12,7 @@ import Swift_Ledger
 
 
 class BarChartMoneyEntry {
+    
     var label: String
     var money: Money
     
@@ -19,9 +20,12 @@ class BarChartMoneyEntry {
         self.label = label
         self.money = money
     }
+    
 }
 
+// MARK: - PerMonthSpendingCard
 class PerMonthSpendingCard: UIView {
+    
     let oneMonthWidth: CGFloat = 75
 
     @IBOutlet weak var titleLabel: UILabel!
@@ -33,7 +37,6 @@ class PerMonthSpendingCard: UIView {
         super.init(frame: frame)
         commonInit()
     }
-    
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -64,9 +67,7 @@ class PerMonthSpendingCard: UIView {
             let entry = BarChartDataEntry.init(x: Double(i), y:Double(i))
             entries.append(entry)
         }
-
     }
-
     
     func addChart(expenses: [BarChartMoneyEntry]) {
         guard expenses.count > 0 else { return }
@@ -88,7 +89,6 @@ class PerMonthSpendingCard: UIView {
         }
         
         addGraph(entries: entries, avgValue: avg, labels: labels)
-        
     }
     
     private func addGraph(entries: [BarChartDataEntry], avgValue: Double, labels: [String]) {
@@ -108,7 +108,6 @@ class PerMonthSpendingCard: UIView {
         }
         
         data.setValueFormatter(BudgetChartMoneyFormatter())
-       // data.setValueFont(NSFont.systemFont(ofSize: 12))
         chart.data = data
         // Graph Colors
         chart.barData?.setValueTextColor(.gray)
@@ -146,7 +145,6 @@ class PerMonthSpendingCard: UIView {
         chart.xAxis.axisMinimum = -0.5
         chart.xAxis.axisMaximum = Double(entries.count-1) + 0.5 // Maximum x value occuring + 0.5
 
-
         chartContainer.contentSize = CGSize(width: oneMonthWidth*CGFloat(entries.count), height: chartContainer.contentSize.height)
 
         chart.translatesAutoresizingMaskIntoConstraints = false
@@ -158,13 +156,14 @@ class PerMonthSpendingCard: UIView {
             NSLayoutConstraint.init(item: chart, attribute: .top, relatedBy: .equal, toItem: chartContainer, attribute: .top, multiplier: 1, constant: 0),
             NSLayoutConstraint.init(item: chart, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: oneMonthWidth*CGFloat(entries.count)), // Some large constant
         ])
-
     }
     
 }
 
+// MARK: - BudgetChartMoneyFormatter
 /// Returns empty string when value is zero.
 class BudgetChartMoneyFormatter: NSObject, IValueFormatter {
+    
     func stringForValue(_ value: Double, entry: ChartDataEntry, dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {
         if value == 0 {
             return ""
@@ -172,10 +171,13 @@ class BudgetChartMoneyFormatter: NSObject, IValueFormatter {
             return "\(Money(value))"
         }
     }
+    
 }
 
+// MARK: - AverageLineMoneyFormatter
 /// Returns empty string for every data point except for the last one
 class AverageLineMoneyFormatter: NSObject, IValueFormatter {
+    
     let numberOfEntries: Int
     init(numberOfEntries: Int) {
         self.numberOfEntries = numberOfEntries
@@ -188,10 +190,13 @@ class AverageLineMoneyFormatter: NSObject, IValueFormatter {
         }
         return ""
     }
+    
 }
 
+// MARK: - BudgetChartDateFormatter
 /// Returns empty string when data is later than the date of ledger's last transaction
 class BudgetChartDateFormatter: NSObject, IAxisValueFormatter {
+    
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         guard let firstDate = Model.shared.firstDate() else {return ""}
         guard let displayedDate = Calendar.current.date(byAdding: .month, value: Int(value), to: firstDate)?.firstDayOfCurrentMonth() else {return ""}
@@ -209,9 +214,12 @@ class BudgetChartDateFormatter: NSObject, IAxisValueFormatter {
         
         return label
     }
+    
 }
 
+// MARK: - LabelsFormatter
 class LabelsFormatter: NSObject, IAxisValueFormatter {
+    
     let labels: [String]
     init(labels: [String]) {
         self.labels = labels
@@ -225,6 +233,5 @@ class LabelsFormatter: NSObject, IAxisValueFormatter {
         }
         return ""
     }
-    
     
 }

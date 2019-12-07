@@ -13,6 +13,10 @@ import BLTNBoard
 
 class TabbarViewController: UITabBarController, FloatyDelegate {
 
+    let effectView = UIVisualEffectView.init(effect: UIBlurEffect.init(style: .prominent))
+    let effectViewFadeDuration = 0.2
+    var helpingLabel: UILabel?
+    
     /// Instantiate from storyboard
     internal static func instantiate() -> TabbarViewController {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TabbarController") as! TabbarViewController
@@ -20,7 +24,6 @@ class TabbarViewController: UITabBarController, FloatyDelegate {
     }
 
     lazy private var bulletinManager: BLTNItemManager = {
-       
         let subscriptionPage = BulletinDataSource.makeSubscriptionPage()
         subscriptionPage.next = BulletinDataSource.makeChoicePage()
         let manager = BLTNItemManager(rootItem: subscriptionPage)
@@ -44,7 +47,6 @@ class TabbarViewController: UITabBarController, FloatyDelegate {
         floaty.frame = centerButtonFrame
         floaty.fabDelegate = self
         
-
         floaty.incomeItem.handler = { (item) in
             if Model.shared.allowedToAddTransaction() {
                 self.addTransaction(type: .Income)
@@ -61,7 +63,6 @@ class TabbarViewController: UITabBarController, FloatyDelegate {
             }
         }
 
-        
         floaty.expenseItem.handler = { (item) in
             if Model.shared.allowedToAddTransaction() {
                 self.addTransaction(type: .Expense)
@@ -70,12 +71,9 @@ class TabbarViewController: UITabBarController, FloatyDelegate {
             }
         }
         
-        
         floaty.subscribeItem.handler = { (item) in
             self.bulletinManager.showBulletin(above: self)
         }
-      
-
         
         floaty.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(floaty)
@@ -89,32 +87,21 @@ class TabbarViewController: UITabBarController, FloatyDelegate {
         view.addConstraint(center_x_Constraint)
         let center_y_Constraint = NSLayoutConstraint(item: floaty, attribute: .centerY,  relatedBy: .equal, toItem: tabBar, attribute: .topMargin, multiplier: 1, constant: -5)
         view.addConstraint(center_y_Constraint)
-        
     }
     
     // MARK: - Floating button actions
     
     private func addTransaction(type: TransactionType) {
-
         func show() {
             let vc = EnterNumberViewController.instantiate(with: type)
             let wrapperVC = UINavigationController.init(rootViewController: vc)
             present(wrapperVC, animated: true, completion: nil)
         }
-        
         show()
-        
     }
-
-
-
-
-    let effectView = UIVisualEffectView.init(effect: UIBlurEffect.init(style: .prominent))
     
     private func addConstraintsToEffectView() {
-        
         guard let superView = effectView.superview else {return}
-        
         effectView.translatesAutoresizingMaskIntoConstraints = false
         
         let right = NSLayoutConstraint.init(item: effectView, attribute: .trailing, relatedBy: .equal, toItem: superView, attribute: .trailing, multiplier: 1, constant: 0)
@@ -128,13 +115,7 @@ class TabbarViewController: UITabBarController, FloatyDelegate {
         
         let bottom = NSLayoutConstraint.init(item: effectView, attribute: .bottom, relatedBy: .equal, toItem: superView, attribute: .bottom, multiplier: 1, constant: 0)
         bottom.isActive = true
-        
     }
-    
-    
-    let effectViewFadeDuration = 0.2
-    var helpingLabel: UILabel?
-    
     
     func floatyWillOpen(_ floaty: Floaty) {
         effectView.frame = view.frame
@@ -143,7 +124,6 @@ class TabbarViewController: UITabBarController, FloatyDelegate {
         helpingLabel = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: effectView.frame.width-50, height: 100))
         helpingLabel?.numberOfLines = 3
         
-
         DispatchQueue.global(qos: .background).async {
             let status = ServerReceiptValidator().isSubscribed()
             let expirationDate = ServerReceiptValidator().subscriptionExpirationDate()
@@ -181,7 +161,6 @@ class TabbarViewController: UITabBarController, FloatyDelegate {
                             self.helpingLabel?.textColor = .transferColor
                         }
                     }
-                    
                 }
             }
         }
@@ -199,7 +178,6 @@ class TabbarViewController: UITabBarController, FloatyDelegate {
         }
         animator.startAnimation()
     }
-    
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
@@ -229,4 +207,5 @@ class TabbarViewController: UITabBarController, FloatyDelegate {
             self.helpingLabel?.removeFromSuperview()
         }
     }
+    
 }

@@ -46,7 +46,6 @@ class EditTagsTableViewCell: UITableViewCell {
         super.awakeFromNib()
         selectionStyle = .none
         setupTagField()
-        
         if #available(iOS 13.0, *) {
             symbolImageView.image = UIImage.init(systemName: "tag") // SF symbols only available since iOS 13
         } else {
@@ -99,15 +98,14 @@ class EditTagsTableViewCell: UITableViewCell {
         
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-    }
-    
 }
 
+// MARK: - UITextFieldDelegate
 extension EditTagsTableViewCell: UITextFieldDelegate {
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
     }
+    
 }

@@ -63,6 +63,7 @@ class NewAccountViewController: UIViewController {
 
 }
 
+// MARK: - DiaryDelegate
 extension NewAccountViewController: DiaryDelegate {
     
     private func addFloatingFinishButton() {

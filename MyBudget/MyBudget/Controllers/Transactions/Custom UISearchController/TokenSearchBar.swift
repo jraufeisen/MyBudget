@@ -8,11 +8,10 @@
 
 import UIKit
 
-
 @available(iOS 13.0, *)
 class TokenSearchBar: UISearchBar {
 
-    var predicateForToken = [UISearchToken: NSPredicate]() // In theory, this can overflow. But wont happen, I'm sure
+    var predicateForToken = [UISearchToken: NSPredicate]() // In theory, this can get pretty large
     
     func addToken(token: UISearchToken, for predicate: NSPredicate) {
         predicateForToken[token] = predicate
@@ -26,9 +25,7 @@ class TokenSearchBar: UISearchBar {
                 predicate = NSCompoundPredicate.init(andPredicateWithSubpredicates: [predicate, newPredicate])
             }
         }
-        
         return predicate
-        
     }
     
 }

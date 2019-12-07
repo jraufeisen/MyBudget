@@ -13,6 +13,7 @@ protocol OnboardingBudgetTableViewCellDelegate {
     func didAssignMoney(money: Money, to category: String)
 }
 
+// MARK: - OnboardingBudgetTableViewCell
 class OnboardingBudgetTableViewCell: UITableViewCell {
 
     var delegate: OnboardingBudgetTableViewCellDelegate?
@@ -23,8 +24,6 @@ class OnboardingBudgetTableViewCell: UITableViewCell {
     @IBOutlet weak var accountLabel: UILabel!
     @IBOutlet weak var moneyTextField: UITextField!
 
-    
-    
     override func awakeFromNib() {
         selectionStyle = .none
         
@@ -36,12 +35,13 @@ class OnboardingBudgetTableViewCell: UITableViewCell {
             backgroundColor = .systemGroupedBackground
             iconImageView.tintColor = .label
         }
-
-        
     }
+    
 }
 
+// MARK: - OnboardingBudgetTableViewCell
 extension OnboardingBudgetTableViewCell: MoneyKeyBoardDelegate {
+    
     func moneyKeyboardPressedDone(keyboard: MoneyKeyboard) {
         moneyTextField.resignFirstResponder()
 
@@ -50,4 +50,5 @@ extension OnboardingBudgetTableViewCell: MoneyKeyBoardDelegate {
         }
         delegate?.didAssignMoney(money: keyboard.moneyEntered(), to: category)
     }
+    
 }

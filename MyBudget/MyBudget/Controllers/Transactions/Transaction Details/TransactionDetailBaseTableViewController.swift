@@ -12,7 +12,6 @@ class TransactionDetailBaseTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         self.title = "Details"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .save, target: self, action: #selector(self.pressedSave))
         
@@ -22,7 +21,7 @@ class TransactionDetailBaseTableViewController: UITableViewController {
         tableView.register(UINib(nibName: "EditAccountTableViewCell", bundle: nil), forCellReuseIdentifier: "EditAccountTableViewCell")
         tableView.register(UINib(nibName: "EditCategoryTableViewCell", bundle: nil), forCellReuseIdentifier: "EditCategoryTableViewCell")
         tableView.register(UINib(nibName: "EditTagsTableViewCell", bundle: nil), forCellReuseIdentifier: "EditTagsTableViewCell")
-
+        
         tableView.rowHeight = UITableView.automaticDimension
         tableView.keyboardDismissMode = .onDrag
     }

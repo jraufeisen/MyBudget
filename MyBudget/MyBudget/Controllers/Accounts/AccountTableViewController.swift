@@ -9,10 +9,11 @@
 import UIKit
 import Swift_Ledger
 
+// MARK: - IncomeStatementCell
 class IncomeStatementCell : UITableViewCell {
+    
     @IBOutlet weak var headerLabel: UILabel!
     @IBOutlet weak var insetView: UIView!
-
     @IBOutlet weak var incomeFillView: IncomeStatementPercentView!
     @IBOutlet weak var expenseFillView: IncomeStatementPercentView!
     
@@ -30,16 +31,15 @@ class IncomeStatementCell : UITableViewCell {
         insetView.layer.shadowOffset = CGSize.init(width: 2, height: 2)
         insetView.layer.shadowOpacity = 0.3
     }
-
     
 }
 
-
+// MARK: - IncomeStatementAccountCell
 class IncomeStatementAccountCell: UITableViewCell {
+    
     @IBOutlet weak var insetView: UIView!
     @IBOutlet weak var accountLabel: UILabel!
     @IBOutlet weak var moneyLabel: UILabel!
-    
     @IBOutlet weak var incomeFillView: IncomeStatementPercentView!
     @IBOutlet weak var expenseFillView: IncomeStatementPercentView!
     
@@ -61,12 +61,13 @@ class IncomeStatementAccountCell: UITableViewCell {
     
 }
 
-
-
-
-
 /// Its easier to model this vc as a plain viewcontroller, not tableviewcontroller, because I wanna ad a floating button on top
-class AccountTableViewController: NavbarFillingViewController, UITableViewDelegate, UITableViewDataSource {
+class AccountTableViewController: NavbarFillingViewController {
+    
+    @IBOutlet var tableView: UITableView!
+    
+    let titleHelpingLabel = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: 40, height: 50))
+    let descriptionHelpingLabel = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: 40, height: 50))
     
     private var incomestatement: IncomeStatementViewable = Model.shared.getIncomeStatementViewable()
     private var accounts: [AccountViewable] = Model.shared.getAllAccountViewables()
@@ -83,8 +84,80 @@ class AccountTableViewController: NavbarFillingViewController, UITableViewDelega
         }
     }
     
+    internal static func instantiate() -> AccountTableViewController {
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AccountsViewController") as! AccountTableViewController
+        return vc
+    }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        updateModel()
+        navigationItem.title = "Accounts"
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateModel), name: ModelChangedNotification, object: nil)
+    }
+
+    private func addHelpingLabels() {
+        titleHelpingLabel.frame = CGRect.init(x: 0, y: 0, width: view.bounds.width - 60, height: 50)
+        titleHelpingLabel.textAlignment = .center
+        titleHelpingLabel.font = UIFont.boldSystemFont(ofSize: 20)
+        titleHelpingLabel.center = view.center
+        titleHelpingLabel.text = "Add your banking accounts"
+        titleHelpingLabel.sizeToFit()
+        titleHelpingLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(titleHelpingLabel)
+        var centerX = NSLayoutConstraint.init(item: titleHelpingLabel, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0)
+        var centerY = NSLayoutConstraint.init(item: titleHelpingLabel, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: -20)
+        view.addConstraints([centerX, centerY])
+
+        descriptionHelpingLabel.frame = CGRect.init(x: 0, y: titleHelpingLabel.center.y + 15, width: view.bounds.width - 60, height: 100)
+        descriptionHelpingLabel.textAlignment = .center
+        descriptionHelpingLabel.numberOfLines = 10
+        descriptionHelpingLabel.font = UIFont.systemFont(ofSize: 17)
+        descriptionHelpingLabel.textColor = .lightGray
+        descriptionHelpingLabel.center = CGPoint.init(x: titleHelpingLabel.center.x, y: descriptionHelpingLabel.center.y)
+        descriptionHelpingLabel.text = "Add a new account by clicking + in the top right corner"
+        descriptionHelpingLabel.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(descriptionHelpingLabel)
+        let width = NSLayoutConstraint.init(item: descriptionHelpingLabel, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 1, constant: -60)
+        let height = NSLayoutConstraint.init(item: descriptionHelpingLabel, attribute: .height, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 0, constant: 100)
+        centerX = NSLayoutConstraint.init(item: descriptionHelpingLabel, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0)
+        centerY = NSLayoutConstraint.init(item: descriptionHelpingLabel, attribute: .top, relatedBy: .equal, toItem: titleHelpingLabel, attribute: .bottom, multiplier: 1, constant: 0)
+        view.addConstraints([width, height, centerX, centerY])
+    }
     
+    private func removeHelpingLabels() {
+        titleHelpingLabel.removeFromSuperview()
+        descriptionHelpingLabel.removeFromSuperview()
+    }
+
+    @IBAction func pressedPlus(_ sender: Any) {
+        let newAccountVC = NewAccountViewController()
+        let wrapperVC = UINavigationController.init(rootViewController: newAccountVC)
+        present(wrapperVC, animated: true, completion: nil)
+    }
+    
+}
+
+// MARK: - UITableViewDelegate
+extension AccountTableViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 150
+    }
+    
+}
+
+
+// MARK: - UITableViewDataSource
+extension AccountTableViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if accounts.isEmpty {return 0} // No extra cell for total income statement
@@ -92,7 +165,6 @@ class AccountTableViewController: NavbarFillingViewController, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         // First cell is an overall summary cell
         if indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "incomeStatementCell") as? IncomeStatementCell else {
@@ -116,7 +188,6 @@ class AccountTableViewController: NavbarFillingViewController, UITableViewDelega
             return cell
         }
         
-        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "incomeStatemenetAccountCell") as? IncomeStatementAccountCell else {
             return UITableViewCell()
         }
@@ -139,79 +210,4 @@ class AccountTableViewController: NavbarFillingViewController, UITableViewDelega
         return cell
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 10
-    }
-    
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 10
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
-    }
-    
-
-    @IBOutlet var tableView: UITableView!
-
-    
-    internal static func instantiate() -> AccountTableViewController {
-        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AccountsViewController") as! AccountTableViewController
-        return vc
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        updateModel()
-        navigationItem.title = "Accounts"
-        NotificationCenter.default.addObserver(self, selector: #selector(self.updateModel), name: ModelChangedNotification, object: nil)
-    }
-
-    
-    let titleHelpingLabel = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: 40, height: 50))
-    let descriptionHelpingLabel = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: 40, height: 50))
-    private func addHelpingLabels() {
-        titleHelpingLabel.frame = CGRect.init(x: 0, y: 0, width: view.bounds.width - 60, height: 50)
-        titleHelpingLabel.textAlignment = .center
-        titleHelpingLabel.font = UIFont.boldSystemFont(ofSize: 20)
-        titleHelpingLabel.center = view.center
-        titleHelpingLabel.text = "Add your banking accounts"
-        titleHelpingLabel.sizeToFit()
-        titleHelpingLabel.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(titleHelpingLabel)
-        var centerX = NSLayoutConstraint.init(item: titleHelpingLabel, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0)
-        var centerY = NSLayoutConstraint.init(item: titleHelpingLabel, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1, constant: -20)
-        view.addConstraints([centerX, centerY])
-
-        
-        descriptionHelpingLabel.frame = CGRect.init(x: 0, y: titleHelpingLabel.center.y + 15, width: view.bounds.width - 60, height: 100)
-        descriptionHelpingLabel.textAlignment = .center
-        descriptionHelpingLabel.numberOfLines = 10
-        descriptionHelpingLabel.font = UIFont.systemFont(ofSize: 17)
-        descriptionHelpingLabel.textColor = .lightGray
-        descriptionHelpingLabel.center = CGPoint.init(x: titleHelpingLabel.center.x, y: descriptionHelpingLabel.center.y)
-        descriptionHelpingLabel.text = "Add a new account by clicking + in the top right corner"
-        descriptionHelpingLabel.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(descriptionHelpingLabel)
-        let width = NSLayoutConstraint.init(item: descriptionHelpingLabel, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 1, constant: -60)
-        let height = NSLayoutConstraint.init(item: descriptionHelpingLabel, attribute: .height, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 0, constant: 100)
-        centerX = NSLayoutConstraint.init(item: descriptionHelpingLabel, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0)
-        centerY = NSLayoutConstraint.init(item: descriptionHelpingLabel, attribute: .top, relatedBy: .equal, toItem: titleHelpingLabel, attribute: .bottom, multiplier: 1, constant: 0)
-        view.addConstraints([width, height, centerX, centerY])
-
-    }
-    
-    
-    private func removeHelpingLabels() {
-        titleHelpingLabel.removeFromSuperview()
-        descriptionHelpingLabel.removeFromSuperview()
-    }
-
-    
-    @IBAction func pressedPlus(_ sender: Any) {
-        let newAccountVC = NewAccountViewController()
-        let wrapperVC = UINavigationController.init(rootViewController: newAccountVC)
-        present(wrapperVC, animated: true, completion: nil)
-    }
 }
-

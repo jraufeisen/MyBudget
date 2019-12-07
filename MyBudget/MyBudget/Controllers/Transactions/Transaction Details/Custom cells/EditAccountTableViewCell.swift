@@ -36,30 +36,24 @@ class EditAccountTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
-        
         let accountView = AccountTableView.init(outputView: textfield, delegate: self, color: superview?.backgroundColor)
         textfield.inputView = accountView
-        
         if #available(iOS 13.0, *) {
             symbolImageView.image = UIImage.init(systemName: "creditcard") // SF symbols only available since iOS 13
         } else {
             symbolImageView.image = nil
         }
-        
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     func selectedAccount() -> String? {
         return textfield.text
     }
+    
 }
 
+// MARK: - AccountSelectDelegate
 extension EditAccountTableViewCell: AccountSelectDelegate {
+    
     func didSelectAccount(account: String) {
         textfield.text = account
         textfield.resignFirstResponder()

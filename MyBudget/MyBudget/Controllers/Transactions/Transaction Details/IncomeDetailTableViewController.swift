@@ -13,6 +13,12 @@ class IncomeDetailTableViewController: TransactionDetailBaseTableViewController 
 
     var transaction: IncomeTransaction = IncomeTransaction()
     
+    private var moneyCell: EditMoneyTableViewCell?
+    private var dateCell: EditDateTableViewCell?
+    private var nameCell: EditNameTableViewCell?
+    private var accountCell: EditAccountTableViewCell?
+    private var tagCell: EditTagsTableViewCell?
+    
     init(transaction: IncomeTransaction) {
         self.transaction = transaction
         super.init(style: .grouped)
@@ -22,18 +28,33 @@ class IncomeDetailTableViewController: TransactionDetailBaseTableViewController 
         super.init(coder: coder)
     }
     
-        
-    private var moneyCell: EditMoneyTableViewCell?
-    private var dateCell: EditDateTableViewCell?
-    private var nameCell: EditNameTableViewCell?
-    private var accountCell: EditAccountTableViewCell?
-    private var tagCell: EditTagsTableViewCell?
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func pressedSave() {
+        guard let accountName = accountCell?.selectedAccount() else {return}
+        guard let description = nameCell?.selectedName() else {return}
+        guard let money = moneyCell?.selectedMoney() else {return}
+        guard let date = dateCell?.selectedDate() else {return}
+        guard let tags = tagCell?.tags else {return}
 
+        let newTx = IncomeTransaction()
+        newTx.account = accountName
+        newTx.transactionDescription = description
+        newTx.value = money
+        newTx.date = date
+        newTx.tags = tags
+        
+        LedgerModel.shared().replaceTransaction(oldTx: transaction.ledgerTransaction(), with: newTx.ledgerTransaction())
+        navigationController?.popViewController(animated: true)
+    }
+
+}
+
+// MARK: - UITableViewDataSource
+extension IncomeDetailTableViewController {
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -43,7 +64,6 @@ class IncomeDetailTableViewController: TransactionDetailBaseTableViewController 
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: EditMoneyTableViewCell.Identifier, for: indexPath) as! EditMoneyTableViewCell
             moneyCell = cell
@@ -78,35 +98,21 @@ class IncomeDetailTableViewController: TransactionDetailBaseTableViewController 
             return cell
         }
 
-        
         return UITableViewCell()
     }
     
+}
+
+// MARK: - UITableViewDelegate
+extension IncomeDetailTableViewController {
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) else {
-            return
-        }
-        if cell.canBecomeFirstResponder {
-            cell.becomeFirstResponder()
-        }
+       guard let cell = tableView.cellForRow(at: indexPath) else {
+           return
+       }
+       if cell.canBecomeFirstResponder {
+           cell.becomeFirstResponder()
+       }
     }
     
-    override func pressedSave() {
-        guard let accountName = accountCell?.selectedAccount() else {return}
-        guard let description = nameCell?.selectedName() else {return}
-        guard let money = moneyCell?.selectedMoney() else {return}
-        guard let date = dateCell?.selectedDate() else {return}
-        guard let tags = tagCell?.tags else {return}
-
-        let newTx = IncomeTransaction()
-        newTx.account = accountName
-        newTx.transactionDescription = description
-        newTx.value = money
-        newTx.date = date
-        newTx.tags = tags
-        
-        LedgerModel.shared().replaceTransaction(oldTx: transaction.ledgerTransaction(), with: newTx.ledgerTransaction())
-        navigationController?.popViewController(animated: true)
-    }
-
 }

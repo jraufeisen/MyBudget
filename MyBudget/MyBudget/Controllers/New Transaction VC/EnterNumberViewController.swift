@@ -26,17 +26,15 @@ class EnterNumberViewController: UIViewController {
     }
  
     @IBOutlet weak var diaryTextView: DiaryTextView!
+    
     private var transaction: Transaction = IncomeTransaction()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         updateBackground()
         navigationController?.navigationBar.prefersLargeTitles = false
-        
-        
         diaryTextView.configure(diaryProvider: transaction)
         diaryTextView.diaryDelegate = self
-        
         addBarButtonItems()
     }
 
@@ -87,11 +85,12 @@ class EnterNumberViewController: UIViewController {
 
 }
 
+// MARK: - DiaryDelegate
 extension EnterNumberViewController: DiaryDelegate {
+    
     func didFinishDiaryEntry() {
         addfloatingButton()
     }
-    
     
     func didEnterDiaryPair(index: Int, value: Any) {
         print("I received \(value) at \(index)")
@@ -141,7 +140,6 @@ extension EnterNumberViewController: DiaryDelegate {
         }
         self.transaction = transaction
     }
-    
     
     private func processTransferEntry(index: Int, value: Any) {
         guard let transaction = self.transaction as? TransferTransaction else {

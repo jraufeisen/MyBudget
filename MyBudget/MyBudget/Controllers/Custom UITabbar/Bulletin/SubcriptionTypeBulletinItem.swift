@@ -76,16 +76,12 @@ class SubcriptionTypeBLTNItem: FeedbackPageBLTNItem {
             self.successFeedbackGenerator.prepare()
             self.successFeedbackGenerator.success()
         }
-
     }
 
     override func alternativeButtonTapped(sender: UIButton) {
-
         // Play selection haptic feedback
-
         selectionFeedbackGenerator.prepare()
         selectionFeedbackGenerator.selectionChanged()
-        
     }
 
 }
@@ -103,20 +99,16 @@ extension SubcriptionTypeBLTNItem: UICollectionViewDataSource, UICollectionViewD
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! ImageCollectionViewCell
         cell.imageView.contentMode = .scaleAspectFill
         cell.imageView.clipsToBounds = true
 
         return cell
-
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-
         let squareSideLength = (collectionView.frame.width / 3) - 3
         return CGSize(width: squareSideLength, height: squareSideLength)
-
     }
 
 }

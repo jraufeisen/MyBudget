@@ -13,6 +13,13 @@ class ExpenseDetailTableViewController: TransactionDetailBaseTableViewController
 
     var transaction: ExpenseTransaction = ExpenseTransaction()
     
+    private var moneyCell: EditMoneyTableViewCell?
+    private var dateCell: EditDateTableViewCell?
+    private var nameCell: EditNameTableViewCell?
+    private var accountCell: EditAccountTableViewCell?
+    private var categoryCell: EditCategoryTableViewCell?
+    private var tagCell: EditTagsTableViewCell?
+    
     init(transaction: ExpenseTransaction) {
         self.transaction = transaction
         super.init(style: .grouped)
@@ -21,15 +28,31 @@ class ExpenseDetailTableViewController: TransactionDetailBaseTableViewController
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
         
-    private var moneyCell: EditMoneyTableViewCell?
-    private var dateCell: EditDateTableViewCell?
-    private var nameCell: EditNameTableViewCell?
-    private var accountCell: EditAccountTableViewCell?
-    private var categoryCell: EditCategoryTableViewCell?
-    private var tagCell: EditTagsTableViewCell?
+    override func pressedSave() {
+        guard let accountName = accountCell?.selectedAccount() else {return}
+        guard let categoryName = categoryCell?.selectedCategory() else {return}
+        guard let description = nameCell?.selectedName() else {return}
+        guard let money = moneyCell?.selectedMoney() else {return}
+        guard let date = dateCell?.selectedDate() else {return}
+        guard let tags = tagCell?.tags else {return}
 
+        let newTx = ExpenseTransaction()
+        newTx.account = accountName
+        newTx.category = categoryName
+        newTx.transactionDescription = description
+        newTx.value = money
+        newTx.date = date
+        newTx.tags = tags
+        
+        LedgerModel.shared().replaceTransaction(oldTx: transaction.ledgerTransaction(), with: newTx.ledgerTransaction())
+        navigationController?.popViewController(animated: true)
+    }
+    
+}
+
+// MARK: - UITableViewDataSource
+extension ExpenseDetailTableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -40,7 +63,6 @@ class ExpenseDetailTableViewController: TransactionDetailBaseTableViewController
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: EditMoneyTableViewCell.Identifier, for: indexPath) as! EditMoneyTableViewCell
             moneyCell = cell
@@ -81,9 +103,14 @@ class ExpenseDetailTableViewController: TransactionDetailBaseTableViewController
             return cell
         }
 
-        
         return UITableViewCell()
     }
+
+}
+
+
+// MARK: - UITableViewDelegate
+extension ExpenseDetailTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) else {
@@ -94,25 +121,4 @@ class ExpenseDetailTableViewController: TransactionDetailBaseTableViewController
         }
     }
     
-   
-    
-    override func pressedSave() {
-        guard let accountName = accountCell?.selectedAccount() else {return}
-        guard let categoryName = categoryCell?.selectedCategory() else {return}
-        guard let description = nameCell?.selectedName() else {return}
-        guard let money = moneyCell?.selectedMoney() else {return}
-        guard let date = dateCell?.selectedDate() else {return}
-        guard let tags = tagCell?.tags else {return}
-
-        let newTx = ExpenseTransaction()
-        newTx.account = accountName
-        newTx.category = categoryName
-        newTx.transactionDescription = description
-        newTx.value = money
-        newTx.date = date
-        newTx.tags = tags
-        
-        LedgerModel.shared().replaceTransaction(oldTx: transaction.ledgerTransaction(), with: newTx.ledgerTransaction())
-        navigationController?.popViewController(animated: true)
-    }
 }

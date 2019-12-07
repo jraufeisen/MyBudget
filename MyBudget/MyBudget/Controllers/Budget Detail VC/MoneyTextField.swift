@@ -9,13 +9,7 @@
 import UIKit
 
 class MoneyTextField: UITextField {
-
-  
-/*    override func caretRect(for position: UITextPosition) -> CGRect {
-        return CGRect.zero
-    }*/
-    
-    
+    // TODO: We don't need this subclass, do we?
 }
 
 

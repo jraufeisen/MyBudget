@@ -43,7 +43,6 @@ class ImageCollectionViewCell: UICollectionViewCell {
         imageView.rightAnchor.constraint(equalTo: contentView.rightAnchor).isActive = true
         imageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         contentView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor).isActive = true
-
     }
 
 }

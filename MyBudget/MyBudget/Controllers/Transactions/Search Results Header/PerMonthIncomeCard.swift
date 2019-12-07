@@ -11,6 +11,7 @@ import Charts
 import Swift_Ledger
 
 class PerMonthIncomeCard: UIView {
+    
     let oneMonthWidth: CGFloat = 75
 
     @IBOutlet weak var titleLabel: UILabel!
@@ -22,7 +23,6 @@ class PerMonthIncomeCard: UIView {
         super.init(frame: frame)
         commonInit()
     }
-    
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -75,10 +75,7 @@ class PerMonthIncomeCard: UIView {
         }
         
         addGraph(entries: entries, avgValue: avg, labels: labels)
-        
     }
-
-    
     
     private func addGraph(entries: [BarChartDataEntry], avgValue: Double, labels: [String]) {
         subtitleLabel.text = "Average income: \(Money(avgValue))"
@@ -97,10 +94,8 @@ class PerMonthIncomeCard: UIView {
         if containsNonZeroExpense {
             data.barData = BarChartData.init(dataSet: dataSet)
         }
-       
         
         data.setValueFormatter(BudgetChartMoneyFormatter())
-       // data.setValueFont(NSFont.systemFont(ofSize: 12))
         chart.data = data
         // Graph Colors
         chart.barData?.setValueTextColor(.gray)
@@ -138,7 +133,6 @@ class PerMonthIncomeCard: UIView {
         chart.xAxis.axisMinimum = -0.5
         chart.xAxis.axisMaximum = Double(entries.count-1) + 0.5
 
-
         chartContainer.contentSize = CGSize(width: oneMonthWidth*CGFloat(entries.count), height: chartContainer.contentSize.height)
 
         chart.translatesAutoresizingMaskIntoConstraints = false
@@ -150,8 +144,6 @@ class PerMonthIncomeCard: UIView {
             NSLayoutConstraint.init(item: chart, attribute: .top, relatedBy: .equal, toItem: chartContainer, attribute: .top, multiplier: 1, constant: 0),
             NSLayoutConstraint.init(item: chart, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: oneMonthWidth*CGFloat(entries.count)), // Some large constant
         ])
-
     }
     
 }
-

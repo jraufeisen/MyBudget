@@ -15,7 +15,6 @@ class OnboardingAccountTableViewCell: UITableViewCell {
     @IBOutlet weak var iconImageView: UIImageView!
     @IBOutlet weak var leftLabel: UILabel!
     @IBOutlet weak var rightLabel: UILabel!
-
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,5 +24,4 @@ class OnboardingAccountTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
-    
 }

@@ -14,7 +14,6 @@ class EditMoneyTableViewCell: UITableViewCell {
     static let Identifier = "EditMoneyTableViewCell"
     
     @IBOutlet weak var textfield: UITextField!
-
     @IBOutlet weak var symbolImageView: UIImageView!
     @IBOutlet weak var symbolBackgroundView: RoundedCornerView!
     
@@ -47,13 +46,6 @@ class EditMoneyTableViewCell: UITableViewCell {
         
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
-
     func configure(for money: Money) {
         textfield.text = ""
         let keyboard = MoneyKeyboard.init(outputView: textfield, startingWith: money.minorUnits)
@@ -65,16 +57,16 @@ class EditMoneyTableViewCell: UITableViewCell {
         guard let keyboard = textfield.inputView as? MoneyKeyboard else {
             return 0
         }
-        
         return keyboard.moneyEntered()
     }
     
 }
 
+// MARK: - MoneyKeyBoardDelegate
 extension EditMoneyTableViewCell: MoneyKeyBoardDelegate {
+    
     func moneyKeyboardPressedDone(keyboard: MoneyKeyboard) {
         textfield.resignFirstResponder()
     }
-    
     
 }

@@ -13,6 +13,13 @@ class TransferDetailTableViewController: TransactionDetailBaseTableViewControlle
     
     var transaction: TransferTransaction = TransferTransaction()
     
+    private var moneyCell: EditMoneyTableViewCell?
+    private var dateCell: EditDateTableViewCell?
+    private var nameCell: EditNameTableViewCell?
+    private var fromAccountCell: EditAccountTableViewCell?
+    private var toAccountCell: EditAccountTableViewCell?
+    private var tagCell: EditTagsTableViewCell?
+    
     init(transaction: TransferTransaction) {
         self.transaction = transaction
         super.init(style: .grouped)
@@ -22,14 +29,31 @@ class TransferDetailTableViewController: TransactionDetailBaseTableViewControlle
         super.init(coder: coder)
     }
     
-        
-    private var moneyCell: EditMoneyTableViewCell?
-    private var dateCell: EditDateTableViewCell?
-    private var nameCell: EditNameTableViewCell?
-    private var fromAccountCell: EditAccountTableViewCell?
-    private var toAccountCell: EditAccountTableViewCell?
-    private var tagCell: EditTagsTableViewCell?
+    override func pressedSave() {
+        guard let fromAccountName = fromAccountCell?.selectedAccount() else {return}
+        guard let toAccountName = toAccountCell?.selectedAccount() else {return}
+        guard let description = nameCell?.selectedName() else {return}
+        guard let money = moneyCell?.selectedMoney() else {return}
+        guard let date = dateCell?.selectedDate() else {return}
+        guard let tags = tagCell?.tags else {return}
 
+        let newTx = TransferTransaction()
+        newTx.fromAccount = fromAccountName
+        newTx.toAccount = toAccountName
+        newTx.transactionDescription = description
+        newTx.value = money
+        newTx.date = date
+        newTx.tags = tags
+        
+        LedgerModel.shared().replaceTransaction(oldTx: transaction.ledgerTransaction(), with: newTx.ledgerTransaction())
+        navigationController?.popViewController(animated: true)
+    }
+
+}
+
+// MARK: - UITableViewDataSource
+extension TransferDetailTableViewController {
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -79,10 +103,14 @@ class TransferDetailTableViewController: TransactionDetailBaseTableViewControlle
             }
             return cell
         }
-
         
         return UITableViewCell()
     }
+
+}
+
+// MARK: - UITableViewDelegate
+extension TransferDetailTableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) else {
@@ -92,26 +120,5 @@ class TransferDetailTableViewController: TransactionDetailBaseTableViewControlle
             cell.becomeFirstResponder()
         }
     }
-    
-    override func pressedSave() {
-        guard let fromAccountName = fromAccountCell?.selectedAccount() else {return}
-        guard let toAccountName = toAccountCell?.selectedAccount() else {return}
-        guard let description = nameCell?.selectedName() else {return}
-        guard let money = moneyCell?.selectedMoney() else {return}
-        guard let date = dateCell?.selectedDate() else {return}
-        guard let tags = tagCell?.tags else {return}
-
-        let newTx = TransferTransaction()
-        newTx.fromAccount = fromAccountName
-        newTx.toAccount = toAccountName
-        newTx.transactionDescription = description
-        newTx.value = money
-        newTx.date = date
-        newTx.tags = tags
-        
-        LedgerModel.shared().replaceTransaction(oldTx: transaction.ledgerTransaction(), with: newTx.ledgerTransaction())
-        navigationController?.popViewController(animated: true)
-    }
-
 
 }

@@ -22,19 +22,16 @@ class AccountHeaderView: UIView {
             plusButton.setImage(#imageLiteral(resourceName: "add.png").withRenderingMode(.alwaysTemplate), for: .normal)
         }
         plusButton.setImage(#imageLiteral(resourceName: "add.png").withRenderingMode(.alwaysTemplate), for: .normal)
-
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
         let maskPath = UIBezierPath.init(roundedRect: bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize.init(width: 10, height: 10))
         let maskLayer = CAShapeLayer()
         maskLayer.frame = bounds
         maskLayer.path = maskPath.cgPath
-        
         layer.masksToBounds = true
         layer.mask = maskLayer
-
     }
+    
 }

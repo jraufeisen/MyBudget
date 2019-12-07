@@ -13,20 +13,23 @@ protocol OnboardingAccountObserver {
     func accountsChanged()
 }
 
-class OnboardingAccountTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+// MARK: - OnboardingAccountTableViewController
+class OnboardingAccountTableViewController: UIViewController {
 
     var accounts = [OnboardingAccountViewable]() {
         didSet {
             delegate?.accountsChanged()
         }
     }
+    
     var delegate: OnboardingAccountObserver?
     
     @IBOutlet weak var accountTableView: UITableView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+            
+}
+
+// MARK: - UITableViewDataSource
+extension OnboardingAccountTableViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -38,17 +41,17 @@ class OnboardingAccountTableViewController: UIViewController, UITableViewDataSou
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: OnboardingAccountTableViewCell.Identifier) as! OnboardingAccountTableViewCell
-        
         let accountViewable = accounts[indexPath.row]
-        
         cell.iconImageView.image = accountViewable.icon
         cell.leftLabel.text = accountViewable.name
         cell.rightLabel.text = "\(accountViewable.money)"
-        
         return cell
-
     }
-    
+
+}
+
+// MARK: - UITableViewDelegate
+extension OnboardingAccountTableViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -56,18 +59,19 @@ class OnboardingAccountTableViewController: UIViewController, UITableViewDataSou
             tableView.deleteRows(at: [indexPath], with: .automatic)
         }
     }
-    
-    
+
 }
 
+// MARK: - OnboardingNewAccountDelegate
 extension OnboardingAccountTableViewController: OnboardingNewAccountDelegate {
+    
     func addNewAccount(name: String, money: Money) {
         let newAccount = OnboardingAccountViewable()
         newAccount.name = name
         newAccount.money = money
         newAccount.icon = #imageLiteral(resourceName: "Big Credit Card")
-        
         accounts.insert(newAccount, at: 0)
         accountTableView.insertRows(at: [IndexPath.init(row: 0, section: 0)], with: .automatic)
     }
+    
 }

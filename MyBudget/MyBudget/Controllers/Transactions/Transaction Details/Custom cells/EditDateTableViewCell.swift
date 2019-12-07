@@ -12,7 +12,6 @@ class EditDateTableViewCell: UITableViewCell {
     static let Identifier = "EditDateTableViewCell"
 
     @IBOutlet weak var textfield: UITextField!
-    
     @IBOutlet weak var symbolImageView: UIImageView!
     @IBOutlet weak var symbolBackgroundView: RoundedCornerView!
     
@@ -53,9 +52,7 @@ class EditDateTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         selectionStyle = .none
-        
         textfield.inputView = datepicker
-        
         if #available(iOS 13.0, *) {
             symbolImageView.image = UIImage.init(systemName: "calendar.circle") // SF symbols only available since iOS 13
         } else {
@@ -74,16 +71,10 @@ class EditDateTableViewCell: UITableViewCell {
         
         let dateString = formatter.string(from: datepicker.date)
         textfield.text = dateString
-
-    }
-    
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func selectedDate() -> Date {
         return datepicker.date
     }
+    
 }

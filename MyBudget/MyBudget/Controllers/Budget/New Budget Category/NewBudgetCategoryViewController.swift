@@ -15,8 +15,6 @@ class NewBudgetCategoryViewController: UIViewController {
     private var categoryName: String?
     private var initialBalance: Money?
     
-    
-    
     private var _diaryTextView: DiaryTextView? = nil
     var diaryTextView: DiaryTextView {
         get {
@@ -35,11 +33,10 @@ class NewBudgetCategoryViewController: UIViewController {
         }
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         addBarButtonItems()
-        
+
         view.backgroundColor = .incomeColor
         
         if #available(iOS 13.0, *) {
@@ -55,7 +52,6 @@ class NewBudgetCategoryViewController: UIViewController {
         diaryTextView.becomeFirstResponder()
     }
     
-    
     /// Adds items to the top bar which is useful when presenting the vc modally
     private func addBarButtonItems() {
         navigationItem.leftBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .stop, target: self, action: #selector(self.pressedCancelButton))
@@ -66,10 +62,9 @@ class NewBudgetCategoryViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    
-    
 }
 
+// MARK: - DiaryDelegate
 extension NewBudgetCategoryViewController: DiaryDelegate {
     
     private func addFloatingFinishButton() {
@@ -79,7 +74,6 @@ extension NewBudgetCategoryViewController: DiaryDelegate {
         floaty.itemSize = 50
         floaty.handleFirstItemDirectly = true
         floaty.buttonImage = UIImage.init(named: "verify-sign")?.withRenderingMode(.alwaysTemplate)
-        
         let item = FloatyItem()
         item.tintColor = .white
         item.buttonColor = .blue
@@ -91,11 +85,8 @@ extension NewBudgetCategoryViewController: DiaryDelegate {
             self.dismiss(animated: true, completion: nil)
         }
         floaty.addItem(item: item)
-        
         view.addSubview(floaty)
     }
-    
-    
     
     func didFinishDiaryEntry() {
         addFloatingFinishButton()
@@ -112,6 +103,5 @@ extension NewBudgetCategoryViewController: DiaryDelegate {
             return
         }
     }
-    
     
 }

@@ -9,7 +9,7 @@
 import UIKit
 import Swift_Ledger
 
-class ReportsViewController: NavbarFillingViewController, UITableViewDelegate, UITableViewDataSource {
+class ReportsViewController: NavbarFillingViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -26,18 +26,12 @@ class ReportsViewController: NavbarFillingViewController, UITableViewDelegate, U
         NotificationCenter.default.addObserver(self.tableView!, selector: #selector(self.tableView.reloadData), name: ModelChangedNotification, object: nil)
     }
     
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
+}
 
+// MARK: - UITableViewDelegate
+extension ReportsViewController: UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
-    }
-   
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-
         if indexPath.row == 0 {
             return 250
         } else if indexPath.row == 1 {
@@ -49,46 +43,49 @@ class ReportsViewController: NavbarFillingViewController, UITableViewDelegate, U
         return 250
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: PieChartTableViewCell.Identifier, for: indexPath) as! PieChartTableViewCell
+}
 
-            DispatchQueue.global().async {
-                let spendings = Model.shared.getMonthlySpendings()
-                DispatchQueue.main.async {
-                    cell.data = spendings
-                }
-            }
-            
-            return cell
-        } else if indexPath.row == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: NetValueTableViewCell.Identifier, for: indexPath) as! NetValueTableViewCell
+// MARK: - UITableViewDataSource
+extension ReportsViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+         return 1
+     }
 
-            DispatchQueue.global().async {
-                let netValues = Model.shared.getNetValueReport()
-                DispatchQueue.main.async {
-                    cell.data = netValues
-                }
-            }
-
-            return cell
-        } else if indexPath.row == 2 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: IncomeStatementTableViewCell.Identifier, for: indexPath) as! IncomeStatementTableViewCell
-
-            DispatchQueue.global().async {
-                let incomeStatements = Model.shared.getIncomeStatementReport()
-                DispatchQueue.main.async {
-                    cell.data = incomeStatements
-                }
-            }
-
-            
-            return cell
-        }
-        
-        return UITableViewCell()
-    }
-
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+         return 3
+     }
+     
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+         if indexPath.row == 0 {
+             let cell = tableView.dequeueReusableCell(withIdentifier: PieChartTableViewCell.Identifier, for: indexPath) as! PieChartTableViewCell
+             DispatchQueue.global().async {
+                 let spendings = Model.shared.getMonthlySpendings()
+                 DispatchQueue.main.async {
+                     cell.data = spendings
+                 }
+             }
+             return cell
+         } else if indexPath.row == 1 {
+             let cell = tableView.dequeueReusableCell(withIdentifier: NetValueTableViewCell.Identifier, for: indexPath) as! NetValueTableViewCell
+             DispatchQueue.global().async {
+                 let netValues = Model.shared.getNetValueReport()
+                 DispatchQueue.main.async {
+                     cell.data = netValues
+                 }
+             }
+             return cell
+         } else if indexPath.row == 2 {
+             let cell = tableView.dequeueReusableCell(withIdentifier: IncomeStatementTableViewCell.Identifier, for: indexPath) as! IncomeStatementTableViewCell
+             DispatchQueue.global().async {
+                 let incomeStatements = Model.shared.getIncomeStatementReport()
+                 DispatchQueue.main.async {
+                     cell.data = incomeStatements
+                 }
+             }
+             return cell
+         }
+         return UITableViewCell()
+     }
     
 }

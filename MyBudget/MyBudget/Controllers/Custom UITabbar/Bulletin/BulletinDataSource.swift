@@ -16,8 +16,6 @@ import SafariServices
 enum BulletinDataSource {
 
     // MARK: - Pages
-
-  
     static func makeChoicePage() -> SubscriptionSelectorBulletin {
 
         let page = SubscriptionSelectorBulletin(title: "Subscriptions")
@@ -33,7 +31,6 @@ enum BulletinDataSource {
         return page
     }
 
-   
     static func makeSubscriptionPage() -> BLTNPageItem {
         let subscriptionPage = BLTNPageItem(title: "Subscribe")
         subscriptionPage.image = #imageLiteral(resourceName: "Logo_Only")
@@ -62,8 +59,6 @@ enum BulletinDataSource {
             subscriptionPage.appearance.titleTextColor = .label
             subscriptionPage.appearance.descriptionTextColor = .label
         }
-        
-        
         return subscriptionPage
     }
     
@@ -74,7 +69,6 @@ enum BulletinDataSource {
     }
     
     static func makeCompletionPage() -> BLTNPageItem {
-        
         let page = BLTNPageItem(title: "Success")
 
         page.image = #imageLiteral(resourceName: "IntroCompletion")
@@ -105,10 +99,7 @@ enum BulletinDataSource {
             page.appearance.descriptionTextColor = .label
         }
 
-        
         return page
-        
     }
 
-    
 }

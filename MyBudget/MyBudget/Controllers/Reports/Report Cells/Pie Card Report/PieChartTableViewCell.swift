@@ -83,6 +83,8 @@ class PieChartTableViewCell: UITableViewCell {
             }
         }
     }
+    
+    /// Current number of charts
     private var numberOfCharts = 0
     
     private func reset() {
@@ -105,7 +107,6 @@ class PieChartTableViewCell: UITableViewCell {
         
         chartContainer.scrollRectToVisible(CGRect(x: chartContainer.contentSize.width - 10, y: 0, width: 10, height: chartContainer.frame.height), animated: false)
     }
-    
     
     private func addSpecialCard(title: String, body: String) {
         let newFrame = CGRect(x: 0, y:0, width: self.frame.width - 2*cardOffsetX, height: self.frame.height - 2*cardOffsetY)
@@ -243,7 +244,6 @@ class PieChartTableViewCell: UITableViewCell {
         ])
         numberOfCharts += 1
         chartContainer.contentSize = CGSize(width: CGFloat(numberOfCharts)*self.frame.width, height: self.frame.height)
-
     }
     
 }

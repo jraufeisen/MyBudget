@@ -31,7 +31,6 @@ class AboutPageViewController: UIViewController {
         return manager
     }()
 
-    
     internal static func instantiate() -> AboutPageViewController {
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AboutPageViewController") as! AboutPageViewController
         return vc
@@ -43,7 +42,6 @@ class AboutPageViewController: UIViewController {
         // Set subscription description text manually cause storyboard does not adapt colors for dark mode...
         let subscriptionDescription = NSAttributedString.appStoreLikeDescription(title: "Subscribing to Budget ", body: "unlocks full access to this app. By downloading Budget!, you have received a contingent of 100 transactions for free. Afterwards, you can still track up to one transaction per day. Subscribing to Budget! removes this limitation and grants full access.")
         largeSubscriptionLabel.attributedText = subscriptionDescription
-
         
         // Appearance of rating button
         rateOnAppStoreButton.layer.cornerRadius = 10
@@ -83,7 +81,6 @@ class AboutPageViewController: UIViewController {
             }
         }
         
-        
         // Update version number
         guard let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String else {
             return
@@ -92,8 +89,6 @@ class AboutPageViewController: UIViewController {
             return
         }
         versionLabel.text = "\(version) (\(build))"
-        
-        
     }
     
     @IBAction func pressedRateOnAppStore() {

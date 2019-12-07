@@ -37,7 +37,6 @@ class EditNameTableViewCell: UITableViewCell {
         super.awakeFromNib()
         selectionStyle = .none
         textfield.delegate = self
-        
         if #available(iOS 13.0, *) {
             symbolImageView.image = UIImage.init(systemName: "text.justify") // SF symbols only available since iOS 13
         } else {
@@ -45,20 +44,17 @@ class EditNameTableViewCell: UITableViewCell {
         }
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     func selectedName() -> String? {
         return textfield.text
     }
     
 }
 
+// MARK: - UITextFieldDelegate
 extension EditNameTableViewCell: UITextFieldDelegate {
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         return textField.resignFirstResponder()
     }
+    
 }

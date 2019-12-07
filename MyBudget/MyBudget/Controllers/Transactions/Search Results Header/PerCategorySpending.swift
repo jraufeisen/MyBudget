@@ -10,49 +10,46 @@ import UIKit
 import Charts
 import Swift_Ledger
 
-
-
 class PerCategorySpending: UIView {
 
-   @IBOutlet weak var chartContainer: UIView!
-   @IBOutlet weak var contentView: UIView!
-   @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var chartContainer: UIView!
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var titleLabel: UILabel!
 
-   @IBOutlet weak var label1: UILabel!
-   @IBOutlet weak var label2: UILabel!
-   @IBOutlet weak var label3: UILabel!
-   @IBOutlet weak var label4: UILabel!
-   @IBOutlet weak var label5: UILabel!
+    @IBOutlet weak var label1: UILabel!
+    @IBOutlet weak var label2: UILabel!
+    @IBOutlet weak var label3: UILabel!
+    @IBOutlet weak var label4: UILabel!
+    @IBOutlet weak var label5: UILabel!
 
-   override init(frame: CGRect) {
-       super.init(frame: frame)
-       commonInit()
-   }
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        commonInit()
+    }
    
-   required init?(coder: NSCoder) {
-       super.init(coder: coder)
-       commonInit()
-   }
-   
-   private func commonInit() {
-       Bundle.main.loadNibNamed("PerCategorySpending", owner: self, options: nil)
-       addSubview(contentView)
-       contentView.frame = self.bounds
-       contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-       if #available(iOS 13.0, *) {
-           contentView.backgroundColor = .secondarySystemGroupedBackground
-       } else {
-           contentView.backgroundColor = UIColor.lightGray
-       }
+    private func commonInit() {
+        Bundle.main.loadNibNamed("PerCategorySpending", owner: self, options: nil)
+        addSubview(contentView)
+        contentView.frame = self.bounds
+        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        if #available(iOS 13.0, *) {
+            contentView.backgroundColor = .secondarySystemGroupedBackground
+        } else {
+            contentView.backgroundColor = UIColor.lightGray
+        }
        
-       layer.cornerRadius = 10
-       contentView.layer.cornerRadius = 10
-       layer.shadowColor = UIColor.init(white: 0, alpha: 1.0).cgColor
-       layer.shadowRadius = 5
-       layer.shadowOffset = CGSize.init(width: 2, height: 5)
-       layer.shadowOpacity = 0.3
-   }
+        layer.cornerRadius = 10
+        contentView.layer.cornerRadius = 10
+        layer.shadowColor = UIColor.init(white: 0, alpha: 1.0).cgColor
+        layer.shadowRadius = 5
+        layer.shadowOffset = CGSize.init(width: 2, height: 5)
+        layer.shadowOpacity = 0.3
+    }
 
     func addChart(spendingsForCategory: [String: Money]) {
         var entries = [(money: Money, label: String)]()
@@ -66,11 +63,6 @@ class PerCategorySpending: UIView {
     
     private func addChart(entries: [(money: Money, label: String)], chartName: String = "Expenses") {
 
-       /* guard entries.count > 0 else {
-            addSpecialCard(title: chartName, body: "Track your expenses to see detailed statistics about your spending behavior")
-            return
-        }*/
-        
         let colors = [NSUIColor.systemRed, NSUIColor.systemBlue, NSUIColor.systemGreen, NSUIColor.systemOrange, NSUIColor.systemYellow]
         
         // Sort descending and name the biggest five categories
@@ -147,10 +139,6 @@ class PerCategorySpending: UIView {
             NSLayoutConstraint.init(item: pieChart, attribute: .right, relatedBy: .equal, toItem: chartContainer, attribute: .right, multiplier: 1, constant: 0),
             NSLayoutConstraint.init(item: pieChart, attribute: .bottom, relatedBy: .equal, toItem: chartContainer, attribute: .bottom, multiplier: 1, constant: 0),
         ])
-        
     }
 
-    
-    
-    
 }

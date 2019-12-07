@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - SubscriptionFloaty
 class SubscriptionFloaty: Floaty {
 
     let incomeItem = FloatyItem()
@@ -29,7 +30,6 @@ class SubscriptionFloaty: Floaty {
         incomeItem.buttonColor = Model.shared.allowedToAddTransaction() ? .incomeColor : .gray
         transferItem.buttonColor = Model.shared.allowedToAddTransaction() ? .transferColor : .gray
         expenseItem.buttonColor = Model.shared.allowedToAddTransaction() ? .expenseColor : .gray
-
     }
     
     private func setup() {
@@ -100,7 +100,5 @@ class SubscriptionFloaty: Floaty {
         // Dont move - ever. Stay fixed in the tabbar
         respondsToKeyboard = false
     }
-    
-    
     
 }

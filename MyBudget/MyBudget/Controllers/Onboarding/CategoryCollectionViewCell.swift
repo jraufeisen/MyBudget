@@ -58,5 +58,5 @@ class CategoryCollectionViewCell: UICollectionViewCell {
             layer.borderWidth = 0.5
         }
     }
+    
 }
-

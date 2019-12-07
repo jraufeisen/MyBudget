@@ -34,21 +34,13 @@ class EditCategoryTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         let categoryInput = CategoryTableView.init(outputView: textfield, delegate: self, color: superview?.backgroundColor)
         textfield.inputView = categoryInput
-        
         if #available(iOS 13.0, *) {
             symbolImageView.image = UIImage.init(systemName: "bag") // SF symbols only available since iOS 13
         } else {
             symbolImageView.image = nil
         }
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func selectedCategory() -> String? {
@@ -57,7 +49,9 @@ class EditCategoryTableViewCell: UITableViewCell {
     
 }
 
+// MARK: - CategorySelectDelegate
 extension EditCategoryTableViewCell: CategorySelectDelegate {
+    
     func didSelectCategory(category: String) {
         textfield.text = category
         textfield.resignFirstResponder()
