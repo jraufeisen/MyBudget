@@ -217,28 +217,24 @@ extension BudgetTableViewController: SwipeTableViewCellDelegate {
             deleteBudgetAlert.addAction(UIAlertAction.init(title: "Delete", style: .destructive, handler: { (action) in
                 let category = self.budgetCategories[indexPath.row].name
                 print("Now I will delete \(category) for sure")
-
                 Model.shared.deleteBudgetCategory(named: category)
                 deleteBudgetAlert.dismiss(animated: true, completion: nil)
             }))
             self.present(deleteBudgetAlert, animated: true, completion: nil)
-            // handle action by updating model with deletion
         }
 
-        // customize the action appearance
         if #available(iOS 13.0, *) {
             let icon = UIImage.init(systemName: "trash.fill")?.withTintColor(.white)
-            deleteAction.image = circularIcon(with: .expenseColor, size: CGSize.init(width: 50, height: 50), icon: icon)
+            deleteAction.image = icon?.circularIcon(with: .expenseColor, size: CGSize.init(width: 50, height: 50))
             deleteAction.textColor = .label
         } else {
-            deleteAction.image = circularIcon(with: .expenseColor, size: CGSize.init(width: 50, height: 50), icon: #imageLiteral(resourceName: "icons8-conflict-50"))
+            deleteAction.image = #imageLiteral(resourceName: "icons8-conflict-50").circularIcon(with: .expenseColor, size: CGSize.init(width: 50, height: 50))
             deleteAction.textColor = .black
         }
         deleteAction.backgroundColor = tableView.backgroundColor
         deleteAction.transitionDelegate = ScaleTransition.default
 
         return [deleteAction]
-
     }
     
     func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
@@ -248,76 +244,4 @@ extension BudgetTableViewController: SwipeTableViewCellDelegate {
         return options
     }
     
-    func circularIcon(with color: UIColor, size: CGSize, icon: UIImage? = nil) -> UIImage? {
-        let rect = CGRect(origin: .zero, size: size)
-        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
-        UIBezierPath(ovalIn: rect).addClip()
-        color.setFill()
-        UIRectFill(rect)
-        if let icon = icon {
-            let iconRect = CGRect(x: (rect.size.width - icon.size.width) / 2,
-                                  y: (rect.size.height - icon.size.height) / 2,
-                                  width: icon.size.width,
-                                  height: icon.size.height)
-            icon.draw(in: iconRect, blendMode: .normal, alpha: 1.0)
-        }
-        defer { UIGraphicsEndImageContext() }
-        return UIGraphicsGetImageFromCurrentImageContext()
-    }
-
-    
-}
-
-/**
- A scale transition object drives the custom appearance of actions during transition.
- 
- As button's percentage visibility crosses the `threshold`, the `ScaleTransition` object will animate from `initialScale` to `identity`.  The default settings provide a "pop-like" effect as the buttons are exposed more than 50%.
- */
-public struct ScaleTransition: SwipeActionTransitioning {
-    
-    /// Returns a `ScaleTransition` instance with default transition options.
-    public static var `default`: ScaleTransition { return ScaleTransition() }
-    
-    /// The duration of the animation.
-    public let duration: Double
-    
-    /// The initial scale factor used before the action button percent visible is greater than the threshold.
-    public let initialScale: CGFloat
-
-    /// The percent visible threshold that triggers the scaling animation.
-    public let threshold: CGFloat
-    
-    /**
-     Contructs a new `ScaleTransition` instance.
-    
-    - parameter duration: The duration of the animation.
-    
-    - parameter initialScale: The initial scale factor used before the action button percent visible is greater than the threshold.
-    
-    - parameter threshold: The percent visible threshold that triggers the scaling animation.
-    
-    - returns: The new `ScaleTransition` instance.
-    */
-    public init(duration: Double = 0.15, initialScale: CGFloat = 0.8, threshold: CGFloat = 0.5) {
-        self.duration = duration
-        self.initialScale = initialScale
-        self.threshold = threshold
-    }
-    
-    /// :nodoc:
-    public func didTransition(with context: SwipeActionTransitioningContext) -> Void {
-        if context.oldPercentVisible == 0 {
-            context.button.transform = .init(scaleX: initialScale, y: initialScale)
-        }
-        
-        if context.oldPercentVisible < threshold && context.newPercentVisible >= threshold {
-            UIView.animate(withDuration: duration) {
-                context.button.transform = .identity
-            }
-        } else if context.oldPercentVisible >= threshold && context.newPercentVisible < threshold {
-            UIView.animate(withDuration: duration) {
-                context.button.transform = .init(scaleX: self.initialScale, y: self.initialScale)
-            }
-        }
-    }
 }

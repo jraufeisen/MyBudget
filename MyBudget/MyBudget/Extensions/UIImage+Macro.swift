@@ -39,3 +39,23 @@ extension UIImage {
     }
     
 }
+
+extension UIImage {
+    
+    func circularIcon(with color: UIColor, size: CGSize) -> UIImage? {
+        let rect = CGRect(origin: .zero, size: size)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0)
+        UIBezierPath(ovalIn: rect).addClip()
+        color.setFill()
+        UIRectFill(rect)
+        let iconRect = CGRect(x: (rect.size.width - self.size.width) / 2,
+                              y: (rect.size.height - self.size.height) / 2,
+                              width: self.size.width,
+                              height: self.size.height)
+        self.draw(in: iconRect, blendMode: .normal, alpha: 1.0)
+        defer { UIGraphicsEndImageContext() }
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
+
+    
+}

@@ -509,8 +509,12 @@ class Model: NSObject {
         return true
     }
     
+    
+    /// Completely deletes a budget category and all their associated transactions
+    /// - Parameter named: Name of the budget category
     func deleteBudgetCategory(named: String) {
-        // TODO
+        let account = Account.budgetAccount(named: named)
+        LedgerModel.shared().removeAllTransactionsWithOccurencesOf(account: account)
     }
     
     /// Save initial budget distribution to ledger.

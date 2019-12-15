@@ -138,6 +138,7 @@
 		EBD4649523671AA20004F900 /* PieChartCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD4649423671AA20004F900 /* PieChartCard.swift */; };
 		EBD4649B236721B00004F900 /* PieChartCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD4649A236721B00004F900 /* PieChartCard.xib */; };
 		EBD4649D236730C30004F900 /* PieChartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBD4649C236730BF0004F900 /* PieChartTableViewCell.xib */; };
+		EBD9F5BB23A691F0006469ED /* ScaleTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD9F5BA23A691F0006469ED /* ScaleTransition.swift */; };
 		EBDA26CD22F6FDCC0073DC50 /* IncomeStatementPercentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDA26CC22F6FDCC0073DC50 /* IncomeStatementPercentView.swift */; };
 		EBE7E2A82321058500BEC812 /* MyBudgetUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7E2A72321058500BEC812 /* MyBudgetUITests.swift */; };
 		EBE7E2B923210ADB00BEC812 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7E2B823210ADB00BEC812 /* SnapshotHelper.swift */; };
@@ -379,6 +380,7 @@
 		EBD4649423671AA20004F900 /* PieChartCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartCard.swift; sourceTree = "<group>"; };
 		EBD4649A236721B00004F900 /* PieChartCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PieChartCard.xib; sourceTree = "<group>"; };
 		EBD4649C236730BF0004F900 /* PieChartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PieChartTableViewCell.xib; sourceTree = "<group>"; };
+		EBD9F5BA23A691F0006469ED /* ScaleTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleTransition.swift; sourceTree = "<group>"; };
 		EBDA26CC22F6FDCC0073DC50 /* IncomeStatementPercentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeStatementPercentView.swift; sourceTree = "<group>"; };
 		EBE7E2A52321058500BEC812 /* MyBudgetUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyBudgetUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBE7E2A72321058500BEC812 /* MyBudgetUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBudgetUITests.swift; sourceTree = "<group>"; };
@@ -841,6 +843,7 @@
 				EBF560F92305EFD800E850E7 /* New Budget Category */,
 				EBAE2EDD2364AB3600040980 /* BudgetTableHeaderViewController.swift */,
 				EBC59D5022E750DC00E626DC /* BudgetTableViewController.swift */,
+				EBD9F5BA23A691F0006469ED /* ScaleTransition.swift */,
 				EBAE2ED82364A37100040980 /* BudgetTableHeaderView.swift */,
 			);
 			path = Budget;
@@ -1334,6 +1337,7 @@
 				EB985CB822EC6B5800C033E8 /* FloatyItem.swift in Sources */,
 				EB35EDEE233E12D300C58683 /* CellStyles.swift in Sources */,
 				EBE7FE47233CC52B0088D156 /* EditDateTableViewCell.swift in Sources */,
+				EBD9F5BB23A691F0006469ED /* ScaleTransition.swift in Sources */,
 				EBCDC3F5238850B800AC49FB /* OnboardingAccountTableView.swift in Sources */,
 				EB8EB60923687413002E305D /* IncomeStatementCard.swift in Sources */,
 				EB4F789D2319B31C0045077E /* SubscriptionSelectorBulletin.swift in Sources */,
