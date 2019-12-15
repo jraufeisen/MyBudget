@@ -509,6 +509,10 @@ class Model: NSObject {
         return true
     }
     
+    func deleteBudgetCategory(named: String) {
+        // TODO
+    }
+    
     /// Save initial budget distribution to ledger.
     /// This method returns silently without any effect, if there are already saved transactions or accounts in the ledger file.
     /// - Parameters:

@@ -18,6 +18,7 @@ target 'MyBudget' do
 	pod 'Charts', '~> 3.3.0'
 	pod 'MaterialComponents/ProgressView', '88.0.1'
 	pod "WSTagsField", '5.2.0'
+	pod 'SwipeCellKit'
 end
 
  
