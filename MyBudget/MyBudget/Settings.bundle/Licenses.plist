@@ -70,6 +70,14 @@
 			<key>File</key>
 			<string>Licenses/MaterialDesign</string>
 		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+			<key>Title</key>
+			<string>SwipeCellKit</string>
+			<key>File</key>
+			<string>Licenses/SwipeCellKit</string>
+		</dict>
 	</array>
 </dict>
 </plist>

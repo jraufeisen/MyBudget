@@ -32,7 +32,7 @@ DEPENDENCIES:
   - WSTagsField (= 5.2.0)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - BulletinBoard
     - Charts
     - MaterialComponents
@@ -41,10 +41,9 @@ SPEC REPOS:
     - MotionInterchange
     - paper-onboarding
     - SwiftyStoreKit
+    - SwipeCellKit
     - ValueCoding
     - WSTagsField
-  trunk:
-    - SwipeCellKit
 
 SPEC CHECKSUMS:
   BulletinBoard: 2e312814ff70f3af364a6dda3857a801f6d2adb6
@@ -61,4 +60,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 9b68a15e51742379ac3080adbf4d13cb3a82d4a3
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.7.4

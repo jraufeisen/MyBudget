@@ -216,13 +216,12 @@ extension BudgetTableViewController: SwipeTableViewCellDelegate {
             }))
             deleteBudgetAlert.addAction(UIAlertAction.init(title: "Delete", style: .destructive, handler: { (action) in
                 let category = self.budgetCategories[indexPath.row].name
-                print("Now I will delete \(category) for sure")
                 Model.shared.deleteBudgetCategory(named: category)
                 deleteBudgetAlert.dismiss(animated: true, completion: nil)
             }))
             self.present(deleteBudgetAlert, animated: true, completion: nil)
         }
-
+        
         if #available(iOS 13.0, *) {
             let icon = UIImage.init(systemName: "trash.fill")?.withTintColor(.white)
             deleteAction.image = icon?.circularIcon(with: .expenseColor, size: CGSize.init(width: 50, height: 50))
