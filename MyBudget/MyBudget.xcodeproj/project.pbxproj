@@ -74,6 +74,7 @@
 		EB582E7422F0ACC500422323 /* PercentFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB582E7322F0ACC500422323 /* PercentFillView.swift */; };
 		EB582E7622F0AE1800422323 /* Date+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB582E7522F0AE1800422323 /* Date+Utilities.swift */; };
 		EB58C3F2237DB5DB00C21A26 /* AddCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB58C3F1237DB5DB00C21A26 /* AddCategoryCollectionViewCell.swift */; };
+		EB5C40A123BA92E6006FB382 /* BudgetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C40A023BA92E6006FB382 /* BudgetTableViewCell.swift */; };
 		EB5C600922F32417004F81CF /* TextAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C600822F32417004F81CF /* TextAnimation.swift */; };
 		EB5CADB722F55DC600205AC8 /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5CADB622F55DC600205AC8 /* AccountTableViewController.swift */; };
 		EB61943C2396709F00D55F6C /* AboutPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB61943923966F1200D55F6C /* AboutPageViewController.swift */; };
@@ -312,6 +313,7 @@
 		EB582E7322F0ACC500422323 /* PercentFillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentFillView.swift; sourceTree = "<group>"; };
 		EB582E7522F0AE1800422323 /* Date+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Utilities.swift"; sourceTree = "<group>"; };
 		EB58C3F1237DB5DB00C21A26 /* AddCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		EB5C40A023BA92E6006FB382 /* BudgetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTableViewCell.swift; sourceTree = "<group>"; };
 		EB5C600822F32417004F81CF /* TextAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnimation.swift; sourceTree = "<group>"; };
 		EB5CADB622F55DC600205AC8 /* AccountTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
 		EB61943923966F1200D55F6C /* AboutPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPageViewController.swift; sourceTree = "<group>"; };
@@ -843,6 +845,7 @@
 				EBF560F92305EFD800E850E7 /* New Budget Category */,
 				EBAE2EDD2364AB3600040980 /* BudgetTableHeaderViewController.swift */,
 				EBC59D5022E750DC00E626DC /* BudgetTableViewController.swift */,
+				EB5C40A023BA92E6006FB382 /* BudgetTableViewCell.swift */,
 				EBD9F5BA23A691F0006469ED /* ScaleTransition.swift */,
 				EBAE2ED82364A37100040980 /* BudgetTableHeaderView.swift */,
 			);
@@ -1297,6 +1300,7 @@
 				EB985CB922EC6B5800C033E8 /* UIView+Draggable.swift in Sources */,
 				EB02A67522EB10E700987AFA /* APNumberPad.m in Sources */,
 				EB985CB622EC6B5800C033E8 /* FloatyWindow.swift in Sources */,
+				EB5C40A123BA92E6006FB382 /* BudgetTableViewCell.swift in Sources */,
 				EB2C772022EDC143009FA2C8 /* MoneyTextField.swift in Sources */,
 				EBB9361A239C03F300F75E7C /* TransactionSearchSuggestion.swift in Sources */,
 				EBCDC3F92388570700AC49FB /* OnboardingAccountContainerView.swift in Sources */,

@@ -29,23 +29,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oxL-ag-LSl" userLabel="Background">
-                                                    <rect key="frame" x="20" y="10.5" width="24" height="129"/>
+                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oxL-ag-LSl" userLabel="Background">
+                                                    <rect key="frame" x="20" y="11" width="374" height="129"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" text="Budget category" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5tO-d8-1Fs">
-                                                            <rect key="frame" x="8" y="8" width="0.0" height="32"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="42.42 €" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgs-Ul-Wbx">
+                                                            <rect key="frame" x="241" y="8" width="125" height="32"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="42.42 €" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgs-Ul-Wbx">
-                                                            <rect key="frame" x="16" y="8" width="0.0" height="32"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sLq-xs-ydB" customClass="PercentFillView" customModule="Budget_" customModuleProvider="target">
-                                                            <rect key="frame" x="8" y="50.5" width="8" height="21"/>
+                                                        <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sLq-xs-ydB" customClass="PercentFillView" customModule="Budget_" customModuleProvider="target">
+                                                            <rect key="frame" x="8" y="51" width="358" height="21"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <color key="tintColor" red="0.20724826390000001" green="0.21195419520547945" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
@@ -57,28 +51,33 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </view>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="You have spent 21€ more than last month at this day" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tdj-Kn-Yez">
-                                                            <rect key="frame" x="8" y="80" width="8" height="42"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" misplaced="YES" text="You have spent 21€ more than last month at this day" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tdj-Kn-Yez">
+                                                            <rect key="frame" x="8" y="80" width="358" height="42"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Category" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="FAH-bF-NUW">
+                                                            <rect key="frame" x="8" y="8" width="135" height="33"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="26"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <color key="tintColor" red="0.20724826390000001" green="0.14394263698630136" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="dgs-Ul-Wbx" secondAttribute="trailing" constant="8" id="6lO-sk-xgz"/>
                                                         <constraint firstAttribute="bottom" secondItem="Tdj-Kn-Yez" secondAttribute="bottom" constant="7" id="9D0-o6-PEV"/>
+                                                        <constraint firstItem="FAH-bF-NUW" firstAttribute="leading" secondItem="oxL-ag-LSl" secondAttribute="leading" constant="8" id="JRm-Oh-Qlb"/>
                                                         <constraint firstItem="Tdj-Kn-Yez" firstAttribute="trailing" secondItem="sLq-xs-ydB" secondAttribute="trailing" id="JtO-9l-m2E"/>
-                                                        <constraint firstItem="dgs-Ul-Wbx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5tO-d8-1Fs" secondAttribute="trailing" constant="8" symbolic="YES" id="OeD-Kh-jmY"/>
                                                         <constraint firstItem="sLq-xs-ydB" firstAttribute="trailing" secondItem="dgs-Ul-Wbx" secondAttribute="trailing" id="PaU-lH-H7m"/>
+                                                        <constraint firstItem="FAH-bF-NUW" firstAttribute="top" secondItem="oxL-ag-LSl" secondAttribute="top" constant="8" id="Pr3-HE-TUV"/>
                                                         <constraint firstItem="Tdj-Kn-Yez" firstAttribute="top" secondItem="sLq-xs-ydB" secondAttribute="bottom" constant="8.5" id="SEh-IC-t34"/>
                                                         <constraint firstItem="Tdj-Kn-Yez" firstAttribute="leading" secondItem="sLq-xs-ydB" secondAttribute="leading" id="UUP-AF-O5U"/>
-                                                        <constraint firstItem="sLq-xs-ydB" firstAttribute="leading" secondItem="5tO-d8-1Fs" secondAttribute="leading" id="cfW-Ut-BWd"/>
-                                                        <constraint firstItem="5tO-d8-1Fs" firstAttribute="leading" secondItem="oxL-ag-LSl" secondAttribute="leading" constant="8" id="dKn-UV-8cJ"/>
+                                                        <constraint firstItem="FAH-bF-NUW" firstAttribute="leading" secondItem="sLq-xs-ydB" secondAttribute="leading" id="aj2-FY-RrZ"/>
                                                         <constraint firstItem="sLq-xs-ydB" firstAttribute="firstBaseline" secondItem="dgs-Ul-Wbx" secondAttribute="baseline" constant="17" symbolType="layoutAnchor" id="eFr-ov-otu"/>
-                                                        <constraint firstItem="5tO-d8-1Fs" firstAttribute="top" secondItem="oxL-ag-LSl" secondAttribute="top" constant="8" id="fsG-Tt-vOz"/>
                                                         <constraint firstItem="dgs-Ul-Wbx" firstAttribute="top" secondItem="oxL-ag-LSl" secondAttribute="top" constant="8" id="oc6-T8-8B7"/>
+                                                        <constraint firstItem="dgs-Ul-Wbx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="FAH-bF-NUW" secondAttribute="trailing" constant="8" symbolic="YES" id="q2O-l6-FvM"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -92,7 +91,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <connections>
-                                            <outlet property="categoryLabel" destination="5tO-d8-1Fs" id="CyS-wI-rwa"/>
+                                            <outlet property="categoryTextField" destination="FAH-bF-NUW" id="Mld-Xv-0hX"/>
                                             <outlet property="detailLabel" destination="Tdj-Kn-Yez" id="y60-8f-0Th"/>
                                             <outlet property="insetView" destination="oxL-ag-LSl" id="BQN-rp-mWc"/>
                                             <outlet property="moneyLabel" destination="dgs-Ul-Wbx" id="115-KV-5h0"/>

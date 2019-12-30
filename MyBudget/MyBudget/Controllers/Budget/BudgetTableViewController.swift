@@ -10,37 +10,6 @@ import UIKit
 import Swift_Ledger
 import SwipeCellKit
 
-//MARK: - BudgetTableViewCell
-class BudgetTableViewCell: SwipeTableViewCell {
-    
-    @IBOutlet weak var insetView: UIView!
-    @IBOutlet weak var moneyLabel: UILabel!
-    @IBOutlet weak var categoryLabel: UILabel!
-    @IBOutlet weak var percentFillView: PercentFillView!
-    @IBOutlet weak var detailLabel: UILabel!
-    
-    override func awakeFromNib() {
-        insetView.layer.cornerRadius = 10
-        
-        if #available(iOS 13.0, *) {
-            insetView.backgroundColor = UIColor.secondarySystemGroupedBackground
-            detailLabel.textColor = UIColor.label
-        }
-        
-        percentFillView.progressColor = .blueActionColor
-        
-        selectionStyle = .none
-
-        insetView.layer.cornerRadius = 10
-        insetView.layer.shadowColor = UIColor.init(white: 0, alpha: 1.0).cgColor
-        insetView.layer.shadowRadius = 5
-        insetView.layer.shadowOffset = CGSize.init(width: 2, height: 2)
-        insetView.layer.shadowOpacity = 0.3
-    }
-    
-}
-
-
 // MARK: - EntryContext
 ///This struct will be used to pass relevant context information to upfollowing interface controllers
 public struct EntryContext {
@@ -60,7 +29,6 @@ public struct EntryContext {
     }
     
 }
-
 
 // MARK: - BudgetTableViewController
 /// Its easier to model this vc as a plain viewcontroller, not tableviewcontroller, because I wanna ad a floating button on top
@@ -179,9 +147,10 @@ extension BudgetTableViewController: UITableViewDataSource {
         let category = budgetCategories[indexPath.row]
         cell.delegate = self
         cell.moneyLabel.text = "\(category.remainingMoney)"
-        cell.categoryLabel.text = category.name
+        cell.categoryTextField.text = category.name
         cell.percentFillView.fillProportion = CGFloat(category.percentLeft)
         cell.detailLabel.text = category.detailString
+        cell.editDelegate = self
         
         return cell
     }
@@ -222,18 +191,32 @@ extension BudgetTableViewController: SwipeTableViewCellDelegate {
             self.present(deleteBudgetAlert, animated: true, completion: nil)
         }
         
+        let renameAction = SwipeAction.init(style: .default, title: "Rename") { (action, indexpath) in
+            guard let cell = tableView.cellForRow(at: indexPath) as? BudgetTableViewCell else {
+                return
+            }
+            print(cell)
+            cell.beginEditCategoryName()
+        }
+        renameAction.hidesWhenSelected = true
         if #available(iOS 13.0, *) {
-            let icon = UIImage.init(systemName: "trash.fill")?.withTintColor(.white)
-            deleteAction.image = icon?.circularIcon(with: .expenseColor, size: CGSize.init(width: 50, height: 50))
+            let deleteIcon = UIImage.init(systemName: "trash.fill")?.withTintColor(.white)
+            deleteAction.image = deleteIcon?.circularIcon(with: .expenseColor, size: CGSize.init(width: 50, height: 50))
             deleteAction.textColor = .label
+            
+            let renameIcon = UIImage.init(systemName: "pencil")?.withTintColor(.white)
+            renameAction.image = renameIcon?.circularIcon(with: .transferColor, size: CGSize.init(width: 50, height: 50))
+            renameAction.textColor = .label
         } else {
             deleteAction.image = #imageLiteral(resourceName: "icons8-conflict-50").circularIcon(with: .expenseColor, size: CGSize.init(width: 50, height: 50))
             deleteAction.textColor = .black
         }
         deleteAction.backgroundColor = tableView.backgroundColor
         deleteAction.transitionDelegate = ScaleTransition.default
+        renameAction.backgroundColor = tableView.backgroundColor
+        renameAction.transitionDelegate = ScaleTransition.default
 
-        return [deleteAction]
+        return [deleteAction, renameAction]
     }
     
     func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
@@ -243,4 +226,17 @@ extension BudgetTableViewController: SwipeTableViewCellDelegate {
         return options
     }
     
+}
+
+// MARK: - BudgetCell Edit Delegate
+extension BudgetTableViewController: BudgetCellEditDelegate {
+    func didChangeCategoryName(cell: BudgetTableViewCell, newName: String?) {
+        guard let indexPath = tableView.indexPath(for: cell) else {
+            return
+        }
+        let category = budgetCategories[indexPath.row]
+
+        print("Changin \(category.name) to \(newName)")
+        
+    }
 }
