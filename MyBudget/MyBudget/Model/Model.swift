@@ -557,3 +557,52 @@ extension Model {
     }
     
 }
+
+// MARK: - Export
+extension Model {
+    
+    /// Create a CSV file of all transactions and returns the local file URL
+    func exportAsCSV() -> URL? {
+        let exportedFileName = "Budget_Transactions.csv"
+        let destinationURL = FileManager.documentsURL().appendingPathComponent(exportedFileName)
+        let separator = ";"
+        var stringToWrite = ""
+        stringToWrite += "ID" + separator
+        stringToWrite += "Date" + separator
+        stringToWrite += "From Account" + separator
+        stringToWrite += "To Account" + separator
+        stringToWrite += "Value" + separator
+        stringToWrite += "Description" + "\n"
+        
+        var i: Int = 1
+        for tx in transactions() {
+            stringToWrite += "\(i)" + separator
+            stringToWrite += LedgerModel.dateString(date: tx.date) + separator
+
+            if let tx = tx as? IncomeTransaction {
+                stringToWrite += Account.incomeAccount().name + separator
+                stringToWrite += tx.account + separator
+            } else if let tx = tx as? TransferTransaction {
+                stringToWrite += tx.fromAccount + separator
+                stringToWrite += tx.toAccount + separator
+            } else if let tx = tx as? ExpenseTransaction {
+                stringToWrite += tx.account + separator
+                stringToWrite += Account.expensesAccount(for: tx.category).name + separator
+            }
+
+            stringToWrite += "\(tx.value)" + separator
+            stringToWrite += tx.transactionDescription + separator
+            stringToWrite += "\n"
+            i += 1
+        }
+        
+        do {
+            try stringToWrite.write(to: destinationURL, atomically: true, encoding: .utf8)
+        } catch {
+            return nil
+        }
+
+        return destinationURL
+    }
+    
+}

@@ -28,6 +28,38 @@ class ReportsViewController: NavbarFillingViewController {
     
 }
 
+// MARK: - IBActions
+extension ReportsViewController {
+    
+    @IBAction func didPressShareButton() {
+        // Show action sheet with option to export as CSV
+        let alertController = UIAlertController.init(title: "Export", message: "Would you like to export your transactions?", preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction.init(title: "Export as CSV / Excel", style: .default, handler: { (action) in
+            self.initiateCSVSharing()
+        }))
+        alertController.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    private func initiateCSVSharing() {
+        // Create CSV file
+        guard let exportedFileURL = Model.shared.exportAsCSV() else {
+            // Failed
+            print("Export failed")
+            return
+        }
+        
+        // Open share dialoge
+        let activityItems: [Any] = [exportedFileURL]
+        let vc = UIActivityViewController(activityItems: activityItems, applicationActivities: [])
+        DispatchQueue.main.async {
+            self.present(vc, animated: true)
+        }
+
+    }
+    
+}
+
 // MARK: - UITableViewDelegate
 extension ReportsViewController: UITableViewDelegate {
     
