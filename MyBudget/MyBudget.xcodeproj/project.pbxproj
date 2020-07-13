@@ -1615,7 +1615,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jraufeisen.MyBudget;
 				PRODUCT_NAME = "Budget!";
 				SWIFT_OBJC_BRIDGING_HEADER = "MyBudget/MyBudget-Bridging-Header.h";
@@ -1646,7 +1646,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.9;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jraufeisen.MyBudget;
 				PRODUCT_NAME = "Budget!";
 				SWIFT_OBJC_BRIDGING_HEADER = "MyBudget/MyBudget-Bridging-Header.h";
