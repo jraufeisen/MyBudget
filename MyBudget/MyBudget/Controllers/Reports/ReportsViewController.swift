@@ -31,31 +31,43 @@ class ReportsViewController: NavbarFillingViewController {
 // MARK: - IBActions
 extension ReportsViewController {
     
+    /// Shows options for exporting the transactions
     @IBAction func didPressShareButton() {
         // Show action sheet with option to export as CSV
         let alertController = UIAlertController.init(title: "Export", message: "Would you like to export your transactions?", preferredStyle: .actionSheet)
-        alertController.addAction(UIAlertAction.init(title: "Export as CSV / Excel", style: .default, handler: { (action) in
-            self.initiateCSVSharing()
+        alertController.addAction(UIAlertAction.init(title: "Export CSV for Excel", style: .default, handler: { (action) in
+            self.initiateExcelSharing()
+        }))
+        alertController.addAction(UIAlertAction.init(title: "Export CSV for Numbers", style: .default, handler: { (action) in
+            self.initiateNumbersSharing()
         }))
         alertController.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
         self.present(alertController, animated: true, completion: nil)
     }
     
-    private func initiateCSVSharing() {
-        // Create CSV file
-        guard let exportedFileURL = Model.shared.exportAsCSV() else {
-            // Failed
-            print("Export failed")
+    /// Generate file to open in excel
+    private func initiateExcelSharing() {
+        guard let exportedFileURL = Model.shared.exportForExcel() else {
             return
         }
-        
-        // Open share dialoge
-        let activityItems: [Any] = [exportedFileURL]
+        presentSharingDialog(for: exportedFileURL)
+    }
+    
+    /// Generate file to open in numbers
+    private func initiateNumbersSharing() {
+        guard let exportedFileURL = Model.shared.exportForNumbers() else {
+            return
+        }
+        presentSharingDialog(for: exportedFileURL)
+    }
+    
+    /// PResent sharing dialog for sharing the specified local file
+    private func presentSharingDialog(for url: URL) {
+        let activityItems: [Any] = [url]
         let vc = UIActivityViewController(activityItems: activityItems, applicationActivities: [])
         DispatchQueue.main.async {
             self.present(vc, animated: true)
         }
-
     }
     
 }

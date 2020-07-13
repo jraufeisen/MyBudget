@@ -562,10 +562,10 @@ extension Model {
 extension Model {
     
     /// Create a CSV file of all transactions and returns the local file URL
-    func exportAsCSV() -> URL? {
+    private func exportAsCSV(separator: String = ";") -> URL? {
         let exportedFileName = "Budget_Transactions.csv"
         let destinationURL = FileManager.documentsURL().appendingPathComponent(exportedFileName)
-        let separator = ";"
+
         var stringToWrite = ""
         stringToWrite += "ID" + separator
         stringToWrite += "Date" + separator
@@ -597,12 +597,22 @@ extension Model {
         }
         
         do {
-            try stringToWrite.write(to: destinationURL, atomically: true, encoding: .utf8)
+            try stringToWrite.write(to: destinationURL, atomically: true, encoding: .utf16)
         } catch {
             return nil
         }
 
         return destinationURL
+    }
+    
+    /// Exports in a way that is optimized for usage with Apple Numbers
+    func exportForNumbers() -> URL? {
+        return exportAsCSV(separator: ";")
+    }
+    
+    /// Exports in a way that is optimized for usage with Microsoft Excel
+    func exportForExcel() -> URL? {
+        return exportAsCSV(separator: "\t")
     }
     
 }
