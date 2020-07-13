@@ -105,7 +105,7 @@ class TransactionsViewController: NavbarFillingViewController {
             navigationItem.searchController = searchController
         }
 
-        searchController?.searchBar.placeholder = "Search all transactions"
+        searchController?.searchBar.placeholder = NSLocalizedString("Search all transactions", comment: "")
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateModel), name: ModelChangedNotification, object: nil)
 

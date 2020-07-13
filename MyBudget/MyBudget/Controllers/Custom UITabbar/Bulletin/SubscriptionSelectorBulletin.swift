@@ -79,11 +79,11 @@ class SubscriptionSelectorBulletin: FeedbackPageBLTNItem {
         
         switch dataSource {
         case .month:
-            button.accessibilityLabel = "1 Month for 1,09€"
-            button.setTitle("1 Month - 1,09€", for: .normal)
+            button.accessibilityLabel = NSLocalizedString("1 Month for 1,09€", comment: "")
+            button.setTitle(NSLocalizedString("1 Month - 1,09€", comment: ""), for: .normal)
         case .year:
-            button.accessibilityLabel = "1 Year for 9,99€"
-            button.setTitle("1 Year - 9,99€", for: .normal)
+            button.accessibilityLabel = NSLocalizedString("1 Year for 9,99€", comment: "")
+            button.setTitle(NSLocalizedString("1 Year - 9,99€", comment: ""), for: .normal)
         }
         
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)

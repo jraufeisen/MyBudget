@@ -26,13 +26,13 @@ class BudgetTableHeaderViewController: UIViewController {
     func configure(money: Money) {
         if money < 0 {
             label.textColor = .expenseColor
-            label.text = "You have overbudgeted by \(money.negative)"
+            label.text = String(format: NSLocalizedString("You have overbudgeted by %@", comment: "%@ stands for a monetary amount"), "\(money.negative)")
         } else if money == 0 {
             label.textColor = .black
             label.text = ""
         } else {
             label.textColor = .incomeColor
-            label.text = "You have \(money) left to budget"
+            label.text = String(format: NSLocalizedString("You have %@ left to budget", comment: "%@ stands for a monetary amount"), "\(money)")
         }
     }
     

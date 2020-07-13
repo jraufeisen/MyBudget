@@ -94,7 +94,7 @@ class BudgetTableViewController: NavbarFillingViewController {
         titleHelpingLabel.textAlignment = .center
         titleHelpingLabel.font = UIFont.boldSystemFont(ofSize: 20)
         titleHelpingLabel.center = view.center
-        titleHelpingLabel.text = "Create your own budget"
+        titleHelpingLabel.text = NSLocalizedString("Create your own budget", comment: "")
         titleHelpingLabel.translatesAutoresizingMaskIntoConstraints = false
         titleHelpingLabel.sizeToFit()
         view.addSubview(titleHelpingLabel)
@@ -109,7 +109,7 @@ class BudgetTableViewController: NavbarFillingViewController {
         descriptionHelpingLabel.textColor = .lightGray
         descriptionHelpingLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionHelpingLabel.center = CGPoint.init(x: titleHelpingLabel.center.x, y: descriptionHelpingLabel.center.y)
-        descriptionHelpingLabel.text = "Create budget categories for rent, groceries and whatever is important to you by clicking + in the top right corner"
+        descriptionHelpingLabel.text = NSLocalizedString("Create budget categories for rent, groceries and whatever is important to you by clicking + in the top right corner", comment: "")
         view.addSubview(descriptionHelpingLabel)
         
         let width = NSLayoutConstraint.init(item: descriptionHelpingLabel, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 1, constant: -60)
@@ -183,12 +183,12 @@ extension BudgetTableViewController: SwipeTableViewCellDelegate {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else { return nil }
 
-        let deleteAction = SwipeAction(style: .default, title: "Delete") { action, indexPath in
-            let deleteBudgetAlert = UIAlertController.init(title: "Delete", message: "Deleting this budget category will remove all transactions associated with it.", preferredStyle: .actionSheet)
-            deleteBudgetAlert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: { (action) in
+        let deleteAction = SwipeAction(style: .default, title: NSLocalizedString("Delete", comment: "")) { action, indexPath in
+            let deleteBudgetAlert = UIAlertController.init(title: NSLocalizedString("Delete", comment: ""), message: NSLocalizedString("Deleting this budget category will remove all transactions associated with it.", comment: ""), preferredStyle: .actionSheet)
+            deleteBudgetAlert.addAction(UIAlertAction.init(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: { (action) in
                 deleteBudgetAlert.dismiss(animated: true, completion: nil)
             }))
-            deleteBudgetAlert.addAction(UIAlertAction.init(title: "Delete", style: .destructive, handler: { (action) in
+            deleteBudgetAlert.addAction(UIAlertAction.init(title: NSLocalizedString("Delete", comment: ""), style: .destructive, handler: { (action) in
                 let category = self.budgetCategories[indexPath.row].name
                 Model.shared.deleteBudgetCategory(named: category)
                 deleteBudgetAlert.dismiss(animated: true, completion: nil)
@@ -196,7 +196,7 @@ extension BudgetTableViewController: SwipeTableViewCellDelegate {
             self.present(deleteBudgetAlert, animated: true, completion: nil)
         }
         
-        let renameAction = SwipeAction.init(style: .default, title: "Rename") { (action, indexpath) in
+        let renameAction = SwipeAction.init(style: .default, title: NSLocalizedString("Rename", comment: "")) { (action, indexpath) in
             guard let cell = tableView.cellForRow(at: indexPath) as? BudgetTableViewCell else {
                 return
             }

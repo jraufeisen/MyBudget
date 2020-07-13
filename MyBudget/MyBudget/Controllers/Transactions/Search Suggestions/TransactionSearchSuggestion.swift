@@ -29,45 +29,49 @@ class TransactionSearchSuggestion {
     
     static func income() -> TransactionSearchSuggestion {
         let icon = #imageLiteral(resourceName: "euro.png").withTintColor(.incomeColor)
-        let suggestion = TransactionSearchSuggestion.init(icon: icon, text: "Income", predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
+        let incomeSuggestionText = NSLocalizedString("Income", comment: "")
+        let suggestion = TransactionSearchSuggestion.init(icon: icon, text: incomeSuggestionText, predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
             if let _ = evaluatedObject as? IncomeTransaction {
                 return true
             }
             return false
-        }), searchToken: UISearchToken.init(icon: nil, text: "Income"))
+        }), searchToken: UISearchToken.init(icon: nil, text: incomeSuggestionText))
         
         return suggestion
     }
     
     static func expense() -> TransactionSearchSuggestion {
         let icon = #imageLiteral(resourceName: "euro.png").withTintColor(.expenseColor)
-        let suggestion = TransactionSearchSuggestion.init(icon: icon, text: "Expense", predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
+        let expenseSuggestionText = NSLocalizedString("Expense", comment: "")
+        let suggestion = TransactionSearchSuggestion.init(icon: icon, text: expenseSuggestionText, predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
             if let _ = evaluatedObject as? ExpenseTransaction {
                 return true
             }
             return false
-        }), searchToken: UISearchToken.init(icon: nil, text: "Expense"))
+        }), searchToken: UISearchToken.init(icon: nil, text: expenseSuggestionText))
         return suggestion
     }
 
     static func transfer() -> TransactionSearchSuggestion {
         let icon = #imageLiteral(resourceName: "euro.png").withTintColor(.transferColor)
-        let suggestion = TransactionSearchSuggestion.init(icon: icon, text: "Transfer", predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
+        let transferSuggestionText = NSLocalizedString("Transfer", comment: "As in: Transferring money from one account to another")
+        let suggestion = TransactionSearchSuggestion.init(icon: icon, text: transferSuggestionText, predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
             if let _ = evaluatedObject as? TransferTransaction {
                 return true
             }
             return false
-        }), searchToken: UISearchToken.init(icon: nil, text: "Transfer"))
+        }), searchToken: UISearchToken.init(icon: nil, text: transferSuggestionText))
         return suggestion
     }
     
     static func thisMonth() -> TransactionSearchSuggestion {
-        let suggestion = TransactionSearchSuggestion.init(icon: nil, text: "This Month", predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
+        let thisMonthSuggestionText = NSLocalizedString("This Month", comment: "Title of a digramm: This month's statistics")
+        let suggestion = TransactionSearchSuggestion.init(icon: nil, text: thisMonthSuggestionText, predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
             if let tx = evaluatedObject as? Transaction {
                 return tx.date.firstDayOfCurrentMonth() == Date().firstDayOfCurrentMonth()
             }
             return false
-        }), searchToken: UISearchToken.init(icon: nil, text: "This Month"))
+        }), searchToken: UISearchToken.init(icon: nil, text: thisMonthSuggestionText))
 
         let icon = UIImage.init(systemName: "calendar")
         suggestion.icon = icon
@@ -76,12 +80,13 @@ class TransactionSearchSuggestion {
     }
 
     static func nameContaining(part: String) -> TransactionSearchSuggestion {
-        let suggestion = TransactionSearchSuggestion.init(icon: nil, text: "Name contains \(part)", predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
+        let nameContainsTextSuggestion = String.init(format: NSLocalizedString("Name contains %@", comment: "%@ stands for an abitrary text"), part)
+        let suggestion = TransactionSearchSuggestion.init(icon: nil, text: nameContainsTextSuggestion, predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
             if let tx = evaluatedObject as? Transaction {
                 return tx.description.contains(part)
             }
             return false
-        }), searchToken: UISearchToken.init(icon: nil, text: "Name contains \(part)"))
+        }), searchToken: UISearchToken.init(icon: nil, text: nameContainsTextSuggestion))
         
         let icon = UIImage.init(systemName: "magnifyingglass")
         suggestion.icon = icon
@@ -91,12 +96,13 @@ class TransactionSearchSuggestion {
     
     static func dateBefore(date: Date) -> TransactionSearchSuggestion {
         let localizedDate = DateFormatter.localizedString(from: date, dateStyle: .short, timeStyle: .none)
-        let suggestion = TransactionSearchSuggestion.init(icon: nil, text: "Date before \(localizedDate)", predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
+        let dateBeforeSuggestionText = String.init(format: NSLocalizedString("Date before %@", comment: "%@ stands for a date, which is already localized"), localizedDate)
+        let suggestion = TransactionSearchSuggestion.init(icon: nil, text: dateBeforeSuggestionText, predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
             if let tx = evaluatedObject as? Transaction {
                 return tx.date <= date
             }
             return false
-        }), searchToken: UISearchToken.init(icon: nil, text: "Date before \(localizedDate)"))
+        }), searchToken: UISearchToken.init(icon: nil, text: dateBeforeSuggestionText))
         let icon = UIImage.init(systemName: "calendar")
         suggestion.icon = icon
         
@@ -105,19 +111,21 @@ class TransactionSearchSuggestion {
 
     static func dateAfter(date: Date) -> TransactionSearchSuggestion {
         let localizedDate = DateFormatter.localizedString(from: date, dateStyle: .short, timeStyle: .none)
-        let suggestion = TransactionSearchSuggestion.init(icon: nil, text: "Date after \(localizedDate)", predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
+        let dateAfterSuggestionText = String.init(format: NSLocalizedString("Date after %@", comment: "%@ stands for a date, which is already localized"), localizedDate)
+        let suggestion = TransactionSearchSuggestion.init(icon: nil, text: dateAfterSuggestionText, predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
             if let tx = evaluatedObject as? Transaction {
                 return tx.date >= date
             }
             return false
-        }), searchToken: UISearchToken.init(icon: nil, text: "Date after \(localizedDate)"))
+        }), searchToken: UISearchToken.init(icon: nil, text: dateAfterSuggestionText))
         let icon = UIImage.init(systemName: "calendar")
         suggestion.icon = icon
         return suggestion
     }
 
     static func accountContains(part: String) -> TransactionSearchSuggestion {
-        let suggestion = TransactionSearchSuggestion.init(icon: nil, text: "Account contains \(part)", predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
+        let accountContainsTextSuggestion = String.init(format: NSLocalizedString("Account contains %@", comment: "%@ stands for an abitrary text"), part)
+        let suggestion = TransactionSearchSuggestion.init(icon: nil, text: accountContainsTextSuggestion, predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
             if let tx = evaluatedObject as? IncomeTransaction {
                 return tx.account.contains(part)
             } else if let tx = evaluatedObject as? ExpenseTransaction {
@@ -126,33 +134,35 @@ class TransactionSearchSuggestion {
                 return tx.toAccount.contains(part) || tx.fromAccount.contains(part)
             }
             return false
-        }), searchToken: UISearchToken.init(icon: nil, text: "Account contains \(part)"))
+        }), searchToken: UISearchToken.init(icon: nil, text: accountContainsTextSuggestion))
         let icon = UIImage.init(systemName: "magnifyingglass")
         suggestion.icon = icon
         return suggestion
     }
     
     static func tagContains(part: String) -> TransactionSearchSuggestion {
-        let suggestion = TransactionSearchSuggestion.init(icon: nil, text: "Tag named \(part)", predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
+        let tagContainsTextSuggestion = String.init(format: NSLocalizedString("Tag named %@", comment: "%@ stands for an abitrary text"), part)
+        let suggestion = TransactionSearchSuggestion.init(icon: nil, text: tagContainsTextSuggestion, predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
             if let tx = evaluatedObject as? Transaction {
                 return tx.tags.contains { (tag) -> Bool in
                     return tag.contains(part)
                 }
             }
             return false
-        }), searchToken: UISearchToken.init(icon: nil, text: "Tag named \(part)"))
+        }), searchToken: UISearchToken.init(icon: nil, text: tagContainsTextSuggestion))
         let icon = UIImage.init(systemName: "tag")
         suggestion.icon = icon
         return suggestion
     }
     
     static func budgetCategoryContains(part: String) -> TransactionSearchSuggestion {
-        let suggestion = TransactionSearchSuggestion.init(icon: nil, text: "Budget category named \(part)", predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
+        let budgetCategorySuggestionText = String.init(format: NSLocalizedString("Budget category named %@", comment: "%@ stands for an abitrary text"), part)
+        let suggestion = TransactionSearchSuggestion.init(icon: nil, text: budgetCategorySuggestionText, predicate: NSPredicate.init(block: { (evaluatedObject, bindings) -> Bool in
             if let tx = evaluatedObject as? ExpenseTransaction {
                 return tx.category.contains(part)
             }
             return false
-        }), searchToken: UISearchToken.init(icon: nil, text: "Budget category named \(part)"))
+        }), searchToken: UISearchToken.init(icon: nil, text: budgetCategorySuggestionText))
         let icon = UIImage.init(systemName: "bag")
         suggestion.icon = icon
         return suggestion

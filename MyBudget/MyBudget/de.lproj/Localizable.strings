@@ -1,0 +1,282 @@
+/* No comment provided by engineer. */
+"1 Month - 1,09€" = "1 Monat - 1,09€";
+
+/* No comment provided by engineer. */
+"1 Month for 1,09€" = "1 Monat für 1,09€";
+
+/* No comment provided by engineer. */
+"1 Year - 9,99€" = "1 Jahr - 9,99€";
+
+/* No comment provided by engineer. */
+"1 Year for 9,99€" = "1 Jahr für 9,99€";
+
+/* No comment provided by engineer. */
+"\nOur principle is simple: Every penny has its job." = "\nUnser Motto: Jeder Euro hat seinen Zweck.";
+
+/* %@ stands for an abitrary text */
+"Account contains %@" = "Kontoname enthält %@";
+
+/* No comment provided by engineer. */
+"Accounts" = "Konten";
+
+/* No comment provided by engineer. */
+"Add a new account by clicking + in the top right corner" = "Füge ein neues Konto über das + in der rechts-oberen Ecke hinzu";
+
+/* No comment provided by engineer. */
+"Add new transaction" = "Füge eine neue Transaktion hinzu";
+
+/* No comment provided by engineer. */
+"Add tags here..." = "Hier Tags eintragen...";
+
+/* No comment provided by engineer. */
+"Add your banking accounts" = "Füge deine Konten hinzu";
+
+/* No comment provided by engineer. */
+"All subscriptions sync across your iCloud devices" = "Alle Abonnements werden auf deinen iCloud-Geräten synchronisiert";
+
+/* %@ stands for a monetary value */
+"Average income: %@" = "Durchschn. Einkommen: %@";
+
+/* %@ stands for a monetary value */
+"Average spending: %@" = "Durchschn. Ausgaben: %@";
+
+/* %@ stands for a monetary value */
+"Average: %@" = "Durchschnitt: %@";
+
+/* %@ stands for an abitrary text */
+"Budget category named %@" = "Kategorie enthält %@";
+
+/* No comment provided by engineer. */
+"Cancel" = "Abbrechen";
+
+/* No comment provided by engineer. */
+"Car" = "Auto";
+
+/* No comment provided by engineer. */
+"Check back regularly to see how your net value developes over time" = "Überprüfe regelmäßig, wie sich dein Kontostand entwickelt";
+
+/* No comment provided by engineer. */
+"Checkmark" = "Haken";
+
+/* No comment provided by engineer. */
+"Clothing" = "Kleidung";
+
+/* No comment provided by engineer. */
+"Compare your income and expense for each month" = "Vergleiche deine Ein- und Ausgaben jeden Monat";
+
+/* No comment provided by engineer. */
+"Computer" = "Computer";
+
+/* No comment provided by engineer. */
+"Create budget categories for rent, groceries and whatever is important to you by clicking + in the top right corner" = "Füge Budgets für Miete, Lebensmittel, etc. über das + oben-rechts hinzu";
+
+/* No comment provided by engineer. */
+"Create your own budget" = "Erstelle dein eigenes Budget";
+
+/* %@ stands for a date, which is already localized */
+"Date after %@" = "Datum nach dem %@";
+
+/* %@ stands for a date, which is already localized */
+"Date before %@" = "Datum vor dem %@";
+
+/* No comment provided by engineer. */
+"Delete" = "Löschen";
+
+/* No comment provided by engineer. */
+"Deleting this budget category will remove all transactions associated with it." = "Durch das Löschen dieser Budget-Kategorie werden alle entsprechenden Transaktionen gelöscht.";
+
+/* No comment provided by engineer. */
+"Detailed Search" = "Detaillierte Suche";
+
+/* No comment provided by engineer. */
+"Eating out" = "Essen außer Haus";
+
+/* No comment provided by engineer. */
+"Electricity" = "Strom";
+
+/* No comment provided by engineer. */
+"Expense" = "Ausgabe";
+
+/* No comment provided by engineer. */
+"Export" = "Exportieren";
+
+/* No comment provided by engineer. */
+"Export CSV for Excel" = "Exportiere CSV für Excel";
+
+/* No comment provided by engineer. */
+"Export CSV for Numbers" = "Exportiere CSV für Numbers";
+
+/* No comment provided by engineer. */
+"First, decide what's important for you" = "1. Entscheide, was wichtig für dich ist";
+
+/* %@ is a number */
+"Free version:\n%@ transactions remaining" = "Kostenlose Version:\n%@ Transaktionen verbleibend";
+
+/* %@ is a number */
+"Free version:\n%@ transactions remaining today" = "Kostenlose Version:\n%@ Heute noch %@ Transaktionen";
+
+/* No comment provided by engineer. */
+"Gaming" = "Gaming";
+
+/* No comment provided by engineer. */
+"Gas" = "Gas";
+
+/* No comment provided by engineer. */
+"Get started" = "Los geht's";
+
+/* No comment provided by engineer. */
+"Gifts" = "Geschenke";
+
+/* No comment provided by engineer. */
+"Groceries" = "Lebensmittel";
+
+/* No comment provided by engineer. */
+"Home" = "Haus";
+
+/* No comment provided by engineer. */
+"Income" = "Einkommen";
+
+/* Heading of a diagramm */
+"Income vs Expense" = "Einkommen vs Aufgaben";
+
+/* No comment provided by engineer. */
+"Internet" = "Internet";
+
+/* No comment provided by engineer. */
+"Learn More" = "Mehr erfahren";
+
+/* No comment provided by engineer. */
+"Mobility" = "Mobilität";
+
+/* %@ stands for an abitrary text */
+"Name contains %@" = "Name enthält %@";
+
+/* As in: new expense transactions */
+"New Expense" = "Neue Ausgabe";
+
+/* As in: new income transactions */
+"New Income" = "Neues Einkommen";
+
+/* As in: new transfer transactions */
+"New Transfer" = "Neuer Transfer";
+
+/* No comment provided by engineer. */
+"Now, create your budget" = "Erstelle nun dein Budget";
+
+/* No comment provided by engineer. */
+"Party" = "Party";
+
+/* No comment provided by engineer. */
+"Phone" = "Telefon";
+
+/* No comment provided by engineer. */
+"Purchase" = "Kaufen";
+
+/* No comment provided by engineer. */
+"Rename" = "Umbenennen";
+
+/* No comment provided by engineer. */
+"Rent" = "Miete";
+
+/* No comment provided by engineer. */
+"Restore Purchases" = "Käufe wiederherstellen";
+
+/* No comment provided by engineer. */
+"School" = "Schule";
+
+/* No comment provided by engineer. */
+"Search all transactions" = "Durchsuche alle Transaktionen";
+
+/* Search sugestion are displayed when the user searches for a specific string */
+"Search suggestions" = "Suchvorschläge";
+
+/* No comment provided by engineer. */
+"Second, record your current account values" = "2. Dokumentiere deinen aktuellen Kontostand";
+
+/* Heading for a diagramm
+   Heading of a diagramm */
+"Spendings" = "Ausgaben";
+
+/* No comment provided by engineer. */
+"Sports" = "Sport";
+
+/* No comment provided by engineer. */
+"Subscribe" = "Abonnieren";
+
+/* No comment provided by engineer. */
+"Subscribed" = "Abonniert";
+
+/* %@ stands for a data */
+"Subscribed until %@" = "Abonniert bis zum %@";
+
+/* No comment provided by engineer. */
+"Subscribed: Unlimited access" = "Abonniert: Voller Funktionsumfang";
+
+/* Forms a complete sentence with the 'unlocks full access to this app...' string.Trailing whitespace is needed.  */
+"Subscribing to Budget " = "Druch das Abonnieren von Budget! ";
+
+/* First %@ is a date, second %@ is a number */
+"Subscription expired on %@:\n%@ transactions remaining" = "Abonnement ist am %@ ausgelaufen:\n%@ Transaktionen verbleibend";
+
+/* First %@ is a date, second %@ is a number */
+"Subscription expired on %@:\n%@ transactions remaining today" = "Abonnement ist am %@ ausgelaufen:\nHeute %@ Transaktionen verbleibend";
+
+/* No comment provided by engineer. */
+"Subscriptions" = "Abonnements";
+
+/* No comment provided by engineer. */
+"Success" = "Erfolg";
+
+/* %@ stands for an abitrary text */
+"Tag named %@" = "Tag enthält";
+
+/* Title of a digramm: This month's statistics */
+"This Month" = "In diesem Monat";
+
+/* As in: total balance of all your accounts */
+"Total" = "Gesamt";
+
+/* %@ stands for a month (January, February, ...) */
+"Total activity in %@" = "Gesamte Aktivität im %@";
+
+/* No comment provided by engineer. */
+"Track your expenses to see detailed statistics about your spending behavior" = "Trage all deine Ausgaben ein, um eine detaillierte Auswertung deines Kaufverhaltens zu erhalten";
+
+/* As in: Transferring money from one account to another */
+"Transfer" = "Transfer";
+
+/* No comment provided by engineer. */
+"University" = "Universität";
+
+/* No comment provided by engineer. */
+"Unlock unlimited access by subscribing either monthly or annualy." = "Schalte unbegrenzten Zugang zur App frei, indem du monatlich oder jährlich abonnierst";
+
+/* No comment provided by engineer. */
+"unlocks full access to this app. By downloading Budget!, you have received a contingent of 100 transactions for free. Afterwards, you can still track up to one transaction per day. Subscribing to Budget! removes this limitation and grants full access." = "schaltest du den vollen Funktionsumfang frei. Beim ersten Download der App wurden dir kostenlos 100 Transaktionen gutgeschrieben. Nach Aufbrauchen dieses Kontingents kannst du täglich eine weitere Transaktion hinzufügen. Durch das Abonnieren von Budget! erhältst du ein unbegrenztes Kontingent für den entsprechenden Zeitraum.";
+
+/* No comment provided by engineer. */
+"Vacation" = "Urlaub";
+
+/* No comment provided by engineer. */
+"Welcome to Budget!" = "Willkommen bei Budget!";
+
+/* No comment provided by engineer. */
+"Would you like to export your transactions?" = "Möchtest du deine Transkationen exportieren?";
+
+/* No comment provided by engineer. */
+"You are currently not subscribed" = "Du hast aktuelle kein Abonnement abgeschlossen";
+
+/* No comment provided by engineer. */
+"You are subscribed" = "Du hast aktuell ein gültiges Abonnement";
+
+/* %@ stands for a monetary amount */
+"You have %@ left to budget" = "Du hast %@ noch nicht verplant";
+
+/* %@ stands for a monetary amount */
+"You have overbudgeted by %@" = "Du hast %@ zu viel eingeplant";
+
+/* No comment provided by engineer. */
+"You now have unlimited access to Budget!" = "Du hast nun unbegrenzten Zugang zu Budget!";
+
+/* No comment provided by engineer. */
+"Your purchases have been restored" = "Deine Käufe wurden wiederhergestellt";

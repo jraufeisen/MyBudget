@@ -92,7 +92,7 @@ class PerMonthSpendingCard: UIView {
     }
     
     private func addGraph(entries: [BarChartDataEntry], avgValue: Double, labels: [String]) {
-        subtitleLabel.text = "Average spending: \(Money(avgValue))"
+        subtitleLabel.text = String(format: NSLocalizedString("Average spending: %@", comment: "%@ stands for a monetary value"), "\(Money(avgValue))")
         // Calculate data and dataset
         let chart = CombinedChartView.init(frame: CGRect.init(x: 0, y: 0, width: chartContainer.frame.width, height: chartContainer.frame.height))
         let dataSet = BarChartDataSet.init(entries: entries, label: "Expenses")
@@ -186,7 +186,7 @@ class AverageLineMoneyFormatter: NSObject, IValueFormatter {
     
     func stringForValue(_ value: Double, entry: ChartDataEntry, dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {
         if Int(entry.x) == numberOfEntries {
-            return "Average: \(Money(value))" // Place label at the end
+            return String(format: NSLocalizedString("Average: %@", comment: "%@ stands for a monetary value"), "\(Money(value))") // Place label at the end
         }
         return ""
     }

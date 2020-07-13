@@ -117,7 +117,7 @@ class OnboardingMainViewController: UIViewController {
         case .welcome:
             state = .principle
 
-            textLabel.addTextAnimated(text: "\nOur principle is simple: Every penny has its job.", animationDuration: 2.1) {
+            textLabel.addTextAnimated(text: NSLocalizedString("\nOur principle is simple: Every penny has its job.", comment: ""), animationDuration: 2.1) {
                 self.animationInProgress = false
             }
 
@@ -131,7 +131,7 @@ class OnboardingMainViewController: UIViewController {
             self.progressView.progressTintColor = colorForProgress(progress: 1/4)
             
             animateContinueButton(visible: false)
-            textLabel.addTextAnimated(text: "First, decide what's important for you", animationDuration: 2.0) {
+            textLabel.addTextAnimated(text: NSLocalizedString("First, decide what's important for you", comment: ""), animationDuration: 2.0) {
                 UIView.animate(withDuration: 0.7, animations: {
                     self.categoriesCollectionView.alpha = 1
                 }) { (flag) in
@@ -148,7 +148,7 @@ class OnboardingMainViewController: UIViewController {
             self.progressView.progressTintColor = colorForProgress(progress: 2/4)
             textLabel.text = ""
             animateContinueButton(visible: false)
-            textLabel.addTextAnimated(text: "Second, record your current account values", animationDuration: 2.0) {
+            textLabel.addTextAnimated(text: NSLocalizedString("Second, record your current account values", comment: ""), animationDuration: 2.0) {
                 UIView.animate(withDuration: 0.7, animations: {
                     self.accountHeaderView.alpha = 1
                     self.accountContainerView.alpha = 1
@@ -169,7 +169,7 @@ class OnboardingMainViewController: UIViewController {
             reloadHeader()
             textLabel.text = ""
             budgetTableView.reloadData()
-            textLabel.addTextAnimated(text: "Now, create your budget", animationDuration: 1.0) {
+            textLabel.addTextAnimated(text: NSLocalizedString("Now, create your budget", comment: ""), animationDuration: 1.0) {
                 UIView.animate(withDuration: 0.7, animations: {
                     // Make distribution table visible
                     self.budgetTitleLabel.alpha = 1
@@ -204,7 +204,7 @@ class OnboardingMainViewController: UIViewController {
         setupContinueButton()
         textLabel.text = ""
         textLabel.isHidden = false
-        textLabel.addTextAnimated(text: "Welcome to Budget!", animationDuration: 1.0) {
+        textLabel.addTextAnimated(text: NSLocalizedString("Welcome to Budget!", comment: ""), animationDuration: 1.0) {
             UIView.animate(withDuration: 0.2) {
                 self.continueButton.alpha = 1 // Fade-in
             }
@@ -221,25 +221,25 @@ class OnboardingMainViewController: UIViewController {
     }
     
     private func loadInitialData() {
-        categories.append(CategorySelectable.init(name: "Rent", icon: #imageLiteral(resourceName: "icons8-house-50")))
-        categories.append(CategorySelectable.init(name: "Groceries", icon: #imageLiteral(resourceName: "icons8-food-50")))
-        categories.append(CategorySelectable.init(name: "Sports", icon: #imageLiteral(resourceName: "icons8-soccer-player-50")))
-        categories.append(CategorySelectable.init(name: "School", icon: #imageLiteral(resourceName: "icons8-school-50")))
-        categories.append(CategorySelectable.init(name: "University", icon: #imageLiteral(resourceName: "icons8-school-50")))
-        categories.append(CategorySelectable.init(name: "Home", icon: #imageLiteral(resourceName: "icons8-house-50")))
-        categories.append(CategorySelectable.init(name: "Car", icon: #imageLiteral(resourceName: "icons8-police-car-50")))
-        categories.append(CategorySelectable.init(name: "Vacation", icon: #imageLiteral(resourceName: "icons8-beach-umbrella-50")))
-        categories.append(CategorySelectable.init(name: "Computer", icon: #imageLiteral(resourceName: "icons8-computer-50")))
-        categories.append(CategorySelectable.init(name: "Gas", icon: #imageLiteral(resourceName: "icons8-gas-50")))
-        categories.append(CategorySelectable.init(name: "Electricity", icon: #imageLiteral(resourceName: "icons8-conflict-50")))
-        categories.append(CategorySelectable.init(name: "Internet", icon: #imageLiteral(resourceName: "icons8-computer-50")))
-        categories.append(CategorySelectable.init(name: "Phone", icon: #imageLiteral(resourceName: "icons8-iphone-x-50")))
-        categories.append(CategorySelectable.init(name: "Eating out", icon: #imageLiteral(resourceName: "icons8-food-truck-50")))
-        categories.append(CategorySelectable.init(name: "Party", icon: #imageLiteral(resourceName: "Image-1")))
-        categories.append(CategorySelectable.init(name: "Gaming", icon: #imageLiteral(resourceName: "icons8-game-controller-50")))
-        categories.append(CategorySelectable.init(name: "Gifts", icon: #imageLiteral(resourceName: "icons8-christmas-gift-50")))
-        categories.append(CategorySelectable.init(name: "Clothing", icon: #imageLiteral(resourceName: "icons8-changing-room-50")))
-        categories.append(CategorySelectable.init(name: "Mobility", icon: #imageLiteral(resourceName: "Image")))
+        categories.append(CategorySelectable.init(name: NSLocalizedString("Rent", comment: ""), icon: #imageLiteral(resourceName: "icons8-house-50")))
+        categories.append(CategorySelectable.init(name: NSLocalizedString("Groceries", comment: ""), icon: #imageLiteral(resourceName: "icons8-food-50")))
+        categories.append(CategorySelectable.init(name: NSLocalizedString("Sports", comment: ""), icon: #imageLiteral(resourceName: "icons8-soccer-player-50")))
+        categories.append(CategorySelectable.init(name: NSLocalizedString("School", comment: ""), icon: #imageLiteral(resourceName: "icons8-school-50")))
+        categories.append(CategorySelectable.init(name: NSLocalizedString("University", comment: ""), icon: #imageLiteral(resourceName: "icons8-school-50")))
+        categories.append(CategorySelectable.init(name: NSLocalizedString("Home", comment: ""), icon: #imageLiteral(resourceName: "icons8-house-50")))
+        categories.append(CategorySelectable.init(name: NSLocalizedString("Car", comment: ""), icon: #imageLiteral(resourceName: "icons8-police-car-50")))
+        categories.append(CategorySelectable.init(name: NSLocalizedString("Vacation", comment: ""), icon: #imageLiteral(resourceName: "icons8-beach-umbrella-50")))
+        categories.append(CategorySelectable.init(name: NSLocalizedString("Computer", comment: ""), icon: #imageLiteral(resourceName: "icons8-computer-50")))
+        categories.append(CategorySelectable.init(name: NSLocalizedString("Gas", comment: ""), icon: #imageLiteral(resourceName: "icons8-gas-50")))
+        categories.append(CategorySelectable.init(name: NSLocalizedString("Electricity", comment: ""), icon: #imageLiteral(resourceName: "icons8-conflict-50")))
+        categories.append(CategorySelectable.init(name: NSLocalizedString("Internet", comment: ""), icon: #imageLiteral(resourceName: "icons8-computer-50")))
+        categories.append(CategorySelectable.init(name: NSLocalizedString("Phone", comment: ""), icon: #imageLiteral(resourceName: "icons8-iphone-x-50")))
+        categories.append(CategorySelectable.init(name: NSLocalizedString("Eating out", comment: ""), icon: #imageLiteral(resourceName: "icons8-food-truck-50")))
+        categories.append(CategorySelectable.init(name: NSLocalizedString("Party", comment: ""), icon: #imageLiteral(resourceName: "Image-1")))
+        categories.append(CategorySelectable.init(name: NSLocalizedString("Gaming", comment: ""), icon: #imageLiteral(resourceName: "icons8-game-controller-50")))
+        categories.append(CategorySelectable.init(name: NSLocalizedString("Gifts", comment: ""), icon: #imageLiteral(resourceName: "icons8-christmas-gift-50")))
+        categories.append(CategorySelectable.init(name: NSLocalizedString("Clothing", comment: ""), icon: #imageLiteral(resourceName: "icons8-changing-room-50")))
+        categories.append(CategorySelectable.init(name: NSLocalizedString("Mobility", comment: ""), icon: #imageLiteral(resourceName: "Image")))
     }
     
     @IBAction func pressedAccountPlusButton() {

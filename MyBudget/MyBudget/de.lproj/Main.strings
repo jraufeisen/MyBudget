@@ -1,0 +1,149 @@
+/* Class = "UINavigationItem"; title = "Budget"; ObjectID = "3kp-Gt-pSs"; */
+"3kp-Gt-pSs.title" = "Budget";
+
+/* Class = "UINavigationItem"; title = "Reports"; ObjectID = "5Xx-k4-uls"; */
+"5Xx-k4-uls.title" = "Auswertung";
+
+/* Class = "UILabel"; text = "Insert the name and current balance of each account that you would like to track with Budget!"; ObjectID = "5yO-zG-2MW"; */
+"5yO-zG-2MW.text" = "Trage hier den Namen und den Kontostand efür jedes deiner Konten ein!";
+
+/* Class = "UINavigationItem"; title = "Transactions"; ObjectID = "6XQ-7K-xRJ"; */
+"6XQ-7K-xRJ.title" = "Transaktionen";
+
+/* Class = "UILabel"; text = "42.42 €"; ObjectID = "7jg-Qb-Ibb"; */
+"7jg-Qb-Ibb.text" = "42.42 €";
+
+/* Class = "UIViewController"; title = "Accounts"; ObjectID = "8LR-fY-mkU"; */
+"8LR-fY-mkU.title" = "Konten";
+
+/* Class = "UITabBarItem"; title = "Accounts"; ObjectID = "94B-q8-phK"; */
+"94B-q8-phK.title" = "Konten";
+
+/* Class = "UILabel"; text = "Banking Account"; ObjectID = "Cez-bL-53A"; */
+"Cez-bL-53A.text" = "Bankkonto";
+
+/* Class = "UITextField"; placeholder = "Balance:"; ObjectID = "D8K-bu-W8h"; */
+"D8K-bu-W8h.placeholder" = "Saldo:";
+
+/* Class = "UILabel"; text = "1200.01 €"; ObjectID = "DJR-lV-qkU"; */
+"DJR-lV-qkU.text" = "1200.01 €";
+
+/* Class = "UILabel"; text = "Unknown version"; ObjectID = "DlO-hX-vLG"; */
+"DlO-hX-vLG.text" = "Unbekannte Version";
+
+/* Class = "UITextField"; text = "Category"; ObjectID = "FAH-bF-NUW"; */
+"FAH-bF-NUW.text" = "Kategorie";
+
+/* Class = "UILabel"; text = "42.42 €"; ObjectID = "Fbg-qD-9bG"; */
+"Fbg-qD-9bG.text" = "42.42 €";
+
+/* Class = "UIButton"; normalTitle = "Subscribe"; ObjectID = "Fma-o5-CiE"; */
+"Fma-o5-CiE.normalTitle" = "Abonnieren";
+
+/* Class = "UITabBarItem"; title = "Spendings"; ObjectID = "GNX-Cg-YA2"; */
+"GNX-Cg-YA2.title" = "Ausgaben";
+
+/* Class = "UILabel"; text = "Subscribed until 42th November 2019"; ObjectID = "GUq-7Q-NHu"; */
+"GUq-7Q-NHu.text" = "Abonniert bis 42. November 2019";
+
+/* Class = "UILabel"; text = "Unbudgeted Money:"; ObjectID = "Gxg-Vd-n4t"; */
+"Gxg-Vd-n4t.text" = "Unverplanter Betrag:";
+
+/* Class = "UITextView"; text = "iCloud disabled"; ObjectID = "I54-PU-5E8"; */
+"I54-PU-5E8.text" = "iCloud deaktiviert";
+
+/* Class = "UITextField"; placeholder = "Account name:"; ObjectID = "IT6-gv-Ov9"; */
+"IT6-gv-Ov9.placeholder" = "Name des Kontos:";
+
+/* Class = "UILabel"; text = "Account"; ObjectID = "JIC-dW-WLL"; */
+"JIC-dW-WLL.text" = "Konto";
+
+/* Class = "UILabel"; text = "Total activity in May 2019"; ObjectID = "Krz-PX-tLe"; */
+"Krz-PX-tLe.text" = "Total activity in May 2019";
+
+/* Class = "UILabel"; text = "Buying some cool stuff"; ObjectID = "L0U-KI-eaY"; */
+"L0U-KI-eaY.text" = "Buying some cool stuff";
+
+/* Class = "UILabel"; text = "42.42 €"; ObjectID = "LHd-09-vh2"; */
+"LHd-09-vh2.text" = "42.42 €";
+
+/* Class = "UITabBarItem"; title = "Transactions"; ObjectID = "MAm-Kk-vgC"; */
+"MAm-Kk-vgC.title" = "Transaktionen";
+
+/* Class = "UILabel"; text = "iCloud Identifier"; ObjectID = "MnA-gb-1zD"; */
+"MnA-gb-1zD.text" = "iCloud ID";
+
+/* Class = "UILabel"; text = "Accounts"; ObjectID = "NBy-a3-cFC"; */
+"NBy-a3-cFC.text" = "Konten";
+
+/* Class = "UILabel"; text = "Version"; ObjectID = "OAP-C8-oBe"; */
+"OAP-C8-oBe.text" = "Version";
+
+/* Class = "UILabel"; text = "31th July"; ObjectID = "SNR-kO-qp0"; */
+"SNR-kO-qp0.text" = "31. Juli";
+
+/* Class = "UILabel"; text = "You have spent 21€ more than last month at this day"; ObjectID = "Tdj-Kn-Yez"; */
+"Tdj-Kn-Yez.text" = "You have spent 21€ more than last month at this day";
+
+/* Class = "UILabel"; text = "You have 1000,42 € left to budget"; ObjectID = "XEB-bW-Z7P"; */
+"XEB-bW-Z7P.text" = "You have 1000,42 € left to budget";
+
+/* Class = "UINavigationItem"; title = "Accounts"; ObjectID = "Yhm-4q-x4q"; */
+"Yhm-4q-x4q.title" = "Konten";
+
+/* Class = "UILabel"; text = "Unspecified account"; ObjectID = "ZOJ-zV-hTc"; */
+"ZOJ-zV-hTc.text" = "Unbestimmtes Konto";
+
+/* Class = "UILabel"; text = "42.42 €"; ObjectID = "ZaA-eE-UDo"; */
+"ZaA-eE-UDo.text" = "42.42 €";
+
+/* Class = "UITabBarItem"; title = "Budget"; ObjectID = "aYr-Bw-ZEY"; */
+"aYr-Bw-ZEY.title" = "Budget";
+
+/* Class = "UILabel"; text = "Subscription status"; ObjectID = "c94-oZ-EtG"; */
+"c94-oZ-EtG.text" = "Abonnement-Status";
+
+/* Class = "UITextField"; placeholder = "Category"; ObjectID = "dQz-6D-0qs"; */
+"dQz-6D-0qs.placeholder" = "Kategorie";
+
+/* Class = "UILabel"; text = "Buying some cool stuff"; ObjectID = "dWP-eg-pDW"; */
+"dWP-eg-pDW.text" = "Buying some cool stuff";
+
+/* Class = "UILabel"; text = "42.42 €"; ObjectID = "dgs-Ul-Wbx"; */
+"dgs-Ul-Wbx.text" = "42.42 €";
+
+/* Class = "UITableViewController"; title = "Strom"; ObjectID = "eeC-0O-N3j"; */
+"eeC-0O-N3j.title" = "Strom";
+
+/* Class = "UILabel"; text = "31th July"; ObjectID = "fbI-vw-w3h"; */
+"fbI-vw-w3h.text" = "31th July";
+
+/* Class = "UITextField"; placeholder = "Giro account"; ObjectID = "gmL-3W-ZRC"; */
+"gmL-3W-ZRC.placeholder" = "Girokonto";
+
+/* Class = "UILabel"; text = "Unspecified account"; ObjectID = "hyI-7p-7Kh"; */
+"hyI-7p-7Kh.text" = "Unbestimmtes Konto";
+
+/* Class = "UILabel"; text = "2.382,67 € waiting to be budgeted"; ObjectID = "nLQ-L6-ECy"; */
+"nLQ-L6-ECy.text" = "2.382,67 € waiting to be budgeted";
+
+/* Class = "UIButton"; normalTitle = "Rate on the App Store"; ObjectID = "nSW-p6-u2T"; */
+"nSW-p6-u2T.normalTitle" = "Im App Store bewerten";
+
+/* Class = "UILabel"; text = "Add a new account"; ObjectID = "njb-U3-uv7"; */
+"njb-U3-uv7.text" = "Füge ein Konto hinzu:";
+
+/* Class = "UIButton"; normalTitle = "Continue"; ObjectID = "nu7-IC-Q4Z"; */
+"nu7-IC-Q4Z.normalTitle" = "Weiter";
+
+/* Class = "UILabel"; text = "Welcome to Budget!"; ObjectID = "rWT-RA-bs4"; */
+"rWT-RA-bs4.text" = "Willkommen bei Budget!";
+
+/* Class = "UITextField"; placeholder = "0,00 €"; ObjectID = "sAk-0c-j8r"; */
+"sAk-0c-j8r.placeholder" = "0,00 €";
+
+/* Class = "UITextField"; text = "42.42 €"; ObjectID = "wSP-ck-B9a"; */
+"wSP-ck-B9a.text" = "42.42 €";
+
+/* Class = "UIButton"; normalTitle = "Create account"; ObjectID = "wr7-Ih-BHW"; */
+"wr7-Ih-BHW.normalTitle" = "Konto erstellen";

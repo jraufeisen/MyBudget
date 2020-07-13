@@ -40,7 +40,9 @@ class AboutPageViewController: UIViewController {
         super.viewDidLoad()
         
         // Set subscription description text manually cause storyboard does not adapt colors for dark mode...
-        let subscriptionDescription = NSAttributedString.appStoreLikeDescription(title: "Subscribing to Budget ", body: "unlocks full access to this app. By downloading Budget!, you have received a contingent of 100 transactions for free. Afterwards, you can still track up to one transaction per day. Subscribing to Budget! removes this limitation and grants full access.")
+        let subscriptionTitle = NSLocalizedString("Subscribing to Budget ", comment: "Forms a complete sentence with the 'unlocks full access to this app...' string.Trailing whitespace is needed. ")
+        let subscriptionBody = NSLocalizedString("unlocks full access to this app. By downloading Budget!, you have received a contingent of 100 transactions for free. Afterwards, you can still track up to one transaction per day. Subscribing to Budget! removes this limitation and grants full access.", comment: "")
+        let subscriptionDescription = NSAttributedString.appStoreLikeDescription(title: subscriptionTitle, body: subscriptionBody)
         largeSubscriptionLabel.attributedText = subscriptionDescription
         
         // Appearance of rating button
@@ -62,13 +64,13 @@ class AboutPageViewController: UIViewController {
         let isSubscribed = ServerReceiptValidator().isSubscribed()
         let expirationDate = ServerReceiptValidator().subscriptionExpirationDate()
         if !isSubscribed {
-            subscriptionDetailLabel.text = "You are currently not subscribed"
+            subscriptionDetailLabel.text = NSLocalizedString("You are currently not subscribed", comment: "")
         } else {
             if let expirationDate = expirationDate {
                 let formateddate = DateFormatter.localizedString(from: expirationDate, dateStyle: .long, timeStyle: .none)
-                subscriptionDetailLabel.text = "Subscribed until \(formateddate)"
+                subscriptionDetailLabel.text = String(format: NSLocalizedString("Subscribed until %@", comment: "%@ stands for a data"), formateddate)
             } else {
-                subscriptionDetailLabel.text = "You are subscribed"
+                subscriptionDetailLabel.text =  NSLocalizedString("You are subscribed", comment: "")
             }
         }
         

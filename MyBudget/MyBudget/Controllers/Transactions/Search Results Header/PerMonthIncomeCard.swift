@@ -78,7 +78,7 @@ class PerMonthIncomeCard: UIView {
     }
     
     private func addGraph(entries: [BarChartDataEntry], avgValue: Double, labels: [String]) {
-        subtitleLabel.text = "Average income: \(Money(avgValue))"
+        subtitleLabel.text = String.init(format: NSLocalizedString("Average income: %@", comment: "%@ stands for a monetary value"), "\(Money(avgValue))")
         
         // Calculate data and dataset
         let chart = CombinedChartView.init(frame: CGRect.init(x: 0, y: 0, width: chartContainer.frame.width, height: chartContainer.frame.height))

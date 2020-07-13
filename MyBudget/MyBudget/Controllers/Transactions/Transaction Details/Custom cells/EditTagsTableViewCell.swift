@@ -78,7 +78,7 @@ class EditTagsTableViewCell: UITableViewCell {
             tagField.placeholderColor = .placeholderText
         }
         tagField.selectedColor = colorStyle.secondaryColor()
-        tagField.placeholder = "Add tags here..."
+        tagField.placeholder = NSLocalizedString("Add tags here...", comment: "")
         tagField.placeholderAlwaysVisible = true
         tagField.returnKeyType = .done
         tagField.textDelegate = self

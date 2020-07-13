@@ -20,8 +20,8 @@ enum BulletinDataSource {
 
         let page = SubscriptionSelectorBulletin(title: "Subscriptions")
         page.isDismissable = true
-        page.descriptionText = "All subscriptions sync across your iCloud devices"
-        page.actionButtonTitle = "Purchase"
+        page.descriptionText = NSLocalizedString("All subscriptions sync across your iCloud devices", comment: "")
+        page.actionButtonTitle = NSLocalizedString("Purchase", comment: "")
 
         if #available(iOS 13.0, *) {
             page.appearance.titleTextColor = .label
@@ -32,17 +32,17 @@ enum BulletinDataSource {
     }
 
     static func makeSubscriptionPage() -> BLTNPageItem {
-        let subscriptionPage = BLTNPageItem(title: "Subscribe")
+        let subscriptionPage = BLTNPageItem(title: NSLocalizedString("Subscribe", comment: ""))
         subscriptionPage.image = #imageLiteral(resourceName: "Logo_Only")
         subscriptionPage.appearance.imageViewTintColor = .blueActionColor
-        subscriptionPage.descriptionText = "Unlock unlimited access by subscribing either monthly or annualy."
-        subscriptionPage.actionButtonTitle = "Learn More"
+        subscriptionPage.descriptionText = NSLocalizedString("Unlock unlimited access by subscribing either monthly or annualy.", comment: "")
+        subscriptionPage.actionButtonTitle = NSLocalizedString("Learn More", comment: "")
         subscriptionPage.actionHandler = { (item: BLTNActionItem) in
             let choice = makeChoicePage()
             subscriptionPage.next = choice
             item.manager?.displayNextItem()
         }
-        subscriptionPage.alternativeButtonTitle = "Restore Purchases"
+        subscriptionPage.alternativeButtonTitle = NSLocalizedString("Restore Purchases", comment: "")
         subscriptionPage.alternativeHandler = { (item: BLTNActionItem) in
 
             item.manager?.displayActivityIndicator()
@@ -64,21 +64,21 @@ enum BulletinDataSource {
     
     static func makeRestoreCompletedPage() -> BLTNPageItem {
         let completion = makeCompletionPage()
-        completion.descriptionText = "Your purchases have been restored"
+        completion.descriptionText = NSLocalizedString("Your purchases have been restored", comment: "")
         return completion
     }
     
     static func makeCompletionPage() -> BLTNPageItem {
-        let page = BLTNPageItem(title: "Success")
+        let page = BLTNPageItem(title: NSLocalizedString("Success", comment: ""))
 
         page.image = #imageLiteral(resourceName: "IntroCompletion")
-        page.imageAccessibilityLabel = "Checkmark"
+        page.imageAccessibilityLabel = NSLocalizedString("Checkmark", comment: "")
         page.appearance.actionButtonColor = #colorLiteral(red: 0.2980392157, green: 0.8509803922, blue: 0.3921568627, alpha: 1)
         page.appearance.imageViewTintColor = #colorLiteral(red: 0.2980392157, green: 0.8509803922, blue: 0.3921568627, alpha: 1)
         page.appearance.actionButtonTitleColor = .white
         
-        page.descriptionText = "You now have unlimited access to Budget!"
-        page.actionButtonTitle = "Get started"
+        page.descriptionText = NSLocalizedString("You now have unlimited access to Budget!", comment: "")
+        page.actionButtonTitle = NSLocalizedString("Get started", comment: "")
         
         page.isDismissable = true
         

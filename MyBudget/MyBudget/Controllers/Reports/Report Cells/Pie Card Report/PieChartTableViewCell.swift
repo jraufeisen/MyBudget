@@ -40,7 +40,7 @@ class PieChartTableViewCell: UITableViewCell {
         let newFrame = CGRect(x: 0, y:0, width: self.frame.width - 2*cardOffsetX, height: self.frame.height - 2*cardOffsetY)
         let card = PieChartCard.init(frame: newFrame)
         card.center = CGPoint(x: self.center.x, y: self.bounds.height / 2)
-        card.titleLabel.text = "Spendings"
+        card.titleLabel.text = NSLocalizedString("Spendings", comment: "Heading for a diagramm")
         card.label1.text = ""
         card.label2.text = ""
         card.label3.text = ""
@@ -151,13 +151,13 @@ class PieChartTableViewCell: UITableViewCell {
     }
     
     private func addNoDataCard() {
-        addSpecialCard(title: "Spendings", body: "Track your expenses to see detailed statistics about your spending behavior")
+        addSpecialCard(title: NSLocalizedString("Spendings", comment: "Heading of a diagramm"), body: NSLocalizedString("Track your expenses to see detailed statistics about your spending behavior", comment: ""))
     }
     
     private func addChart(entries: [(money: Money, label: String)], chartName: String = "Expenses") {
 
         guard entries.count > 0 else {
-            addSpecialCard(title: chartName, body: "Track your expenses to see detailed statistics about your spending behavior")
+            addSpecialCard(title: chartName, body: NSLocalizedString("Track your expenses to see detailed statistics about your spending behavior", comment: ""))
             return
         }
         

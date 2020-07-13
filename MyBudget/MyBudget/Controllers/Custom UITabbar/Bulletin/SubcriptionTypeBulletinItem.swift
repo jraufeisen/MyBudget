@@ -21,7 +21,7 @@ class SubcriptionTypeBLTNItem: FeedbackPageBLTNItem {
 
     init(dataSource: SubscriptionDurations, animalType: String) {
         self.dataSource = dataSource
-        super.init(title: "Subscriptions")
+        super.init(title: NSLocalizedString("Subscriptions", comment: ""))
     }
 
     // MARK: - Interface

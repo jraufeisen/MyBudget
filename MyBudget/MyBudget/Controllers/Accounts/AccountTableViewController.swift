@@ -92,7 +92,7 @@ class AccountTableViewController: NavbarFillingViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateModel()
-        navigationItem.title = "Accounts"
+        navigationItem.title = NSLocalizedString("Accounts", comment: "")
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateModel), name: ModelChangedNotification, object: nil)
     }
 
@@ -101,7 +101,7 @@ class AccountTableViewController: NavbarFillingViewController {
         titleHelpingLabel.textAlignment = .center
         titleHelpingLabel.font = UIFont.boldSystemFont(ofSize: 20)
         titleHelpingLabel.center = view.center
-        titleHelpingLabel.text = "Add your banking accounts"
+        titleHelpingLabel.text = NSLocalizedString("Add your banking accounts", comment: "")
         titleHelpingLabel.sizeToFit()
         titleHelpingLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(titleHelpingLabel)
@@ -115,7 +115,7 @@ class AccountTableViewController: NavbarFillingViewController {
         descriptionHelpingLabel.font = UIFont.systemFont(ofSize: 17)
         descriptionHelpingLabel.textColor = .lightGray
         descriptionHelpingLabel.center = CGPoint.init(x: titleHelpingLabel.center.x, y: descriptionHelpingLabel.center.y)
-        descriptionHelpingLabel.text = "Add a new account by clicking + in the top right corner"
+        descriptionHelpingLabel.text = NSLocalizedString("Add a new account by clicking + in the top right corner", comment: "")
         descriptionHelpingLabel.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(descriptionHelpingLabel)
         let width = NSLayoutConstraint.init(item: descriptionHelpingLabel, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 1, constant: -60)
@@ -171,7 +171,7 @@ extension AccountTableViewController: UITableViewDataSource {
                 return UITableViewCell()
             }
         
-            cell.headerLabel.text = "Total activity in \(Date().monthAsString())"
+            cell.headerLabel.text = String.init(format: NSLocalizedString("Total activity in %@", comment: "%@ stands for a month (January, February, ...)"), "\(Date().monthAsString())")
             cell.incomeFillView.overlayText = "\(incomestatement.earnedThisMonth)"
             cell.expenseFillView.overlayText = "\(incomestatement.spentThisMonth)"
 

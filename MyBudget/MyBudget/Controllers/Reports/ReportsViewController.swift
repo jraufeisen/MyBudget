@@ -34,14 +34,14 @@ extension ReportsViewController {
     /// Shows options for exporting the transactions
     @IBAction func didPressShareButton() {
         // Show action sheet with option to export as CSV
-        let alertController = UIAlertController.init(title: "Export", message: "Would you like to export your transactions?", preferredStyle: .actionSheet)
-        alertController.addAction(UIAlertAction.init(title: "Export CSV for Excel", style: .default, handler: { (action) in
+        let alertController = UIAlertController.init(title: NSLocalizedString("Export", comment: ""), message: NSLocalizedString("Would you like to export your transactions?", comment: ""), preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction.init(title: NSLocalizedString("Export CSV for Excel", comment: ""), style: .default, handler: { (action) in
             self.initiateExcelSharing()
         }))
-        alertController.addAction(UIAlertAction.init(title: "Export CSV for Numbers", style: .default, handler: { (action) in
+        alertController.addAction(UIAlertAction.init(title: NSLocalizedString("Export CSV for Numbers", comment: ""), style: .default, handler: { (action) in
             self.initiateNumbersSharing()
         }))
-        alertController.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction.init(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil))
         self.present(alertController, animated: true, completion: nil)
     }
     

@@ -33,7 +33,7 @@ class SubscriptionFloaty: Floaty {
     }
     
     private func setup() {
-        self.accessibilityLabel = "Add new transaction"
+        self.accessibilityLabel = NSLocalizedString("Add new transaction", comment: "")
 
         buttonColor = .white
         
@@ -50,11 +50,11 @@ class SubscriptionFloaty: Floaty {
             incomeItem.titleColor = UIColor.label
         }
         incomeItem.icon = UIImage.init(named: "euro")?.withRenderingMode(.alwaysTemplate)
-        incomeItem.title = "Income"
+        incomeItem.title = NSLocalizedString("Income", comment: "")
         incomeItem.tintColor = .white
         incomeItem.buttonColor = Model.shared.allowedToAddTransaction() ? .incomeColor : .gray
         incomeItem.size = itemSize
-        incomeItem.accessibilityLabel = "New Income"
+        incomeItem.accessibilityLabel = NSLocalizedString("New Income", comment: "As in: new income transactions")
 
         addItem(item: incomeItem)
         
@@ -63,12 +63,12 @@ class SubscriptionFloaty: Floaty {
             transferItem.titleColor = UIColor.label
         }
         transferItem.icon = UIImage.init(named: "euro")?.withRenderingMode(.alwaysTemplate)
-        transferItem.title = "Transfer"
+        transferItem.title = NSLocalizedString("Transfer", comment: "")
         transferItem.tintColor = .white
         transferItem.buttonColor = Model.shared.allowedToAddTransaction() ? .transferColor : .gray
         transferItem.size = itemSize
         addItem(item: transferItem)
-        transferItem.accessibilityLabel = "New Transfer"
+        transferItem.accessibilityLabel = NSLocalizedString("New Transfer", comment: "As in: new transfer transactions")
 
 
         expenseItem.titleColor = .darkText
@@ -76,11 +76,11 @@ class SubscriptionFloaty: Floaty {
             expenseItem.titleColor = UIColor.label
         }
         expenseItem.icon = UIImage.init(named: "euro")?.withRenderingMode(.alwaysTemplate)
-        expenseItem.title = "Expense"
+        expenseItem.title = NSLocalizedString("Expense", comment: "")
         expenseItem.tintColor = .white
         expenseItem.buttonColor = Model.shared.allowedToAddTransaction() ? .expenseColor : .gray
         expenseItem.size = itemSize
-        expenseItem.accessibilityLabel = "New Expense"
+        expenseItem.accessibilityLabel = NSLocalizedString("New Expense", comment: "As in: new expense transactions")
 
         addItem(item: expenseItem)
         
@@ -89,12 +89,12 @@ class SubscriptionFloaty: Floaty {
             subscribeItem.titleColor = UIColor.label
         }
         subscribeItem.icon = #imageLiteral(resourceName: "Logo_Only").withRenderingMode(.alwaysTemplate)
-        subscribeItem.title = "Subscribed"
+        subscribeItem.title = NSLocalizedString("Subscribed", comment: "")
 
         subscribeItem.tintColor = .white
         subscribeItem.buttonColor = .blueActionColor
         subscribeItem.size = itemSize
-        subscribeItem.accessibilityLabel = "Subscribe"
+        subscribeItem.accessibilityLabel = NSLocalizedString("Subscribe", comment: "")
         addItem(item: subscribeItem)
 
         // Dont move - ever. Stay fixed in the tabbar

@@ -62,7 +62,7 @@ class IncomeStatementTableViewCell: UITableViewCell {
         let newFrame = CGRect(x: 0, y:0, width: self.frame.width - 2*cardOffsetX, height: self.frame.height - 2*cardOffsetY)
         let card = IncomeStatementCard.init(frame: newFrame)
         card.center = CGPoint(x: self.center.x, y: self.bounds.height / 2)
-        card.titleLabel.text = "Income vs Expense"
+        card.titleLabel.text = NSLocalizedString("Income vs Expense", comment: "Heading of a diagramm")
         card.incomeAmountLabel.text = ""
         card.expenseAmountLabel.text = ""
         card.incomeStationaryLabel.text = ""
@@ -73,7 +73,7 @@ class IncomeStatementTableViewCell: UITableViewCell {
             explainLabel.textColor = .secondaryLabel
         }
         explainLabel.textAlignment = .center
-        explainLabel.text = "Compare your income and expense for each month"
+        explainLabel.text = NSLocalizedString("Compare your income and expense for each month", comment: "")
         card.chartContainer.addSubview(explainLabel)
         explainLabel.translatesAutoresizingMaskIntoConstraints = false
         explainLabel.numberOfLines = 5

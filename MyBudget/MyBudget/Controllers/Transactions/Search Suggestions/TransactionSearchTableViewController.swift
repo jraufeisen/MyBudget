@@ -115,9 +115,9 @@ extension TransactionSearchTableViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if searchText.isEmpty {
-            return "Search suggestions"
+            return NSLocalizedString("Search suggestions", comment: "Search sugestion are displayed when the user searches for a specific string")
         } else {
-            return "Detailed Search"
+            return NSLocalizedString("Detailed Search", comment: "")
         }
     }
         

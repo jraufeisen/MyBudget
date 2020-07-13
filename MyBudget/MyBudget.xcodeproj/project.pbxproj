@@ -92,6 +92,7 @@
 		EB8EB60723687402002E305D /* IncomeStatementTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB8EB60523687402002E305D /* IncomeStatementTableViewCell.xib */; };
 		EB8EB60923687413002E305D /* IncomeStatementCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8EB60823687413002E305D /* IncomeStatementCard.swift */; };
 		EB8EB60B2368741D002E305D /* IncomeStatementCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = EB8EB60A2368741D002E305D /* IncomeStatementCard.xib */; };
+		EB8F506624BCBCE1007C624B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EB8F506824BCBCE1007C624B /* Localizable.strings */; };
 		EB985CA722EC699200C033E8 /* verify-sign.png in Resources */ = {isa = PBXBuildFile; fileRef = EB985CA622EC699200C033E8 /* verify-sign.png */; };
 		EB985CB522EC6B5400C033E8 /* FloatyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CB222EC6B2300C033E8 /* FloatyDelegate.swift */; };
 		EB985CB622EC6B5800C033E8 /* FloatyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB985CAC22EC6B2300C033E8 /* FloatyWindow.swift */; };
@@ -330,6 +331,10 @@
 		EB8EB60523687402002E305D /* IncomeStatementTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IncomeStatementTableViewCell.xib; sourceTree = "<group>"; };
 		EB8EB60823687413002E305D /* IncomeStatementCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeStatementCard.swift; sourceTree = "<group>"; };
 		EB8EB60A2368741D002E305D /* IncomeStatementCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IncomeStatementCard.xib; sourceTree = "<group>"; };
+		EB8F506224BCBACC007C624B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		EB8F506324BCBACC007C624B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		EB8F506724BCBCE1007C624B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		EB8F506924BCBCE5007C624B /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EB985CA622EC699200C033E8 /* verify-sign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "verify-sign.png"; sourceTree = "<group>"; };
 		EB985CAC22EC6B2300C033E8 /* FloatyWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatyWindow.swift; sourceTree = "<group>"; };
 		EB985CAD22EC6B2300C033E8 /* FloatyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatyManager.swift; sourceTree = "<group>"; };
@@ -791,6 +796,7 @@
 		EBC59D3D22E7503900E626DC /* MyBudget */ = {
 			isa = PBXGroup;
 			children = (
+				EB8F506824BCBCE1007C624B /* Localizable.strings */,
 				EB51875923216C1A0052D6B7 /* finances_example.txt */,
 				EB558EB522ECA39D00039651 /* MyBudget.entitlements */,
 				EBE7E2BB2321233500BEC812 /* Constants.swift */,
@@ -1005,6 +1011,7 @@
 			buildConfigurationList = EBC59D4D22E7503A00E626DC /* Build configuration list for PBXNativeTarget "MyBudget" */;
 			buildPhases = (
 				520614B07BB10FAC966FDFDE /* [CP] Check Pods Manifest.lock */,
+				EB8F506A24BCC169007C624B /* ShellScript */,
 				EBC59D3722E7503900E626DC /* Sources */,
 				EBC59D3822E7503900E626DC /* Frameworks */,
 				EBC59D3922E7503900E626DC /* Resources */,
@@ -1091,6 +1098,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = EBC59D3222E7503900E626DC;
 			productRefGroup = EBC59D3C22E7503900E626DC /* Products */;
@@ -1141,6 +1149,7 @@
 				EBD012F622E9B47F00F8126D /* NewCategoryCell.xib in Resources */,
 				EBD012F722E9B47F00F8126D /* ExistingCategoryCell.xib in Resources */,
 				EBA8A8AD2393D40300217D4D /* PerCategorySpending.xib in Resources */,
+				EB8F506624BCBCE1007C624B /* Localizable.strings in Resources */,
 				EBD012F322E9B39D00F8126D /* drawer.png in Resources */,
 				EBE7FE42233CC3720088D156 /* EditMoneyTableViewCell.xib in Resources */,
 				EBD4649B236721B00004F900 /* PieChartCard.xib in Resources */,
@@ -1215,6 +1224,23 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		EB8F506A24BCC169007C624B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which bartycrouch > /dev/null; then\n    bartycrouch update -x\n    bartycrouch lint -x\nelse\n    echo \"warning: BartyCrouch not installed, download it from https://github.com/Flinesoft/BartyCrouch\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1375,10 +1401,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		EB8F506824BCBCE1007C624B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EB8F506724BCBCE1007C624B /* en */,
+				EB8F506924BCBCE5007C624B /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		EBC59D4222E7503900E626DC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				EBC59D4322E7503900E626DC /* Base */,
+				EB8F506324BCBACC007C624B /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1387,6 +1423,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EBC59D4822E7503A00E626DC /* Base */,
+				EB8F506224BCBACC007C624B /* de */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1482,6 +1519,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1543,6 +1581,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

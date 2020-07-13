@@ -37,7 +37,7 @@ class TransactionSearchResultHeaderView: UIScrollView {
     func addTotalCard(income: Money, expense: Money) {
         let totalCard = TotalStatementCard.init(frame: CGRect.init(x: 0, y: 0, width: frame.width - offset, height: frame.height - offset))
         totalCard.setChart(income: income, expense: expense, label: "Total chart")
-        totalCard.titleLabel.text = "Total"
+        totalCard.titleLabel.text = NSLocalizedString("Total", comment: "As in: total balance of all your accounts")
         let centerX = frame.width/2 + (frame.width)*CGFloat(cards.count)
         totalCard.center = CGPoint.init(x: centerX, y: frame.height/2)
         cards.append(totalCard)
