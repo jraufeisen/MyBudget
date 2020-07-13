@@ -539,3 +539,21 @@ class Model: NSObject {
     }
     
 }
+
+// MARK: - Modifications
+
+extension Model {
+    
+    /// Renames budget categories.
+    /// All transactions in the past that used the old name will be changed to the newname instead.
+    /// If the specified old name does not exist as a budget category, nothing happens.
+    /// - Parameters:
+    ///   - oldName: Old budget category name.
+    ///   - newName: New budget category name.
+    func renameBudgetCategory(oldName: String, newName: String) {
+        let oldAccount = Account.budgetAccount(named: oldName)
+        let newAccount = Account.budgetAccount(named: newName)
+        LedgerModel.shared().renameAccount(oldAccount: oldAccount, newAccount: newAccount)
+    }
+    
+}

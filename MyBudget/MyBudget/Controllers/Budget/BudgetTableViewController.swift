@@ -65,23 +65,26 @@ class BudgetTableViewController: NavbarFillingViewController {
 
     @objc private func updateUI() {
         budgetCategories = Model.shared.getAllBudgetCategories()
-        if tableView.numberOfSections > 0 {
-            tableView.reloadSections([0], with: .automatic)
-        } else {
-            tableView.reloadData()
+        DispatchQueue.main.async {
+            if self.tableView.numberOfSections > 0 {
+                self.tableView.reloadSections([0], with: .automatic)
+            } else {
+                self.tableView.reloadData()
+            }
+            
+            // Update header
+            let unbudgetedMoney = Model.shared.unbudgetedMoney()
+            self.shouldHideHeader = unbudgetedMoney.minorUnits == 0
+            self.headerController.configure(money: unbudgetedMoney)
+            
+            // Add helping labels when tableview is empty
+            if self.budgetCategories.count == 0 {
+                self.addHelpingLabels()
+            } else {
+                self.removeHelpingLabels()
+            }
         }
 
-        // Update header
-        let unbudgetedMoney = Model.shared.unbudgetedMoney()
-        shouldHideHeader = unbudgetedMoney.minorUnits == 0
-        headerController.configure(money: unbudgetedMoney)
-        
-        // Add helping labels when tableview is empty
-        if budgetCategories.count == 0 {
-            addHelpingLabels()
-        } else {
-            removeHelpingLabels()
-        }
     }
     
     private func addHelpingLabels() {
@@ -234,9 +237,17 @@ extension BudgetTableViewController: BudgetCellEditDelegate {
         guard let indexPath = tableView.indexPath(for: cell) else {
             return
         }
+        guard let newName = newName else {
+            return
+        }
+        guard newName.isEmpty == false else {
+            return
+        }
         let category = budgetCategories[indexPath.row]
 
         print("Changin \(category.name) to \(newName)")
-        
+        DispatchQueue.global(qos: .background).async {
+            Model.shared.renameBudgetCategory(oldName: category.name, newName: newName)
+        }
     }
 }

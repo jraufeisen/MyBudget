@@ -32,7 +32,7 @@ DEPENDENCIES:
   - WSTagsField (= 5.2.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - BulletinBoard
     - Charts
     - MaterialComponents
@@ -60,4 +60,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 9b68a15e51742379ac3080adbf4d13cb3a82d4a3
 
-COCOAPODS: 1.7.4
+COCOAPODS: 1.9.1
