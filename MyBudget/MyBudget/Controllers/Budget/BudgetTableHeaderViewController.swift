@@ -28,10 +28,10 @@ class BudgetTableHeaderViewController: UIViewController {
             label.textColor = .expenseColor
             label.text = "You have overbudgeted by \(money.negative)"
         } else if money == 0 {
-           label.textColor = .black
-           label.text = ""
+            label.textColor = .black
+            label.text = ""
         } else {
-           label.textColor = .incomeColor
+            label.textColor = .incomeColor
             label.text = "You have \(money) left to budget"
         }
     }
