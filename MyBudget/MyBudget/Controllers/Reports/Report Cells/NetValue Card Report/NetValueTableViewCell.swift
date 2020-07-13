@@ -16,13 +16,14 @@ class NetValueTableViewCell: UITableViewCell {
 
     @IBOutlet weak var contentContainer: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
-
+    @IBOutlet weak var titleLabel: UILabel!
+    
     private var explainLabel: UILabel?
     let oneMonthWidth: CGFloat = 100
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
+        titleLabel.text = NSLocalizedString("Net Value", comment: "Heading of a diagramm")
         selectionStyle = .none
         backgroundColor = .clear
         if #available(iOS 13.0, *) {

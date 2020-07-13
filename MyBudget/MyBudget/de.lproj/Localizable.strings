@@ -151,6 +151,9 @@
 /* %@ stands for an abitrary text */
 "Name contains %@" = "Name enthält %@";
 
+/* Heading of a diagramm */
+"Net Value" = "Nettovermögen";
+
 /* As in: new expense transactions */
 "New Expense" = "Neue Ausgabe";
 
