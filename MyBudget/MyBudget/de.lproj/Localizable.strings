@@ -13,6 +13,10 @@
 /* No comment provided by engineer. */
 "\nOur principle is simple: Every penny has its job." = "\nUnser Motto: Jeder Euro hat seinen Zweck.";
 
+/* banking account
+   Banking account */
+"Account" = "Konto";
+
 /* %@ stands for an abitrary text */
 "Account contains %@" = "Kontoname enthält %@";
 
@@ -34,6 +38,9 @@
 /* No comment provided by engineer. */
 "All subscriptions sync across your iCloud devices" = "Alle Abonnements werden auf deinen iCloud-Geräten synchronisiert";
 
+/* of Money in a transaction */
+"Amount" = "Betrag";
+
 /* %@ stands for a monetary value */
 "Average income: %@" = "Durchschn. Einkommen: %@";
 
@@ -51,6 +58,9 @@
 
 /* No comment provided by engineer. */
 "Car" = "Auto";
+
+/* Budgt category */
+"Category" = "Kategorie";
 
 /* No comment provided by engineer. */
 "Check back regularly to see how your net value developes over time" = "Überprüfe regelmäßig, wie sich dein Kontostand entwickelt";
@@ -115,6 +125,9 @@
 /* %@ is a number */
 "Free version:\n%@ transactions remaining today" = "Kostenlose Version:\n%@ Heute noch %@ Transaktionen";
 
+/* payment from a banking account */
+"From" = "Von";
+
 /* No comment provided by engineer. */
 "Gaming" = "Gaming";
 
@@ -147,6 +160,10 @@
 
 /* No comment provided by engineer. */
 "Mobility" = "Mobilität";
+
+/* Name of a transaction
+   of a transaction */
+"Name" = "Beschreibung";
 
 /* %@ stands for an abitrary text */
 "Name contains %@" = "Name enthält %@";
@@ -236,6 +253,9 @@
 /* Title of a digramm: This month's statistics */
 "This Month" = "In diesem Monat";
 
+/* payment in a banking account */
+"To" = "Nach";
+
 /* As in: total balance of all your accounts */
 "Total" = "Gesamt";
 
@@ -277,6 +297,9 @@
 
 /* %@ stands for a monetary amount */
 "You have overbudgeted by %@" = "Du hast %@ zu viel eingeplant";
+
+/* %@ will be an integer value */
+"You have spent %d % of this month's budget" = "Du hast %d %% in diesem Monat ausgegeben";
 
 /* No comment provided by engineer. */
 "You now have unlimited access to Budget!" = "Du hast nun unbegrenzten Zugang zu Budget!";

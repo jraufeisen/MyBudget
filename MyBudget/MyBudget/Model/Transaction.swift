@@ -50,10 +50,9 @@ class IncomeTransaction: Transaction {
     
     func diaryEntry() -> DiaryEntry {
         return [
-            ("", .date),
-            (", I added ", .money),
-            (" to my account ", .account),
-            (".\nName: ", .description),
+            (NSLocalizedString("Income", comment: "") + ": ", .money),
+            ("\n" + NSLocalizedString("Account", comment: "banking account") + ": ", .account),
+            ("\n" + NSLocalizedString("Name", comment: "of a transaction") + ": ", .description),
         ]
     }
 
@@ -100,11 +99,10 @@ class ExpenseTransaction: Transaction {
     
     func diaryEntry() -> DiaryEntry {
         return [
-            ("", .date),
-            (", I spent ", .money),
-            (" from my ", .account),
-            (" account on ", .category),
-            (".\nName: ", .description),
+            (NSLocalizedString("Expense", comment: "") + ": ", .money),
+            ("\n" + NSLocalizedString("Account", comment: "Banking account") + ": ", .account),
+            ("\n" + NSLocalizedString("Category", comment: "Budgt category") + ": ", .category),
+            ("\n" + NSLocalizedString("Name", comment: "Name of a transaction") + ": ", .description),
         ]
     }
         
@@ -156,11 +154,10 @@ class TransferTransaction: Transaction {
     
     func diaryEntry() -> DiaryEntry {
         return [
-            ("", .date),
-            (", I transferred ", .money),
-            (" from my ", .account),
-            (" account to my ", .account),
-            (" account.\nName: ", .description),
+            (NSLocalizedString("Amount", comment: "of Money in a transaction") + ": ", .money),
+            ("\n" + NSLocalizedString("From", comment: "payment from a banking account") + ": ", .account),
+            ("\n" + NSLocalizedString("To", comment: "payment in a banking account") + ": ", .account),
+            ("\n" + NSLocalizedString("Name", comment: "of a transaction") + ": ", .description),
         ]
     }
     

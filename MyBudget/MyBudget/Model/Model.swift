@@ -199,7 +199,7 @@ class Model: NSObject {
             if fillPercent.isNaN || fillPercent.isInfinite {
                 fillPercent = 0
             }
-            let detailText = "You have spent \(100-Int(fillPercent*100)) % of this month's budget"
+            let detailText = String(format: NSLocalizedString("You have spent %d % of this month's budget", comment: "%d will be an integer value"), 100-Int(fillPercent*100))
             
             let viewable = BudgetCategoryViewable.init(name: dummyCategories[i], remainingMoney: Money.init((remainingMoney as NSNumber).floatValue), percentLeft: fillPercent, detailString: detailText)
             categoryViewables.append(viewable)

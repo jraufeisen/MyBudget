@@ -13,6 +13,10 @@
 /* No comment provided by engineer. */
 "\nOur principle is simple: Every penny has its job." = "\nOur principle is simple: Every penny has its job.";
 
+/* banking account
+   Banking account */
+"Account" = "Account";
+
 /* %@ stands for an abitrary text */
 "Account contains %@" = "Account contains %@";
 
@@ -34,6 +38,9 @@
 /* No comment provided by engineer. */
 "All subscriptions sync across your iCloud devices" = "All subscriptions sync across your iCloud devices";
 
+/* of Money in a transaction */
+"Amount" = "Amount";
+
 /* %@ stands for a monetary value */
 "Average income: %@" = "Average income: %@";
 
@@ -51,6 +58,9 @@
 
 /* No comment provided by engineer. */
 "Car" = "Car";
+
+/* Budgt category */
+"Category" = "Category";
 
 /* No comment provided by engineer. */
 "Check back regularly to see how your net value developes over time" = "Check back regularly to see how your net value developes over time";
@@ -115,6 +125,9 @@
 /* %@ is a number */
 "Free version:\n%@ transactions remaining today" = "Free version:\n%@ transactions remaining today";
 
+/* payment from a banking account */
+"From" = "From";
+
 /* No comment provided by engineer. */
 "Gaming" = "Gaming";
 
@@ -147,6 +160,10 @@
 
 /* No comment provided by engineer. */
 "Mobility" = "Mobility";
+
+/* Name of a transaction
+   of a transaction */
+"Name" = "Name";
 
 /* %@ stands for an abitrary text */
 "Name contains %@" = "Name contains %@";
@@ -236,6 +253,9 @@
 /* Title of a digramm: This month's statistics */
 "This Month" = "This Month";
 
+/* payment in a banking account */
+"To" = "To";
+
 /* As in: total balance of all your accounts */
 "Total" = "Total";
 
@@ -277,6 +297,9 @@
 
 /* %@ stands for a monetary amount */
 "You have overbudgeted by %@" = "You have overbudgeted by %@";
+
+/* %@ will be an integer value */
+"You have spent %d % of this month's budget" = "You have spent %d %% of this month's budget";
 
 /* No comment provided by engineer. */
 "You now have unlimited access to Budget!" = "You now have unlimited access to Budget!";
