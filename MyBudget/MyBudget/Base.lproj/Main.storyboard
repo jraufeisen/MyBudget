@@ -30,7 +30,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oxL-ag-LSl" userLabel="Background">
-                                                    <rect key="frame" x="20" y="11" width="374" height="129"/>
+                                                    <rect key="frame" x="20" y="10.5" width="374" height="129"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" misplaced="YES" text="42.42 €" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgs-Ul-Wbx">
                                                             <rect key="frame" x="241" y="8" width="125" height="32"/>
@@ -39,7 +39,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sLq-xs-ydB" customClass="PercentFillView" customModule="Budget_" customModuleProvider="target">
-                                                            <rect key="frame" x="8" y="51" width="358" height="21"/>
+                                                            <rect key="frame" x="8" y="50.5" width="358" height="21"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <color key="tintColor" red="0.20724826390000001" green="0.21195419520547945" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
@@ -131,7 +131,7 @@
                     <tabBarItem key="tabBarItem" title="Budget" image="Bag" id="aYr-Bw-ZEY"/>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="60n-N2-8k6" customClass="LargeTitleNavigationBar" customModule="Budget_" customModuleProvider="target">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="60n-N2-8k6">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
