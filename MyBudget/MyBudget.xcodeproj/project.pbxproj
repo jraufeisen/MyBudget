@@ -106,6 +106,7 @@
 		EB9DEBD422E9E5C400A73FD1 /* UITextField+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */; };
 		EB9DEBD622E9F00600A73FD1 /* CategoryAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9DEBD522E9F00600A73FD1 /* CategoryAccessoryView.swift */; };
 		EBA1A611239825FE009C090D /* NSAttributedString+Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA1A610239825FE009C090D /* NSAttributedString+Builder.swift */; };
+		EBA3750D24BDFA100008FE48 /* BartyCrouch.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA3750C24BDFA100008FE48 /* BartyCrouch.swift */; };
 		EBA8A8A72393CE6600217D4D /* PerMonthIncomeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA8A8A62393CE6600217D4D /* PerMonthIncomeCard.swift */; };
 		EBA8A8A92393CEAA00217D4D /* PerMonthIncomeCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBA8A8A82393CEAA00217D4D /* PerMonthIncomeCard.xib */; };
 		EBA8A8AB2393D3EA00217D4D /* PerCategorySpending.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA8A8AA2393D3EA00217D4D /* PerCategorySpending.swift */; };
@@ -350,6 +351,7 @@
 		EB9DEBD322E9E5C400A73FD1 /* UITextField+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Placeholder.swift"; sourceTree = "<group>"; };
 		EB9DEBD522E9F00600A73FD1 /* CategoryAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAccessoryView.swift; sourceTree = "<group>"; };
 		EBA1A610239825FE009C090D /* NSAttributedString+Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Builder.swift"; sourceTree = "<group>"; };
+		EBA3750C24BDFA100008FE48 /* BartyCrouch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BartyCrouch.swift; sourceTree = "<group>"; };
 		EBA8A8A62393CE6600217D4D /* PerMonthIncomeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerMonthIncomeCard.swift; sourceTree = "<group>"; };
 		EBA8A8A82393CEAA00217D4D /* PerMonthIncomeCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PerMonthIncomeCard.xib; sourceTree = "<group>"; };
 		EBA8A8AA2393D3EA00217D4D /* PerCategorySpending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerCategorySpending.swift; sourceTree = "<group>"; };
@@ -796,6 +798,7 @@
 		EBC59D3D22E7503900E626DC /* MyBudget */ = {
 			isa = PBXGroup;
 			children = (
+				EBA3750C24BDFA100008FE48 /* BartyCrouch.swift */,
 				EB8F506824BCBCE1007C624B /* Localizable.strings */,
 				EB51875923216C1A0052D6B7 /* finances_example.txt */,
 				EB558EB522ECA39D00039651 /* MyBudget.entitlements */,
@@ -1279,6 +1282,7 @@
 				EB35EDEC233E100100C58683 /* TransferDetailTableViewController.swift in Sources */,
 				EB09FC97231D5D830063FB90 /* SubscriptionFloaty.swift in Sources */,
 				EB712A8E2393061D00A7ABBD /* TransactionSearchResultHeaderView.swift in Sources */,
+				EBA3750D24BDFA100008FE48 /* BartyCrouch.swift in Sources */,
 				EBE7E2BC2321233500BEC812 /* Constants.swift in Sources */,
 				EBE7FE55233CC5C40088D156 /* EditCategoryTableViewCell.swift in Sources */,
 				EBE7FE41233CC3720088D156 /* EditMoneyTableViewCell.swift in Sources */,
