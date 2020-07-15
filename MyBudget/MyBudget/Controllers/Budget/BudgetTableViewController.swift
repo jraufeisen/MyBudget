@@ -71,7 +71,16 @@ class BudgetTableViewController: NavbarFillingViewController {
             let unbudgetedMoney = Model.shared.unbudgetedMoney()
             self.shouldHideHeader = unbudgetedMoney.minorUnits == 0
             self.headerController.configure(money: unbudgetedMoney)
-
+            
+            // Set tabbar badge according to remaining money
+            if unbudgetedMoney == 0 {
+                self.navigationController?.tabBarItem.badgeValue = nil
+                self.navigationController?.tabBarItem.badgeColor = nil
+            } else {
+                self.navigationController?.tabBarItem.badgeValue = Locale.current.currencySymbol ?? "€"
+                self.navigationController?.tabBarItem.badgeColor = unbudgetedMoney < 0 ? UIColor.expenseColor : UIColor.incomeColor
+            }
+            self.navigationController?.tabBarController?.tabBar.isTranslucent = false
             // Reload tableview
             if self.tableView.numberOfSections > 0 {
                 self.tableView.reloadSections([0], with: .automatic)
