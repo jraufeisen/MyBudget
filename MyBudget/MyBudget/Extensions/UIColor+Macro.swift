@@ -12,9 +12,9 @@ extension UIColor {
     
     #if os(watchOS)
     // WatchOS does not provide system colors (no dark mode), so differentiate here
-    static var incomeColor = UIColor.green
-    static var expenseColor = UIColor.red
-    static var transferColor = UIColor.yellow
+    static var incomeColor = UIColor(red: 0.15, green: 0.78, blue: 0.38, alpha: 1)  // RGB values of systemGreen in bright mode
+    static var expenseColor = UIColor(red: 1, green: 0.22, blue: 0.22, alpha: 1)    // RGB values of systemRed in bright mode
+    static var transferColor = UIColor(red: 1, green: 0.79, blue: 0.23, alpha: 1)   // RGB values of systemYellow in bright mode
     #else
     static var incomeColor = UIColor.systemGreen
     static var expenseColor = UIColor.systemRed
