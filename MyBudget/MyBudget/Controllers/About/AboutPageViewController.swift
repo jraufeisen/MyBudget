@@ -40,9 +40,8 @@ class AboutPageViewController: UIViewController {
         super.viewDidLoad()
         
         // Set subscription description text manually cause storyboard does not adapt colors for dark mode...
-        let subscriptionTitle = NSLocalizedString("Subscribing to Budget ", comment: "Forms a complete sentence with the 'unlocks full access to this app...' string.Trailing whitespace is needed. ")
-        let subscriptionBody = NSLocalizedString("unlocks full access to this app. By downloading Budget!, you have received a contingent of 100 transactions for free. Afterwards, you can still track up to one transaction per day. Subscribing to Budget! removes this limitation and grants full access.", comment: "")
-        let subscriptionDescription = NSAttributedString.appStoreLikeDescription(title: subscriptionTitle, body: subscriptionBody)
+        let advertisementText = NSLocalizedString("Subscribing to Budget unlocks full access to this app. By downloading Budget!, you have received a contingent of 100 transactions for free. Afterwards, you can still track up to one transaction per day. Subscribing to Budget! removes this limitation and grants full access.", comment: "The first two words are printed bold")
+        let subscriptionDescription = NSAttributedString.appStoreLikeDescription(completeText: advertisementText)
         largeSubscriptionLabel.attributedText = subscriptionDescription
         
         // Appearance of rating button

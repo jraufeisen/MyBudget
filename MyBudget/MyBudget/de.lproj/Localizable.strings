@@ -232,8 +232,8 @@
 /* No comment provided by engineer. */
 "Subscribed: Unlimited access" = "Abonniert: Voller Funktionsumfang";
 
-/* Forms a complete sentence with the 'unlocks full access to this app...' string.Trailing whitespace is needed.  */
-"Subscribing to Budget " = "Druch das Abonnieren von Budget! ";
+/* The first two words are printed bold */
+"Subscribing to Budget unlocks full access to this app. By downloading Budget!, you have received a contingent of 100 transactions for free. Afterwards, you can still track up to one transaction per day. Subscribing to Budget! removes this limitation and grants full access." = "Ein Abonnement von Budget! schaltet du den vollen Funktionsumfang frei. Beim ersten Download der App wurden dir kostenlos 100 Transaktionen gutgeschrieben. Nach Aufbrauchen dieses Kontingents kannst du täglich eine weitere Transaktion hinzufügen. Durch das Abonnieren von Budget! erhältst du ein unbegrenztes Kontingent für den entsprechenden Zeitraum.";
 
 /* First %@ is a date, second %@ is a number */
 "Subscription expired on %@:\n%@ transactions remaining" = "Abonnement ist am %@ ausgelaufen:\n%@ Transaktionen verbleibend";
@@ -275,9 +275,6 @@
 "Unlock unlimited access by subscribing either monthly or annualy." = "Schalte unbegrenzten Zugang zur App frei, indem du monatlich oder jährlich abonnierst";
 
 /* No comment provided by engineer. */
-"unlocks full access to this app. By downloading Budget!, you have received a contingent of 100 transactions for free. Afterwards, you can still track up to one transaction per day. Subscribing to Budget! removes this limitation and grants full access." = "schaltest du den vollen Funktionsumfang frei. Beim ersten Download der App wurden dir kostenlos 100 Transaktionen gutgeschrieben. Nach Aufbrauchen dieses Kontingents kannst du täglich eine weitere Transaktion hinzufügen. Durch das Abonnieren von Budget! erhältst du ein unbegrenztes Kontingent für den entsprechenden Zeitraum.";
-
-/* No comment provided by engineer. */
 "Vacation" = "Urlaub";
 
 /* No comment provided by engineer. */
@@ -306,3 +303,6 @@
 
 /* No comment provided by engineer. */
 "Your purchases have been restored" = "Deine Käufe wurden wiederhergestellt";
+
+/* No comment provided by engineer. */
+"unlocks full access to this app. By downloading Budget!, you have received a contingent of 100 transactions for free. Afterwards, you can still track up to one transaction per day. Subscribing to Budget! removes this limitation and grants full access." = "";
