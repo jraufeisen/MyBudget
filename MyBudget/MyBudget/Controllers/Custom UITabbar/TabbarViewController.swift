@@ -40,11 +40,6 @@ class TabbarViewController: UITabBarController, FloatyDelegate {
     
     func setupCenterButton() {
         let floaty = SubscriptionFloaty.init(frame: CGRect(x: 0, y: 10, width: 55, height: 55))
-        
-        var centerButtonFrame = floaty.frame
-        centerButtonFrame.origin.y = (view.bounds.height - 1.35*centerButtonFrame.height)
-        centerButtonFrame.origin.x = view.bounds.width/2 - centerButtonFrame.size.width/2
-        floaty.frame = centerButtonFrame
         floaty.fabDelegate = self
         
         floaty.incomeItem.handler = { (item) in
@@ -81,7 +76,7 @@ class TabbarViewController: UITabBarController, FloatyDelegate {
         view.addConstraint(height)
         let center_x_Constraint = NSLayoutConstraint(item: floaty,  attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0)
         view.addConstraint(center_x_Constraint)
-        let center_y_Constraint = NSLayoutConstraint(item: floaty, attribute: .centerY,  relatedBy: .equal, toItem: tabBar, attribute: .topMargin, multiplier: 1, constant: -5)
+        let center_y_Constraint = NSLayoutConstraint(item: floaty, attribute: .centerY,  relatedBy: .equal, toItem: tabBar, attribute: .centerY, multiplier: 1, constant: -20)
         view.addConstraint(center_y_Constraint)
     }
     
