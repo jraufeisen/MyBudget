@@ -120,10 +120,10 @@
 "First, decide what's important for you" = "1. Entscheide, was wichtig für dich ist";
 
 /* %@ is a number */
-"Free version:\n%@ transactions remaining" = "Kostenlose Version:\n%@ Transaktionen verbleibend";
+"Free version:\n%d transactions remaining" = "Kostenlose Version:\n%d Transaktionen verbleibend";
 
 /* %@ is a number */
-"Free version:\n%@ transactions remaining today" = "Kostenlose Version:\n%@ Heute noch %@ Transaktionen";
+"Free version:\n%d transactions remaining today" = "Kostenlose Version:\nHeute noch %d Transaktionen";
 
 /* payment from a banking account */
 "From" = "Von";
@@ -236,10 +236,10 @@
 "Subscribing to Budget unlocks full access to this app. By downloading Budget!, you have received a contingent of 100 transactions for free. Afterwards, you can still track up to one transaction per day. Subscribing to Budget! removes this limitation and grants full access." = "Ein Abonnement von Budget! schaltet du den vollen Funktionsumfang frei. Beim ersten Download der App wurden dir kostenlos 100 Transaktionen gutgeschrieben. Nach Aufbrauchen dieses Kontingents kannst du täglich eine weitere Transaktion hinzufügen. Durch das Abonnieren von Budget! erhältst du ein unbegrenztes Kontingent für den entsprechenden Zeitraum.";
 
 /* First %@ is a date, second %@ is a number */
-"Subscription expired on %@:\n%@ transactions remaining" = "Abonnement ist am %@ ausgelaufen:\n%@ Transaktionen verbleibend";
+"Subscription expired on %@:\n%d transactions remaining" = "Abonnement ist am %@ ausgelaufen:\n%d Transaktionen verbleibend";
 
 /* First %@ is a date, second %@ is a number */
-"Subscription expired on %@:\n%@ transactions remaining today" = "Abonnement ist am %@ ausgelaufen:\nHeute %@ Transaktionen verbleibend";
+"Subscription expired on %@:\n%d transactions remaining today" = "Abonnement ist am %@ ausgelaufen:\nHeute %d Transaktionen verbleibend";
 
 /* No comment provided by engineer. */
 "Subscriptions" = "Abonnements";

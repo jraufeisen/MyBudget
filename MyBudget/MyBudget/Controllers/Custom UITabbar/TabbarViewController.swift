@@ -70,11 +70,7 @@ class TabbarViewController: UITabBarController, FloatyDelegate {
                 self.bulletinManager.showBulletin(above: self)
             }
         }
-        
-        floaty.subscribeItem.handler = { (item) in
-            self.bulletinManager.showBulletin(above: self)
-        }
-        
+                
         floaty.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(floaty)
         
@@ -146,21 +142,21 @@ class TabbarViewController: UITabBarController, FloatyDelegate {
                         let dateString = DateFormatter.localizedString(from: expirationDate, dateStyle: .medium, timeStyle: .none)
 
                         if remainingGlobal > 0 {
-                            let helpingText = String.init(format: NSLocalizedString("Subscription expired on %@:\n%@ transactions remaining", comment: "First %@ is a date, second %@ is a number"), dateString, remainingGlobal)
+                            let helpingText = String.init(format: NSLocalizedString("Subscription expired on %@:\n%d transactions remaining", comment: "First %@ is a date, second %@ is a number"), dateString, remainingGlobal)
                             self.helpingLabel?.text = helpingText
                             self.helpingLabel?.textColor = .blueActionColor
                         } else {
-                            let helpingText = String.init(format: NSLocalizedString("Subscription expired on %@:\n%@ transactions remaining today", comment: "First %@ is a date, second %@ is a number"), dateString, remainingToday)
+                            let helpingText = String.init(format: NSLocalizedString("Subscription expired on %@:\n%d transactions remaining today", comment: "First %@ is a date, second %@ is a number"), dateString, remainingToday)
                             self.helpingLabel?.text = helpingText
                             self.helpingLabel?.textColor = .transferColor
                         }
                     } else {
                         if remainingGlobal > 0 {
-                            let helpingText = String.init(format: NSLocalizedString("Free version:\n%@ transactions remaining", comment: "%@ is a number"), remainingGlobal)
+                            let helpingText = String.init(format: NSLocalizedString("Free version:\n%d transactions remaining", comment: "%@ is a number"), remainingGlobal)
                             self.helpingLabel?.text = helpingText
                             self.helpingLabel?.textColor = .blueActionColor
                         } else {
-                            let helpingText = String.init(format: NSLocalizedString("Free version:\n%@ transactions remaining today", comment: "%@ is a number"), remainingToday)
+                            let helpingText = String.init(format: NSLocalizedString("Free version:\n%d transactions remaining today", comment: "%@ is a number"), remainingToday)
                             self.helpingLabel?.text = helpingText
                             self.helpingLabel?.textColor = .transferColor
                         }

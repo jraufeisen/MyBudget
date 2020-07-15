@@ -120,10 +120,10 @@
 "First, decide what's important for you" = "First, decide what's important for you";
 
 /* %@ is a number */
-"Free version:\n%@ transactions remaining" = "Free version:\n%@ transactions remaining";
+"Free version:\n%d transactions remaining" = "Free version:\n%d transactions remaining";
 
 /* %@ is a number */
-"Free version:\n%@ transactions remaining today" = "Free version:\n%@ transactions remaining today";
+"Free version:\n%d transactions remaining today" = "Free version:\n%d transactions remaining today";
 
 /* payment from a banking account */
 "From" = "From";
@@ -236,10 +236,10 @@
 "Subscribing to Budget unlocks full access to this app. By downloading Budget!, you have received a contingent of 100 transactions for free. Afterwards, you can still track up to one transaction per day. Subscribing to Budget! removes this limitation and grants full access." = "Subscribing to Budget unlocks full access to this app. By downloading Budget!, you have received a contingent of 100 transactions for free. Afterwards, you can still track up to one transaction per day. Subscribing to Budget! removes this limitation and grants full access";
 
 /* First %@ is a date, second %@ is a number */
-"Subscription expired on %@:\n%@ transactions remaining" = "Subscription expired on %@:\n%@ transactions remaining";
+"Subscription expired on %@:\n%d transactions remaining" = "Subscription expired on %@:\n%d transactions remaining";
 
 /* First %@ is a date, second %@ is a number */
-"Subscription expired on %@:\n%@ transactions remaining today" = "Subscription expired on %@:\n%@ transactions remaining today";
+"Subscription expired on %@:\n%d transactions remaining today" = "Subscription expired on %@:\n%d transactions remaining today";
 
 /* No comment provided by engineer. */
 "Subscriptions" = "Subscriptions";

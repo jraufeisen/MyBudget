@@ -14,7 +14,6 @@ class SubscriptionFloaty: Floaty {
     let incomeItem = FloatyItem()
     let transferItem = FloatyItem()
     let expenseItem = FloatyItem()
-    let subscribeItem = FloatyItem()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -84,19 +83,6 @@ class SubscriptionFloaty: Floaty {
 
         addItem(item: expenseItem)
         
-        subscribeItem.titleColor = .darkText
-        if #available(iOS 13.0, *) {
-            subscribeItem.titleColor = UIColor.label
-        }
-        subscribeItem.icon = #imageLiteral(resourceName: "Logo_Only").withRenderingMode(.alwaysTemplate)
-        subscribeItem.title = NSLocalizedString("Subscribed", comment: "")
-
-        subscribeItem.tintColor = .white
-        subscribeItem.buttonColor = .blueActionColor
-        subscribeItem.size = itemSize
-        subscribeItem.accessibilityLabel = NSLocalizedString("Subscribe", comment: "")
-        addItem(item: subscribeItem)
-
         // Dont move - ever. Stay fixed in the tabbar
         respondsToKeyboard = false
     }
