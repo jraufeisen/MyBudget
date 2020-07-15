@@ -1,0 +1,3181 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.2.4 (swiftlang-1103.0.32.9 clang-1103.0.32.53)
+// swift-module-flags: -target x86_64-apple-ios12.4-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name Swift_Ledger
+import Foundation
+import PassKit
+import Swift
+public let ModelChangedNotification: Foundation.NSNotification.Name
+@objc public class LedgerModel : ObjectiveC.NSObject {
+  public class func shared() -> Swift_Ledger.LedgerModel
+  final public let accounts: [Swift_Ledger.Account]
+  final public let transactions: [Swift_Ledger.LedgerTransaction]
+  public class var defaultURL: Foundation.URL {
+    get
+  }
+  public class var defaultJournal: Swift.String {
+    get
+  }
+  public init(ledgerString: Swift.String)
+  public func categories() -> [Swift.String]
+  public func budgetAtMonth(date: Foundation.Date) -> [Swift_Ledger.Posting]?
+  public func addBudget(category: Swift.String, value: Swift.String) -> Swift.Bool
+  public func postIncome(acc: Swift.String, value: Swift.String, description: Swift.String = "Transaktion") -> Swift.Bool
+  public func postIncome(acc: Swift_Ledger.Account, value: Swift.String, description: Swift.String = "Unnamed transaction") -> Swift.Bool
+  public func postTransfer(from: Swift_Ledger.Account, to: Swift_Ledger.Account, value: Swift.String, description: Swift.String = "Unnamed transaction") -> Swift.Bool
+  public func postExpense(acc: Swift_Ledger.Account, value: Swift.String, category: Swift.String, description: Swift.String = "Unnamed transaction") -> Swift.Bool
+  public func createBankingAccount(name: Swift.String, balance: Swift.String) -> Swift.Bool
+  public func createBudgetCategory(name: Swift.String, balance: Swift.String) -> Swift.Bool
+  public func budgetInCategory(category: Swift.String) -> Foundation.Decimal
+  public func balanceForAccount(acc: Swift_Ledger.Account) -> Foundation.Decimal
+  public func balanceUpToDate(acc: Swift_Ledger.Account, date: Foundation.Date) -> Foundation.Decimal
+  public func incomeSinceDate(acc: Swift_Ledger.Account, date: Foundation.Date) -> Foundation.Decimal
+  public func income(acc: Swift_Ledger.Account, from: Foundation.Date, to: Foundation.Date) -> Foundation.Decimal
+  public func expenseSinceDate(acc: Swift_Ledger.Account, date: Foundation.Date) -> Foundation.Decimal
+  public func expense(acc: Swift_Ledger.Account, from: Foundation.Date, to: Foundation.Date) -> Foundation.Decimal
+  public func balanceSinceDate(acc: Swift_Ledger.Account, date: Foundation.Date) -> Foundation.Decimal
+  public class func dateString(date: Foundation.Date) -> Swift.String
+  public class func beancountDateString(date: Foundation.Date) -> Swift.String
+  public func convertToBeancount() -> Swift.String
+  public func removeTransaction(tx: Swift_Ledger.LedgerTransaction)
+  public func removeAllTransactionsWithOccurencesOf(account: Swift_Ledger.Account)
+  public func replaceTransaction(oldTx: Swift_Ledger.LedgerTransaction, with newTx: Swift_Ledger.LedgerTransaction)
+  public func renameAccount(oldAccount: Swift_Ledger.Account, newAccount: Swift_Ledger.Account)
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc @_hasMissingDesignatedInitializers public class Amount : ObjectiveC.NSObject {
+  public var value: Foundation.Decimal
+  public var currency: Swift.String
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
+  public static func unknown() -> Swift_Ledger.Amount
+  public func addAmount(other: Swift_Ledger.Amount)
+  @objc deinit
+  @objc override dynamic public init()
+}
+extension Collection where Self.Element == Swift_Ledger.Amount {
+  public func containsCurrency(currency: Swift.String) -> Swift.Bool
+  public func allOf(currency: Swift.String) -> Swift_Ledger.Amount
+}
+public func == (lhs: Foundation.NSDecimalNumber, rhs: Foundation.NSDecimalNumber) -> Swift.Bool
+public func < (lhs: Foundation.NSDecimalNumber, rhs: Foundation.NSDecimalNumber) -> Swift.Bool
+public enum PaymentSummaryItemType : Swift.Int {
+  case final, pending
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct PaymentSummaryItem<Cost> : Swift.Hashable, Swift.Codable where Cost : Swift_Ledger.MoneyType {
+  public let label: Swift.String
+  public let cost: Cost
+  public let type: Swift_Ledger.PaymentSummaryItemType
+  public func hash(into hasher: inout Swift.Hasher)
+  public init(label: Swift.String, cost: Cost, type: Swift_Ledger.PaymentSummaryItemType = .final)
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public var hashValue: Swift.Int {
+    get
+  }
+  public static func == (a: Swift_Ledger.PaymentSummaryItem<Cost>, b: Swift_Ledger.PaymentSummaryItem<Cost>) -> Swift.Bool
+}
+extension PaymentSummaryItem {
+  public func set(label newLabel: Swift.String) -> Swift_Ledger.PaymentSummaryItem<Cost>
+  public func set(cost newCost: Cost) -> Swift_Ledger.PaymentSummaryItem<Cost>
+  public func set(type newType: Swift_Ledger.PaymentSummaryItemType) -> Swift_Ledger.PaymentSummaryItem<Cost>
+}
+extension PKPaymentRequest {
+  convenience public init<Cost>(items: [Swift_Ledger.PaymentSummaryItem<Cost>], sellerName: Swift.String) where Cost : Swift_Ledger.MoneyType, Cost.DecimalStorageType == Foundation.NSDecimalNumber
+}
+public func == <Cost>(lhs: Swift_Ledger.PaymentSummaryItem<Cost>, rhs: Swift_Ledger.PaymentSummaryItem<Cost>) -> Swift.Bool where Cost : Swift_Ledger.MoneyType, Cost.DecimalStorageType == Foundation.NSDecimalNumber
+public protocol MoneyType : Swift.Decodable, Swift.Encodable, Swift_Ledger.DecimalNumberType {
+  associatedtype Currency : Swift_Ledger.CurrencyType
+  var decimal: Swift_Ledger._Decimal<Self.Currency> { get }
+  var minorUnits: Self.IntegerLiteralType { get }
+  init(_: Swift_Ledger._Decimal<Self.Currency>)
+  init(minorUnits: Self.IntegerLiteralType)
+}
+extension MoneyType {
+  public var amount: Self.DecimalStorageType {
+    get
+  }
+  public var currencyCode: Swift.String {
+    get
+  }
+  public var currencySymbol: Swift.String? {
+    get
+  }
+}
+extension MoneyType where Self.DecimalStorageType == Foundation.NSDecimalNumber {
+  public func formatted(withStyle style: Foundation.NumberFormatter.Style) -> Swift.String
+  public func formatted(withStyle style: Foundation.NumberFormatter.Style, forLocale locale: Swift_Ledger.MNYLocale) -> Swift.String
+}
+extension MoneyType where Self.DecimalStorageType == Swift_Ledger.BankersDecimal.DecimalStorageType {
+  public func convert<Other>(withRate rate: Swift_Ledger.BankersDecimal) -> Other where Other : Swift_Ledger.MoneyType, Other.DecimalStorageType == Swift_Ledger.BankersDecimal.DecimalStorageType
+}
+public struct _Money<C> : Swift_Ledger.MoneyType where C : Swift_Ledger.CurrencyType {
+  public typealias DecimalNumberBehavior = C
+  public typealias Currency = C
+  public let decimal: Swift_Ledger._Decimal<C>
+  public var minorUnits: Swift.IntegerLiteralType {
+    get
+  }
+  public var storage: Swift_Ledger._Decimal<C>.DecimalStorageType {
+    get
+  }
+  public var isNegative: Swift.Bool {
+    get
+  }
+  public var negative: Swift_Ledger._Money<C> {
+    get
+  }
+  public init(_ value: Swift_Ledger._Decimal<C> = _Decimal<C>())
+  public init(minorUnits: Swift.IntegerLiteralType)
+  public init(storage: Swift_Ledger._Decimal<C>.DecimalStorageType)
+  public init(integerLiteral value: Swift.IntegerLiteralType)
+  public init(floatLiteral value: Swift.FloatLiteralType)
+  public func subtracting(_ other: Swift_Ledger._Money<C>) -> Swift_Ledger._Money<C>
+  public func adding(_ other: Swift_Ledger._Money<C>) -> Swift_Ledger._Money<C>
+  public func multiplying(by other: Swift_Ledger._Money<C>) -> Swift_Ledger._Money<C>
+  public func dividing(by other: Swift_Ledger._Money<C>) -> Swift_Ledger._Money<C>
+  public func remainder(_ other: Swift_Ledger._Money<C>) -> Swift_Ledger._Money<C>
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public typealias IntegerLiteralType = Swift.IntegerLiteralType
+  public typealias DecimalStorageType = Swift_Ledger._Decimal<C>.DecimalStorageType
+  public typealias FloatLiteralType = Swift.FloatLiteralType
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public func == <C>(lhs: Swift_Ledger._Money<C>, rhs: Swift_Ledger._Money<C>) -> Swift.Bool where C : Swift_Ledger.CurrencyType
+public func < <C>(lhs: Swift_Ledger._Money<C>, rhs: Swift_Ledger._Money<C>) -> Swift.Bool where C : Swift_Ledger.CurrencyType
+extension _Money : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+public typealias Money = Swift_Ledger._Money<Swift_Ledger.Currency.Local>
+public struct _Decimal<Behavior> : Swift_Ledger.DecimalNumberType, Swift.Hashable, Swift.Codable where Behavior : Swift_Ledger.DecimalNumberBehaviorType {
+  public typealias DecimalNumberBehavior = Behavior
+  public let storage: Foundation.NSDecimalNumber
+  public func hash(into hasher: inout Swift.Hasher)
+  public init(storage: Foundation.NSDecimalNumber = NSDecimalNumber.zero)
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+  public typealias DecimalStorageType = Foundation.NSDecimalNumber
+  public typealias FloatLiteralType = Swift.FloatLiteralType
+  public typealias IntegerLiteralType = Swift.IntegerLiteralType
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+public func == <B>(lhs: Swift_Ledger._Decimal<B>, rhs: Swift_Ledger._Decimal<B>) -> Swift.Bool where B : Swift_Ledger.DecimalNumberBehaviorType
+public func < <B>(lhs: Swift_Ledger._Decimal<B>, rhs: Swift_Ledger._Decimal<B>) -> Swift.Bool where B : Swift_Ledger.DecimalNumberBehaviorType
+public typealias PlainDecimal = Swift_Ledger._Decimal<Swift_Ledger.DecimalNumberBehavior.Plain>
+public typealias BankersDecimal = Swift_Ledger._Decimal<Swift_Ledger.DecimalNumberBehavior.Bankers>
+@objc public class Account : ObjectiveC.NSObject {
+  final public let name: Swift.String
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
+  public class func bankingAccount(named: Swift.String) -> Swift_Ledger.Account
+  public class func budgetAccount(named: Swift.String) -> Swift_Ledger.Account
+  public class func expensesAccount(for category: Swift.String) -> Swift_Ledger.Account
+  public class func antiBudgetAccount(for category: Swift.String) -> Swift_Ledger.Account
+  public class func incomeAccount() -> Swift_Ledger.Account
+  public init(name: Swift.String)
+  public init?(fromline line: Swift.String)
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension Account {
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+}
+public protocol Node {
+}
+public protocol NonLeafNode : Swift_Ledger.Node {
+  static var productionRules: [[Swift_Ledger.ProductionRuleComponent]] { get }
+  var length: Swift.Int { get }
+  init(parsedNodes: [Swift_Ledger.Node], productionRule: [Swift_Ledger.ProductionRuleComponent])
+}
+public protocol LeafNode : Swift_Ledger.Node {
+  static var regex: Swift.String { get }
+  var token: Swift.String { get }
+  var extraCaptureGroups: [Swift.String] { get }
+  init(token: Swift.String, extraCaptureGroups: [Swift.String])
+}
+public enum ProductionRuleComponent : Swift.Equatable {
+  public static func == (lhs: Swift_Ledger.ProductionRuleComponent, rhs: Swift_Ledger.ProductionRuleComponent) -> Swift.Bool
+  case token(Swift.String)
+  case nonLeaf(Swift_Ledger.NonLeafNode.Type)
+  case leaf(Swift_Ledger.LeafNode.Type)
+}
+extension LeafNode {
+  public init?(fromString string: Swift.String)
+}
+extension NonLeafNode {
+  public init?(fromString string: Swift.String)
+}
+public enum OptionalLeafNode<InnerNode> : Swift_Ledger.NonLeafNode, Swift.Equatable where InnerNode : Swift.Equatable, InnerNode : Swift_Ledger.LeafNode {
+  public static var productionRules: [[Swift_Ledger.ProductionRuleComponent]] {
+    get
+  }
+  case none
+  indirect case some(InnerNode)
+  public var length: Swift.Int {
+    get
+  }
+  public init(parsedNodes: [Swift_Ledger.Node], productionRule _: [Swift_Ledger.ProductionRuleComponent])
+  public static func == (a: Swift_Ledger.OptionalLeafNode<InnerNode>, b: Swift_Ledger.OptionalLeafNode<InnerNode>) -> Swift.Bool
+}
+public enum OptionalNonLeafNode<InnerNode> : Swift_Ledger.NonLeafNode, Swift.Equatable where InnerNode : Swift.Equatable, InnerNode : Swift_Ledger.NonLeafNode {
+  public static var productionRules: [[Swift_Ledger.ProductionRuleComponent]] {
+    get
+  }
+  case none
+  indirect case some(InnerNode)
+  public var length: Swift.Int {
+    get
+  }
+  public init(parsedNodes: [Swift_Ledger.Node], productionRule _: [Swift_Ledger.ProductionRuleComponent])
+  public static func == (a: Swift_Ledger.OptionalNonLeafNode<InnerNode>, b: Swift_Ledger.OptionalNonLeafNode<InnerNode>) -> Swift.Bool
+}
+extension Array where Element == Swift_Ledger.ProductionRuleComponent {
+  public var tokenLength: Swift.Int {
+    get
+  }
+}
+public protocol LanguageType {
+  var languageIdentifier: Swift.String { get }
+}
+public protocol CountryType {
+  var countryIdentifier: Swift.String { get }
+}
+public protocol LocaleType {
+  var localeIdentifier: Swift.String { get }
+}
+extension LocaleType where Self : Swift_Ledger.CountryType, Self : Swift_Ledger.LanguageType {
+  public var localeIdentifier: Swift.String {
+    get
+  }
+}
+public protocol CurrencyType : Swift_Ledger.DecimalNumberBehaviorType {
+  static var code: Swift.String { get }
+  static var scale: Swift.Int { get }
+  static var symbol: Swift.String? { get }
+  static var defaultFormattingStyle: Foundation.NumberFormatter.Style { get }
+  static func formatted(withStyle: Foundation.NumberFormatter.Style, forLocaleId localeId: Swift.String) -> (Foundation.NSDecimalNumber) -> Swift.String
+  static func formatted(withStyle: Foundation.NumberFormatter.Style, forLocale locale: Swift_Ledger.MNYLocale) -> (Foundation.NSDecimalNumber) -> Swift.String
+}
+extension CurrencyType {
+  public static var defaultFormattingStyle: Foundation.NumberFormatter.Style {
+    get
+  }
+  public static var decimalNumberBehaviors: Foundation.NSDecimalNumberBehaviors {
+    get
+  }
+  public static func formatted(withStyle style: Foundation.NumberFormatter.Style, forLocaleId localeId: Swift.String) -> (Foundation.NSDecimalNumber) -> Swift.String
+  public static func formatted(withStyle style: Foundation.NumberFormatter.Style, forLocale tmp: Foundation.NSLocale) -> (Foundation.NSDecimalNumber) -> Swift.String
+  public static func formatted(withStyle style: Foundation.NumberFormatter.Style, forLocale locale: Swift_Ledger.MNYLocale) -> (Foundation.NSDecimalNumber) -> Swift.String
+}
+public protocol CustomCurrencyType : Swift_Ledger.CurrencyType {
+}
+public protocol CryptoCurrencyType : Swift_Ledger.CustomCurrencyType {
+}
+public protocol ISOCurrencyType : Swift_Ledger.CurrencyType {
+  static var sharedInstance: Self { get }
+  var _code: Swift.String { get }
+  var _scale: Swift.Int { get }
+  var _symbol: Swift.String? { get }
+}
+extension ISOCurrencyType {
+  public static var code: Swift.String {
+    get
+  }
+  public static var scale: Swift.Int {
+    get
+  }
+  public static var symbol: Swift.String? {
+    get
+  }
+  public static func formatted(withStyle style: Foundation.NumberFormatter.Style, forLocaleId localeId: Swift.String) -> (Foundation.NSDecimalNumber) -> Swift.String
+  public static func formatted(withStyle style: Foundation.NumberFormatter.Style, forLocale locale: Swift_Ledger.MNYLocale) -> (Foundation.NSDecimalNumber) -> Swift.String
+}
+public struct Currency {
+  @_hasMissingDesignatedInitializers public class Base {
+    final public let _code: Swift.String
+    final public let _scale: Swift.Int
+    final public let _symbol: Swift.String?
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class Local : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.Local
+    @objc deinit
+  }
+}
+public protocol DecimalNumberBehaviorType {
+  static var decimalNumberBehaviors: Foundation.NSDecimalNumberBehaviors { get }
+}
+public struct DecimalNumberBehavior {
+  public struct Plain : Swift_Ledger.DecimalNumberBehaviorType {
+    public static let decimalNumberBehaviors: Foundation.NSDecimalNumberBehaviors
+  }
+  public struct RoundDown : Swift_Ledger.DecimalNumberBehaviorType {
+    public static let decimalNumberBehaviors: Foundation.NSDecimalNumberBehaviors
+  }
+  public struct RoundUp : Swift_Ledger.DecimalNumberBehaviorType {
+    public static let decimalNumberBehaviors: Foundation.NSDecimalNumberBehaviors
+  }
+  public struct Bankers : Swift_Ledger.DecimalNumberBehaviorType {
+    public static let decimalNumberBehaviors: Foundation.NSDecimalNumberBehaviors
+  }
+}
+public protocol DecimalNumberType : Swift.CustomStringConvertible, Swift.ExpressibleByFloatLiteral, Swift.ExpressibleByIntegerLiteral, Swift.Hashable {
+  associatedtype DecimalStorageType
+  associatedtype DecimalNumberBehavior : Swift_Ledger.DecimalNumberBehaviorType
+  var storage: Self.DecimalStorageType { get }
+  var isNegative: Swift.Bool { get }
+  var negative: Self { get }
+  var integerValue: Self.IntegerLiteralType { get }
+  var floatValue: Self.FloatLiteralType { get }
+  init(storage: Self.DecimalStorageType)
+  func subtracting(_: Self) -> Self
+  func adding(_: Self) -> Self
+  func multiplying(byPowerOf10: Swift.Int16) -> Self
+  func multiplying(by: Self) -> Self
+  func multiplying<Other>(by: Other) -> Other where Other : Swift_Ledger.DecimalNumberType, Self.DecimalStorageType == Other.DecimalStorageType
+  func dividing(by: Self) -> Self
+  func dividing<Other>(by: Other) -> Other where Other : Swift_Ledger.DecimalNumberType, Self.DecimalStorageType == Other.DecimalStorageType
+  func remainder(_: Self) -> Self
+}
+extension DecimalNumberType where Self.DecimalStorageType == Foundation.NSDecimalNumber {
+  public var isNegative: Swift.Bool {
+    get
+  }
+  public var negative: Self {
+    get
+  }
+  public var integerValue: Swift.Int {
+    get
+  }
+  public var floatValue: Swift.Double {
+    get
+  }
+  public var description: Swift.String {
+    get
+  }
+  public init(_ value: Swift.Int)
+  public init(_ value: Swift.UInt8)
+  public init(_ value: Swift.Int8)
+  public init(_ value: Swift.UInt16)
+  public init(_ value: Swift.Int16)
+  public init(_ value: Swift.UInt32)
+  public init(_ value: Swift.Int32)
+  public init(_ value: Swift.UInt64)
+  public init(_ value: Swift.Int64)
+  public init(integerLiteral value: Swift.IntegerLiteralType)
+  public init(_ value: Swift.Double)
+  public init(_ value: Swift.Float)
+  public init(floatLiteral value: Swift.FloatLiteralType)
+  public func subtracting(_ other: Self) -> Self
+  public func adding(_ other: Self) -> Self
+  public func multiplying(byPowerOf10 index: Swift.Int16) -> Self
+  public func multiplying(by other: Self) -> Self
+  public func multiplying<Other>(by other: Other) -> Other where Other : Swift_Ledger.DecimalNumberType, Other.DecimalStorageType == Foundation.NSDecimalNumber
+  public func dividing(by other: Self) -> Self
+  public func dividing<Other>(by other: Other) -> Other where Other : Swift_Ledger.DecimalNumberType, Other.DecimalStorageType == Foundation.NSDecimalNumber
+  public func remainder(_ other: Self) -> Self
+}
+extension DecimalNumberType where Self.IntegerLiteralType == Swift.Int {
+  public var reciprocal: Self {
+    get
+  }
+}
+public func - <T>(lhs: T, rhs: T) -> T where T : Swift_Ledger.DecimalNumberType
+public func - <T>(lhs: T, rhs: T.IntegerLiteralType) -> T where T : Swift_Ledger.DecimalNumberType
+public func - <T>(lhs: T.IntegerLiteralType, rhs: T) -> T where T : Swift_Ledger.DecimalNumberType
+public func - <T>(lhs: T, rhs: T.FloatLiteralType) -> T where T : Swift_Ledger.DecimalNumberType
+public func - <T>(lhs: T.FloatLiteralType, rhs: T) -> T where T : Swift_Ledger.DecimalNumberType
+public func + <T>(lhs: T, rhs: T) -> T where T : Swift_Ledger.DecimalNumberType
+public func + <T>(lhs: T, rhs: T.IntegerLiteralType) -> T where T : Swift_Ledger.DecimalNumberType
+public func + <T>(lhs: T.IntegerLiteralType, rhs: T) -> T where T : Swift_Ledger.DecimalNumberType
+public func + <T>(lhs: T, rhs: T.FloatLiteralType) -> T where T : Swift_Ledger.DecimalNumberType
+public func + <T>(lhs: T.FloatLiteralType, rhs: T) -> T where T : Swift_Ledger.DecimalNumberType
+public func * <T>(lhs: T, rhs: T) -> T where T : Swift_Ledger.DecimalNumberType
+public func * <T>(lhs: T, rhs: T.IntegerLiteralType) -> T where T : Swift_Ledger.DecimalNumberType
+public func * <T>(lhs: T, rhs: T.FloatLiteralType) -> T where T : Swift_Ledger.DecimalNumberType
+public func * <T>(lhs: T.IntegerLiteralType, rhs: T) -> T where T : Swift_Ledger.DecimalNumberType
+public func * <T>(lhs: T.FloatLiteralType, rhs: T) -> T where T : Swift_Ledger.DecimalNumberType
+public func * <T, V>(lhs: T, rhs: V) -> V where T : Swift_Ledger.DecimalNumberType, V : Swift_Ledger.DecimalNumberType, T.DecimalStorageType == V.DecimalStorageType
+public func / <T>(lhs: T, rhs: T) -> T where T : Swift_Ledger.DecimalNumberType
+public func / <T>(lhs: T, rhs: T.IntegerLiteralType) -> T where T : Swift_Ledger.DecimalNumberType
+public func / <T>(lhs: T, rhs: T.FloatLiteralType) -> T where T : Swift_Ledger.DecimalNumberType
+public func / <T, V>(lhs: T, rhs: V) -> V where T : Swift_Ledger.DecimalNumberType, V : Swift_Ledger.DecimalNumberType, T.DecimalStorageType == V.DecimalStorageType
+public func % <T>(lhs: T, rhs: T) -> T where T : Swift_Ledger.DecimalNumberType
+public protocol BitcoinCurrencyType : Swift_Ledger.CryptoCurrencyType {
+}
+extension BitcoinCurrencyType {
+  public static var scale: Swift.Int {
+    get
+  }
+  public static var symbol: Swift.String? {
+    get
+  }
+}
+extension Currency {
+  public struct XBT : Swift_Ledger.BitcoinCurrencyType {
+    public static let code: Swift.String
+  }
+  public struct BTC : Swift_Ledger.BitcoinCurrencyType {
+    public static let code: Swift.String
+  }
+}
+public typealias XBT = Swift_Ledger._Money<Swift_Ledger.Currency.XBT>
+public typealias BTC = Swift_Ledger._Money<Swift_Ledger.Currency.BTC>
+@objc public class Posting : ObjectiveC.NSObject {
+  public var account: Swift_Ledger.Account
+  public var value: Foundation.Decimal
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
+  public init(account: Swift_Ledger.Account, value: Foundation.Decimal)
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc deinit
+  @objc override dynamic public init()
+}
+@objc public class LedgerTransaction : ObjectiveC.NSObject {
+  final public let name: Swift.String
+  final public let date: Foundation.Date
+  final public let postings: [Swift_Ledger.Posting]
+  final public let tags: [Swift.String]
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc override dynamic public var description: Swift.String {
+    @objc get
+  }
+  public init(name: Swift.String, date: Foundation.Date, postings: [Swift_Ledger.Posting], tags: [Swift.String])
+  public init?(ledgerString: Swift.String)
+  public func ledgerString() -> Swift.String
+  public func valueForAccount(acc: Swift_Ledger.Account) -> Foundation.Decimal
+  public func isIncome() -> Swift.Bool
+  public func isExpense() -> Swift.Bool
+  public func isTransfer() -> Swift.Bool
+  public func effectiveValue() -> Foundation.Decimal
+  @objc deinit
+  @objc override dynamic public init()
+}
+extension Currency {
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ADP : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ADP
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class AED : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.AED
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class AFA : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.AFA
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class AFN : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.AFN
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ALK : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ALK
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ALL : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ALL
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class AMD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.AMD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ANG : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ANG
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class AOA : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.AOA
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class AOK : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.AOK
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class AON : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.AON
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class AOR : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.AOR
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ARA : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ARA
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ARL : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ARL
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ARM : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ARM
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ARP : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ARP
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ARS : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ARS
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ATS : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ATS
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class AUD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.AUD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class AWG : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.AWG
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class AZM : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.AZM
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class AZN : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.AZN
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BAD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BAD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BAM : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BAM
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BAN : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BAN
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BBD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BBD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BDT : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BDT
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BEC : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BEC
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BEF : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BEF
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BEL : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BEL
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BGL : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BGL
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BGM : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BGM
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BGN : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BGN
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BGO : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BGO
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BHD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BHD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BIF : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BIF
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BMD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BMD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BND : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BND
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BOB : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BOB
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BOL : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BOL
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BOP : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BOP
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BOV : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BOV
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BRB : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BRB
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BRC : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BRC
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BRE : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BRE
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BRL : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BRL
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BRN : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BRN
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BRR : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BRR
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BRZ : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BRZ
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BSD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BSD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BTN : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BTN
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BUK : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BUK
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BWP : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BWP
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BYB : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BYB
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BYR : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BYR
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class BZD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.BZD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class CAD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.CAD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class CDF : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.CDF
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class CHE : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.CHE
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class CHF : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.CHF
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class CHW : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.CHW
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class CLE : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.CLE
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class CLF : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.CLF
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class CLP : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.CLP
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class CNX : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.CNX
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class CNY : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.CNY
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class COP : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.COP
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class COU : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.COU
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class CRC : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.CRC
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class CSD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.CSD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class CSK : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.CSK
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class CUC : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.CUC
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class CUP : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.CUP
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class CVE : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.CVE
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class CYP : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.CYP
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class CZK : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.CZK
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class DDM : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.DDM
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class DEM : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.DEM
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class DJF : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.DJF
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class DKK : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.DKK
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class DOP : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.DOP
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class DZD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.DZD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ECS : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ECS
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ECV : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ECV
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class EEK : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.EEK
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class EGP : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.EGP
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class EQE : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.EQE
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ERN : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ERN
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ESA : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ESA
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ESB : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ESB
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ESP : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ESP
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ETB : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ETB
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class EUR : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.EUR
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class FIM : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.FIM
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class FJD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.FJD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class FKP : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.FKP
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class FRF : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.FRF
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class GBP : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.GBP
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class GEK : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.GEK
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class GEL : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.GEL
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class GHC : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.GHC
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class GHS : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.GHS
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class GIP : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.GIP
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class GMD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.GMD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class GNF : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.GNF
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class GNS : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.GNS
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class GQE : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.GQE
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class GRD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.GRD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class GTQ : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.GTQ
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class GWE : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.GWE
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class GWP : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.GWP
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class GYD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.GYD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class HKD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.HKD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class HNL : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.HNL
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class HRD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.HRD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class HRK : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.HRK
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class HTG : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.HTG
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class HUF : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.HUF
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class IDR : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.IDR
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class IEP : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.IEP
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ILP : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ILP
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ILR : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ILR
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ILS : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ILS
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class INR : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.INR
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class IQD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.IQD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class IRR : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.IRR
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ISJ : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ISJ
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ISK : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ISK
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ITL : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ITL
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class JMD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.JMD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class JOD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.JOD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class JPY : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.JPY
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class KES : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.KES
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class KGS : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.KGS
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class KHR : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.KHR
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class KMF : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.KMF
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class KPW : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.KPW
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class KRH : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.KRH
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class KRO : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.KRO
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class KRW : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.KRW
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class KWD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.KWD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class KYD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.KYD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class KZT : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.KZT
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class LAK : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.LAK
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class LBP : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.LBP
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class LKR : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.LKR
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class LRD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.LRD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class LSL : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.LSL
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class LSM : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.LSM
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class LTL : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.LTL
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class LTT : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.LTT
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class LUC : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.LUC
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class LUF : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.LUF
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class LUL : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.LUL
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class LVL : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.LVL
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class LVR : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.LVR
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class LYD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.LYD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class MAD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.MAD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class MAF : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.MAF
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class MCF : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.MCF
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class MDC : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.MDC
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class MDL : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.MDL
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class MGA : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.MGA
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class MGF : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.MGF
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class MKD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.MKD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class MKN : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.MKN
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class MLF : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.MLF
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class MMK : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.MMK
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class MNT : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.MNT
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class MOP : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.MOP
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class MRO : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.MRO
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class MTL : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.MTL
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class MTP : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.MTP
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class MUR : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.MUR
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class MVP : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.MVP
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class MVR : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.MVR
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class MWK : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.MWK
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class MXN : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.MXN
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class MXP : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.MXP
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class MXV : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.MXV
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class MYR : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.MYR
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class MZE : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.MZE
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class MZM : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.MZM
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class MZN : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.MZN
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class NAD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.NAD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class NGN : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.NGN
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class NIC : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.NIC
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class NIO : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.NIO
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class NLG : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.NLG
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class NOK : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.NOK
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class NPR : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.NPR
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class NZD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.NZD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class OMR : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.OMR
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class PAB : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.PAB
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class PEI : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.PEI
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class PEN : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.PEN
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class PES : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.PES
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class PGK : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.PGK
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class PHP : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.PHP
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class PKR : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.PKR
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class PLN : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.PLN
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class PLZ : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.PLZ
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class PTE : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.PTE
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class PYG : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.PYG
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class QAR : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.QAR
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class RHD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.RHD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ROL : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ROL
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class RON : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.RON
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class RSD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.RSD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class RUB : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.RUB
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class RUR : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.RUR
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class RWF : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.RWF
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class SAR : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.SAR
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class SBD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.SBD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class SCR : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.SCR
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class SDD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.SDD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class SDG : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.SDG
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class SDP : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.SDP
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class SEK : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.SEK
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class SGD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.SGD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class SHP : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.SHP
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class SIT : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.SIT
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class SKK : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.SKK
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class SLL : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.SLL
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class SOS : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.SOS
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class SRD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.SRD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class SRG : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.SRG
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class SSP : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.SSP
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class STD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.STD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class SUR : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.SUR
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class SVC : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.SVC
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class SYP : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.SYP
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class SZL : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.SZL
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class THB : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.THB
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class TJR : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.TJR
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class TJS : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.TJS
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class TMM : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.TMM
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class TMT : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.TMT
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class TND : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.TND
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class TOP : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.TOP
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class TPE : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.TPE
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class TRL : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.TRL
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class TRY : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.TRY
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class TTD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.TTD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class TWD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.TWD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class TZS : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.TZS
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class UAH : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.UAH
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class UAK : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.UAK
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class UGS : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.UGS
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class UGX : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.UGX
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class USD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.USD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class USN : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.USN
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class USS : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.USS
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class UYI : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.UYI
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class UYP : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.UYP
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class UYU : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.UYU
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class UZS : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.UZS
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class VEB : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.VEB
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class VEF : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.VEF
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class VND : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.VND
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class VNN : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.VNN
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class VUV : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.VUV
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class WST : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.WST
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class XAF : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.XAF
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class XAG : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.XAG
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class XAU : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.XAU
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class XBA : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.XBA
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class XBB : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.XBB
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class XBC : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.XBC
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class XBD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.XBD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class XCD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.XCD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class XDR : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.XDR
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class XEU : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.XEU
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class XFO : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.XFO
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class XFU : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.XFU
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class XOF : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.XOF
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class XPD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.XPD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class XPF : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.XPF
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class XPT : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.XPT
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class XRE : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.XRE
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class XSU : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.XSU
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class XTS : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.XTS
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class XUA : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.XUA
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class XXX : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.XXX
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class YDD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.YDD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class YER : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.YER
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class YUD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.YUD
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class YUM : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.YUM
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class YUN : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.YUN
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class YUR : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.YUR
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ZAL : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ZAL
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ZAR : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ZAR
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ZMK : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ZMK
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ZMW : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ZMW
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ZRN : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ZRN
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ZRZ : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ZRZ
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ZWL : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ZWL
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ZWR : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ZWR
+    @objc deinit
+  }
+  @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers final public class ZWD : Swift_Ledger.Currency.Base, Swift_Ledger.ISOCurrencyType {
+    public static var sharedInstance: Swift_Ledger.Currency.ZWD
+    @objc deinit
+  }
+}
+public typealias ADP = Swift_Ledger._Money<Swift_Ledger.Currency.ADP>
+public typealias AED = Swift_Ledger._Money<Swift_Ledger.Currency.AED>
+public typealias AFA = Swift_Ledger._Money<Swift_Ledger.Currency.AFA>
+public typealias AFN = Swift_Ledger._Money<Swift_Ledger.Currency.AFN>
+public typealias ALK = Swift_Ledger._Money<Swift_Ledger.Currency.ALK>
+public typealias ALL = Swift_Ledger._Money<Swift_Ledger.Currency.ALL>
+public typealias AMD = Swift_Ledger._Money<Swift_Ledger.Currency.AMD>
+public typealias ANG = Swift_Ledger._Money<Swift_Ledger.Currency.ANG>
+public typealias AOA = Swift_Ledger._Money<Swift_Ledger.Currency.AOA>
+public typealias AOK = Swift_Ledger._Money<Swift_Ledger.Currency.AOK>
+public typealias AON = Swift_Ledger._Money<Swift_Ledger.Currency.AON>
+public typealias AOR = Swift_Ledger._Money<Swift_Ledger.Currency.AOR>
+public typealias ARA = Swift_Ledger._Money<Swift_Ledger.Currency.ARA>
+public typealias ARL = Swift_Ledger._Money<Swift_Ledger.Currency.ARL>
+public typealias ARM = Swift_Ledger._Money<Swift_Ledger.Currency.ARM>
+public typealias ARP = Swift_Ledger._Money<Swift_Ledger.Currency.ARP>
+public typealias ARS = Swift_Ledger._Money<Swift_Ledger.Currency.ARS>
+public typealias ATS = Swift_Ledger._Money<Swift_Ledger.Currency.ATS>
+public typealias AUD = Swift_Ledger._Money<Swift_Ledger.Currency.AUD>
+public typealias AWG = Swift_Ledger._Money<Swift_Ledger.Currency.AWG>
+public typealias AZM = Swift_Ledger._Money<Swift_Ledger.Currency.AZM>
+public typealias AZN = Swift_Ledger._Money<Swift_Ledger.Currency.AZN>
+public typealias BAD = Swift_Ledger._Money<Swift_Ledger.Currency.BAD>
+public typealias BAM = Swift_Ledger._Money<Swift_Ledger.Currency.BAM>
+public typealias BAN = Swift_Ledger._Money<Swift_Ledger.Currency.BAN>
+public typealias BBD = Swift_Ledger._Money<Swift_Ledger.Currency.BBD>
+public typealias BDT = Swift_Ledger._Money<Swift_Ledger.Currency.BDT>
+public typealias BEC = Swift_Ledger._Money<Swift_Ledger.Currency.BEC>
+public typealias BEF = Swift_Ledger._Money<Swift_Ledger.Currency.BEF>
+public typealias BEL = Swift_Ledger._Money<Swift_Ledger.Currency.BEL>
+public typealias BGL = Swift_Ledger._Money<Swift_Ledger.Currency.BGL>
+public typealias BGM = Swift_Ledger._Money<Swift_Ledger.Currency.BGM>
+public typealias BGN = Swift_Ledger._Money<Swift_Ledger.Currency.BGN>
+public typealias BGO = Swift_Ledger._Money<Swift_Ledger.Currency.BGO>
+public typealias BHD = Swift_Ledger._Money<Swift_Ledger.Currency.BHD>
+public typealias BIF = Swift_Ledger._Money<Swift_Ledger.Currency.BIF>
+public typealias BMD = Swift_Ledger._Money<Swift_Ledger.Currency.BMD>
+public typealias BND = Swift_Ledger._Money<Swift_Ledger.Currency.BND>
+public typealias BOB = Swift_Ledger._Money<Swift_Ledger.Currency.BOB>
+public typealias BOL = Swift_Ledger._Money<Swift_Ledger.Currency.BOL>
+public typealias BOP = Swift_Ledger._Money<Swift_Ledger.Currency.BOP>
+public typealias BOV = Swift_Ledger._Money<Swift_Ledger.Currency.BOV>
+public typealias BRB = Swift_Ledger._Money<Swift_Ledger.Currency.BRB>
+public typealias BRC = Swift_Ledger._Money<Swift_Ledger.Currency.BRC>
+public typealias BRE = Swift_Ledger._Money<Swift_Ledger.Currency.BRE>
+public typealias BRL = Swift_Ledger._Money<Swift_Ledger.Currency.BRL>
+public typealias BRN = Swift_Ledger._Money<Swift_Ledger.Currency.BRN>
+public typealias BRR = Swift_Ledger._Money<Swift_Ledger.Currency.BRR>
+public typealias BRZ = Swift_Ledger._Money<Swift_Ledger.Currency.BRZ>
+public typealias BSD = Swift_Ledger._Money<Swift_Ledger.Currency.BSD>
+public typealias BTN = Swift_Ledger._Money<Swift_Ledger.Currency.BTN>
+public typealias BUK = Swift_Ledger._Money<Swift_Ledger.Currency.BUK>
+public typealias BWP = Swift_Ledger._Money<Swift_Ledger.Currency.BWP>
+public typealias BYB = Swift_Ledger._Money<Swift_Ledger.Currency.BYB>
+public typealias BYR = Swift_Ledger._Money<Swift_Ledger.Currency.BYR>
+public typealias BZD = Swift_Ledger._Money<Swift_Ledger.Currency.BZD>
+public typealias CAD = Swift_Ledger._Money<Swift_Ledger.Currency.CAD>
+public typealias CDF = Swift_Ledger._Money<Swift_Ledger.Currency.CDF>
+public typealias CHE = Swift_Ledger._Money<Swift_Ledger.Currency.CHE>
+public typealias CHF = Swift_Ledger._Money<Swift_Ledger.Currency.CHF>
+public typealias CHW = Swift_Ledger._Money<Swift_Ledger.Currency.CHW>
+public typealias CLE = Swift_Ledger._Money<Swift_Ledger.Currency.CLE>
+public typealias CLF = Swift_Ledger._Money<Swift_Ledger.Currency.CLF>
+public typealias CLP = Swift_Ledger._Money<Swift_Ledger.Currency.CLP>
+public typealias CNX = Swift_Ledger._Money<Swift_Ledger.Currency.CNX>
+public typealias CNY = Swift_Ledger._Money<Swift_Ledger.Currency.CNY>
+public typealias COP = Swift_Ledger._Money<Swift_Ledger.Currency.COP>
+public typealias COU = Swift_Ledger._Money<Swift_Ledger.Currency.COU>
+public typealias CRC = Swift_Ledger._Money<Swift_Ledger.Currency.CRC>
+public typealias CSD = Swift_Ledger._Money<Swift_Ledger.Currency.CSD>
+public typealias CSK = Swift_Ledger._Money<Swift_Ledger.Currency.CSK>
+public typealias CUC = Swift_Ledger._Money<Swift_Ledger.Currency.CUC>
+public typealias CUP = Swift_Ledger._Money<Swift_Ledger.Currency.CUP>
+public typealias CVE = Swift_Ledger._Money<Swift_Ledger.Currency.CVE>
+public typealias CYP = Swift_Ledger._Money<Swift_Ledger.Currency.CYP>
+public typealias CZK = Swift_Ledger._Money<Swift_Ledger.Currency.CZK>
+public typealias DDM = Swift_Ledger._Money<Swift_Ledger.Currency.DDM>
+public typealias DEM = Swift_Ledger._Money<Swift_Ledger.Currency.DEM>
+public typealias DJF = Swift_Ledger._Money<Swift_Ledger.Currency.DJF>
+public typealias DKK = Swift_Ledger._Money<Swift_Ledger.Currency.DKK>
+public typealias DOP = Swift_Ledger._Money<Swift_Ledger.Currency.DOP>
+public typealias DZD = Swift_Ledger._Money<Swift_Ledger.Currency.DZD>
+public typealias ECS = Swift_Ledger._Money<Swift_Ledger.Currency.ECS>
+public typealias ECV = Swift_Ledger._Money<Swift_Ledger.Currency.ECV>
+public typealias EEK = Swift_Ledger._Money<Swift_Ledger.Currency.EEK>
+public typealias EGP = Swift_Ledger._Money<Swift_Ledger.Currency.EGP>
+public typealias EQE = Swift_Ledger._Money<Swift_Ledger.Currency.EQE>
+public typealias ERN = Swift_Ledger._Money<Swift_Ledger.Currency.ERN>
+public typealias ESA = Swift_Ledger._Money<Swift_Ledger.Currency.ESA>
+public typealias ESB = Swift_Ledger._Money<Swift_Ledger.Currency.ESB>
+public typealias ESP = Swift_Ledger._Money<Swift_Ledger.Currency.ESP>
+public typealias ETB = Swift_Ledger._Money<Swift_Ledger.Currency.ETB>
+public typealias EUR = Swift_Ledger._Money<Swift_Ledger.Currency.EUR>
+public typealias FIM = Swift_Ledger._Money<Swift_Ledger.Currency.FIM>
+public typealias FJD = Swift_Ledger._Money<Swift_Ledger.Currency.FJD>
+public typealias FKP = Swift_Ledger._Money<Swift_Ledger.Currency.FKP>
+public typealias FRF = Swift_Ledger._Money<Swift_Ledger.Currency.FRF>
+public typealias GBP = Swift_Ledger._Money<Swift_Ledger.Currency.GBP>
+public typealias GEK = Swift_Ledger._Money<Swift_Ledger.Currency.GEK>
+public typealias GEL = Swift_Ledger._Money<Swift_Ledger.Currency.GEL>
+public typealias GHC = Swift_Ledger._Money<Swift_Ledger.Currency.GHC>
+public typealias GHS = Swift_Ledger._Money<Swift_Ledger.Currency.GHS>
+public typealias GIP = Swift_Ledger._Money<Swift_Ledger.Currency.GIP>
+public typealias GMD = Swift_Ledger._Money<Swift_Ledger.Currency.GMD>
+public typealias GNF = Swift_Ledger._Money<Swift_Ledger.Currency.GNF>
+public typealias GNS = Swift_Ledger._Money<Swift_Ledger.Currency.GNS>
+public typealias GQE = Swift_Ledger._Money<Swift_Ledger.Currency.GQE>
+public typealias GRD = Swift_Ledger._Money<Swift_Ledger.Currency.GRD>
+public typealias GTQ = Swift_Ledger._Money<Swift_Ledger.Currency.GTQ>
+public typealias GWE = Swift_Ledger._Money<Swift_Ledger.Currency.GWE>
+public typealias GWP = Swift_Ledger._Money<Swift_Ledger.Currency.GWP>
+public typealias GYD = Swift_Ledger._Money<Swift_Ledger.Currency.GYD>
+public typealias HKD = Swift_Ledger._Money<Swift_Ledger.Currency.HKD>
+public typealias HNL = Swift_Ledger._Money<Swift_Ledger.Currency.HNL>
+public typealias HRD = Swift_Ledger._Money<Swift_Ledger.Currency.HRD>
+public typealias HRK = Swift_Ledger._Money<Swift_Ledger.Currency.HRK>
+public typealias HTG = Swift_Ledger._Money<Swift_Ledger.Currency.HTG>
+public typealias HUF = Swift_Ledger._Money<Swift_Ledger.Currency.HUF>
+public typealias IDR = Swift_Ledger._Money<Swift_Ledger.Currency.IDR>
+public typealias IEP = Swift_Ledger._Money<Swift_Ledger.Currency.IEP>
+public typealias ILP = Swift_Ledger._Money<Swift_Ledger.Currency.ILP>
+public typealias ILR = Swift_Ledger._Money<Swift_Ledger.Currency.ILR>
+public typealias ILS = Swift_Ledger._Money<Swift_Ledger.Currency.ILS>
+public typealias INR = Swift_Ledger._Money<Swift_Ledger.Currency.INR>
+public typealias IQD = Swift_Ledger._Money<Swift_Ledger.Currency.IQD>
+public typealias IRR = Swift_Ledger._Money<Swift_Ledger.Currency.IRR>
+public typealias ISJ = Swift_Ledger._Money<Swift_Ledger.Currency.ISJ>
+public typealias ISK = Swift_Ledger._Money<Swift_Ledger.Currency.ISK>
+public typealias ITL = Swift_Ledger._Money<Swift_Ledger.Currency.ITL>
+public typealias JMD = Swift_Ledger._Money<Swift_Ledger.Currency.JMD>
+public typealias JOD = Swift_Ledger._Money<Swift_Ledger.Currency.JOD>
+public typealias JPY = Swift_Ledger._Money<Swift_Ledger.Currency.JPY>
+public typealias KES = Swift_Ledger._Money<Swift_Ledger.Currency.KES>
+public typealias KGS = Swift_Ledger._Money<Swift_Ledger.Currency.KGS>
+public typealias KHR = Swift_Ledger._Money<Swift_Ledger.Currency.KHR>
+public typealias KMF = Swift_Ledger._Money<Swift_Ledger.Currency.KMF>
+public typealias KPW = Swift_Ledger._Money<Swift_Ledger.Currency.KPW>
+public typealias KRH = Swift_Ledger._Money<Swift_Ledger.Currency.KRH>
+public typealias KRO = Swift_Ledger._Money<Swift_Ledger.Currency.KRO>
+public typealias KRW = Swift_Ledger._Money<Swift_Ledger.Currency.KRW>
+public typealias KWD = Swift_Ledger._Money<Swift_Ledger.Currency.KWD>
+public typealias KYD = Swift_Ledger._Money<Swift_Ledger.Currency.KYD>
+public typealias KZT = Swift_Ledger._Money<Swift_Ledger.Currency.KZT>
+public typealias LAK = Swift_Ledger._Money<Swift_Ledger.Currency.LAK>
+public typealias LBP = Swift_Ledger._Money<Swift_Ledger.Currency.LBP>
+public typealias LKR = Swift_Ledger._Money<Swift_Ledger.Currency.LKR>
+public typealias LRD = Swift_Ledger._Money<Swift_Ledger.Currency.LRD>
+public typealias LSL = Swift_Ledger._Money<Swift_Ledger.Currency.LSL>
+public typealias LSM = Swift_Ledger._Money<Swift_Ledger.Currency.LSM>
+public typealias LTL = Swift_Ledger._Money<Swift_Ledger.Currency.LTL>
+public typealias LTT = Swift_Ledger._Money<Swift_Ledger.Currency.LTT>
+public typealias LUC = Swift_Ledger._Money<Swift_Ledger.Currency.LUC>
+public typealias LUF = Swift_Ledger._Money<Swift_Ledger.Currency.LUF>
+public typealias LUL = Swift_Ledger._Money<Swift_Ledger.Currency.LUL>
+public typealias LVL = Swift_Ledger._Money<Swift_Ledger.Currency.LVL>
+public typealias LVR = Swift_Ledger._Money<Swift_Ledger.Currency.LVR>
+public typealias LYD = Swift_Ledger._Money<Swift_Ledger.Currency.LYD>
+public typealias MAD = Swift_Ledger._Money<Swift_Ledger.Currency.MAD>
+public typealias MAF = Swift_Ledger._Money<Swift_Ledger.Currency.MAF>
+public typealias MCF = Swift_Ledger._Money<Swift_Ledger.Currency.MCF>
+public typealias MDC = Swift_Ledger._Money<Swift_Ledger.Currency.MDC>
+public typealias MDL = Swift_Ledger._Money<Swift_Ledger.Currency.MDL>
+public typealias MGA = Swift_Ledger._Money<Swift_Ledger.Currency.MGA>
+public typealias MGF = Swift_Ledger._Money<Swift_Ledger.Currency.MGF>
+public typealias MKD = Swift_Ledger._Money<Swift_Ledger.Currency.MKD>
+public typealias MKN = Swift_Ledger._Money<Swift_Ledger.Currency.MKN>
+public typealias MLF = Swift_Ledger._Money<Swift_Ledger.Currency.MLF>
+public typealias MMK = Swift_Ledger._Money<Swift_Ledger.Currency.MMK>
+public typealias MNT = Swift_Ledger._Money<Swift_Ledger.Currency.MNT>
+public typealias MOP = Swift_Ledger._Money<Swift_Ledger.Currency.MOP>
+public typealias MRO = Swift_Ledger._Money<Swift_Ledger.Currency.MRO>
+public typealias MTL = Swift_Ledger._Money<Swift_Ledger.Currency.MTL>
+public typealias MTP = Swift_Ledger._Money<Swift_Ledger.Currency.MTP>
+public typealias MUR = Swift_Ledger._Money<Swift_Ledger.Currency.MUR>
+public typealias MVP = Swift_Ledger._Money<Swift_Ledger.Currency.MVP>
+public typealias MVR = Swift_Ledger._Money<Swift_Ledger.Currency.MVR>
+public typealias MWK = Swift_Ledger._Money<Swift_Ledger.Currency.MWK>
+public typealias MXN = Swift_Ledger._Money<Swift_Ledger.Currency.MXN>
+public typealias MXP = Swift_Ledger._Money<Swift_Ledger.Currency.MXP>
+public typealias MXV = Swift_Ledger._Money<Swift_Ledger.Currency.MXV>
+public typealias MYR = Swift_Ledger._Money<Swift_Ledger.Currency.MYR>
+public typealias MZE = Swift_Ledger._Money<Swift_Ledger.Currency.MZE>
+public typealias MZM = Swift_Ledger._Money<Swift_Ledger.Currency.MZM>
+public typealias MZN = Swift_Ledger._Money<Swift_Ledger.Currency.MZN>
+public typealias NAD = Swift_Ledger._Money<Swift_Ledger.Currency.NAD>
+public typealias NGN = Swift_Ledger._Money<Swift_Ledger.Currency.NGN>
+public typealias NIC = Swift_Ledger._Money<Swift_Ledger.Currency.NIC>
+public typealias NIO = Swift_Ledger._Money<Swift_Ledger.Currency.NIO>
+public typealias NLG = Swift_Ledger._Money<Swift_Ledger.Currency.NLG>
+public typealias NOK = Swift_Ledger._Money<Swift_Ledger.Currency.NOK>
+public typealias NPR = Swift_Ledger._Money<Swift_Ledger.Currency.NPR>
+public typealias NZD = Swift_Ledger._Money<Swift_Ledger.Currency.NZD>
+public typealias OMR = Swift_Ledger._Money<Swift_Ledger.Currency.OMR>
+public typealias PAB = Swift_Ledger._Money<Swift_Ledger.Currency.PAB>
+public typealias PEI = Swift_Ledger._Money<Swift_Ledger.Currency.PEI>
+public typealias PEN = Swift_Ledger._Money<Swift_Ledger.Currency.PEN>
+public typealias PES = Swift_Ledger._Money<Swift_Ledger.Currency.PES>
+public typealias PGK = Swift_Ledger._Money<Swift_Ledger.Currency.PGK>
+public typealias PHP = Swift_Ledger._Money<Swift_Ledger.Currency.PHP>
+public typealias PKR = Swift_Ledger._Money<Swift_Ledger.Currency.PKR>
+public typealias PLN = Swift_Ledger._Money<Swift_Ledger.Currency.PLN>
+public typealias PLZ = Swift_Ledger._Money<Swift_Ledger.Currency.PLZ>
+public typealias PTE = Swift_Ledger._Money<Swift_Ledger.Currency.PTE>
+public typealias PYG = Swift_Ledger._Money<Swift_Ledger.Currency.PYG>
+public typealias QAR = Swift_Ledger._Money<Swift_Ledger.Currency.QAR>
+public typealias RHD = Swift_Ledger._Money<Swift_Ledger.Currency.RHD>
+public typealias ROL = Swift_Ledger._Money<Swift_Ledger.Currency.ROL>
+public typealias RON = Swift_Ledger._Money<Swift_Ledger.Currency.RON>
+public typealias RSD = Swift_Ledger._Money<Swift_Ledger.Currency.RSD>
+public typealias RUB = Swift_Ledger._Money<Swift_Ledger.Currency.RUB>
+public typealias RUR = Swift_Ledger._Money<Swift_Ledger.Currency.RUR>
+public typealias RWF = Swift_Ledger._Money<Swift_Ledger.Currency.RWF>
+public typealias SAR = Swift_Ledger._Money<Swift_Ledger.Currency.SAR>
+public typealias SBD = Swift_Ledger._Money<Swift_Ledger.Currency.SBD>
+public typealias SCR = Swift_Ledger._Money<Swift_Ledger.Currency.SCR>
+public typealias SDD = Swift_Ledger._Money<Swift_Ledger.Currency.SDD>
+public typealias SDG = Swift_Ledger._Money<Swift_Ledger.Currency.SDG>
+public typealias SDP = Swift_Ledger._Money<Swift_Ledger.Currency.SDP>
+public typealias SEK = Swift_Ledger._Money<Swift_Ledger.Currency.SEK>
+public typealias SGD = Swift_Ledger._Money<Swift_Ledger.Currency.SGD>
+public typealias SHP = Swift_Ledger._Money<Swift_Ledger.Currency.SHP>
+public typealias SIT = Swift_Ledger._Money<Swift_Ledger.Currency.SIT>
+public typealias SKK = Swift_Ledger._Money<Swift_Ledger.Currency.SKK>
+public typealias SLL = Swift_Ledger._Money<Swift_Ledger.Currency.SLL>
+public typealias SOS = Swift_Ledger._Money<Swift_Ledger.Currency.SOS>
+public typealias SRD = Swift_Ledger._Money<Swift_Ledger.Currency.SRD>
+public typealias SRG = Swift_Ledger._Money<Swift_Ledger.Currency.SRG>
+public typealias SSP = Swift_Ledger._Money<Swift_Ledger.Currency.SSP>
+public typealias STD = Swift_Ledger._Money<Swift_Ledger.Currency.STD>
+public typealias SUR = Swift_Ledger._Money<Swift_Ledger.Currency.SUR>
+public typealias SVC = Swift_Ledger._Money<Swift_Ledger.Currency.SVC>
+public typealias SYP = Swift_Ledger._Money<Swift_Ledger.Currency.SYP>
+public typealias SZL = Swift_Ledger._Money<Swift_Ledger.Currency.SZL>
+public typealias THB = Swift_Ledger._Money<Swift_Ledger.Currency.THB>
+public typealias TJR = Swift_Ledger._Money<Swift_Ledger.Currency.TJR>
+public typealias TJS = Swift_Ledger._Money<Swift_Ledger.Currency.TJS>
+public typealias TMM = Swift_Ledger._Money<Swift_Ledger.Currency.TMM>
+public typealias TMT = Swift_Ledger._Money<Swift_Ledger.Currency.TMT>
+public typealias TND = Swift_Ledger._Money<Swift_Ledger.Currency.TND>
+public typealias TOP = Swift_Ledger._Money<Swift_Ledger.Currency.TOP>
+public typealias TPE = Swift_Ledger._Money<Swift_Ledger.Currency.TPE>
+public typealias TRL = Swift_Ledger._Money<Swift_Ledger.Currency.TRL>
+public typealias TRY = Swift_Ledger._Money<Swift_Ledger.Currency.TRY>
+public typealias TTD = Swift_Ledger._Money<Swift_Ledger.Currency.TTD>
+public typealias TWD = Swift_Ledger._Money<Swift_Ledger.Currency.TWD>
+public typealias TZS = Swift_Ledger._Money<Swift_Ledger.Currency.TZS>
+public typealias UAH = Swift_Ledger._Money<Swift_Ledger.Currency.UAH>
+public typealias UAK = Swift_Ledger._Money<Swift_Ledger.Currency.UAK>
+public typealias UGS = Swift_Ledger._Money<Swift_Ledger.Currency.UGS>
+public typealias UGX = Swift_Ledger._Money<Swift_Ledger.Currency.UGX>
+public typealias USD = Swift_Ledger._Money<Swift_Ledger.Currency.USD>
+public typealias USN = Swift_Ledger._Money<Swift_Ledger.Currency.USN>
+public typealias USS = Swift_Ledger._Money<Swift_Ledger.Currency.USS>
+public typealias UYI = Swift_Ledger._Money<Swift_Ledger.Currency.UYI>
+public typealias UYP = Swift_Ledger._Money<Swift_Ledger.Currency.UYP>
+public typealias UYU = Swift_Ledger._Money<Swift_Ledger.Currency.UYU>
+public typealias UZS = Swift_Ledger._Money<Swift_Ledger.Currency.UZS>
+public typealias VEB = Swift_Ledger._Money<Swift_Ledger.Currency.VEB>
+public typealias VEF = Swift_Ledger._Money<Swift_Ledger.Currency.VEF>
+public typealias VND = Swift_Ledger._Money<Swift_Ledger.Currency.VND>
+public typealias VNN = Swift_Ledger._Money<Swift_Ledger.Currency.VNN>
+public typealias VUV = Swift_Ledger._Money<Swift_Ledger.Currency.VUV>
+public typealias WST = Swift_Ledger._Money<Swift_Ledger.Currency.WST>
+public typealias XAF = Swift_Ledger._Money<Swift_Ledger.Currency.XAF>
+public typealias XAG = Swift_Ledger._Money<Swift_Ledger.Currency.XAG>
+public typealias XAU = Swift_Ledger._Money<Swift_Ledger.Currency.XAU>
+public typealias XBA = Swift_Ledger._Money<Swift_Ledger.Currency.XBA>
+public typealias XBB = Swift_Ledger._Money<Swift_Ledger.Currency.XBB>
+public typealias XBC = Swift_Ledger._Money<Swift_Ledger.Currency.XBC>
+public typealias XBD = Swift_Ledger._Money<Swift_Ledger.Currency.XBD>
+public typealias XCD = Swift_Ledger._Money<Swift_Ledger.Currency.XCD>
+public typealias XDR = Swift_Ledger._Money<Swift_Ledger.Currency.XDR>
+public typealias XEU = Swift_Ledger._Money<Swift_Ledger.Currency.XEU>
+public typealias XFO = Swift_Ledger._Money<Swift_Ledger.Currency.XFO>
+public typealias XFU = Swift_Ledger._Money<Swift_Ledger.Currency.XFU>
+public typealias XOF = Swift_Ledger._Money<Swift_Ledger.Currency.XOF>
+public typealias XPD = Swift_Ledger._Money<Swift_Ledger.Currency.XPD>
+public typealias XPF = Swift_Ledger._Money<Swift_Ledger.Currency.XPF>
+public typealias XPT = Swift_Ledger._Money<Swift_Ledger.Currency.XPT>
+public typealias XRE = Swift_Ledger._Money<Swift_Ledger.Currency.XRE>
+public typealias XSU = Swift_Ledger._Money<Swift_Ledger.Currency.XSU>
+public typealias XTS = Swift_Ledger._Money<Swift_Ledger.Currency.XTS>
+public typealias XUA = Swift_Ledger._Money<Swift_Ledger.Currency.XUA>
+public typealias XXX = Swift_Ledger._Money<Swift_Ledger.Currency.XXX>
+public typealias YDD = Swift_Ledger._Money<Swift_Ledger.Currency.YDD>
+public typealias YER = Swift_Ledger._Money<Swift_Ledger.Currency.YER>
+public typealias YUD = Swift_Ledger._Money<Swift_Ledger.Currency.YUD>
+public typealias YUM = Swift_Ledger._Money<Swift_Ledger.Currency.YUM>
+public typealias YUN = Swift_Ledger._Money<Swift_Ledger.Currency.YUN>
+public typealias YUR = Swift_Ledger._Money<Swift_Ledger.Currency.YUR>
+public typealias ZAL = Swift_Ledger._Money<Swift_Ledger.Currency.ZAL>
+public typealias ZAR = Swift_Ledger._Money<Swift_Ledger.Currency.ZAR>
+public typealias ZMK = Swift_Ledger._Money<Swift_Ledger.Currency.ZMK>
+public typealias ZMW = Swift_Ledger._Money<Swift_Ledger.Currency.ZMW>
+public typealias ZRN = Swift_Ledger._Money<Swift_Ledger.Currency.ZRN>
+public typealias ZRZ = Swift_Ledger._Money<Swift_Ledger.Currency.ZRZ>
+public typealias ZWL = Swift_Ledger._Money<Swift_Ledger.Currency.ZWL>
+public typealias ZWR = Swift_Ledger._Money<Swift_Ledger.Currency.ZWR>
+public typealias ZWD = Swift_Ledger._Money<Swift_Ledger.Currency.ZWD>
+public enum AfrikaansSpeakingCountry : Swift_Ledger.CountryType {
+  case Namibia
+  case SouthAfrica
+  public static let all: [Swift_Ledger.AfrikaansSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.AfrikaansSpeakingCountry, b: Swift_Ledger.AfrikaansSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum AlbanianSpeakingCountry : Swift_Ledger.CountryType {
+  case Albania
+  case Macedonia
+  case Kosovo
+  public static let all: [Swift_Ledger.AlbanianSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.AlbanianSpeakingCountry, b: Swift_Ledger.AlbanianSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum ArabicSpeakingCountry : Swift_Ledger.CountryType {
+  case World
+  case UnitedArabEmirates
+  case Bahrain
+  case Djibouti
+  case Algeria
+  case Egypt
+  case WesternSahara
+  case Eritrea
+  case Israel
+  case Iraq
+  case Jordan
+  case Comoros
+  case Kuwait
+  case Lebanon
+  case Libya
+  case Morocco
+  case Mauritania
+  case Oman
+  case PalestinianTerritories
+  case Qatar
+  case SaudiArabia
+  case Sudan
+  case Somalia
+  case SouthSudan
+  case Syria
+  case Chad
+  case Tunisia
+  case Yemen
+  public static let all: [Swift_Ledger.ArabicSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.ArabicSpeakingCountry, b: Swift_Ledger.ArabicSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum BengaliSpeakingCountry : Swift_Ledger.CountryType {
+  case Bangladesh
+  case India
+  public static let all: [Swift_Ledger.BengaliSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.BengaliSpeakingCountry, b: Swift_Ledger.BengaliSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum CatalanSpeakingCountry : Swift_Ledger.CountryType {
+  case Andorra
+  case Spain
+  case France
+  case Italy
+  public static let all: [Swift_Ledger.CatalanSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.CatalanSpeakingCountry, b: Swift_Ledger.CatalanSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum CentralKurdishSpeakingCountry : Swift_Ledger.CountryType {
+  case Iraq
+  case Iran
+  public static let all: [Swift_Ledger.CentralKurdishSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.CentralKurdishSpeakingCountry, b: Swift_Ledger.CentralKurdishSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum ChineseSpeakingCountry : Swift_Ledger.CountryType {
+  case China
+  case HongKongChina
+  case MacauChina
+  case Singapore
+  case Taiwan
+  public static let all: [Swift_Ledger.ChineseSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.ChineseSpeakingCountry, b: Swift_Ledger.ChineseSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum CroatianSpeakingCountry : Swift_Ledger.CountryType {
+  case BosniaHerzegovina
+  case Croatia
+  public static let all: [Swift_Ledger.CroatianSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.CroatianSpeakingCountry, b: Swift_Ledger.CroatianSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum DanishSpeakingCountry : Swift_Ledger.CountryType {
+  case Denmark
+  case Greenland
+  public static let all: [Swift_Ledger.DanishSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.DanishSpeakingCountry, b: Swift_Ledger.DanishSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum DutchSpeakingCountry : Swift_Ledger.CountryType {
+  case Aruba
+  case Belgium
+  case CaribbeanNetherlands
+  case Curaçao
+  case Netherlands
+  case Suriname
+  case SintMaarten
+  public static let all: [Swift_Ledger.DutchSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.DutchSpeakingCountry, b: Swift_Ledger.DutchSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum EnglishSpeakingCountry : Swift_Ledger.CountryType {
+  case World
+  case Europe
+  case Andorra
+  case AntiguaBarbuda
+  case Anguilla
+  case Albania
+  case AmericanSamoa
+  case Austria
+  case Australia
+  case BosniaHerzegovina
+  case Barbados
+  case Belgium
+  case Burundi
+  case Bermuda
+  case Brazil
+  case Bahamas
+  case Botswana
+  case Belize
+  case Canada
+  case CocosKeelingIslands
+  case Switzerland
+  case CookIslands
+  case Cameroon
+  case China
+  case ChristmasIsland
+  case Cyprus
+  case CzechRepublic
+  case Germany
+  case DiegoGarcia
+  case Denmark
+  case Dominica
+  case Estonia
+  case Eritrea
+  case Spain
+  case Finland
+  case Fiji
+  case FalklandIslands
+  case Micronesia
+  case France
+  case UnitedKingdom
+  case Grenada
+  case Guernsey
+  case Ghana
+  case Gibraltar
+  case Gambia
+  case Greece
+  case Guam
+  case Guyana
+  case HongKongChina
+  case Croatia
+  case Hungary
+  case Ireland
+  case Israel
+  case IsleOfMan
+  case India
+  case BritishIndianOceanTerritory
+  case Iceland
+  case Italy
+  case Jersey
+  case Jamaica
+  case Japan
+  case Kenya
+  case Kiribati
+  case StKittsNevis
+  case SouthKorea
+  case CaymanIslands
+  case StLucia
+  case Liberia
+  case Lesotho
+  case Lithuania
+  case Luxembourg
+  case Latvia
+  case Montenegro
+  case Madagascar
+  case MarshallIslands
+  case MacauChina
+  case NorthernMarianaIslands
+  case Montserrat
+  case Malta
+  case Mauritius
+  case Maldives
+  case Malawi
+  case Malaysia
+  case Namibia
+  case NorfolkIsland
+  case Nigeria
+  case Netherlands
+  case Norway
+  case Nauru
+  case Niue
+  case NewZealand
+  case PapuaNewGuinea
+  case Philippines
+  case Pakistan
+  case Poland
+  case PitcairnIslands
+  case PuertoRico
+  case Portugal
+  case Palau
+  case Romania
+  case Russia
+  case Rwanda
+  case SolomonIslands
+  case Seychelles
+  case Sudan
+  case Sweden
+  case Singapore
+  case StHelena
+  case Slovenia
+  case Slovakia
+  case SierraLeone
+  case SouthSudan
+  case SintMaarten
+  case Swaziland
+  case TurksCaicosIslands
+  case Tokelau
+  case Tonga
+  case Turkey
+  case TrinidadTobago
+  case Tuvalu
+  case Taiwan
+  case Tanzania
+  case Uganda
+  case USOutlyingIslands
+  case UnitedStates
+  case StVincentGrenadines
+  case BritishVirginIslands
+  case USVirginIslands
+  case Vanuatu
+  case Samoa
+  case SouthAfrica
+  case Zambia
+  case Zimbabwe
+  public static let all: [Swift_Ledger.EnglishSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.EnglishSpeakingCountry, b: Swift_Ledger.EnglishSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum EweSpeakingCountry : Swift_Ledger.CountryType {
+  case Ghana
+  case Togo
+  public static let all: [Swift_Ledger.EweSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.EweSpeakingCountry, b: Swift_Ledger.EweSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum FaroeseSpeakingCountry : Swift_Ledger.CountryType {
+  case Denmark
+  case FaroeIslands
+  public static let all: [Swift_Ledger.FaroeseSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.FaroeseSpeakingCountry, b: Swift_Ledger.FaroeseSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum FrenchSpeakingCountry : Swift_Ledger.CountryType {
+  case Belgium
+  case BurkinaFaso
+  case Burundi
+  case Benin
+  case StBarthélemy
+  case Canada
+  case CongoKinshasa
+  case CentralAfricanRepublic
+  case CongoBrazzaville
+  case Switzerland
+  case CôteDivoire
+  case Cameroon
+  case Djibouti
+  case Algeria
+  case France
+  case Gabon
+  case FrenchGuiana
+  case Guinea
+  case Guadeloupe
+  case EquatorialGuinea
+  case Haiti
+  case Comoros
+  case Luxembourg
+  case Morocco
+  case Monaco
+  case StMartin
+  case Madagascar
+  case Mali
+  case Martinique
+  case Mauritania
+  case Mauritius
+  case NewCaledonia
+  case Niger
+  case FrenchPolynesia
+  case StPierreMiquelon
+  case Réunion
+  case Rwanda
+  case Seychelles
+  case Senegal
+  case Syria
+  case Chad
+  case Togo
+  case Tunisia
+  case Vanuatu
+  case WallisFutuna
+  case Mayotte
+  public static let all: [Swift_Ledger.FrenchSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.FrenchSpeakingCountry, b: Swift_Ledger.FrenchSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum FulahSpeakingCountry : Swift_Ledger.CountryType {
+  case Cameroon
+  case Guinea
+  case Mauritania
+  case Senegal
+  public static let all: [Swift_Ledger.FulahSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.FulahSpeakingCountry, b: Swift_Ledger.FulahSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum GermanSpeakingCountry : Swift_Ledger.CountryType {
+  case Austria
+  case Belgium
+  case Switzerland
+  case Germany
+  case Liechtenstein
+  case Luxembourg
+  public static let all: [Swift_Ledger.GermanSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.GermanSpeakingCountry, b: Swift_Ledger.GermanSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum GreekSpeakingCountry : Swift_Ledger.CountryType {
+  case Cyprus
+  case Greece
+  public static let all: [Swift_Ledger.GreekSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.GreekSpeakingCountry, b: Swift_Ledger.GreekSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum HausaSpeakingCountry : Swift_Ledger.CountryType {
+  case Ghana
+  case Niger
+  case Nigeria
+  public static let all: [Swift_Ledger.HausaSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.HausaSpeakingCountry, b: Swift_Ledger.HausaSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum ItalianSpeakingCountry : Swift_Ledger.CountryType {
+  case Switzerland
+  case Italy
+  case SanMarino
+  public static let all: [Swift_Ledger.ItalianSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.ItalianSpeakingCountry, b: Swift_Ledger.ItalianSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum KoreanSpeakingCountry : Swift_Ledger.CountryType {
+  case NorthKorea
+  case SouthKorea
+  public static let all: [Swift_Ledger.KoreanSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.KoreanSpeakingCountry, b: Swift_Ledger.KoreanSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum LingalaSpeakingCountry : Swift_Ledger.CountryType {
+  case Angola
+  case CongoKinshasa
+  case CentralAfricanRepublic
+  case CongoBrazzaville
+  public static let all: [Swift_Ledger.LingalaSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.LingalaSpeakingCountry, b: Swift_Ledger.LingalaSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum MalaySpeakingCountry : Swift_Ledger.CountryType {
+  case Brunei
+  case Malaysia
+  case Singapore
+  public static let all: [Swift_Ledger.MalaySpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.MalaySpeakingCountry, b: Swift_Ledger.MalaySpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum MasaiSpeakingCountry : Swift_Ledger.CountryType {
+  case Kenya
+  case Tanzania
+  public static let all: [Swift_Ledger.MasaiSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.MasaiSpeakingCountry, b: Swift_Ledger.MasaiSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum NepaliSpeakingCountry : Swift_Ledger.CountryType {
+  case India
+  case Nepal
+  public static let all: [Swift_Ledger.NepaliSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.NepaliSpeakingCountry, b: Swift_Ledger.NepaliSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum NorthernLuriSpeakingCountry : Swift_Ledger.CountryType {
+  case Iraq
+  case Iran
+  public static let all: [Swift_Ledger.NorthernLuriSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.NorthernLuriSpeakingCountry, b: Swift_Ledger.NorthernLuriSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum NorthernSamiSpeakingCountry : Swift_Ledger.CountryType {
+  case Finland
+  case Norway
+  case Sweden
+  public static let all: [Swift_Ledger.NorthernSamiSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.NorthernSamiSpeakingCountry, b: Swift_Ledger.NorthernSamiSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum NorwegianBokmålSpeakingCountry : Swift_Ledger.CountryType {
+  case Norway
+  case SvalbardJanMayen
+  public static let all: [Swift_Ledger.NorwegianBokmålSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.NorwegianBokmålSpeakingCountry, b: Swift_Ledger.NorwegianBokmålSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum OromoSpeakingCountry : Swift_Ledger.CountryType {
+  case Ethiopia
+  case Kenya
+  public static let all: [Swift_Ledger.OromoSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.OromoSpeakingCountry, b: Swift_Ledger.OromoSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum OsseticSpeakingCountry : Swift_Ledger.CountryType {
+  case Georgia
+  case Russia
+  public static let all: [Swift_Ledger.OsseticSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.OsseticSpeakingCountry, b: Swift_Ledger.OsseticSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum PersianSpeakingCountry : Swift_Ledger.CountryType {
+  case Afghanistan
+  case Iran
+  public static let all: [Swift_Ledger.PersianSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.PersianSpeakingCountry, b: Swift_Ledger.PersianSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum PortugueseSpeakingCountry : Swift_Ledger.CountryType {
+  case Angola
+  case Brazil
+  case CapeVerde
+  case GuineaBissau
+  case MacauChina
+  case Mozambique
+  case Portugal
+  case SãoToméPríncipe
+  case TimorLeste
+  public static let all: [Swift_Ledger.PortugueseSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.PortugueseSpeakingCountry, b: Swift_Ledger.PortugueseSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum PunjabiSpeakingCountry : Swift_Ledger.CountryType {
+  case India
+  case Pakistan
+  public static let all: [Swift_Ledger.PunjabiSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.PunjabiSpeakingCountry, b: Swift_Ledger.PunjabiSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum QuechuaSpeakingCountry : Swift_Ledger.CountryType {
+  case Bolivia
+  case Ecuador
+  case Peru
+  public static let all: [Swift_Ledger.QuechuaSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.QuechuaSpeakingCountry, b: Swift_Ledger.QuechuaSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum RomanianSpeakingCountry : Swift_Ledger.CountryType {
+  case Moldova
+  case Romania
+  public static let all: [Swift_Ledger.RomanianSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.RomanianSpeakingCountry, b: Swift_Ledger.RomanianSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum RussianSpeakingCountry : Swift_Ledger.CountryType {
+  case Belarus
+  case Kyrgyzstan
+  case Kazakhstan
+  case Moldova
+  case Russia
+  case Ukraine
+  public static let all: [Swift_Ledger.RussianSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.RussianSpeakingCountry, b: Swift_Ledger.RussianSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum SerbianSpeakingCountry : Swift_Ledger.CountryType {
+  case BosniaHerzegovina
+  case Montenegro
+  case Serbia
+  case Kosovo
+  public static let all: [Swift_Ledger.SerbianSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.SerbianSpeakingCountry, b: Swift_Ledger.SerbianSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum SomaliSpeakingCountry : Swift_Ledger.CountryType {
+  case Djibouti
+  case Ethiopia
+  case Kenya
+  case Somalia
+  public static let all: [Swift_Ledger.SomaliSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.SomaliSpeakingCountry, b: Swift_Ledger.SomaliSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum SpanishSpeakingCountry : Swift_Ledger.CountryType {
+  case LatinAmerica
+  case Argentina
+  case Bolivia
+  case Chile
+  case Colombia
+  case CostaRica
+  case Cuba
+  case DominicanRepublic
+  case CeutaMelilla
+  case Ecuador
+  case Spain
+  case EquatorialGuinea
+  case Guatemala
+  case Honduras
+  case CanaryIslands
+  case Mexico
+  case Nicaragua
+  case Panama
+  case Peru
+  case Philippines
+  case PuertoRico
+  case Paraguay
+  case ElSalvador
+  case UnitedStates
+  case Uruguay
+  case Venezuela
+  public static let all: [Swift_Ledger.SpanishSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.SpanishSpeakingCountry, b: Swift_Ledger.SpanishSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum SwahiliSpeakingCountry : Swift_Ledger.CountryType {
+  case CongoKinshasa
+  case Kenya
+  case Tanzania
+  case Uganda
+  public static let all: [Swift_Ledger.SwahiliSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.SwahiliSpeakingCountry, b: Swift_Ledger.SwahiliSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum SwedishSpeakingCountry : Swift_Ledger.CountryType {
+  case ÅlandIslands
+  case Finland
+  case Sweden
+  public static let all: [Swift_Ledger.SwedishSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.SwedishSpeakingCountry, b: Swift_Ledger.SwedishSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum SwissGermanSpeakingCountry : Swift_Ledger.CountryType {
+  case Switzerland
+  case France
+  case Liechtenstein
+  public static let all: [Swift_Ledger.SwissGermanSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.SwissGermanSpeakingCountry, b: Swift_Ledger.SwissGermanSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum TamilSpeakingCountry : Swift_Ledger.CountryType {
+  case India
+  case SriLanka
+  case Malaysia
+  case Singapore
+  public static let all: [Swift_Ledger.TamilSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.TamilSpeakingCountry, b: Swift_Ledger.TamilSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum TesoSpeakingCountry : Swift_Ledger.CountryType {
+  case Kenya
+  case Uganda
+  public static let all: [Swift_Ledger.TesoSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.TesoSpeakingCountry, b: Swift_Ledger.TesoSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum TibetanSpeakingCountry : Swift_Ledger.CountryType {
+  case China
+  case India
+  public static let all: [Swift_Ledger.TibetanSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.TibetanSpeakingCountry, b: Swift_Ledger.TibetanSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum TigrinyaSpeakingCountry : Swift_Ledger.CountryType {
+  case Eritrea
+  case Ethiopia
+  public static let all: [Swift_Ledger.TigrinyaSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.TigrinyaSpeakingCountry, b: Swift_Ledger.TigrinyaSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum TurkishSpeakingCountry : Swift_Ledger.CountryType {
+  case Cyprus
+  case Turkey
+  public static let all: [Swift_Ledger.TurkishSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.TurkishSpeakingCountry, b: Swift_Ledger.TurkishSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum UrduSpeakingCountry : Swift_Ledger.CountryType {
+  case India
+  case Pakistan
+  public static let all: [Swift_Ledger.UrduSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.UrduSpeakingCountry, b: Swift_Ledger.UrduSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum UzbekSpeakingCountry : Swift_Ledger.CountryType {
+  case Afghanistan
+  case Uzbekistan
+  public static let all: [Swift_Ledger.UzbekSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.UzbekSpeakingCountry, b: Swift_Ledger.UzbekSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum YorubaSpeakingCountry : Swift_Ledger.CountryType {
+  case Benin
+  case Nigeria
+  public static let all: [Swift_Ledger.YorubaSpeakingCountry]
+  public var countryIdentifier: Swift.String {
+    get
+  }
+  public static func == (a: Swift_Ledger.YorubaSpeakingCountry, b: Swift_Ledger.YorubaSpeakingCountry) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum MNYLocale {
+  case Afrikaans(Swift_Ledger.AfrikaansSpeakingCountry)
+  case Aghem
+  case Akan
+  case Albanian(Swift_Ledger.AlbanianSpeakingCountry)
+  case Amharic
+  case Arabic(Swift_Ledger.ArabicSpeakingCountry)
+  case Armenian
+  case Assamese
+  case Asturian
+  case Asu
+  case Azerbaijani
+  case Bafia
+  case Bambara
+  case Basaa
+  case Basque
+  case Belarusian
+  case Bemba
+  case Bena
+  case Bengali(Swift_Ledger.BengaliSpeakingCountry)
+  case Bodo
+  case Bosnian
+  case Breton
+  case Bulgarian
+  case Burmese
+  case Cantonese
+  case Catalan(Swift_Ledger.CatalanSpeakingCountry)
+  case CentralAtlasTamazight
+  case CentralKurdish(Swift_Ledger.CentralKurdishSpeakingCountry)
+  case Chechen
+  case Cherokee
+  case Chiga
+  case Chinese(Swift_Ledger.ChineseSpeakingCountry)
+  case Colognian
+  case Cornish
+  case Croatian(Swift_Ledger.CroatianSpeakingCountry)
+  case Czech
+  case Danish(Swift_Ledger.DanishSpeakingCountry)
+  case Duala
+  case Dutch(Swift_Ledger.DutchSpeakingCountry)
+  case Dzongkha
+  case Embu
+  case English(Swift_Ledger.EnglishSpeakingCountry)
+  case Estonian
+  case Ewe(Swift_Ledger.EweSpeakingCountry)
+  case Ewondo
+  case Faroese(Swift_Ledger.FaroeseSpeakingCountry)
+  case Filipino
+  case Finnish
+  case French(Swift_Ledger.FrenchSpeakingCountry)
+  case Friulian
+  case Fulah(Swift_Ledger.FulahSpeakingCountry)
+  case Galician
+  case Ganda
+  case Georgian
+  case German(Swift_Ledger.GermanSpeakingCountry)
+  case Greek(Swift_Ledger.GreekSpeakingCountry)
+  case Gujarati
+  case Gusii
+  case Hausa(Swift_Ledger.HausaSpeakingCountry)
+  case Hawaiian
+  case Hebrew
+  case Hindi
+  case Hungarian
+  case Icelandic
+  case Igbo
+  case InariSami
+  case Indonesian
+  case Inuktitut
+  case Irish
+  case Italian(Swift_Ledger.ItalianSpeakingCountry)
+  case Japanese
+  case JolaFonyi
+  case Kabuverdianu
+  case Kabyle
+  case Kako
+  case Kalaallisut
+  case Kalenjin
+  case Kamba
+  case Kannada
+  case Kashmiri
+  case Kazakh
+  case Khmer
+  case Kikuyu
+  case Kinyarwanda
+  case Konkani
+  case Korean(Swift_Ledger.KoreanSpeakingCountry)
+  case KoyraChiini
+  case KoyraboroSenni
+  case Kwasio
+  case Kyrgyz
+  case Lakota
+  case Langi
+  case Lao
+  case Latvian
+  case Lingala(Swift_Ledger.LingalaSpeakingCountry)
+  case Lithuanian
+  case LowerSorbian
+  case LubaKatanga
+  case Luo
+  case Luxembourgish
+  case Luyia
+  case Macedonian
+  case Machame
+  case MakhuwaMeetto
+  case Makonde
+  case Malagasy
+  case Malay(Swift_Ledger.MalaySpeakingCountry)
+  case Malayalam
+  case Maltese
+  case Manx
+  case Marathi
+  case Masai(Swift_Ledger.MasaiSpeakingCountry)
+  case Mazanderani
+  case Meru
+  case Meta
+  case Mongolian
+  case Morisyen
+  case Mundang
+  case Nama
+  case Nepali(Swift_Ledger.NepaliSpeakingCountry)
+  case Ngiemboon
+  case Ngomba
+  case NorthNdebele
+  case NorthernLuri(Swift_Ledger.NorthernLuriSpeakingCountry)
+  case NorthernSami(Swift_Ledger.NorthernSamiSpeakingCountry)
+  case NorwegianBokmål(Swift_Ledger.NorwegianBokmålSpeakingCountry)
+  case NorwegianNynorsk
+  case Nuer
+  case Nyankole
+  case Oriya
+  case Oromo(Swift_Ledger.OromoSpeakingCountry)
+  case Ossetic(Swift_Ledger.OsseticSpeakingCountry)
+  case Pashto
+  case Persian(Swift_Ledger.PersianSpeakingCountry)
+  case Polish
+  case Portuguese(Swift_Ledger.PortugueseSpeakingCountry)
+  case Punjabi(Swift_Ledger.PunjabiSpeakingCountry)
+  case Quechua(Swift_Ledger.QuechuaSpeakingCountry)
+  case Romanian(Swift_Ledger.RomanianSpeakingCountry)
+  case Romansh
+  case Rombo
+  case Rundi
+  case Russian(Swift_Ledger.RussianSpeakingCountry)
+  case Rwa
+  case Sakha
+  case Samburu
+  case Sango
+  case Sangu
+  case ScottishGaelic
+  case Sena
+  case Serbian(Swift_Ledger.SerbianSpeakingCountry)
+  case Shambala
+  case Shona
+  case SichuanYi
+  case Sinhala
+  case Slovak
+  case Slovenian
+  case Soga
+  case Somali(Swift_Ledger.SomaliSpeakingCountry)
+  case Spanish(Swift_Ledger.SpanishSpeakingCountry)
+  case StandardMoroccanTamazight
+  case Swahili(Swift_Ledger.SwahiliSpeakingCountry)
+  case Swedish(Swift_Ledger.SwedishSpeakingCountry)
+  case SwissGerman(Swift_Ledger.SwissGermanSpeakingCountry)
+  case Tachelhit
+  case Taita
+  case Tajik
+  case Tamil(Swift_Ledger.TamilSpeakingCountry)
+  case Tasawaq
+  case Telugu
+  case Teso(Swift_Ledger.TesoSpeakingCountry)
+  case Thai
+  case Tibetan(Swift_Ledger.TibetanSpeakingCountry)
+  case Tigrinya(Swift_Ledger.TigrinyaSpeakingCountry)
+  case Tongan
+  case Turkish(Swift_Ledger.TurkishSpeakingCountry)
+  case Turkmen
+  case Ukrainian
+  case UpperSorbian
+  case Urdu(Swift_Ledger.UrduSpeakingCountry)
+  case Uyghur
+  case Uzbek(Swift_Ledger.UzbekSpeakingCountry)
+  case Vai
+  case Vietnamese
+  case Vunjo
+  case Walser
+  case Welsh
+  case WesternFrisian
+  case Yangben
+  case Yiddish
+  case Yoruba(Swift_Ledger.YorubaSpeakingCountry)
+  case Zarma
+  case Zulu
+}
+extension MNYLocale : Swift_Ledger.LanguageType {
+  public var languageIdentifier: Swift.String {
+    get
+  }
+}
+extension MNYLocale : Swift_Ledger.CountryType {
+  public var countryIdentifier: Swift.String {
+    get
+  }
+}
+extension MNYLocale : Swift_Ledger.LocaleType {
+}
+extension Swift_Ledger.PaymentSummaryItemType : Swift.Equatable {}
+extension Swift_Ledger.PaymentSummaryItemType : Swift.Hashable {}
+extension Swift_Ledger.PaymentSummaryItemType : Swift.RawRepresentable {}
+extension Swift_Ledger.AfrikaansSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.AfrikaansSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.AlbanianSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.AlbanianSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.ArabicSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.ArabicSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.BengaliSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.BengaliSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.CatalanSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.CatalanSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.CentralKurdishSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.CentralKurdishSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.ChineseSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.ChineseSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.CroatianSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.CroatianSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.DanishSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.DanishSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.DutchSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.DutchSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.EnglishSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.EnglishSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.EweSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.EweSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.FaroeseSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.FaroeseSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.FrenchSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.FrenchSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.FulahSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.FulahSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.GermanSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.GermanSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.GreekSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.GreekSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.HausaSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.HausaSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.ItalianSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.ItalianSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.KoreanSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.KoreanSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.LingalaSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.LingalaSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.MalaySpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.MalaySpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.MasaiSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.MasaiSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.NepaliSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.NepaliSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.NorthernLuriSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.NorthernLuriSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.NorthernSamiSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.NorthernSamiSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.NorwegianBokmålSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.NorwegianBokmålSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.OromoSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.OromoSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.OsseticSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.OsseticSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.PersianSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.PersianSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.PortugueseSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.PortugueseSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.PunjabiSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.PunjabiSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.QuechuaSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.QuechuaSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.RomanianSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.RomanianSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.RussianSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.RussianSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.SerbianSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.SerbianSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.SomaliSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.SomaliSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.SpanishSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.SpanishSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.SwahiliSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.SwahiliSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.SwedishSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.SwedishSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.SwissGermanSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.SwissGermanSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.TamilSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.TamilSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.TesoSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.TesoSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.TibetanSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.TibetanSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.TigrinyaSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.TigrinyaSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.TurkishSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.TurkishSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.UrduSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.UrduSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.UzbekSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.UzbekSpeakingCountry : Swift.Hashable {}
+extension Swift_Ledger.YorubaSpeakingCountry : Swift.Equatable {}
+extension Swift_Ledger.YorubaSpeakingCountry : Swift.Hashable {}

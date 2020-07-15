@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -77,6 +77,11 @@
 		EB5C40A123BA92E6006FB382 /* BudgetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C40A023BA92E6006FB382 /* BudgetTableViewCell.swift */; };
 		EB5C600922F32417004F81CF /* TextAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5C600822F32417004F81CF /* TextAnimation.swift */; };
 		EB5CADB722F55DC600205AC8 /* AccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5CADB622F55DC600205AC8 /* AccountTableViewController.swift */; };
+		EB5F79B224BF1B68004F6128 /* Transaction+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5F79B124BF1B68004F6128 /* Transaction+iOS.swift */; };
+		EB5F79BC24BF30EF004F6128 /* Swift_Ledger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB5F79BB24BF30EF004F6128 /* Swift_Ledger.framework */; };
+		EB5F79BD24BF30EF004F6128 /* Swift_Ledger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB5F79BB24BF30EF004F6128 /* Swift_Ledger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EB5F79EE24BF3E48004F6128 /* Swift-Ledger.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB5F79EC24BF3E46004F6128 /* Swift-Ledger.xcframework */; };
+		EB5F79EF24BF3E48004F6128 /* Swift-Ledger.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EB5F79EC24BF3E46004F6128 /* Swift-Ledger.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		EB61943C2396709F00D55F6C /* AboutPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB61943923966F1200D55F6C /* AboutPageViewController.swift */; };
 		EB6EF9FF2323B84A00294846 /* Model+iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EF9FE2323B84A00294846 /* Model+iOS.swift */; };
 		EB6EFA012323B8AE00294846 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145A22E8AD7300291435 /* Transaction.swift */; };
@@ -158,8 +163,6 @@
 		EBE7FE50233CC55F0088D156 /* EditAccountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBE7FE4E233CC55F0088D156 /* EditAccountTableViewCell.xib */; };
 		EBE7FE55233CC5C40088D156 /* EditCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7FE54233CC5C40088D156 /* EditCategoryTableViewCell.swift */; };
 		EBE7FE56233CC9890088D156 /* EditCategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EBE7FE53233CC5C40088D156 /* EditCategoryTableViewCell.xib */; };
-		EBE7FE66233CF96F0088D156 /* Swift_Ledger.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBE7FE65233CF96F0088D156 /* Swift_Ledger.framework */; };
-		EBE7FE67233CF96F0088D156 /* Swift_Ledger.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EBE7FE65233CF96F0088D156 /* Swift_Ledger.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EBEB145022E8A1B100291435 /* EnterNumberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB144722E8A1B100291435 /* EnterNumberViewController.swift */; };
 		EBEB145722E8A29800291435 /* UIColor+Macro.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145622E8A29800291435 /* UIColor+Macro.swift */; };
 		EBEB145B22E8AD7300291435 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEB145A22E8AD7300291435 /* Transaction.swift */; };
@@ -194,17 +197,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		EB0CA71F2330EC5400C1FED2 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				EBE7FE67233CF96F0088D156 /* Swift_Ledger.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		EB399D6E232305DE00CA0BD8 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -226,12 +218,24 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		EB4831C62326649300D2B87F /* Embed Frameworks */ = {
+		EB5F79BE24BF30EF004F6128 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				EB5F79BD24BF30EF004F6128 /* Swift_Ledger.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB5F79CE24BF3663004F6128 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EB5F79EF24BF3E48004F6128 /* Swift-Ledger.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,6 +322,14 @@
 		EB5C40A023BA92E6006FB382 /* BudgetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetTableViewCell.swift; sourceTree = "<group>"; };
 		EB5C600822F32417004F81CF /* TextAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnimation.swift; sourceTree = "<group>"; };
 		EB5CADB622F55DC600205AC8 /* AccountTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewController.swift; sourceTree = "<group>"; };
+		EB5F79AA24BF18CA004F6128 /* Swift_Ledger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Swift_Ledger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB5F79AE24BF19A0004F6128 /* Swift_Ledger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Swift_Ledger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB5F79B124BF1B68004F6128 /* Transaction+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Transaction+iOS.swift"; sourceTree = "<group>"; };
+		EB5F79B324BF2B4A004F6128 /* Swift-Ledger.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = "Swift-Ledger.xcframework"; path = "../../Swift-Ledger/Swift-Ledger.xcframework"; sourceTree = "<group>"; };
+		EB5F79BB24BF30EF004F6128 /* Swift_Ledger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Swift_Ledger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB5F79C224BF346F004F6128 /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = System/Library/Frameworks/ARKit.framework; sourceTree = SDKROOT; };
+		EB5F79C624BF34F6004F6128 /* Swift_Ledger.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Swift_Ledger.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB5F79EC24BF3E46004F6128 /* Swift-Ledger.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = "Swift-Ledger.xcframework"; sourceTree = "<group>"; };
 		EB61943923966F1200D55F6C /* AboutPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutPageViewController.swift; sourceTree = "<group>"; };
 		EB668B9D22EF2DDE0082D54B /* MaterialComponents.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MaterialComponents.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB6EF9FE2323B84A00294846 /* Model+iOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Model+iOS.swift"; sourceTree = "<group>"; };
@@ -434,6 +446,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB5F79BC24BF30EF004F6128 /* Swift_Ledger.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,8 +454,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB5F79EE24BF3E48004F6128 /* Swift-Ledger.xcframework in Frameworks */,
 				EB558EB722ECA3A200039651 /* CloudKit.framework in Frameworks */,
-				EBE7FE66233CF96F0088D156 /* Swift_Ledger.framework in Frameworks */,
 				EB4F789723196F220045077E /* StoreKit.framework in Frameworks */,
 				663262797FA0440D3870E37D /* Pods_MyBudget.framework in Frameworks */,
 			);
@@ -470,6 +483,12 @@
 		1CF7C6954939ED9D3DD0375D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EB5F79C624BF34F6004F6128 /* Swift_Ledger.framework */,
+				EB5F79C224BF346F004F6128 /* ARKit.framework */,
+				EB5F79BB24BF30EF004F6128 /* Swift_Ledger.framework */,
+				EB5F79B324BF2B4A004F6128 /* Swift-Ledger.xcframework */,
+				EB5F79AE24BF19A0004F6128 /* Swift_Ledger.framework */,
+				EB5F79AA24BF18CA004F6128 /* Swift_Ledger.framework */,
 				EBE7FE65233CF96F0088D156 /* Swift_Ledger.framework */,
 				EB4F789623196F220045077E /* StoreKit.framework */,
 				EB668B9D22EF2DDE0082D54B /* MaterialComponents.framework */,
@@ -774,6 +793,7 @@
 		EBC59D3222E7503900E626DC = {
 			isa = PBXGroup;
 			children = (
+				EB5F79EC24BF3E46004F6128 /* Swift-Ledger.xcframework */,
 				EBC59D3D22E7503900E626DC /* MyBudget */,
 				EBE7E2A62321058500BEC812 /* MyBudgetUITests */,
 				EB399D4A232305D800CA0BD8 /* MyBudget_watchOS */,
@@ -824,6 +844,7 @@
 			isa = PBXGroup;
 			children = (
 				EBEB145A22E8AD7300291435 /* Transaction.swift */,
+				EB5F79B124BF1B68004F6128 /* Transaction+iOS.swift */,
 				EBC59D5222E750E900E626DC /* Model.swift */,
 				EB6EF9FE2323B84A00294846 /* Model+iOS.swift */,
 				EB4F7894231968860045077E /* ServerReceiptValidatorReceiptValidator.swift */,
@@ -998,7 +1019,7 @@
 				EB399D51232305DD00CA0BD8 /* Sources */,
 				EB399D52232305DD00CA0BD8 /* Frameworks */,
 				EB399D53232305DD00CA0BD8 /* Resources */,
-				EB4831C62326649300D2B87F /* Embed Frameworks */,
+				EB5F79BE24BF30EF004F6128 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1020,7 +1041,7 @@
 				EBC59D3922E7503900E626DC /* Resources */,
 				0C2914C0F452D4A924ED9FEE /* [CP] Embed Pods Frameworks */,
 				EB399D70232305DE00CA0BD8 /* Embed Watch Content */,
-				EB0CA71F2330EC5400C1FED2 /* Embed Frameworks */,
+				EB5F79CE24BF3663004F6128 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1324,6 +1345,7 @@
 				EBCDC3F72388537600AC49FB /* OnboardingAccountTableViewController.swift in Sources */,
 				EB37466B237CA07B0055F63E /* CategoryCollectionViewCell.swift in Sources */,
 				EBC0A90B23681B110031A411 /* NetValueTableViewCell.swift in Sources */,
+				EB5F79B224BF1B68004F6128 /* Transaction+iOS.swift in Sources */,
 				EB9DEBD422E9E5C400A73FD1 /* UITextField+Placeholder.swift in Sources */,
 				EB02A67422EB10E700987AFA /* NSBundle+APNumberPad.m in Sources */,
 				EBF560F82305EFD400E850E7 /* NewBudgetCategoryViewController.swift in Sources */,
@@ -1444,6 +1466,10 @@
 				DEVELOPMENT_TEAM = YLJFWRHN2U;
 				IBSC_MODULE = MyBudget_watchOS_Extension;
 				INFOPLIST_FILE = MyBudget_watchOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jraufeisen.MyBudget.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
@@ -1463,6 +1489,10 @@
 				DEVELOPMENT_TEAM = YLJFWRHN2U;
 				IBSC_MODULE = MyBudget_watchOS_Extension;
 				INFOPLIST_FILE = MyBudget_watchOS/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.jraufeisen.MyBudget.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;

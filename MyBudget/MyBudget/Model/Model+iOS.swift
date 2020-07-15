@@ -9,6 +9,7 @@
 import Foundation
 import Swift_Ledger
 
+// Extension below is only available on iOS (for various reasons, some might be ported to watchOS)
 extension Model {
     
     func allowedToAddTransaction() -> Bool {
@@ -27,6 +28,27 @@ extension Model {
     func numberOfRemainingTransactions() -> Int {
         let txCount = LedgerModel.shared().transactions.count
         return max(100 - txCount,0)
+    }
+    
+    /// Save initial budget distribution to ledger.
+    /// This method returns silently without any effect, if there are already saved transactions or accounts in the ledger file.
+    /// - Parameters:
+    ///   - accounts: The user's accounts added during onboarding process
+    ///   - categories: The user's budget categories added during onboarding process
+    func createInitialBudget(accounts: [OnboardingAccountViewable], categories: [CategorySelectable]) {
+        
+        // Dont overwrite anything that already exists!
+        guard ledgerFileIsEssentialyEmpty() else {
+            return
+        }
+        
+        for account in accounts {
+            addBankingAccount(name: account.name , balance: account.money)
+        }
+        
+        for category in categories {
+            addBudgetCategory(name: category.name, balance: category.assignedMoney)
+        }
     }
     
 }

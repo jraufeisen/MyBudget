@@ -10,11 +10,19 @@ import UIKit
 
 extension UIColor {
     
+    #if os(watchOS)
+    // WatchOS does not provide system colors (no dark mode), so differentiate here
+    static var incomeColor = UIColor.green
+    static var expenseColor = UIColor.red
+    static var transferColor = UIColor.yellow
+    #else
     static var incomeColor = UIColor.systemGreen
     static var expenseColor = UIColor.systemRed
     static var transferColor = UIColor.systemYellow
+    #endif
+
     static var blueActionColor = UIColor(red: 73/255.0, green: 151/255.0, blue: 241/255.0, alpha: 1)
-    
+
     static func colorForTransaction(type: TransactionType) -> UIColor {
         if type == .Income {
             return UIColor.incomeColor
@@ -23,7 +31,11 @@ extension UIColor {
         } else if type == .Transfer {
             return UIColor.transferColor
         }
+        #if os(watchOS)
+        return UIColor.purple
+        #else
         return UIColor.systemPurple
+        #endif
     }
     
 }

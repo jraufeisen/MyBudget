@@ -29,7 +29,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         // Communication with watch app
-        // WatchSessionManager.sharedManager.startSession()
+        WatchSessionManager.sharedManager.startSession()
 
         // Onboarding
         if Model.shared.ledgerFileIsEssentialyEmpty() {

@@ -135,10 +135,15 @@ class Model: NSObject {
     
     /// Income statement for whole month and all accounts
     func getIncomeStatementViewable() -> IncomeStatementViewable {
+        print("-getIncomeStatementViewable")
         let bankingAccount = Account.init(name: "Assets:Banking")
         let spentThisMonth = LedgerModel.shared().expenseSinceDate(acc: bankingAccount, date: Date().firstDayOfCurrentMonth())
         let earnedThisMonth = LedgerModel.shared().incomeSinceDate(acc: bankingAccount, date: Date().firstDayOfCurrentMonth())
+        print("3")
+        let f = Money(minorUnits: 1)
+        print("money: \(f)")
         let viewable = IncomeStatementViewable.init(spentThisMonth: Money((spentThisMonth as NSNumber).floatValue), earnedThisMonth: Money((earnedThisMonth as NSNumber).floatValue))
+        print("4")
         return viewable
     }
     
@@ -516,28 +521,7 @@ class Model: NSObject {
         let account = Account.budgetAccount(named: named)
         LedgerModel.shared().removeAllTransactionsWithOccurencesOf(account: account)
     }
-    
-    /// Save initial budget distribution to ledger.
-    /// This method returns silently without any effect, if there are already saved transactions or accounts in the ledger file.
-    /// - Parameters:
-    ///   - accounts: The user's accounts added during onboarding process
-    ///   - categories: The user's budget categories added during onboarding process
-    func createInitialBudget(accounts: [OnboardingAccountViewable], categories: [CategorySelectable]) {
         
-        // Dont overwrite anything that already exists!
-        guard ledgerFileIsEssentialyEmpty() else {
-            return
-        }
-        
-        for account in accounts {
-            addBankingAccount(name: account.name , balance: account.money)
-        }
-        
-        for category in categories {
-            addBudgetCategory(name: category.name, balance: category.assignedMoney)
-        }
-    }
-    
 }
 
 // MARK: - Modifications

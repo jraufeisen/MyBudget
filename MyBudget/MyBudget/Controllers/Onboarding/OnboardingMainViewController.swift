@@ -24,11 +24,9 @@ protocol OnboardingDelegate {
 }
 
 class OnboardingAccountViewable {
-    
     var icon: UIImage? = nil
     var name: String = ""
     var money: Money = 0
-    
 }
 
 // MARK: - OnboardingMainViewController

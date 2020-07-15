@@ -1,0 +1,4 @@
+framework module Swift_Ledger {
+  header "Swift_Ledger-Swift.h"
+  requires objc
+}
