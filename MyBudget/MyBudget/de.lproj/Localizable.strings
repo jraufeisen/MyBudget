@@ -208,6 +208,9 @@
 "Purchase" = "Kaufen";
 
 /* %d stands for an integer */
+"Purchase full version for an unlimited number of transactions" = "Kaufe die Vollversion für eine unbegrenzte Anzahl an Transaktionen.";
+
+/* %d stands for an integer */
 "Purchase the full version for an unlimited number of transactions" = "Kaufe die Vollversion, um eine unbegrenzte Anzahl an Transaktionen zu erhalten";
 
 /* No comment provided by engineer. */
@@ -330,6 +333,3 @@
 
 /* No comment provided by engineer. */
 "Your purchases have been restored" = "Deine Käufe wurden wiederhergestellt";
-
-/* %d stands for an integer */
-"Purchase full version for an unlimited number of transactions" = "";
