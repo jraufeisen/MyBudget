@@ -13,6 +13,7 @@ import BLTNBoard
 
 class AboutPageViewController: UIViewController {
 
+    @IBOutlet weak var subscriptionStatusLabel: UILabel!
     @IBOutlet weak var subscriptionDetailLabel: UILabel!
     @IBOutlet weak var scubscribeButton: UIButton!
     @IBOutlet weak var largeSubscriptionLabel: UILabel!
@@ -60,17 +61,16 @@ class AboutPageViewController: UIViewController {
         scubscribeButton.layer.cornerRadius = 8
         
         // Update subscription status
-        let isSubscribed = ServerReceiptValidator().isSubscribed()
-        let expirationDate = ServerReceiptValidator().subscriptionExpirationDate()
-        if !isSubscribed {
-            subscriptionDetailLabel.text = NSLocalizedString("You are currently not subscribed", comment: "")
+        if ServerReceiptValidator().isFullVersion() {
+            scubscribeButton.isHidden = true
+            subscriptionStatusLabel.text = NSLocalizedString("Full Version", comment: "")
+            subscriptionDetailLabel.text = NSLocalizedString("You have unlocked an unlimited number of transactions", comment: "")
         } else {
-            if let expirationDate = expirationDate {
-                let formateddate = DateFormatter.localizedString(from: expirationDate, dateStyle: .long, timeStyle: .none)
-                subscriptionDetailLabel.text = String(format: NSLocalizedString("Subscribed until %@", comment: "%@ stands for a data"), formateddate)
-            } else {
-                subscriptionDetailLabel.text =  NSLocalizedString("You are subscribed", comment: "")
-            }
+            let remainingTrnasactionCount = Model.shared.numberOfRemainingTransactions()
+            scubscribeButton.isHidden = false
+            subscriptionStatusLabel.text = NSLocalizedString("Free Version", comment: "")
+            let subtitle = NSLocalizedString("%d transactions remaining", comment: "%d stands for an integer")
+            subscriptionDetailLabel.text = String(format: subtitle, remainingTrnasactionCount)
         }
         
         // Update iCloud identifier text

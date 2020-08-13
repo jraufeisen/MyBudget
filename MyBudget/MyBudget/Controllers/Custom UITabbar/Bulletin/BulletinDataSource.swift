@@ -18,9 +18,9 @@ enum BulletinDataSource {
     // MARK: - Pages
     static func makeChoicePage() -> SubscriptionSelectorBulletin {
 
-        let page = SubscriptionSelectorBulletin(title: "Subscriptions")
+        let page = SubscriptionSelectorBulletin(title: NSLocalizedString("Full Version", comment: ""))
         page.isDismissable = true
-        page.descriptionText = NSLocalizedString("All subscriptions sync across your iCloud devices", comment: "")
+        page.descriptionText = NSLocalizedString("Your purchase syncs across your iCloud devices", comment: "")
         page.actionButtonTitle = NSLocalizedString("Purchase", comment: "")
 
         if #available(iOS 13.0, *) {
@@ -32,10 +32,10 @@ enum BulletinDataSource {
     }
 
     static func makeSubscriptionPage() -> BLTNPageItem {
-        let subscriptionPage = BLTNPageItem(title: NSLocalizedString("Subscribe", comment: ""))
+        let subscriptionPage = BLTNPageItem(title: NSLocalizedString("Full Version", comment: ""))
         subscriptionPage.image = #imageLiteral(resourceName: "Logo_Only")
         subscriptionPage.appearance.imageViewTintColor = .blueActionColor
-        subscriptionPage.descriptionText = NSLocalizedString("Unlock unlimited access by subscribing either monthly or annualy.", comment: "")
+        subscriptionPage.descriptionText = NSLocalizedString("Unlock unlimited access by purchasing the full version.", comment: "")
         subscriptionPage.actionButtonTitle = NSLocalizedString("Learn More", comment: "")
         subscriptionPage.actionHandler = { (item: BLTNActionItem) in
             let choice = makeChoicePage()

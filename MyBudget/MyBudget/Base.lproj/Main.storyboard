@@ -1301,14 +1301,14 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="stX-EK-4od">
                                                         <rect key="frame" x="0.0" y="250" width="414" height="80"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscription status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c94-oZ-EtG">
-                                                                <rect key="frame" x="20" y="15" width="156" height="20.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Free Version" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c94-oZ-EtG">
+                                                                <rect key="frame" x="20" y="15" width="99.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subscribed until 42th November 2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUq-7Q-NHu">
-                                                                <rect key="frame" x="20" y="43.5" width="230" height="16"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999 Transactions remaining" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUq-7Q-NHu">
+                                                                <rect key="frame" x="20" y="43.5" width="169" height="16"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                                                 <color key="textColor" systemColor="secondaryLabelColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -1320,7 +1320,7 @@
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="3VC-FA-CTK"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="14"/>
-                                                                <state key="normal" title="Subscribe"/>
+                                                                <state key="normal" title="Upgrade"/>
                                                                 <connections>
                                                                     <action selector="pressedSubscribe" destination="8nH-TV-cWX" eventType="touchUpInside" id="Zwy-CV-AYu"/>
                                                                 </connections>
@@ -1473,6 +1473,7 @@
                         <outlet property="rateOnAppStoreButton" destination="nSW-p6-u2T" id="URx-e4-TgF"/>
                         <outlet property="scubscribeButton" destination="Fma-o5-CiE" id="DUc-4e-71I"/>
                         <outlet property="subscriptionDetailLabel" destination="GUq-7Q-NHu" id="xym-xt-Ba4"/>
+                        <outlet property="subscriptionStatusLabel" destination="c94-oZ-EtG" id="ehC-HG-62M"/>
                         <outlet property="versionLabel" destination="DlO-hX-vLG" id="O5R-Fm-j7b"/>
                     </connections>
                 </viewController>

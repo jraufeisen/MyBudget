@@ -10,7 +10,7 @@ import UIKit
  */
 
 enum SubscriptionDurations: String {
-    case month, year
+    case FullVersion
 }
 
 // MARK: - ImageCollectionViewCell

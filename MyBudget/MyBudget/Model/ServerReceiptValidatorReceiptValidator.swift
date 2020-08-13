@@ -93,6 +93,10 @@ class ServerReceiptValidator: ReceiptValidator {
         return expirationDate > Date()
     }
     
+    func isFullVersion() -> Bool {
+        return false
+    }
+    
     func validate(receiptData: Data, completion: @escaping (VerifyReceiptResult) -> Void) {
         
         let receiptString = receiptData.base64EncodedString()

@@ -1,3 +1,6 @@
+/* %d stands for an integer */
+"%d transactions remaining" = "%d Transaktionen übrig";
+
 /* No comment provided by engineer. */
 "1 Month - 1,09€" = "1 Monat - 1,09€";
 
@@ -119,6 +122,9 @@
 /* No comment provided by engineer. */
 "First, decide what's important for you" = "1. Entscheide, was wichtig für dich ist";
 
+/* No comment provided by engineer. */
+"Free Version" = "Kostenlose Version";
+
 /* %@ is a number */
 "Free version:\n%d transactions remaining" = "Kostenlose Version:\n%d Transaktionen verbleibend";
 
@@ -127,6 +133,12 @@
 
 /* payment from a banking account */
 "From" = "Von";
+
+/* No comment provided by engineer. */
+"Full Version" = "Vollversion";
+
+/* No comment provided by engineer. */
+"Full Version - 4,49€" = "Vollversion - 4,49€";
 
 /* No comment provided by engineer. */
 "Gaming" = "Gaming";
@@ -192,6 +204,9 @@
 /* No comment provided by engineer. */
 "Purchase" = "Kaufen";
 
+/* %d stands for an integer */
+"Purchase the full version for an unlimited number of transactions" = "Kaufe die Vollversion, um eine unbegrenzte Anzahl an Transaktionen zu erhalten";
+
 /* No comment provided by engineer. */
 "Rename" = "Umbenennen";
 
@@ -233,7 +248,7 @@
 "Subscribed: Unlimited access" = "Abonniert: Voller Funktionsumfang";
 
 /* The first two words are printed bold */
-"Subscribing to Budget unlocks full access to this app. By downloading Budget!, you have received a contingent of 100 transactions for free. Afterwards, you can still track up to one transaction per day. Subscribing to Budget! removes this limitation and grants full access." = "Ein Abonnement von Budget! schaltet du den vollen Funktionsumfang frei. Beim ersten Download der App wurden dir kostenlos 100 Transaktionen gutgeschrieben. Nach Aufbrauchen dieses Kontingents kannst du täglich eine weitere Transaktion hinzufügen. Durch das Abonnieren von Budget! erhältst du ein unbegrenztes Kontingent für den entsprechenden Zeitraum.";
+"Subscribing to Budget unlocks full access to this app. By downloading Budget!, you have received a contingent of 100 transactions for free. Afterwards, you can still track up to one transaction per day. Subscribing to Budget! removes this limitation and grants full access." = "Die Vollversion von Budget! schaltet den gesamten Funktionsumfang frei. Beim ersten Download der App wurden dir kostenlos 100 Transaktionen gutgeschrieben. Durch das Upgrade auf die Vollversion von Budget! erhältst du ein unbegrenztes Kontingent.";
 
 /* First %@ is a date, second %@ is a number */
 "Subscription expired on %@:\n%d transactions remaining" = "Abonnement ist am %@ ausgelaufen:\n%d Transaktionen verbleibend";
@@ -272,6 +287,9 @@
 "University" = "Universität";
 
 /* No comment provided by engineer. */
+"Unlock unlimited access by purchasing the full version." = "Schalte mit der Vollversion eine unbegrenzte Anzahl an Transaktionen frei.";
+
+/* No comment provided by engineer. */
 "Unlock unlimited access by subscribing either monthly or annualy." = "Schalte unbegrenzten Zugang zur App frei, indem du monatlich oder jährlich abonnierst";
 
 /* No comment provided by engineer. */
@@ -299,7 +317,16 @@
 "You have spent %d % of this month's budget" = "Du hast %d %% in diesem Monat ausgegeben";
 
 /* No comment provided by engineer. */
+"You have unlocked an unlimited number of transactions" = "Dir stehen unbegrenzt viele Transaktionen zur Verfügung";
+
+/* No comment provided by engineer. */
 "You now have unlimited access to Budget!" = "Du hast nun unbegrenzten Zugang zu Budget!";
 
 /* No comment provided by engineer. */
+"Your purchase syncs across your iCloud devices" = "Alle Abonnements werden auf deinen iCloud-Geräten synchronisiert";
+
+/* No comment provided by engineer. */
 "Your purchases have been restored" = "Deine Käufe wurden wiederhergestellt";
+
+/* %d stands for an integer */
+"Purchase full version for an unlimited number of transactions" = "";

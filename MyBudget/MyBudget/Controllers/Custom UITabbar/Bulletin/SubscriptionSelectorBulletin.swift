@@ -19,7 +19,7 @@ class SubscriptionSelectorBulletin: FeedbackPageBLTNItem {
     private var dogButtonContainer: UIButton!
     private var selectionFeedbackGenerator = SelectionFeedbackGenerator()
     
-    private var currentSelection: SubscriptionDurations?
+    private var currentSelection: SubscriptionDurations? = .FullVersion
     
     // MARK: - BLTNItem
     
@@ -51,21 +51,12 @@ class SubscriptionSelectorBulletin: FeedbackPageBLTNItem {
         // We add choice cells to a group stack because they need less spacing
         let petsStack = interfaceBuilder.makeGroupStack(spacing: 16)
         
-        // Cat Button
-        
-        let catButtonContainer = createChoiceCell(dataSource: .month, isSelected: currentSelection == .month)
+
+        let catButtonContainer = createChoiceCell(dataSource: .FullVersion, isSelected: true)
         catButtonContainer.addTarget(self, action: #selector(monthButtonTapped), for: .touchUpInside)
         petsStack.addArrangedSubview(catButtonContainer)
         
         self.catButtonContainer = catButtonContainer
-        
-        // Dog Button
-        
-        let dogButtonContainer = createChoiceCell(dataSource: .year, isSelected: currentSelection == .year)
-        dogButtonContainer.addTarget(self, action: #selector(yearButtonTapped), for: .touchUpInside)
-        petsStack.addArrangedSubview(dogButtonContainer)
-        
-        self.dogButtonContainer = dogButtonContainer
         
         return [petsStack]
         
@@ -78,12 +69,9 @@ class SubscriptionSelectorBulletin: FeedbackPageBLTNItem {
         let button = UIButton(type: .system)
         
         switch dataSource {
-        case .month:
-            button.accessibilityLabel = NSLocalizedString("1 Month for 1,09€", comment: "")
-            button.setTitle(NSLocalizedString("1 Month - 1,09€", comment: ""), for: .normal)
-        case .year:
-            button.accessibilityLabel = NSLocalizedString("1 Year for 9,99€", comment: "")
-            button.setTitle(NSLocalizedString("1 Year - 9,99€", comment: ""), for: .normal)
+        case .FullVersion:
+            button.accessibilityLabel = NSLocalizedString("Full Version - 4,49€", comment: "")
+            button.setTitle(NSLocalizedString("Full Version - 4,49€", comment: ""), for: .normal)
         }
         
         button.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .semibold)
@@ -135,7 +123,6 @@ class SubscriptionSelectorBulletin: FeedbackPageBLTNItem {
         dogButtonContainer?.setTitleColor(dogButtonColor, for: .normal)
         dogButtonContainer?.accessibilityTraits.remove(.selected)
         
-        currentSelection = .month
         
     }
     
@@ -160,7 +147,6 @@ class SubscriptionSelectorBulletin: FeedbackPageBLTNItem {
         dogButtonContainer?.accessibilityTraits.insert(.selected)
         
 
-        currentSelection = .year
     }
     
     override func actionButtonTapped(sender: UIButton) {
@@ -175,10 +161,8 @@ class SubscriptionSelectorBulletin: FeedbackPageBLTNItem {
             
             switch selected {
                 
-            case .month:
-                productId = "com.jraufeisen.MyBudget.Budget_one_month_iOS"
-            case .year:
-                productId = "com.jraufeisen.MyBudget.Budget_one_year_iOS"
+            case .FullVersion:
+                productId = "com.jraufeisen.MyBudget.Budget_Premium"
             }
             
             CKContainer.default().fetchUserRecordID { (recordID, error) in

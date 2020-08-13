@@ -37,13 +37,13 @@
 /* Class = "UILabel"; text = "42.42 €"; ObjectID = "Fbg-qD-9bG"; */
 "Fbg-qD-9bG.text" = "42.42 €";
 
-/* Class = "UIButton"; normalTitle = "Subscribe"; ObjectID = "Fma-o5-CiE"; */
-"Fma-o5-CiE.normalTitle" = "Abonnieren";
+/* Class = "UIButton"; normalTitle = "Upgrade"; ObjectID = "Fma-o5-CiE"; */
+"Fma-o5-CiE.normalTitle" = "Upgrade";
 
 /* Class = "UITabBarItem"; title = "Spendings"; ObjectID = "GNX-Cg-YA2"; */
 "GNX-Cg-YA2.title" = "Ausgaben";
 
-/* Class = "UILabel"; text = "Subscribed until 42th November 2019"; ObjectID = "GUq-7Q-NHu"; */
+/* Class = "UILabel"; text = "999 Transactions remaining"; ObjectID = "GUq-7Q-NHu"; */
 "GUq-7Q-NHu.text" = "Abonniert bis 42. November 2019";
 
 /* Class = "UILabel"; text = "Unbudgeted Money:"; ObjectID = "Gxg-Vd-n4t"; */
@@ -100,8 +100,8 @@
 /* Class = "UITabBarItem"; title = "Budget"; ObjectID = "aYr-Bw-ZEY"; */
 "aYr-Bw-ZEY.title" = "Budget";
 
-/* Class = "UILabel"; text = "Subscription status"; ObjectID = "c94-oZ-EtG"; */
-"c94-oZ-EtG.text" = "Abonnement-Status";
+/* Class = "UILabel"; text = "Free Version"; ObjectID = "c94-oZ-EtG"; */
+"c94-oZ-EtG.text" = "Free Version";
 
 /* Class = "UITextField"; placeholder = "Category"; ObjectID = "dQz-6D-0qs"; */
 "dQz-6D-0qs.placeholder" = "Kategorie";
