@@ -23,8 +23,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ServerReceiptValidator().updateExpirationDate()
 
         // Prepare for UI Test and copy example data
+        print("Here i am")
         if ProcessInfo.processInfo.arguments.contains("UITests") {
-            UIApplication.shared.keyWindow?.layer.speed = 100 // Make animations semi-instant so that UI tests can rely on fast UI changes
+            print("Gotta go fast")
+            UIApplication.shared.keyWindow?.layer.speed = 10 // Make animations semi-instant so that UI tests can rely on fast UI changes
             loadUITestData()
         }
         
@@ -32,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         WatchSessionManager.sharedManager.startSession()
 
         // Onboarding
-        if Model.shared.ledgerFileIsEssentialyEmpty() {
+        if Model.shared.ledgerFileIsEssentialyEmpty() || Constants.shouldAlwaysShowOnboarding {
             showOnboarding()
         }
 
