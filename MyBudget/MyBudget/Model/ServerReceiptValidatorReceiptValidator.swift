@@ -61,46 +61,29 @@ class ServerReceiptValidator: ReceiptValidator {
         }
     }
     
-    private let expKey = "expDate"
+    private let fullVersionKey = "fullVersion"
     func updateExpirationDate() {
         SwiftyStoreKit.verifyReceipt(using: ServerReceiptValidator()) { (result) in
             print("Verifying receipt: \(result)")
             switch result {
-            case .success(let receipt):
-                guard let expTimestamp = receipt[self.expKey] as? TimeInterval else {return}
-                KeychainWrapper.standard.set(expTimestamp, forKey: self.expKey)
+            case .success:
+                KeychainWrapper.standard.set(true, forKey: self.fullVersionKey)
             case .error:
+                KeychainWrapper.standard.set(false, forKey: self.fullVersionKey)
                 break
             }
             NotificationCenter.default.post(name: ServerReceiptValidator.subscriptionStatusDidChangeMessage, object: nil)
-            
         }
     }
-    
-    func subscriptionExpirationDate() -> Date? {
-        guard let expTimestamp = KeychainWrapper.standard.double(forKey: expKey) else {
-            return nil
-        }
-        let expDate = Date.init(timeIntervalSince1970: expTimestamp)
-        return expDate
-    }
-    
-    func isSubscribed() -> Bool {
-        guard let expirationDate = subscriptionExpirationDate() else {
-            return false
-        }
         
-        return expirationDate > Date()
-    }
-    
     func isFullVersion() -> Bool {
-        return false
+        return KeychainWrapper.standard.bool(forKey: fullVersionKey) == true
     }
     
     func validate(receiptData: Data, completion: @escaping (VerifyReceiptResult) -> Void) {
         
         let receiptString = receiptData.base64EncodedString()
-        let url = URL(string: "https://mybudget.app/verify.php")!
+        let url = URL(string: "https://mybudget.app/verify2.php")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         var parameters: [String: Any] = [
@@ -135,21 +118,12 @@ class ServerReceiptValidator: ReceiptValidator {
                     return
                 }
 
-                let answerComponents = responseString.components(separatedBy: ":")
-                print(answerComponents)
-                
-                guard answerComponents.count == 2 && answerComponents.first == "True" else {
-                    completion(.error(error: .receiptInvalid(receipt: ReceiptInfo(), status: .subscriptionExpired)))
-                    return
+                if responseString == "True" {
+                    let info = ReceiptInfo()
+                    completion(.success(receipt: info))
+                } else {
+                    completion(.error(error: .receiptInvalid(receipt: ReceiptInfo(), status: .unknown)))
                 }
-                guard let expTimestamp = Double(answerComponents[1]) else {
-                    completion(.error(error: .receiptInvalid(receipt: ReceiptInfo(), status: .subscriptionExpired)))
-                    return
-                }
-                
-                var info = ReceiptInfo()
-                info[self.expKey] = expTimestamp as AnyObject
-                completion(.success(receipt: info))
             }
             
             task.resume()

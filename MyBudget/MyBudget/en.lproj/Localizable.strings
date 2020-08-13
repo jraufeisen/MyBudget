@@ -1,3 +1,6 @@
+/* %d stands for an integer */
+"%d transactions remaining" = "%d transactions remaining";
+
 /* No comment provided by engineer. */
 "1 Month - 1,09€" = "1 Month - 1,09€";
 
@@ -136,6 +139,9 @@
 
 /* No comment provided by engineer. */
 "Full Version - 4,49€" = "Full Version - 4,49€";
+
+/* No comment provided by engineer. */
+"Full Version: Unlimited access" = "Full Version: Unlimited access";
 
 /* No comment provided by engineer. */
 "Gaming" = "Gaming";
@@ -327,6 +333,3 @@
 
 /* No comment provided by engineer. */
 "Your purchases have been restored" = "Your purchases have been restored";
-
-/* %d stands for an integer */
-"%d transactions remaining" = "";

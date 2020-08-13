@@ -13,15 +13,12 @@ import Swift_Ledger
 extension Model {
     
     func allowedToAddTransaction() -> Bool {
-        return ServerReceiptValidator().isSubscribed() || numberOfRemainingTransactions() > 0 || numberOfRemainingTransactionsToday() > 0
+        return ServerReceiptValidator().isFullVersion() || numberOfRemainingTransactions() > 0 || numberOfRemainingTransactionsToday() > 0
     }
     
-    /// Based on the reduced limit of 1 per day
+    /// Based on the reduced limit of 0 per day
     func numberOfRemainingTransactionsToday() -> Int {
-        let txToday = LedgerModel.shared().transactions.filter { (tx) -> Bool in
-            LedgerModel.dateString(date: tx.date) == LedgerModel.dateString(date: Date())
-        }
-        return max(1-txToday.count, 0)
+        return 0
     }
     
     /// Based on the blobal limit of 100 tx in the free version

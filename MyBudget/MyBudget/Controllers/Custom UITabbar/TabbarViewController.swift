@@ -116,45 +116,22 @@ class TabbarViewController: UITabBarController, FloatyDelegate {
         helpingLabel?.numberOfLines = 3
         
         DispatchQueue.global(qos: .background).async {
-            let status = ServerReceiptValidator().isSubscribed()
-            let expirationDate = ServerReceiptValidator().subscriptionExpirationDate()
+            let status = ServerReceiptValidator().isFullVersion()
             let remainingGlobal = Model.shared.numberOfRemainingTransactions()
             let remainingToday = Model.shared.numberOfRemainingTransactionsToday()
             DispatchQueue.main.async {
                 if status {
-                    
-                    if let expirationDate = expirationDate {
-                        let dateString = DateFormatter.localizedString(from: expirationDate, dateStyle: .medium, timeStyle: .none)
-                        self.helpingLabel?.text = String(format: NSLocalizedString("Subscribed until %@", comment: "%@ stands for a date"), dateString)
-                        self.helpingLabel?.textColor = .incomeColor
-                    } else {
-                        self.helpingLabel?.text = NSLocalizedString("Subscribed: Unlimited access", comment: "")
-                        self.helpingLabel?.textColor = .incomeColor
-                    }
+                    self.helpingLabel?.text = NSLocalizedString("Full Version: Unlimited access", comment: "")
+                    self.helpingLabel?.textColor = .incomeColor
                 } else {
-                    
-                    if let expirationDate = expirationDate {
-                        let dateString = DateFormatter.localizedString(from: expirationDate, dateStyle: .medium, timeStyle: .none)
-
-                        if remainingGlobal > 0 {
-                            let helpingText = String.init(format: NSLocalizedString("Subscription expired on %@:\n%d transactions remaining", comment: "First %@ is a date, second %@ is a number"), dateString, remainingGlobal)
-                            self.helpingLabel?.text = helpingText
-                            self.helpingLabel?.textColor = .blueActionColor
-                        } else {
-                            let helpingText = String.init(format: NSLocalizedString("Subscription expired on %@:\n%d transactions remaining today", comment: "First %@ is a date, second %@ is a number"), dateString, remainingToday)
-                            self.helpingLabel?.text = helpingText
-                            self.helpingLabel?.textColor = .transferColor
-                        }
+                    if remainingGlobal > 0 {
+                        let helpingText = String.init(format: NSLocalizedString("Free version:\n%d transactions remaining", comment: "%@ is a number"), remainingGlobal)
+                        self.helpingLabel?.text = helpingText
+                        self.helpingLabel?.textColor = .blueActionColor
                     } else {
-                        if remainingGlobal > 0 {
-                            let helpingText = String.init(format: NSLocalizedString("Free version:\n%d transactions remaining", comment: "%@ is a number"), remainingGlobal)
-                            self.helpingLabel?.text = helpingText
-                            self.helpingLabel?.textColor = .blueActionColor
-                        } else {
-                            let helpingText = String.init(format: NSLocalizedString("Free version:\n%d transactions remaining today", comment: "%@ is a number"), remainingToday)
-                            self.helpingLabel?.text = helpingText
-                            self.helpingLabel?.textColor = .transferColor
-                        }
+                        let helpingText = String.init(format: NSLocalizedString("Free version:\n%d transactions remaining today", comment: "%@ is a number"), remainingToday)
+                        self.helpingLabel?.text = helpingText
+                        self.helpingLabel?.textColor = .transferColor
                     }
                 }
             }

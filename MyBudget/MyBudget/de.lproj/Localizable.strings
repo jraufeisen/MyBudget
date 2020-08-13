@@ -141,6 +141,9 @@
 "Full Version - 4,49€" = "Vollversion - 4,49€";
 
 /* No comment provided by engineer. */
+"Full Version: Unlimited access" = "Vollversion: Unbegrenzt viele Transaktionen";
+
+/* No comment provided by engineer. */
 "Gaming" = "Gaming";
 
 /* No comment provided by engineer. */
@@ -317,7 +320,7 @@
 "You have spent %d % of this month's budget" = "Du hast %d %% in diesem Monat ausgegeben";
 
 /* No comment provided by engineer. */
-"You have unlocked an unlimited number of transactions" = "Dir stehen unbegrenzt viele Transaktionen zur Verfügung";
+"You have unlocked an unlimited number of transactions" = "Viel Spaß mit der Vollversion!";
 
 /* No comment provided by engineer. */
 "You now have unlimited access to Budget!" = "Du hast nun unbegrenzten Zugang zu Budget!";
